@@ -1,7 +1,6 @@
 package net.skhu.domain;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,12 +9,11 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Student
+public class Department
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    @Autowired
     String name;
 }
