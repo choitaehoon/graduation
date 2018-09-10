@@ -1,8 +1,6 @@
 package net.skhu.domain;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +14,7 @@ public class Student
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-    @Autowired
     String name;
+
+    String password;
 }
