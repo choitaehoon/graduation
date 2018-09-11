@@ -64,14 +64,14 @@
 
     </style>
 
-</headz
+</head>
 <body>
 
 <div class="login">
     <h1>SKHU졸업요건</h1>
     <form method="post" action="/login/main">
-        <input type="text" name="id" placeholder="Username" required="required" />
-        <input type="password" name="password" placeholder="Password" required="required" />
+        <input type="text" name="id" placeholder="학번" required="required" />
+        <input type="password" name="password" placeholder="비밀번호" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">로그인</button>
     </form>
 </div>

@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<head>
 <%@include file="header.jsp"%>
+</head>
 <body>
 <div class="nav_wrapper">
     <!--<a class="menu-link" href="#menu"></a>-->
@@ -34,26 +36,22 @@
                     </li>
                 </ul>
             </li>
-            <li ><a href="#Link" title="Link">Category</a>
+            <li ><a href="#Link" title="Link">졸업요건</a>
                 <ul >
-                    <li ><a href="#Link" title="Link ">Link</a></li>
-                    <li ><a href="#Link" title="Link">Link</a></li>
+                    <li ><a href="#Link" title="Link ">소프트웨어공학과</a></li>
+                    <li ><a href="#Link" title="Link">컴퓨터공학과</a></li>
+                    <li ><a href="#Link" title="Link">정보통신학과</a></li>
+                    <li ><a href="#Link" title="Link">디지털컨텐츠학과</a></li>
                 </ul>
             </li>
-            <li ><a href="#Link" title="Link">Portfolio</a>
+            <li ><a href="#Link" title="Link">공지사항</a>
                 <ul >
-                    <li ><a href="#Link" title="Link">Link</a></li>
-                    <li ><a href="#Link" title="Link">Link</a></li>
-                    <li ><a href="#Link" title="Link">Link</a></li>
+                    <li ><a href="#Link" title="Link">일반공지</a></li>
+                    <li ><a href="#Link" title="Link">과목변경사항</a></li>
+
                 </ul>
             </li>
-            <li ><a href="#Link" title="Link">Work</a>
-                <ul >
-                    <li ><a href="#Link" title="Link">Link</a></li>
-                    <li ><a href="#Link" title="Link">Link</a></li>
-                    <li ><a href="#Link" title="Link">Link</a></li>
-                    <li ><a href="#Link" title=" Link"> Link</a></li>
-                </ul>
+            <li ><a href="#Link" title="Link">Q&A</a>
             </li>
             <li ><a href="#Link" title="Link">Services</a>
                 <ul >
