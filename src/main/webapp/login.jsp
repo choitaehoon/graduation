@@ -64,7 +64,7 @@
 
     </style>
 
-</headz
+</head>
 <body>
 
 <div class="login">

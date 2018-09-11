@@ -1,5 +1,5 @@
 
-<head>
+
     <head>
         <meta charset="UTF-8">
         <style>
@@ -65,7 +65,7 @@
                 html {
                     font-family: sans-serif;
                     color: #4b5f65;
-                background: #f5f7fa;
+                    background: #f5f7fa;
                 }
 
                 body { overflow-x:hidden}
