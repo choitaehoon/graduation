@@ -67,7 +67,6 @@
 </head>
 <body>
 
-
 <div class="login">
     <h1>SKHU졸업요건</h1>
     <form method="post" action="/login/main">
