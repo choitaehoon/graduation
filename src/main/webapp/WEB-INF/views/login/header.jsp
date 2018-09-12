@@ -1,6 +1,9 @@
 
 
+<<<<<<< HEAD
     <head>
+=======
+>>>>>>> 352ea0f5bbd9a06e21404d1d0d565ea0f810b34f
         <meta charset="UTF-8">
         <style>
             @import url(http://fonts.googleapis.com/css?family=Open+Sans);
@@ -440,4 +443,3 @@
 
                 }
                 </style>
-</head>
