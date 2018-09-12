@@ -6,7 +6,7 @@
             <div class="spinner diagonal part-2"></div>
         </label>
 
-    <a href="#search_box" class="btn" id="search">☌</a>
+
     <nav id="menu" class="menu">
         <ul class="dropdown">
             <li ><a href="#Link" title="Link">Home</a>
