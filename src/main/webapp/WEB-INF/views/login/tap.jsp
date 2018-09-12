@@ -1,4 +1,4 @@
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
       <input type="checkbox" id="spinner-form" />
         <label for="spinner-form" class="spinner-spin">
             <div class="spinner diagonal part-1"></div>
