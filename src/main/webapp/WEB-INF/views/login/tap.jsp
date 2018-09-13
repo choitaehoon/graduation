@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<a href="#search_box" class="btn" id="search">${ students.id }님 안녕하세요</a>
     <nav id="menu" class="menu">
         <ul class="dropdown">
             <li ><a href="#Link" title="Link">Home</a>
@@ -47,4 +46,5 @@
             </li>
             <li ><a href="#Link" title="Link">Contact</a></li>
         </ul>
+        <%--<a href="#search_box" class="btn" id="search">$</a>--%>
   </nav>

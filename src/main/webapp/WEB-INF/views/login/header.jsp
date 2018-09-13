@@ -17,6 +17,8 @@
             html { width: 100%; height:100%; overflow:hidden; }
 
             body {
+                    margin-left: 0px;
+                    margin-top: 0px;
                 width: 100%;
                 height:100%;
                 font-family: 'Open Sans', sans-serif;
@@ -112,7 +114,7 @@
                 line-height: 40px;
                 color: #fff;
                 margin: 0;
-                font-weight: 700;
+                font-weight: 100;
                 -webkit-transform: rotate(181deg);
                 -moz-transform: rotate(181deg);
                 -ms-transform: rotate(181deg);
@@ -133,6 +135,7 @@
                 transition: all 0.1s ease-in-out;
             }
 
+
             .search_box.active {
                 height: auto;
                 padding: 15px 0;
@@ -140,7 +143,7 @@
 
             .search_box input {
                 width: 80%;
-                font-size: 13px;
+                font-size: 5px;
                 margin: 0 0 0 15px;
                 padding: 10px;
                 border: none;
