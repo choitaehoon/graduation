@@ -1,12 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-      <input type="checkbox" id="spinner-form" />
-        <label for="spinner-form" class="spinner-spin">
-            <div class="spinner diagonal part-1"></div>
-            <div class="spinner horizontal"></div>
-            <div class="spinner diagonal part-2"></div>
-        </label>
 
-
+<a href="#search_box" class="btn" id="search">${ students.id }님 안녕하세요</a>
     <nav id="menu" class="menu">
         <ul class="dropdown">
             <li ><a href="#Link" title="Link">Home</a>

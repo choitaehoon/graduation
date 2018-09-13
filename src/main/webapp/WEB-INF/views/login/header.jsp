@@ -147,24 +147,6 @@
                 background: #fff;
             }
 
-            .search_box input:focus { outline: none; }
-
-            .search_box input.search_icon {
-                clear: both;
-                width: 10%;
-                height: auto;
-                padding: 10px;
-                margin: 0;
-                margin-left: -5px;
-                border: none;
-                color: #fff;
-                cursor: pointer;
-                background: #8c949d;
-                opacity: 1;
-                transition: all 0.1s ease;
-            }
-
-            .search_box input.search_icon:hover { background: #efa666; }
 
             .menu-link { display: none; }
 
