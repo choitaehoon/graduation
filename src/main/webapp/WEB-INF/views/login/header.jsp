@@ -109,17 +109,16 @@
 
                 #search {
                 float: right;
-                font-size: 30px;
                 padding: 2px 15px;
                 line-height: 40px;
-                color: #fff;
+                color: #39484d;
                 margin: 0;
                 font-weight: 100;
                 -webkit-transform: rotate(181deg);
                 -moz-transform: rotate(181deg);
                 -ms-transform: rotate(181deg);
                 -o-transform: rotate(181deg);
-                transform: rotate(181deg);
+                transform: rotate(0deg);
             }
 
             #search:hover { color: #efa666; }
@@ -147,7 +146,7 @@
                 margin: 0 0 0 15px;
                 padding: 10px;
                 border: none;
-                background: #fff;
+                background: #39484d;
             }
 
 
