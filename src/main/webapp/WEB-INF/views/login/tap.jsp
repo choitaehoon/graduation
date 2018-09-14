@@ -2,7 +2,7 @@
 
     <nav id="menu" class="menu">
         <ul class="dropdown">
-            <li ><a href="/login/main">첫화면</a>
+            <li ><a href="/login/main?id=${students.id}">첫화면</a>
             </li>
             <li ><a href="#Link" title="Link">졸업요건</a>
                 <ul >
