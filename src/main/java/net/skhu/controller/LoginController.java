@@ -1,5 +1,6 @@
 package net.skhu.controller;
 
+import com.sun.media.jfxmedia.logging.Logger;
 import net.skhu.domain.Student;
 import net.skhu.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,12 @@ public class LoginController
     {
         model.addAttribute("students",studentRepository.findById(student.getId()));
         return "login/main";
+    }
+
+    @RequestMapping("software")
+    public String graduationSoftware(Model model, Student student)
+    {
+        model.addAttribute("students",studentRepository.findById(student.getId()));
+        return "login/software";
     }
 }

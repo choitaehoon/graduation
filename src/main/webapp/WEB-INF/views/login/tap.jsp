@@ -4,9 +4,9 @@
         <ul class="dropdown">
             <li ><a href="/login/main?id=${students.id}">첫화면</a>
             </li>
-            <li ><a href="#Link" title="Link">졸업요건</a>
+            <li ><a href="#Link">졸업요건</a>
                 <ul >
-                    <li ><a href="#Link">소프트웨어공학과</a></li>
+                    <li ><a href="/login/software?id=${students.id}">소프트웨어공학과</a></li>
                     <li ><a href="#Link">컴퓨터공학과</a></li>
                     <li ><a href="#Link">정보통신학과</a></li>
                     <li ><a href="#Link">디지털컨텐츠학과</a></li>
