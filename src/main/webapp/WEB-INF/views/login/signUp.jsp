@@ -24,7 +24,7 @@
 <div class="sign">
     <h1>회원가입</h1>
 
-    <form:form method="post" modelAttribute="Student">
+    <form:form method="post" modelAttribute="student">
 
 
         <div class="form-group">
@@ -57,7 +57,7 @@
 
         <div class="form-group">
             <label>학과</label>
-            <select class="form-control"></select>
+            <%--<form:select path="id" itemLabel="name" itemValue="id" class="form-control" items="${departments}"/>--%>
 
         </div>
 

@@ -1,7 +1,9 @@
 package net.skhu.controller;
 
 import com.sun.media.jfxmedia.logging.Logger;
+import net.skhu.domain.Department;
 import net.skhu.domain.Student;
+import net.skhu.repository.DepartmentRepository;
 import net.skhu.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,11 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController
 {
     @Autowired  StudentRepository studentRepository;
+    @Autowired  DepartmentRepository departmentRepository;
 
     @RequestMapping("signUp")
-    public String singUp(Model model)
+    public String singUp(Model model,Student student)
     {
-        model.addAttribute("Student",new Student());
+        model.addAttribute("student",new Student());
 
         return "login/signUp";
     }
