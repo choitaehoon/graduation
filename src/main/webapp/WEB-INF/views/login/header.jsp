@@ -40,6 +40,16 @@
             }
             .login h5 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
 
+            .sign {
+                    position: absolute;
+                    top: 30%;
+                    left: 50%;
+                    margin: -150px 0 0 -150px;
+                    width:300px;
+                    height:300px;
+            }
+                    .sing h5 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
             input {
                 width: 100%;
                 margin-bottom: 10px;

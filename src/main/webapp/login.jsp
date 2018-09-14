@@ -2,6 +2,7 @@
 <c:url var="R" value="/" />
 <html>
 <head>
+
     <meta charset="UTF-8">
     <style>
         @import url(http://fonts.googleapis.com/css?family=Open+Sans);
@@ -41,6 +42,7 @@
         }
         .login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
 
+
         input {
             width: 100%;
             margin-bottom: 10px;
@@ -73,6 +75,7 @@
         <input type="text" name="id" placeholder="학번" required="required" />
         <input type="password" name="password" placeholder="비밀번호" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">로그인</button>
+        <a href="/login/signUp" class="btn btn-primary btn-block btn-large">회원가입</a>
     </form>
 </div>
 
