@@ -38,7 +38,7 @@
                 width:300px;
                 height:300px;
             }
-            .login h5 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+            .login h5 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; padding-right:148; }
 
             .sign {
                     position: absolute;
