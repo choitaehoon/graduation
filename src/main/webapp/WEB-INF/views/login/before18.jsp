@@ -68,8 +68,8 @@
         .ch
         {
             position: absolute;
-            top: 70%;
-            right: 80%;
+            top: 40%;
+            right: 60%;
             margin: -150px 0 0 -150px;
             width: 300px;
             height: 300px;

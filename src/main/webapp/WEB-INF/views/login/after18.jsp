@@ -74,7 +74,7 @@
         .ch
         {
             position: absolute;
-            top: 70%;
+            top: 40%;
             right: 60%;
             margin: -150px 0 0 -150px;
             width: 300px;
