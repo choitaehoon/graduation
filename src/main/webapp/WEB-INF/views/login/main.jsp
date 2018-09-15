@@ -39,9 +39,10 @@
 
 
 <div class="login">
-    <h5>${ students.name }님의 정보입니다.</h5>
-    <div class="chart" id="top_x_div" style="width: 500px; height: 500px;"></div>
+    <h5>${ students.name }님의 정보</h5>
+
 </div>
+<div class="chart" id="top_x_div" style="width: 500px; height: 500px;"></div>
 
 
 </body>

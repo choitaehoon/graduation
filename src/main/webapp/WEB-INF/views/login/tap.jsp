@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
     <nav id="menu" class="menu">
-        <ul class="dropdown">
+        <ul class = "dropdown">
             <li ><a href="/login/main?id=${students.id}">첫화면</a>
             </li>
             <li ><a href="#Link">졸업요건</a>
@@ -14,20 +14,21 @@
             </li>
             <li ><a href="#Link">공지사항</a>
                 <ul >
-                    <li ><a href="#Link">일반공지</a></li>
+                    <li ><a href="/login/noticeBoard?id=${students.id}">일반공지</a></li>
                     <li ><a href="#Link">과목변경사항</a></li>
                 </ul>
             </li>
             <li ><a href="#Link">Q&A</a>
             </li>
-            <li ><a href="#Link">Services</a>
-                <ul >
-                    <li ><a href="#Link">Link </a></li>
-                    <li ><a href="#Link">Link</a></li>
-                    <li ><a href="#Link">Link</a></li>
-                </ul>
-            </li>
-            <li ><a href="#Link" title="Link">Contact</a></li>
+
+
+            <li><h5>${students.name}님 환영합니다</h5></li>
+
         </ul>
-        <a href="/login.jsp" class="btn" id="search">로그아웃</a>
+
+        <a href="#mypage" class="btn">마이페이지</a>
+        <a href="/login.jsp" class="btn" >로그아웃</a>
+
+
+
   </nav>

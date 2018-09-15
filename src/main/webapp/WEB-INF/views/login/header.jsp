@@ -32,11 +32,11 @@
             }
             .login {
                 position: absolute;
-                top: 40%;
-                left: 50%;
-                margin: -150px 0 0 -150px;
-                width:300px;
-                height:300px;
+                    top: 40%;
+                    left: 50%;
+                    margin: -150px 0 0 -150px;
+                    width:300px;
+                    height:300px;
             }
             .login h5 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; padding-right:148; }
 
@@ -48,11 +48,11 @@
                     width:300px;
                     height:300px;
             }
-                    .sign h5 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+                .sign h5 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
             .chart {
                             position: absolute;
-                            top: 70%;
-                            right: 30%;
+                            top: 50%;
+                            left: 30%;
                             margin: -150px 0 0 -150px;
                             width:300px;
                             height:300px;

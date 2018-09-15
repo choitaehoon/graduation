@@ -33,7 +33,7 @@
     </script>
 </head>
 <body>
-<div class="log in">
+<div class="login">
     <h5>${ students.name }님의 정보입니다.</h5>
     <div id="chart_div"></div>
 </div>
