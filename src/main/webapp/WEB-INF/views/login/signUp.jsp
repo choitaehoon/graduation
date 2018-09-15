@@ -57,7 +57,7 @@
 
         <div class="form-group">
             <label>학과</label>
-            <%--<form:select path="id" itemLabel="name" itemValue="id" class="form-control" items="${departments}"/>--%>
+            <form:select path="id" itemLabel="name" itemValue="id" class="form-control" items="${departments}"/>
 
         </div>
 

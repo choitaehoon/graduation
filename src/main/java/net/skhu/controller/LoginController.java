@@ -18,6 +18,7 @@ public class LoginController
     @RequestMapping("signUp")
     public String singUp(Model model,Student student)
     {
+        model.addAttribute("departments",departmentRepository.findAll());
         model.addAttribute("student",new Student());
 
         return "login/signUp";
@@ -41,5 +42,12 @@ public class LoginController
     {
         model.addAttribute("students",studentRepository.findById(student.getId()));
         return "login/after18";
+    }
+
+    @RequestMapping("noticeBoard")
+    public String notice(Model model, Student student)
+    {
+        model.addAttribute("students",studentRepository.findById(student.getId()));
+        return "login/noticeBoard";
     }
 }
