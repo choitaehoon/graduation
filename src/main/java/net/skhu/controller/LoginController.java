@@ -1,7 +1,5 @@
 package net.skhu.controller;
 
-import com.sun.media.jfxmedia.logging.Logger;
-import net.skhu.domain.Department;
 import net.skhu.domain.Student;
 import net.skhu.repository.DepartmentRepository;
 import net.skhu.repository.StudentRepository;
@@ -31,10 +29,17 @@ public class LoginController
         return "login/main";
     }
 
-    @RequestMapping("software")
+    @RequestMapping("before18")
     public String graduationSoftware(Model model, Student student)
     {
         model.addAttribute("students",studentRepository.findById(student.getId()));
-        return "login/software";
+        return "login/before18";
+    }
+
+    @RequestMapping("after18")
+    public String ater18(Model model, Student student)
+    {
+        model.addAttribute("students",studentRepository.findById(student.getId()));
+        return "login/after18";
     }
 }
