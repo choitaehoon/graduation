@@ -27,14 +27,10 @@
             <li ><a href="#Link">Q&A</a>
             </li>
 
-
             <li><h5>${students.name}님 환영합니다</h5></li>
 
         </ul>
-
         <a href="#mypage" class="btn">마이페이지</a>
         <a href="/login.jsp" class="btn" >로그아웃</a>
-
-
 
   </nav>
