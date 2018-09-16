@@ -24,7 +24,7 @@
                     <li ><a href="#Link">과목변경사항</a></li>
                 </ul>
             </li>
-            <li ><a href="#Link">Q&A</a>
+            <li ><a href="/login/question?id=${students.id}">Q&A</a>
             </li>
 
             <li><h5>${students.name}님 환영합니다</h5></li>

@@ -50,4 +50,10 @@ public class LoginController
         model.addAttribute("students",studentRepository.findById(student.getId()));
         return "login/noticeBoard";
     }
+    @RequestMapping("question")
+    public String question(Model model, Student student)
+    {
+        model.addAttribute("students",studentRepository.findById(student.getId()));
+        return "login/question";
+    }
 }
