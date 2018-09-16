@@ -16,8 +16,14 @@ public class Student
 
     String password;
 
+<<<<<<< HEAD
     @ManyToOne
     @JoinColumn(name="departmentId")
     Department department;
+=======
+//    @ManyToOne
+//    @JoinColumn(name="departmentId")
+//    Department department;
+>>>>>>> 772ffb53855bfa13fe82410d60ad588337038696
 
 }
