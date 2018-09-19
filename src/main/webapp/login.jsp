@@ -74,11 +74,9 @@
     <form method="post" action="/login/main">
         <input type="text" name="id" placeholder="학번" required="required" />
         <input type="password" name="password" placeholder="비밀번호" required="required" />
-<<<<<<< HEAD
-        <button type="submit" class="btn btn-primary btn-block btn-large">로그인인이야이ㅏ이ㅏ이ㅏ이</button>
-=======
+
+
         <button type="submit" class="btn btn-primary btn-block btn-large">로그인</button>
->>>>>>> 772ffb53855bfa13fe82410d60ad588337038696
         <a href="/login/signUp" class="btn btn-primary btn-block btn-large">회원가입</a>
     </form>
 </div>
