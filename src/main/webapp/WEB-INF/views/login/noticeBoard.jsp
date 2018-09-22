@@ -140,9 +140,7 @@
     </div>
     <!-- page_navi end -->
 
-
 </div>
-
 
 </body>
 </html>

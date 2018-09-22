@@ -47,10 +47,16 @@
                 ['승인 얻은경우', '특별과정', '']
             ]);
 
+            var options =
+                {
+                    size : 'midium' ,
+                    allowHtml : true
+                }
             // Create the chart.
             var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
-            // Draw the chart, setting the allowHtml option to true for the tooltips.
-            chart.draw(data, {allowHtml:true});
+
+            chart.draw(data, options);
+            chart.collapse(2,false);
         }
     </script>
     <style>
@@ -74,13 +80,13 @@
         .ch
         {
             position: absolute;
-            top: 40%;
-            right: 60%;
-            margin: -150px 0 0 -150px;
+            top: 20%;
+            right: 90%;
             width: 300px;
             height: 300px;
 
         }
+
     </style>
 </head>
 <body>

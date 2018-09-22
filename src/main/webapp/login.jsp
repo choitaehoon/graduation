@@ -1,83 +1,347 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<c:url var="R" value="/" />
-<html>
+<!doctype html>
+<html lang="kr">
 <head>
-
     <meta charset="UTF-8">
-    <style>
-        @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-        .btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startcolorstr=#ffffff, endcolorstr=#e6e6e6, gradienttype=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
-        .btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
-        .btn-large { padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
-        .btn:hover { color: #333333; text-decoration: none; background-color: #e6e6e6; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -ms-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear; }
-        .btn-primary, .btn-primary:hover { text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #ffffff; }
-        .btn-primary.active { color: rgba(255, 255, 255, 0.75); }
-        .btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startcolorstr=#6eb6de, endcolorstr=#4a77d4, gradienttype=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
-        .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
-        .btn-block { width: 100%; display:block; }
 
-        * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
-
-        html { width: 100%; height:100%; overflow:hidden; }
+    <style rel="stylesheet">
+        @charset "UTF-8";
+        @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+        * {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
 
         body {
-            width: 100%;
-            height:100%;
-            font-family: 'open sans', sans-serif;
-            background: #092756;
-            background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
-            background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-            background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-            background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-            background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
-            filter: progid:dximagetransform.microsoft.gradient( startcolorstr='#3e1d6d', endcolorstr='#092756',gradienttype=1 );
+            font-family: 'Lato', sans-serif;
+            background-color: #f8f8f8;
         }
-        .login {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: -150px 0 0 -150px;
-            width:300px;
-            height:300px;
+        body .container {
+            position: relative;
+            overflow: hidden;
+            width: 700px;
+            height: 500px;
+            margin: 80px auto 0;
+            background-color: #ffffff;
+            -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+            -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
         }
-        .login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
-
-
-        input {
+        body .container .half {
+            float: left;
+            width: 50%;
+            height: 100%;
+            padding: 58px 40px 0;
+        }
+        body .container .half.bg {
+            background-image: url("http://www.blueb.co.kr/SRC2/_image/v01.jpg");
+            background-size: 400px;
+            background-repeat: no-repeat;
+        }
+        body .container h1 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 23px;
+            text-align: center;
+            text-indent: 6px;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            color: #263238;
+        }
+        body .container .tabs {
             width: 100%;
-            margin-bottom: 10px;
-            background: rgba(0,0,0,0.3);
-            border: none;
+            margin-bottom: 29px;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        body .container .tabs .tab {
+            display: inline-block;
+            margin-bottom: -1px;
+            padding: 20px 15px 10px;
+            cursor: pointer;
+            letter-spacing: 0;
+            border-bottom: 1px solid #d9d9d9;
+            -moz-user-select: -moz-none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            transition: all 0.1s ease-in-out;
+        }
+        body .container .tabs .tab a {
+            font-size: 11px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #d9d9d9;
+            transition: all 0.1s ease-in-out;
+        }
+        body .container .tabs .tab.active a, body .container .tabs .tab:hover a {
+            color: #263238;
+        }
+        body .container .tabs .tab.active {
+            border-bottom: 1px solid #263238;
+        }
+        body .container .content form {
+            position: relative;
+            height: 287px;
+        }
+        body .container .content label:first-of-type, body .container .content input:first-of-type, body .container .content .more:first-of-type {
+            -moz-animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
+            -webkit-animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
+            animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
+        }
+        body .container .content label:nth-of-type(2), body .container .content input:nth-of-type(2), body .container .content .more:nth-of-type(2) {
+            -moz-animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
+            -webkit-animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
+            animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
+        }
+        body .container .content label:nth-of-type(3), body .container .content input:nth-of-type(3), body .container .content .more:nth-of-type(3) {
+            -moz-animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
+            -webkit-animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
+            animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
+        }
+        body .container .content label {
+            font-size: 12px;
+            color: #263238;
+            -moz-user-select: -moz-none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        body .container .content label:not([for='remember']) {
+            display: none;
+        }
+        body .container .content input.inpt {
+            font-size: 14px;
+            display: block;
+            width: 100%;
+            height: 42px;
+            margin-bottom: 12px;
+            padding: 16px 13px;
+            color: #999999;
+            border: 1px solid #d9d9d9;
+            background: transparent;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+        }
+        body .container .content input.inpt::-webkit-input-placeholder {
+            font-size: 14px;
+            color: #999999;
+            font-family: 'Lato', sans-serif;
+        }
+        body .container .content input.inpt:-moz-placeholder {
+            font-size: 14px;
+            color: #999999;
+            font-family: 'Lato', sans-serif;
+        }
+        body .container .content input.inpt::-moz-placeholder {
+            font-size: 14px;
+            color: #999999;
+            font-family: 'Lato', sans-serif;
+        }
+        body .container .content input.inpt:-ms-input-placeholder {
+            font-size: 14px;
+            color: #999999;
+            font-family: 'Lato', sans-serif;
+        }
+        body .container .content input.inpt:focus {
+            border-color: #999999;
+        }
+        body .container .content input.submit {
+            font-size: 12px;
+            line-height: 42px;
+            display: block;
+            width: 100%;
+            height: 42px;
+            cursor: pointer;
+            vertical-align: middle;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #263238;
+            border: 1px solid #263238;
+            background: transparent;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+        }
+        body .container .content input.submit:hover {
+            background-color: #263238;
+            color: #ffffff;
+            -moz-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            -webkit-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+        body .container .content input:focus {
             outline: none;
-            padding: 10px;
-            font-size: 13px;
-            color: #fff;
-            text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-            border: 1px solid rgba(0,0,0,0.3);
-            border-radius: 4px;
-            box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
-            -webkit-transition: box-shadow .5s ease;
-            -moz-transition: box-shadow .5s ease;
-            -o-transition: box-shadow .5s ease;
-            -ms-transition: box-shadow .5s ease;
-            transition: box-shadow .5s ease;
         }
-        input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+        body .container .content .checkbox {
+            margin-top: 4px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            width: 0;
+            height: 0;
+            margin: 17px -1px;
+            padding: 0;
+            border: 0;
+        }
+        body .container .content .checkbox + label {
+            vertical-align: middle;
+            display: inline-block;
+            width: 50%;
+        }
+        body .container .content .checkbox + label:before {
+            content: "\A";
+            color: #999999;
+            font-family: Verdana;
+            font-weight: bold;
+            font-size: 8px;
+            line-height: 10px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            background: transparent;
+            border: 1px solid #d9d9d9;
+            width: 11px;
+            height: 11px;
+            margin: -2px 8px 0 0;
+        }
+        body .container .content .checkbox:checked + label:before {
+            content: "✓";
+        }
+        body .container .content .submit-wrap {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        body .container .content .submit-wrap a {
+            font-size: 12px;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #999999;
+        }
+        body .container .content .submit-wrap a:hover {
+            text-decoration: underline;
+        }
+        body .container .content .signup-cont {
+            display: none;
+        }
+
+        @keyframes slideIn {
+            0% {
+                filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+                opacity: 0;
+                margin-left: -320px;
+            }
+            100% {
+                filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+                opacity: 1;
+                margin-left: 0px;
+            }
+        }
+        @-webkit-keyframes slideIn {
+            0% {
+                filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+                opacity: 0;
+                margin-left: -320px;
+            }
+            100% {
+                filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+                opacity: 1;
+                margin-left: 0px;
+            }
+        }
+        .credits {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            color: #999999;
+            font-size: 14px;
+            margin: 0 10px 10px 0;
+        }
+        .credits a {
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+            opacity: 0.8;
+            color: inherit;
+            font-weight: 700;
+            text-decoration: none;
+        }
 
     </style>
-
 </head>
 <body>
 
-<div class="login">
-    <h1>SKHU졸업요건</h1>
-    <form method="post" action="/login/main">
-        <input type="text" name="id" placeholder="학번" required="required" />
-        <input type="password" name="password" placeholder="비밀번호" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">로그인</button>
-        <a href="/login/signUp" class="btn btn-primary btn-block btn-large">회원가입</a>
-    </form>
-</div>
+<section class="container">
+    <article class="half">
+        <h1>SHKU졸업요건</h1>
+        <div class="tabs">
+            <span class="tab signin active"><a href="#signin">Sign in</a></span>
+            <span class="tab signup"><a href="#signup">Sign up</a></span>
+        </div>
+        <div class="content">
+            <div class="signin-cont cont">
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email">
+                    <label for="email">Your email</label>
+                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Your password">
+                    <label for="password">Your password</label>
+                    <input type="checkbox" id="remember" class="checkbox" checked>
+                    <label for="remember">Remember me</label>
+                    <div class="submit-wrap">
+                        <input type="submit" value="Sign in" class="submit">
+                        <a href="#" class="more">Forgot your password?</a>
+                    </div>
+                </form>
+            </div>
+            <div class="signup-cont cont">
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <input type="email" name="email" id="name" class="inpt" required="required" placeholder="Your name">
+                    <label for="name">Your name</label>
+                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email">
+                    <label for="email">Your email</label>
+                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Your password">
+                    <label for="password">Your password</label>
+                    <div class="submit-wrap">
+                        <input type="submit" value="Sign up" class="submit">
+                        <a href="#" class="more">Terms and conditions</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </article>
+    <div class="half bg"></div>
+</section>
 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $('.tabs .tab').click(function(){
+        if ($(this).hasClass('signin')) {
+            $('.tabs .tab').removeClass('active');
+            $(this).addClass('active');
+            $('.cont').hide();
+            $('.signin-cont').show();
+        }
+        if ($(this).hasClass('signup')) {
+            $('.tabs .tab').removeClass('active');
+            $(this).addClass('active');
+            $('.cont').hide();
+            $('.signup-cont').show();
+        }
+    });
+    $('.container .bg').mousemove(function(e){
+        var amountMovedX = (e.pageX * -1 / 30);
+        var amountMovedY = (e.pageY * -1 / 9);
+        $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
+    });
+</script>
 </body>
 </html>

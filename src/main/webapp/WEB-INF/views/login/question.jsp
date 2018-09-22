@@ -58,7 +58,7 @@
 <body>
 
 <div class="wrap">
-    <h5>Q&A</h5>
+    <h5 style="color: #fff">Q&A</h5>
     <ul class="board_search">
         <li><input type="radio" name="searchtype" id="search01" checked="checked" /><label for="search01">이름</label></li>
         <li><input type="radio" name="searchtype" id="search02" /><label for="search02">제목</label></li>

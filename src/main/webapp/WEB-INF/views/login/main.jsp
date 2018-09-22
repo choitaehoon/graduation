@@ -19,14 +19,20 @@
             var options = {
                 width: 900,
                 legend: { position: 'none' },
-                chart: { title: '졸업요건 한눈에 보기'},
                 bars: 'horizontal', // Required for Material Bar Charts.
                 axes: {
                     x: {
                         0: { side: 'top', label: 'Percentage'} // Top x-axis.
                     }
                 },
-                bar: { groupWidth: "90%" }
+                bar: { groupWidth: "90%" },
+                chartArea: {
+                    backgroundColor: {
+                        fill: '#092756',
+                        opacity: 100
+                    }
+                }
+
             };
 
             var chart = new google.charts.Bar(document.getElementById('top_x_div'));
@@ -39,9 +45,11 @@
 
 
 <div class="login">
-    <h5>${ students.name }님의 정보</h5>
+    <h5>졸업 요건 현황</h5>
 
 </div>
+
+
 <div class="chart" id="top_x_div" style="width: 500px; height: 500px;"></div>
 
 

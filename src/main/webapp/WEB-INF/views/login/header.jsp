@@ -109,9 +109,10 @@
                     padding: 10px 1%;
                     margin: 5px;
                     color: #fff;
-                text-decoration: none;
+                        text-decoration: none;
                     font-family: sans-serif;
                     transition: all 0.1s ease;
+                        color : black;
                 }
 
                 .btn:hover { transition: all 0.1s ease; }
@@ -129,7 +130,7 @@
                 padding: 2px 15px;
                 line-height: 40px;
                 color: #39484d;
-                margin: 0;
+                /*margin: 10;*/
                 font-weight: 100;
                 -webkit-transform: rotate(181deg);
                 -moz-transform: rotate(181deg);
@@ -137,8 +138,35 @@
                 -o-transform: rotate(181deg);
                 transform: rotate(0deg);
             }
+            #search01 {
+                    float: right;
+                    padding: 2px 15px;
+                    line-height: 40px;
+                    color: #39484d;
+                    /*margin: 10;*/
+                    font-weight: 100;
+                    -webkit-transform: rotate(181deg);
+                    -moz-transform: rotate(181deg);
+                    -ms-transform: rotate(181deg);
+                    -o-transform: rotate(181deg);
+                    transform: rotate(0deg);
+            }
 
-            #search:hover { color: #efa666; }
+            #search02 {
+                    float: right;
+                    padding: 2px 15px;
+                    line-height: 40px;
+                    color: #39484d;
+                    margin: 10;
+                    font-weight: 100;
+                    -webkit-transform: rotate(181deg);
+                    -moz-transform: rotate(181deg);
+                    -ms-transform: rotate(181deg);
+                    -o-transform: rotate(181deg);
+                    transform: rotate(0deg);
+            }
+
+            .search:hover { color: #efa666; }
 
             .search_box {
                 clear: both;
