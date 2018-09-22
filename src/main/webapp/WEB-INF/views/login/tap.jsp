@@ -27,9 +27,22 @@
             <li ><a href="/login/question?id=${students.id}">Q&A</a>
             </li>
 
+<<<<<<< HEAD
         </ul>
 
         <a href="/login.jsp" class="btn" id="search">로그아웃</a>
         <a href="#mypage" class="btn" id="search01">마이페이지</a>
         <h5 style="color: white" id="search02">${students.name}님 환영합니다</h5>
+=======
+
+
+            <li><h5>${students.name}님 환영합니다</h5></li>
+
+        </ul>
+
+        <a href="#mypage" class="btn">마이페이지</a>
+        <a href="/login.jsp" class="btn" >로그아웃</a>
+
+
+>>>>>>> 2c8319462b14563773a8e18d5d67d5d10f2420a3
   </nav>

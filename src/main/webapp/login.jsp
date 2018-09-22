@@ -278,6 +278,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <section class="container">
     <article class="half">
         <h1>SHKU졸업요건</h1>
@@ -319,6 +320,19 @@
     <div class="half bg"></div>
 </section>
 
+=======
+<div class="login">
+    <h1>SKHU졸업요건</h1>
+    <form method="post" action="/login/main">
+        <input type="text" name="id" placeholder="학번" required="required" />
+        <input type="password" name="password" placeholder="비밀번호" required="required" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">로그인</button>
+        <a href="/login/signUp" class="btn btn-primary btn-block btn-large">회원가입</a>
+    </form>
+</div>
+>>>>>>> 2c8319462b14563773a8e18d5d67d5d10f2420a3
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
