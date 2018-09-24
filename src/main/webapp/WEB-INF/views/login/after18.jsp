@@ -1,100 +1,290 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp"%>
 <%@include file="tap.jsp"%>
+
 <html>
 <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {packages:["orgchart"]});
-        google.charts.setOnLoadCallback(drawChart);
+    <meta charset='UTF-8'>
 
-        function drawChart() {
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Name');
-            data.addColumn('string', 'Manager');
-            data.addColumn('string', 'ToolTip');
+    <title>Responsive Table</title>
 
-            // For each orgchart box, provide the name, manager, and tooltip to show.
-            data.addRows([
-                [{v:'졸업요건', f:'졸업요건'},
-                    '', '졸업요건'],
-                [{v:'교양과정', f:'교양과정<div style="color:red; font-style:italic">34학점 이상</div>'},
-                    '졸업요건', '교양과정'],
-                ['교양과정', '졸업요건', ''],
-                [{v:'전공과정',f:'전공과정<div style="color:red; font-style:italic">60학점 이상</div> '},
-                    '졸업요건',  '전공과정'],
-                [{v:'특별과정', f:'특별과정<div style="color:red; font-style:italic">15학점 이상</div> '},
-                    '졸업요건', ''],
-                [{v:'전공탐색과정', f:'전공탐색과정<div style="color:red; font-style:italic">19학점 이상</div> '},
-                    '졸업요건', ''],
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                ['학교가 정한 교과목 이수', '교양과정', ''],
+    <link rel="stylesheet" href="style/style.css"/>
 
-                ['소속학과 정의한 필수과목 이수', '전공과정', ''],
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" media="screen">
 
-                ['전공탐색 세미나 포함', '전공탐색과정', ''],
-                ['타학부 3학점 이상 이수', '전공탐색과정', ''],
-
-                ['전공기초', '특별과정', ''],
-                ['전공심화', '특별과정', ''],
-                ['복수전공', '특별과정', ''],
-                ['부전공', '특별과정', ''],
-                ['연계전공', '특별과정', ''],
-                ['해외창', '특별과정', ''],
-                ['평생교육사교육', '특별과정', ''],
-                ['교직', '특별과정', ''],
-                ['자기설계', '특별과정', ''],
-                ['승인 얻은경우', '특별과정', '']
-            ]);
-
-            var options =
-                {
-                    size : 'midium' ,
-                    allowHtml : true
-                }
-            // Create the chart.
-            var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
-
-            chart.draw(data, options);
-            chart.collapse(2,false);
-        }
-    </script>
     <style>
-        .log
-        {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: -150px 0 0 -150px;
-            width:300px;
-            height:300px;
+
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            #            font: 14px/1.4 Georgia, Serif;
+            #        }
+        #page-wrap {
+            margin: 50px;
+        }
+        p {
+            margin: 20px 0;
         }
 
-        .log h5
-        {
-            color: #fff;
-            letter-spacing: 1px;
-            text-align: center;
-            padding-right: 130;
+        /*
+        Generic Styling, for Desktops/Laptops
+        */
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
-        .ch
-        {
-            position: absolute;
-            top: 20%;
-            right: 90%;
-            width: 300px;
-            height: 300px;
+        /* Zebra striping */
+        tr:nth-of-type(odd) {
+            background: #eee;
+        }
+        th {
+            background: #333;
+            color: white;
+            font-weight: bold;
+        }
+        td, th {
+            padding: 6px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        @media
+        only screen and (max-width: 760px),
+        (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+            /* Force table to not be like tables anymore */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            /* Hide table headers (but not display: none;, for accessibility) */
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr { border: 1px solid #ccc; }
+
+            td {
+                /* Behave  like a "row" */
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+            }
+
+            td:before {
+                /* Now like a table header */
+                position: absolute;
+                /* Top/left values mimic padding */
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+            }
+
+            /*
+            Label the data
+            */
+            td:nth-of-type(1):before { content: "졸업조건"; }
+            td:nth-of-type(2):before { content: "기타졸업조건"; }
 
         }
+
+        /* Smartphones (portrait and landscape) ----------- */
+        @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 480px) {
+            body {
+                padding: 0;
+                margin: 0;
+                width: 320px; }
+        }
+
+        /* iPads (portrait and landscape) ----------- */
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+            body {
+                width: 495px;
+            }
+        }
+
+
+
+
 
     </style>
+
 </head>
 <body>
 
 <div class="log">
-    <h5>18학번 이후의 졸업요건 </h5>
+    <h5>18학번 이전의 졸업요건 </h5>
     <div class="ch" id="chart_div"></div>
 </div>
+
+<div class="pull-right">
+    <label>전공이름: </label>
+    <input type="text" name="search" style="width: 122px;  height: 37px;">
+
+    <button type="submit" class="btn">
+        <span class=" glyphicon glyphicon-search"></span>조회</button>
+</div>
+
+<br>
+<div class="주전공">
+    <h2>주전공</h2>
+
+    <table class="주전공">
+        <thead>
+        <tr>
+            <th>졸업조건</th>
+            <th>기타 졸업조건</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>James</td>
+            <td>Matman</td>
+
+
+        </tr>
+        <tr>
+            <td>The</td>
+            <td>Tick</td>
+
+
+        </tr>
+        <tr>
+            <td>Jokey</td>
+            <td>Smurf</td>
+
+
+        </tr>
+        <tr>
+            <td>Cindy</td>
+            <td>Beyler</td>
+
+
+        </tr>
+        <tr>
+            <td>Captain</td>
+            <td>Cool</td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<br/>
+
+<div class="복수전공">
+    <h2>복수전공</h2>
+
+    <table class="복수전공">
+        <thead>
+        <tr>
+            <th>졸업조건</th>
+            <th>기타 졸업조건</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>James</td>
+            <td>Matman</td>
+
+
+        </tr>
+        <tr>
+            <td>The</td>
+            <td>Tick</td>
+
+
+        </tr>
+        <tr>
+            <td>Jokey</td>
+            <td>Smurf</td>
+
+
+        </tr>
+        <tr>
+            <td>Cindy</td>
+            <td>Beyler</td>
+
+
+        </tr>
+        <tr>
+            <td>Captain</td>
+            <td>Cool</td>
+
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<br>
+
+<div class="부전공">
+    <h2>부전공</h2>
+
+    <table class="부전공">
+        <thead>
+        <tr>
+            <th>졸업조건</th>
+            <th>기타 졸업조건</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>James</td>
+            <td>Matman</td>
+
+
+        </tr>
+        <tr>
+            <td>The</td>
+            <td>Tick</td>
+
+
+        </tr>
+        <tr>
+            <td>Jokey</td>
+            <td>Smurf</td>
+
+
+        </tr>
+        <tr>
+            <td>Cindy</td>
+            <td>Beyler</td>
+
+
+        </tr>
+        <tr>
+            <td>Captain</td>
+            <td>Cool</td>
+
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
 
 </body>
 </html>

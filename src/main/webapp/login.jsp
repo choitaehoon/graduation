@@ -288,10 +288,10 @@
         </div>
         <div class="content">
             <div class="signin-cont cont">
-                <form action="#" method="post" enctype="multipart/form-data">
-                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email">
+                <form action="login/main" method="post" enctype="multipart/form-data">
+                    <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
                     <label for="email">Your email</label>
-                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Your password">
+                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
                     <label for="password">Your password</label>
                     <input type="checkbox" id="remember" class="checkbox" checked>
                     <label for="remember">Remember me</label>
@@ -320,6 +320,7 @@
     <div class="half bg"></div>
 </section>
 
+<<<<<<< HEAD
 
 <div class="login">
     <h1>SKHU졸업요건</h1>
@@ -333,6 +334,8 @@
     </form>
 </div>
 
+=======
+>>>>>>> 6b6afcb567ac2d7d286582cb336d2470a7b9b281
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">

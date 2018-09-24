@@ -81,7 +81,7 @@
 
                 html {
                     font-family: sans-serif;
-                    color: #4b5f65;
+#                    color: #4b5f65;
                     background: #f5f7fa;
                 }
 
