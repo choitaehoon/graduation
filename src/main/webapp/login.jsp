@@ -35,11 +35,12 @@
             padding: 58px 40px 0;
         }
         body .container .half.bg {
-            background-image: url("http://www.blueb.co.kr/SRC2/_image/v01.jpg");
+            background-image: url("https://github.com/choitaehoon/graduation/blob/master/main_banner.jpg");
             background-size: 400px;
             background-repeat: no-repeat;
         }
         body .container h1 {
+
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 23px;
@@ -278,7 +279,6 @@
 </head>
 <body>
 
-<<<<<<< HEAD
 <section class="container">
     <article class="half">
         <h1>SHKU졸업요건</h1>
@@ -320,7 +320,7 @@
     <div class="half bg"></div>
 </section>
 
-=======
+
 <div class="login">
     <h1>SKHU졸업요건</h1>
     <form method="post" action="/login/main">
@@ -332,7 +332,6 @@
         <a href="/login/signUp" class="btn btn-primary btn-block btn-large">회원가입</a>
     </form>
 </div>
->>>>>>> 2c8319462b14563773a8e18d5d67d5d10f2420a3
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
