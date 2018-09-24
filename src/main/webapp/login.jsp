@@ -278,7 +278,6 @@
 </head>
 <body>
 
-<<<<<<< HEAD
 <section class="container">
     <article class="half">
         <h1>SHKU졸업요건</h1>
@@ -288,10 +287,10 @@
         </div>
         <div class="content">
             <div class="signin-cont cont">
-                <form action="#" method="post" enctype="multipart/form-data">
-                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email">
+                <form action="login/main" method="post" enctype="multipart/form-data">
+                    <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
                     <label for="email">Your email</label>
-                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Your password">
+                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
                     <label for="password">Your password</label>
                     <input type="checkbox" id="remember" class="checkbox" checked>
                     <label for="remember">Remember me</label>
@@ -319,20 +318,6 @@
     </article>
     <div class="half bg"></div>
 </section>
-
-=======
-<div class="login">
-    <h1>SKHU졸업요건</h1>
-    <form method="post" action="/login/main">
-        <input type="text" name="id" placeholder="학번" required="required" />
-        <input type="password" name="password" placeholder="비밀번호" required="required" />
-
-
-        <button type="submit" class="btn btn-primary btn-block btn-large">로그인</button>
-        <a href="/login/signUp" class="btn btn-primary btn-block btn-large">회원가입</a>
-    </form>
-</div>
->>>>>>> 2c8319462b14563773a8e18d5d67d5d10f2420a3
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
