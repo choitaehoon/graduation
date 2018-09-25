@@ -136,8 +136,8 @@
 </div>
 
 <div>
-    <a href="#"><span class=" glyphicon glyphicon-ok">등록</a>
-    <a href="#"><span class=" glyphicon glyphicon-check">수정</a>
+    <a href="/login/grdRegister?id=${ students.id }"><span class=" glyphicon glyphicon-ok">등록</a>
+    <a href="/login/grdUpdate?id=${ students.id }"><span class=" glyphicon glyphicon-check">수정</a>
     <a href="#"><span class=" glyphicon glyphicon-remove">삭제</a>
 
 </div>

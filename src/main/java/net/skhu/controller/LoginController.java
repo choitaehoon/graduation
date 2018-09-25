@@ -44,6 +44,19 @@ public class LoginController
         return "login/after18";
     }
 
+    @RequestMapping("grdRegister")
+    public String grdRegister(Model model, Student student)
+    {
+        model.addAttribute("students",studentRepository.findById(student.getId()));
+        return "login/grdRegister";
+    }
+    @RequestMapping("grdUpdate")
+    public String grdUpdate(Model model, Student student)
+    {
+        model.addAttribute("students",studentRepository.findById(student.getId()));
+        return "login/grdUpdate";
+    }
+
     @RequestMapping("noticeBoard")
     public String notice(Model model, Student student)
     {
