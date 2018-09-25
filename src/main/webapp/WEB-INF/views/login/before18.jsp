@@ -130,8 +130,8 @@
 <body>
 
 <div class="log">
-    <h2>소프트웨어공학과</h2>
-    <h5>18학번 이전의 졸업요건 </h5>
+    <h4>소프트웨어공학과</h4>
+    <h4>18학번 이전의 졸업요건 </h4>
     <div class="ch" id="chart_div"></div>
 </div>
 
@@ -146,7 +146,8 @@
 
 <br>
 <div style="text-align:center">
-    <h2 style="color:#ff00ff">소프트웨어공학과 학생</h2>
+    <h2 >소프트웨어공학과 학생</h2>
+    <br/>
     <div class="주전공">
     <h3 margin="auto">주전공</h3>
 
@@ -268,7 +269,7 @@
 
 <br>
 <div style="text-align:center">
-    <h2 style="color:#ff00ff">타과학생</h2>
+    <h2 >타과학생</h2>
     <br>
 <div class="전과">
     <h3>전과</h3>

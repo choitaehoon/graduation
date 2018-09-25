@@ -146,7 +146,7 @@
 
 <br>
 <div style="text-align:center">
-    <h2 style="color:#ff00ff">소프트웨어공학과 학생</h2>
+    <h2>소프트웨어공학과 학생</h2>
     <div class="주전공">
         <h3 margin="auto">주전공</h3>
 
@@ -268,7 +268,7 @@
 
 <br>
 <div style="text-align:center">
-    <h2 style="color:#ff00ff">타과학생</h2>
+    <h2>타과학생</h2>
     <br>
     <div class="전과">
         <h3>전과</h3>
