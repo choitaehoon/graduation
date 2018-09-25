@@ -28,12 +28,11 @@ body .container .half {
     padding: 58px 40px 0;
 }
 body .container .half.bg {
-    background-image: url("https://github.com/choitaehoon/graduation/blob/master/main_banner.jpg");
+    background-image: url("https://github.com/choitaehoon/graduation/blob/master/src/main/webapp/images/%EB%A1%9C%EA%B3%A0.jpeg?raw=true");
     background-size: 400px;
     background-repeat: no-repeat;
 }
 body .container h1 {
-
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 23px;
