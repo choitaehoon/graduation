@@ -38,7 +38,7 @@ public class LoginController
     }
 
     @RequestMapping("after18")
-    public String ater18(Model model, Student student)
+    public String after18(Model model, Student student)
     {
         model.addAttribute("students",studentRepository.findById(student.getId()));
         return "login/after18";

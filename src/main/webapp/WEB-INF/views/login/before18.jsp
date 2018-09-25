@@ -135,6 +135,12 @@
     <div class="ch" id="chart_div"></div>
 </div>
 
+<div>
+    <a href="#"><span class=" glyphicon glyphicon-ok">등록</a>
+    <a href="#"><span class=" glyphicon glyphicon-check">수정</a>
+    <a href="#"><span class=" glyphicon glyphicon-remove">삭제</a>
+
+</div>
 
 <div class="pull-right">
     <label>전공이름: </label>
@@ -292,8 +298,10 @@
             </td>
             <td rowspan="2" class="block">
 
-                전공기초과정(이산수학, 대학수학, 정보사회론, 컴퓨터 활용 포함 교양 15학점 이상 이수, 총 교양 47학점 이상),<br/>
-                전공심화과정(전공 15학점 이상 추가 이수, 총 전공 75학점 이상),<br/>
+                전공기초과정<br/>
+                (이산수학, 대학수학, 정보사회론, 컴퓨터 활용 포함 교양 15학점 이상 이수, 총 교양 47학점 이상),<br/>
+                전공심화과정<br/>
+                (전공 15학점 이상 추가 이수, 총 전공 75학점 이상),<br/>
                 타과복수전공과정, 타과부전공과정, 연계전공과정, 자기설계과정, 해외창과정 등의 특별과정 중 한 과정 이상 이수
 
             </td>

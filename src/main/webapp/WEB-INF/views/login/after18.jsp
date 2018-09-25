@@ -143,40 +143,121 @@
     <button type="submit" class="btn">
         <span class=" glyphicon glyphicon-search"></span>조회</button>
 </div>
+<div>
+    <a href="#"><span class=" glyphicon glyphicon-ok">등록</a>
+    <a href="#"><span class=" glyphicon glyphicon-check">수정</a>
+    <a href="#"><span class=" glyphicon glyphicon-remove">삭제</a>
+
+</div>
 
 <br>
 <div style="text-align:center">
     <h2 >소프트웨어공학과 학생</h2>
     <br/>
-    <div class="주전공">
-        <h3 margin="auto">주전공</h3>
+    <div class="교양과정">
+        <h3 margin="auto">교양과정</h3>
 
-        <table class="주전공">
+        <table class="교양과정">
             <thead>
             <tr>
                 <th>졸업조건</th>
-                <th>기타 졸업조건</th>
+                <th>필수/선택</th>
+                <th>과정이수조건</th>
+                <th>세부과정</th>
+                <th>하위세부</th>
+                <th>최소이수학점</th>
+                <th>하위영역</th>
+                <th>영억 이수 조건</th>
 
 
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td class="block">[2008~2013학번까지]<br/>
-                    전필37학점 포함하여 전공 60학점 이상 이수 </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
 
-                <td rowspan="2" class="block">
-                    전공기초과정<br/> (이산수학, 대학수학, 정보사회론, 컴퓨터 활용 중 2과목 이상을 포함하여 교양 15학점 이상 이수, 총 교양 47학점 이상)<br/>
-                    전공심화과정<br/>
-                    (전공 15학점 이상 추가 이수, 총 전공 75학점 이상)<br/>
-                    타과복수전공과정, 타과부전공과정, 연계전공과정, 자기설계과정, 해외창과정 등의 특별과정 중 한 과정 이상 이수
-                </td>
+
             </tr>
 
+
+            </tbody>
+        </table>
+    </div>
+
+    <br/>
+    <div class="전공탐색과정">
+        <h3 margin="auto">전공탐색과정</h3>
+
+        <table class="전공탐색과정">
+            <thead>
             <tr>
-                <td>[2014학번부터]<br/>
-                    전필31학점 포함하여 전공 60학점 이상 이수
-                </td>
+                <th>졸업조건</th>
+                <th>필수/선택</th>
+                <th>과정이수조건</th>
+                <th>세부과정</th>
+                <th>하위세부</th>
+                <th>최소이수학점</th>
+                <th>하위영역</th>
+                <th>영억 이수 조건</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+
+            </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <br/>
+    <div class="전공과정">
+        <h3 margin="auto">전공과정</h3>
+
+        <table class="전공과정">
+            <thead>
+            <tr>
+                <th>졸업조건</th>
+                <th>필수/선택</th>
+                <th>과정이수조건</th>
+                <th>세부과정</th>
+                <th>하위세부</th>
+                <th>최소이수학점</th>
+                <th>하위영역</th>
+                <th>영억 이수 조건</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
 
 
             </tr>
@@ -188,143 +269,37 @@
 
     <br/>
 
-    <div class="복수전공">
-        <h3>복수전공</h3>
 
-        <table class="복수전공">
+    <div class="특별과정">
+        <h3 margin="특별과정">특별과정</h3>
+
+        <table class="특별과정">
             <thead>
             <tr>
-                <th width="50%">졸업조건 </th>
-                <th>기타 졸업조건</th>
+                <th>졸업조건</th>
+                <th>필수/선택</th>
+                <th>과정이수조건</th>
+                <th>세부과정</th>
+                <th>하위세부</th>
+                <th>최소이수학점</th>
+                <th>하위영역</th>
+                <th>영억 이수 조건</th>
 
 
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>전필 31학점 포함하여 전공 40학점 이상 이수</td>
-                <td>졸업학점 이외의 조건 없음</td>
-            </tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
 
 
-            </tbody>
-        </table>
-    </div>
-
-    <br>
-
-    <div class="부전공">
-        <h3>부전공</h3>
-
-        <table class="부전공">
-            <thead>
-            <tr>
-                <th width="50%">졸업조건</th>
-                <th >기타 졸업조건</th>
-
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>전필 31학점 포함하여 전공 60학점 이상 이수</td>
-                <td>졸업학점 이외의 조건 없음</td>
-
-
-            </tr>
-
-            </tbody>
-        </table>
-    </div>
-
-    <br>
-
-    <div class="편입">
-        <h3>편입</h3>
-
-        <table class="편입">
-            <thead>
-            <tr>
-                <th width="50%">졸업조건</th>
-                <th >기타 졸업조건</th>
-
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1,2 학년 지도과목을 제외하고 전필 27학점을 포함하여 전공 60 학점이상 이수</td>
-                <td>졸업학점 이외의 조건 없음</td>
-
-
-            </tr>
-
-            </tbody>
-        </table>
-    </div>
-</div>
-<br>
-
-
-
-<br>
-
-<h2 >---------------------------------------------------------------------타과학생---------------------------------------------------------------------</h2>
-<div style="text-align:center">
-
-    <br>
-    <div class="전과">
-        <h3>전과</h3>
-
-        <table class="전과">
-            <thead>
-            <tr>
-                <th width="50%">졸업조건</th>
-                <th >기타 졸업조건</th>
-
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>학번에 따라 전공필수 이수<br/>
-                    전과이전 학기의 지도과목은 제외하되, 그만큼의 학점은 전선을 이수하여 전공학점을 채워야함
-                </td>
-                <td rowspan="2" class="block">
-
-                    전공기초과정(이산수학, 대학수학, 정보사회론, 컴퓨터 활용 포함 교양 15학점 이상 이수, 총 교양 47학점 이상),<br/>
-                    전공심화과정(전공 15학점 이상 추가 이수, 총 전공 75학점 이상),<br/>
-                    타과복수전공과정, 타과부전공과정, 연계전공과정, 자기설계과정, 해외창과정 등의 특별과정 중 한 과정 이상 이수
-
-                </td>
-
-
-            </tr>
-
-            </tbody>
-        </table>
-    </div>
-
-    <br/>
-
-    <div class="복수전공">
-        <h3>복수전공</h3>
-
-        <table class="복수전공">
-            <thead>
-            <tr>
-                <th width="50%">졸업조건 </th>
-                <th>기타 졸업조건</th>
-
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    지도 과목 제외하고 전필 24학점 포함하여 전공 40학점 이상 이수(지도 과목은 선택)
-                </td>
-                <td>졸업학점 이외의 조건 없음</td>
             </tr>
 
 
@@ -333,35 +308,6 @@
     </div>
 
     <br/>
-
-    <div class="부전공">
-        <h3>부전공</h3>
-
-        <table class="부전공">
-            <thead>
-            <tr>
-                <th width="50%">졸업조건</th>
-                <th >기타 졸업조건</th>
-
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    전필, 전선 관계없이 21학점 이상 이수
-                </td>
-                <td>졸업학점 이외의 조건 없음</td>
-
-
-            </tr>
-
-            </tbody>
-        </table>
-    </div>
-
-    <br/>
-
 </div>
 
 
