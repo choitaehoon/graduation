@@ -7,8 +7,8 @@
           rel="stylesheet" media="screen">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="${R}res/login.css">
-    <script src="${R}res/login.js"></script>
+    <link rel="stylesheet" href="${R}res/common.css">
+    <script src="${R}res/common.js"></script>
 </head>
 <body>
 
@@ -38,6 +38,30 @@
     </article>
     <div class="half bg"></div>
 </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $('.tabs .tab').click(function(){
+        if ($(this).hasClass('signin')) {
+            $('.tabs .tab').removeClass('active');
+            $(this).addClass('active');
+            $('.cont').hide();
+            $('.signin-cont').show();
+        }
+        if ($(this).hasClass('signup')) {
+            $('.tabs .tab').removeClass('active');
+            $(this).addClass('active');
+            $('.cont').hide();
+            $('.signup-cont').show();
+        }
+    });
+    $('.container .bg').mousemove(function(e){
+        var amountMovedX = (e.pageX * -1 / 30);
+        var amountMovedY = (e.pageY * -1 / 9);
+        $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
+    });
+</script>
+
 
 </body>
 </html>
