@@ -13,30 +13,34 @@
 <body>
 
 <section class="container">
-    <article class="half">
-        <h1>SHKU졸업요건</h1>
-        <div class="tabs">
-            <span class="tab signin active"><a href="#signin">Sign in</a></span>
-            <%--<span class="tab signup"><a href="#signup">Sign up</a></span>--%>
-        </div>
-        <div class="content">
-            <div class="signin-cont cont">
-                <form action="login/main" method="post" enctype="multipart/form-data">
-                    <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
-                    <%--<label for="email">Your email</label>--%>
-                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
-                    <label for="password">Your password</label>
+<article class="half">
+    <h1>SHKU졸업요건</h1>
+    <div class="tabs">
+        <span class="tab signin active"><a href="#">Sign in</a></span>
+        <%--<span class="tab signup"><a href="#signup">Sign up</a></span>--%>
+    </div>
+    <div class="content">
+        <div class="signin-cont cont">
+            <form action="login/main" method="post" enctype="multipart/form-data">
+                <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
+                <%--<label for="email">Your email</label>--%>
+                <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
+                <label for="password">Your password</label>
+
+                <a href="login/signUp" id="remember" class="btn btn-default">
+                    <label for="remember">회원가입</label>
+
                     <%--<input type="checkbox" id="remember" class="checkbox" checked>--%>
                     <%--<label for="remember">Remember me</label>--%>
                     <div class="submit-wrap">
                         <input type="submit" value="Sign in" class="submit">
                         <a href="#" class="more">Forgot your password?</a>
                     </div>
-                </form>
-            </div>
+            </form>
         </div>
-    </article>
-    <div class="half bg"></div>
+    </div>
+</article>
+<div class="half bg" style="background-position: -60px 20px"></div>
 </section>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -56,9 +60,7 @@
         }
     });
     $('.container .bg').mousemove(function(e){
-        var amountMovedX = (e.pageX * -1 / 30);
-        var amountMovedY = (e.pageY * -1 / 9);
-        $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
+        $(this).css('background-position', -60 + 'px ' + 20 + 'px');
     });
 </script>
 
