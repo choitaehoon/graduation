@@ -126,6 +126,15 @@
 
     </style>
 
+    <script>
+        function fnMove(seq){
+            var offset = $("#div" + seq).offset();
+            $('html, body').animate({scrollTop : offset.top}, 400);
+        }
+    </script>
+
+
+
 </head>
 <body>
 
@@ -275,6 +284,8 @@
 <br>
 
 <h2 >---------------------------------------------------------------------타과학생---------------------------------------------------------------------</h2>
+<a href="/login/grdRegister?id=${ students.id }"><span class=" glyphicon glyphicon-ok">등록</a>
+<a href="/login/grdUpdate?id=${ students.id }"><span class=" glyphicon glyphicon-check">수정</a>
 <div style="text-align:center">
 
     <br>
@@ -371,7 +382,8 @@
 <br/>
 
 <h2 >-------------------------------------------------------------------------공통-----------------------------------------------------------------------</h2>
-
+<a href="/login/grdRegister?id=${ students.id }"><span class=" glyphicon glyphicon-ok">등록</a>
+<a href="/login/majorUpdate?id=${ students.id }"><span class=" glyphicon glyphicon-check">수정</a>
 <br/>
 <div style="text-align:center">
     <br/>

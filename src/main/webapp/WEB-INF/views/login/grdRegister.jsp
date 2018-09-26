@@ -25,6 +25,14 @@
     <br/>
     <h1>졸업요건 등록</h1>
     <br/>
+    <label>구분</label>
+    <div class="form-group">
+        <select class="form-control" style="width:15%">
+            <option>소프트웨어공학과</option>
+            <option>타과학생</option>
+        </select>
+
+    </div>
     <label>전공이름</label>
     <div class="form-group">
         <input type="text" style="width: 200px";/>

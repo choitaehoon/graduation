@@ -30,30 +30,22 @@
     <br/>
     <h1>졸업요건 수정</h1>
     <br/>
-    <div class="form-group">
-        <select class="form-control w200" style="width: 20%;">
-            <option>소프트웨어공학과</option>
-            <option>타과</option>
 
-        </select>
-        <select class="form-control w200" style="width: 20%;">
-            <option>주전공</option>
-            <option>부전공</option>
-            <option>복수전공</option>
-
-        </select>
-    </div>
     <label>전공이름</label>
     <div class="form-group">
-        <input type="text" style="width: 200px";/>
+        <input type="text" style="width: 200px" value="주전공"/>
     </div>
     <label>졸업조건</label>
     <div class="form-group">
-        <textArea cols=80 rows=10 ></textArea>
+        <textArea cols=80 rows=10 >[2008~2013학번까지]전필37학점 포함하여 전공 60학점 이상 이수
+                [2014학번부터]전필31학점 포함하여 전공 60학점 이상 이수
+        </textArea>
     </div>
     <label>기타 졸업조건</label>
     <div class="form-group">
-        <textArea cols=80 rows=10 ></textArea>
+        <textArea cols=80 rows=10 >
+        전공기초과정(이산수학, 대학수학, 정보사회론, 컴퓨터 활용 중 2과목 이상을 포함하여 교양 15학점 이상 이수, 총 교양 47학점 이상)전공심화과정(전공 15학점 이상 추가 이수, 총 전공 75학점 이상)<br/>타과수전공과정, 타과부전공과정, 연계전공과정, 자기설계과정, 해외창과정 등의 특별과정 중 한 과정 이상 이수
+        </textArea>
     </div>
 
     <div id="buttons">
