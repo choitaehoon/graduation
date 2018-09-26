@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="header.jsp"%>
-<%@include file="tap.jsp"%>
+<%@include file="/defer/header.jsp"%>
+<%@include file="/defer/tap.jsp"%>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
