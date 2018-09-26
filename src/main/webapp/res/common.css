@@ -27,8 +27,16 @@ body .container .half {
     height: 100%;
     padding: 58px 40px 0;
 }
+
+body .container .full {
+    float: left;
+    width: 70%;
+    height: 100%;
+    padding: 58px 40px 0;
+}
+
 body .container .half.bg {
-    background-image: url("https://github.com/choitaehoon/graduation/blob/master/src/main/webapp/images/%EB%A1%9C%EA%B3%A0.jpeg?raw=true");
+    background-image: url("https://github.com/choitaehoon/graduation/blob/master/src/main/webapp/res/images/logo.jpg?raw=true");
     background-size: 400px;
     background-repeat: no-repeat;
 }

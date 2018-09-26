@@ -15,19 +15,25 @@ public class LoginController
     @Autowired  StudentRepository studentRepository;
     @Autowired  DepartmentRepository departmentRepository;
 
-    @RequestMapping("signUp")
-    public String singUp(Model model,Student student)
-    {
-        model.addAttribute("departments",departmentRepository.findAll());
-        model.addAttribute("student",new Student());
-
-        return "login/signUp";
-    }
+//    @RequestMapping("signUp")
+//    public String singUp(Model model,Student student)
+//    {
+//        model.addAttribute("departments",departmentRepository.findAll());
+//        model.addAttribute("student",new Student());
+//
+//        return "login/signUp";
+//    }
     @RequestMapping("main")
     public String login(Model model, Student student)
     {
         model.addAttribute("students",studentRepository.findById(student.getId()));
         return "login/main";
+    }
+
+    @RequestMapping("signUp")
+    public String signUp()
+    {
+        return "login/signUp";
     }
 
     @RequestMapping("before18")
