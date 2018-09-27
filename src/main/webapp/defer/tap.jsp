@@ -3,14 +3,14 @@
 
     <nav id="menu" class="menu">
         <ul class = "dropdown">
-            <li ><a href="/login/main?id=${students.id}">첫화면</a>
+            <li ><a href="/login/main?id=${member.id}">첫화면</a>
             </li>
             <li ><a href="#Link">졸업요건</a>
                 <ul >
                     <li><a href="#Link">소프트웨어공학과</a>
                         <ul>
-                            <li><a href="/login/before18?id=${ students.id }">18학번 이전</a> </li>
-                            <li><a href="/login/after18?id=${ students.id }">18학번 이후</a> </li>
+                            <li><a href="/login/before18?type=${member.type}&id=${member.id}">18학번 이전</a> </li>
+                            <li><a href="/login/after18?type=${member.type}&id=${member.id}">18학번 이후</a> </li>
                         </ul>
                     </li>
 
