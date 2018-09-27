@@ -47,36 +47,36 @@ public class LoginController
     }
 
     @RequestMapping("before18")
-    public String graduationSoftware(Model model, Student student)
+    public String before18(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
     {
-        model.addAttribute("students",studentRepository.findById(student.getId()));
+        model.addAttribute("member",typeIdentity.typeSearch(type, id));
         return "login/before18";
     }
 
     @RequestMapping("after18")
-    public String after18(Model model, Student student)
+    public String after18(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
     {
-        model.addAttribute("students",studentRepository.findById(student.getId()));
+        model.addAttribute("member",typeIdentity.typeSearch(type, id));
         return "login/after18";
     }
 
     @RequestMapping("grdRegister")
-    public String grdRegister(Model model, Student student)
+    public String grdRegister(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
     {
-        model.addAttribute("students",studentRepository.findById(student.getId()));
+        model.addAttribute("member",typeIdentity.typeSearch(type, id));
         return "login/grdRegister";
     }
     @RequestMapping("grdUpdate")
-    public String grdUpdate(Model model, Student student)
+    public String grdUpdate(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
     {
-        model.addAttribute("students",studentRepository.findById(student.getId()));
+        model.addAttribute("member",typeIdentity.typeSearch(type, id));
         return "login/grdUpdate";
     }
 
     @RequestMapping("majorUpdate")
-    public String majorUpdate(Model model, Student student)
+    public String majorUpdate(Model model,@RequestParam("type") int type, @RequestParam("id") int id)
     {
-        model.addAttribute("students",studentRepository.findById(student.getId()));
+        model.addAttribute("member",typeIdentity.typeSearch(type, id));
         return "login/majorUpdate";
     }
 

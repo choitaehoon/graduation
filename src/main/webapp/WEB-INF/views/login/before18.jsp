@@ -145,8 +145,8 @@
 </div>
 
 <div>
-    <a href="/login/grdRegister?id=${ students.id }"><span class=" glyphicon glyphicon-ok">등록</a>
-    <a href="/login/grdUpdate?id=${ students.id }"><span class=" glyphicon glyphicon-check">수정</a>
+    <a href="/login/grdRegister?type=${member.type}&id=${member.id}"><span class=" glyphicon glyphicon-ok">등록</a>
+    <a href="/login/grdUpdate?type=${member.type}&id=${member.id}"><span class=" glyphicon glyphicon-check">수정</a>
 
 </div>
 
@@ -283,10 +283,11 @@
 
 <br>
 
-<h2 >---------------------------------------------------------------------타과학생---------------------------------------------------------------------</h2>
-<a href="/login/grdRegister?id=${ students.id }"><span class=" glyphicon glyphicon-ok">등록</a>
-<a href="/login/grdUpdate?id=${ students.id }"><span class=" glyphicon glyphicon-check">수정</a>
+
 <div style="text-align:center">
+    <h2 >타과학생</h2>
+    <a href="/login/grdRegister?type=${member.type}&id=${member.id}"><span class=" glyphicon glyphicon-ok">등록</a>
+    <a href="/login/grdUpdate?type=${member.type}&id=${member.id}"><span class=" glyphicon glyphicon-check">수정</a>
 
     <br>
     <div class="전과">
@@ -381,11 +382,13 @@
 
 <br/>
 
-<h2 >-------------------------------------------------------------------------공통-----------------------------------------------------------------------</h2>
-<a href="/login/grdRegister?id=${ students.id }"><span class=" glyphicon glyphicon-ok">등록</a>
-<a href="/login/majorUpdate?id=${ students.id }"><span class=" glyphicon glyphicon-check">수정</a>
-<br/>
+
 <div style="text-align:center">
+
+    <h2 >공통</h2>
+    <a href="/login/grdRegister?type=${member.type}&id=${member.id}"><span class=" glyphicon glyphicon-ok">등록</a>
+    <a href="/login/majorUpdate?type=${member.type}&id=${member.id}"><span class=" glyphicon glyphicon-check">수정</a>
+    <br/>
     <br/>
     <h2 >소프트웨어공학과 전공필수</h2>
     <br/>

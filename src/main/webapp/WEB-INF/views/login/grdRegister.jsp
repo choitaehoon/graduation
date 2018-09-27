@@ -33,13 +33,18 @@
         </select>
 
     </div>
+    <label>적용학번</label>
+    <div class="form-group">
+        <input class="form-control" type="number" style="width: 100px";/>
+    </div>
     <label>전공이름</label>
     <div class="form-group">
-        <input type="text" style="width: 200px";/>
+        <input class="form-control" type="text" style="width: 200px";/>
     </div>
+
     <label>졸업조건</label>
     <div class="form-group">
-        <textArea cols=80 rows=10 ></textArea>
+        <textArea  cols=80 rows=10 ></textArea>
     </div>
     <label>기타 졸업조건:</label>
     <div class="form-group">
