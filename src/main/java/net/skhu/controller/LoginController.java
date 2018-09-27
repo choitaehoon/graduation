@@ -1,12 +1,15 @@
 package net.skhu.controller;
 
+import net.skhu.Service.TypeIdentity;
 import net.skhu.domain.Student;
+import net.skhu.domain.User;
 import net.skhu.repository.DepartmentRepository;
 import net.skhu.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/login")
@@ -14,12 +17,20 @@ public class LoginController
 {
     @Autowired  StudentRepository studentRepository;
     @Autowired  DepartmentRepository departmentRepository;
+    @Autowired TypeIdentity typeIdentity;
 
     @RequestMapping("main")
-    public String login(Model model, Student student)
+    public String login(Model model, User user)
     {
-        model.addAttribute("students",studentRepository.findById(student.getId()));
+        model.addAttribute("member",typeIdentity.distinct(user.getId(), user.getPassword()));
         return "login/main";
+    }
+
+    @RequestMapping("myInfo")
+    public String myInfo(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
+    {
+        model.addAttribute("member",typeIdentity.typeSearch(type, id));
+        return "login/myInfo";
     }
 
     @RequestMapping("member")

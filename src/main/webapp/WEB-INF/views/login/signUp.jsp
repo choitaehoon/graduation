@@ -20,8 +20,8 @@
                 <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
                 <input type="text" name="name" id="name" class="inpt" required="required" placeholder="이름">
                 <%--<label for="email">Your email</label>--%>
-                <input type="password" name="password1" id="password1" class="inpt" required="required" placeholder="비밀번호">
-                <input type="password" name="password2" id="password2" class="inpt" required="required" placeholder="비밀번호 확인">
+                <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
+                <input type="password" name="password1" id="password1" class="inpt" required="required" placeholder="비밀번호 확인">
                 <input type="text" name="email" id="email" class="inpt" required="required" placeholder="이메일">
 
                 <input type="hidden" name="type" value="1">

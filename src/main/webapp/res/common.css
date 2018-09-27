@@ -11,16 +11,18 @@ body {
     background-color: #f8f8f8;
 }
 body .container {
-    position: relative;
-    overflow: hidden;
-    width: 700px;
-    height: 500px;
-    margin: 80px auto 0;
-    background-color: #ffffff;
-    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
-    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
-}
+     position: relative;
+     overflow: hidden;
+     width: 700px;
+     height: 500px;
+     margin: 80px auto 0;
+     background-color: #ffffff;
+     -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+     -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+ }
+
+
 body .container .half {
     float: left;
     width: 50%;

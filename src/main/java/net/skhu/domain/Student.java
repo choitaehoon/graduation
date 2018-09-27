@@ -13,8 +13,8 @@ public class Student
 
     String name;
 
+    String password;
     String password1;
-    String password2;
 
     String email;
 

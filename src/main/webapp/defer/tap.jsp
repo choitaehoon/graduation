@@ -30,7 +30,7 @@
         </ul>
 
         <a href="/login.jsp" class="btn" id="search">로그아웃</a>
-        <a href="#mypage" class="btn" id="search01">마이페이지</a>
-        <h5 style="color: white" id="search02">${students.name}님 환영합니다</h5>
+        <a href="/login/myInfo?type=${member.type}&id=${member.id}" class="btn" id="search01">마이페이지</a>
+        <h5 style="color: white" id="search02">${member.name}님 환영합니다</h5>
 
   </nav>

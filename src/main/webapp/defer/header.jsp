@@ -200,10 +200,11 @@
 
                 .spinner-master input[type=checkbox] { display: none; }
 
+                /**/
                 .menu {
                     width: 100%;
                     height: auto;
-                    background: #088A08;
+                    background: #6cc5af;
                 transition: all 0.3s ease;
                 }
 
@@ -245,22 +246,25 @@
 
                 .menu ul li > a { padding: 15px; }
 
+
+                /**/
                 .menu ul ul {
                     display: none;
                     position: absolute;
                     top: 100%;
                     min-width: 160px;
-                    background: #088A08;
+                    background: #6cc5af;
                 }
 
                 .menu ul li:hover > ul { display: block; }
 
                 .menu ul ul > li { position: relative; }
 
+                /**/
                 .menu ul ul > li a {
                     padding: 10px 15px;
                     height: auto;
-                    background: #088A08;
+                    background: #6cc5af;
                 }
 
                 .menu ul ul > li a:hover {
@@ -366,9 +370,10 @@
                     margin-top: -12px;
                 }
 
+                /**/
                 a.menu-link {
                     display: block;
-                    color: #088A08;
+                    color: #6cc5af;
                     float: left;
                     text-decoration: none;
                     padding: 10px 16px;
@@ -431,8 +436,9 @@
 
                     .menu li.has-submenu > a.active:after { content: "-"; }
 
+                    /**/
                     .menu ul ul > li a {
-                        background-color: #088A08;
+                        background-color: #6cc5af;
                     padding: 10px 18px 10px 30px;
                     }
 
