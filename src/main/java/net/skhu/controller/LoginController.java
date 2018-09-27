@@ -62,6 +62,13 @@ public class LoginController
         return "login/grdUpdate";
     }
 
+    @RequestMapping("majorUpdate")
+    public String majorUpdate(Model model, Student student)
+    {
+        model.addAttribute("students",studentRepository.findById(student.getId()));
+        return "login/majorUpdate";
+    }
+
     @RequestMapping("noticeBoard")
     public String notice(Model model, Student student)
     {

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="header.jsp"%>
-<%@include file="tap.jsp"%>
+<%@include file="/defer/header.jsp"%>
+<%@include file="/defer/tap.jsp"%>
 
 <html>
 <head>
@@ -23,8 +23,8 @@
             padding: 0;
         }
         body {
-#            font: 14px/1.4 Georgia, Serif;
-#        }
+            #            font: 14px/1.4 Georgia, Serif;
+            #        }
         #page-wrap {
             margin: 50px;
         }
@@ -36,7 +36,7 @@
         Generic Styling, for Desktops/Laptops
         */
         table {
-            width: 80%;
+            width: 70%;
             margin:auto;
             border-collapse: collapse;
         }
@@ -53,7 +53,7 @@
         td, th {
             padding: 6px;
             border: 1px solid #ccc;
-#            text-align: left;
+            #            text-align: left;
         }
 
         @media
@@ -67,10 +67,10 @@
 
             /* Hide table headers (but not display: none;, for accessibility) */
             thead tr {
-                  position: absolute;
-                  top: -9999px;
-                  left: -9999px;
-              }
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
 
             tr { border: 1px solid #ccc; }
 
@@ -126,6 +126,15 @@
 
     </style>
 
+    <script>
+        function fnMove(seq){
+            var offset = $("#div" + seq).offset();
+            $('html, body').animate({scrollTop : offset.top}, 400);
+        }
+    </script>
+
+
+
 </head>
 <body>
 
@@ -138,7 +147,6 @@
 <div>
     <a href="/login/grdRegister?id=${ students.id }"><span class=" glyphicon glyphicon-ok">등록</a>
     <a href="/login/grdUpdate?id=${ students.id }"><span class=" glyphicon glyphicon-check">수정</a>
-    <a href="#"><span class=" glyphicon glyphicon-remove">삭제</a>
 
 </div>
 
@@ -155,119 +163,119 @@
     <h2 >소프트웨어공학과 학생</h2>
     <br/>
     <div class="주전공">
-    <h3>주전공</h3>
+        <h3>주전공</h3>
 
-    <table class="주전공">
-        <thead>
-        <tr>
-            <th>졸업조건</th>
-            <th>기타 졸업조건</th>
-
-
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td class="block">[2008~2013학번까지]<br/>
-                전필37학점 포함하여 전공 60학점 이상 이수 </td>
-
-            <td rowspan="2" class="block">
-                전공기초과정<br/> (이산수학, 대학수학, 정보사회론, 컴퓨터 활용 중 2과목 이상을 포함하여 교양 15학점 이상 이수, 총 교양 47학점 이상)<br/>
-                전공심화과정<br/>
-                (전공 15학점 이상 추가 이수, 총 전공 75학점 이상)<br/>
-                타과복수전공과정, 타과부전공과정, 연계전공과정, 자기설계과정, 해외창과정 등의 특별과정 중 한 과정 이상 이수
-            </td>
-        </tr>
-
-        <tr>
-            <td>[2014학번부터]<br/>
-                전필31학점 포함하여 전공 60학점 이상 이수
-            </td>
+        <table class="주전공">
+            <thead>
+            <tr>
+                <th>졸업조건</th>
+                <th>기타 졸업조건</th>
 
 
-        </tr>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="block">[2008~2013학번까지]<br/>
+                    전필37학점 포함하여 전공 60학점 이상 이수 </td>
+
+                <td rowspan="2" class="block">
+                    전공기초과정<br/> (이산수학, 대학수학, 정보사회론, 컴퓨터 활용 중 2과목 이상을 포함하여 교양 15학점 이상 이수, 총 교양 47학점 이상)<br/>
+                    전공심화과정<br/>
+                    (전공 15학점 이상 추가 이수, 총 전공 75학점 이상)<br/>
+                    타과복수전공과정, 타과부전공과정, 연계전공과정, 자기설계과정, 해외창과정 등의 특별과정 중 한 과정 이상 이수
+                </td>
+            </tr>
+
+            <tr>
+                <td>[2014학번부터]<br/>
+                    전필31학점 포함하여 전공 60학점 이상 이수
+                </td>
 
 
-        </tbody>
-    </table>
-</div>
-
-<br/>
-
-<div class="복수전공">
-    <h3>복수전공</h3>
-
-    <table class="복수전공">
-        <thead>
-        <tr>
-            <th width="50%">졸업조건 </th>
-            <th>기타 졸업조건</th>
+            </tr>
 
 
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>전필 31학점 포함하여 전공 40학점 이상 이수</td>
-            <td>졸업학점 이외의 조건 없음</td>
-        </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br/>
+
+    <div class="복수전공">
+        <h3>복수전공</h3>
+
+        <table class="복수전공">
+            <thead>
+            <tr>
+                <th width="50%">졸업조건 </th>
+                <th>기타 졸업조건</th>
 
 
-        </tbody>
-    </table>
-</div>
-
-<br>
-
-<div class="부전공">
-    <h3>부전공</h3>
-
-    <table class="부전공">
-        <thead>
-        <tr>
-            <th width="50%">졸업조건</th>
-            <th >기타 졸업조건</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>전필 31학점 포함하여 전공 40학점 이상 이수</td>
+                <td>졸업학점 이외의 조건 없음</td>
+            </tr>
 
 
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>전필 31학점 포함하여 전공 60학점 이상 이수</td>
-            <td>졸업학점 이외의 조건 없음</td>
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+
+    <div class="부전공">
+        <h3>부전공</h3>
+
+        <table class="부전공">
+            <thead>
+            <tr>
+                <th width="50%">졸업조건</th>
+                <th >기타 졸업조건</th>
 
 
-        </tr>
-
-        </tbody>
-    </table>
-</div>
-
-<br>
-
-<div class="편입">
-    <h3>편입</h3>
-
-    <table class="편입">
-        <thead>
-        <tr>
-            <th width="50%">졸업조건</th>
-            <th >기타 졸업조건</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>전필 31학점 포함하여 전공 60학점 이상 이수</td>
+                <td>졸업학점 이외의 조건 없음</td>
 
 
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>1,2 학년 지도과목을 제외하고 전필 27학점을 포함하여 전공 60 학점이상 이수</td>
-            <td>졸업학점 이외의 조건 없음</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+
+    <div class="편입">
+        <h3>편입</h3>
+
+        <table class="편입">
+            <thead>
+            <tr>
+                <th width="50%">졸업조건</th>
+                <th >기타 졸업조건</th>
 
 
-        </tr>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1,2 학년 지도과목을 제외하고 전필 27학점을 포함하여 전공 60 학점이상 이수</td>
+                <td>졸업학점 이외의 조건 없음</td>
 
-        </tbody>
-    </table>
-</div>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
 </div>
 <br>
 
@@ -276,42 +284,44 @@
 <br>
 
 <h2 >---------------------------------------------------------------------타과학생---------------------------------------------------------------------</h2>
+<a href="/login/grdRegister?id=${ students.id }"><span class=" glyphicon glyphicon-ok">등록</a>
+<a href="/login/grdUpdate?id=${ students.id }"><span class=" glyphicon glyphicon-check">수정</a>
 <div style="text-align:center">
 
     <br>
-<div class="전과">
-    <h3>전과</h3>
+    <div class="전과">
+        <h3>전과</h3>
 
-    <table class="전과">
-        <thead>
-        <tr>
-            <th width="50%">졸업조건</th>
-            <th >기타 졸업조건</th>
-
-
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>학번에 따라 전공필수 이수<br/>
-            전과이전 학기의 지도과목은 제외하되, 그만큼의 학점은 전선을 이수하여 전공학점을 채워야함
-            </td>
-            <td rowspan="2" class="block">
-
-                전공기초과정<br/>
-                (이산수학, 대학수학, 정보사회론, 컴퓨터 활용 포함 교양 15학점 이상 이수, 총 교양 47학점 이상),<br/>
-                전공심화과정<br/>
-                (전공 15학점 이상 추가 이수, 총 전공 75학점 이상),<br/>
-                타과복수전공과정, 타과부전공과정, 연계전공과정, 자기설계과정, 해외창과정 등의 특별과정 중 한 과정 이상 이수
-
-            </td>
+        <table class="전과">
+            <thead>
+            <tr>
+                <th width="50%">졸업조건</th>
+                <th >기타 졸업조건</th>
 
 
-        </tr>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>학번에 따라 전공필수 이수<br/>
+                    전과이전 학기의 지도과목은 제외하되, 그만큼의 학점은 전선을 이수하여 전공학점을 채워야함
+                </td>
+                <td rowspan="2" class="block">
 
-        </tbody>
-    </table>
-</div>
+                    전공기초과정<br/>
+                    (이산수학, 대학수학, 정보사회론, 컴퓨터 활용 포함 교양 15학점 이상 이수, 총 교양 47학점 이상),<br/>
+                    전공심화과정<br/>
+                    (전공 15학점 이상 추가 이수, 총 전공 75학점 이상),<br/>
+                    타과복수전공과정, 타과부전공과정, 연계전공과정, 자기설계과정, 해외창과정 등의 특별과정 중 한 과정 이상 이수
+
+                </td>
+
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
 
     <br/>
 
@@ -372,30 +382,31 @@
 <br/>
 
 <h2 >-------------------------------------------------------------------------공통-----------------------------------------------------------------------</h2>
-
+<a href="/login/grdRegister?id=${ students.id }"><span class=" glyphicon glyphicon-ok">등록</a>
+<a href="/login/majorUpdate?id=${ students.id }"><span class=" glyphicon glyphicon-check">수정</a>
 <br/>
-  <div style="text-align:center">
-      <br/>
-      <h2 >소프트웨어공학과 전공필수</h2>
-      <br/>
-      <table class="전공필수">
-          <thead>
-          <tr>
-              <th>학년</th>
-              <th>학기</th>
-              <th>2008~2013</th>
-              <th>2014~2017</th>
+<div style="text-align:center">
+    <br/>
+    <h2 >소프트웨어공학과 전공필수</h2>
+    <br/>
+    <table class="전공필수">
+        <thead>
+        <tr>
+            <th>학년</th>
+            <th>학기</th>
+            <th>2008~2013</th>
+            <th>2014~2017</th>
 
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-              <td rowspan="2" class="block"> 1</td>
-              <td>1</td>
-              <td> C프로그래밍I(3), 과정지도1(1)</td>
-              <td> C프로그래밍I(3), 과정지도1(1)</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td rowspan="2" class="block"> 1</td>
+            <td>1</td>
+            <td> C프로그래밍I(3), 과정지도1(1)</td>
+            <td> C프로그래밍I(3), 과정지도1(1)</td>
 
-          </tr>
+        </tr>
 
         <tr>
             <td>2</td>
@@ -480,7 +491,7 @@
     </table>
     *2015학번까지 과정지도 6개중 5개만 이수해도 인정함
 
-
+    <br/>
 </div>
 
 </div>

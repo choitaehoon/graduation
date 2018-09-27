@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="header.jsp"%>
-<%@include file="tap.jsp"%>
+<%@include file="/defer/header.jsp"%>
+<%@include file="/defer/tap.jsp"%>
 
 <html>
 <head>
@@ -146,7 +146,7 @@
 <div>
     <a href="/login/grdRegister?id=${ students.id }"><span class=" glyphicon glyphicon-ok">등록</a>
     <a href="/login/grdUpdate?id=${ students.id }"><span class=" glyphicon glyphicon-check">수정</a>
-    <a href="#"><span class=" glyphicon glyphicon-remove">삭제</a>
+
 
 </div>
 
