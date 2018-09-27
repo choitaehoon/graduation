@@ -12,4 +12,5 @@ public interface StudentRepository extends JpaRepository<Student, Integer>
     Student findById(int id);
     Student findByTypeAndId(int type, int id);
     int countByIdAndPassword(int id, String password);
+    List<Student> findAll();
 }

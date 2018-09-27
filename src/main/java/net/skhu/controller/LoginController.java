@@ -33,6 +33,17 @@ public class LoginController
         return "login/myInfo";
     }
 
+    /*
+    * 학생 관리
+    */
+    @RequestMapping("administration")
+    public String administration(Model model, @RequestParam("type") int type ,@RequestParam("id") int id)
+    {
+        model.addAttribute("member",typeIdentity.typeSearch(type, id));
+        model.addAttribute("student",studentRepository.findAll());
+        return "login/administration";
+    }
+
     @RequestMapping("member")
     public String member(Student student)
     {

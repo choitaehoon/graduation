@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
     <nav id="menu" class="menu">
         <ul class = "dropdown">
@@ -26,6 +27,11 @@
             </li>
             <li ><a href="/login/question?id=${students.id}">Q&A</a>
             </li>
+
+            <c:if test="${member.type == 0}">
+            <li ><a href="administration?type=${member.type}&id=${member.id}">학생관리</a>
+            </li>
+            </c:if>
 
         </ul>
 

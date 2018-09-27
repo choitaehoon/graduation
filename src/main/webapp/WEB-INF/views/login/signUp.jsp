@@ -23,7 +23,6 @@
                 <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
                 <input type="password" name="password1" id="password1" class="inpt" required="required" placeholder="비밀번호 확인">
                 <input type="text" name="email" id="email" class="inpt" required="required" placeholder="이메일">
-
                 <input type="hidden" name="type" value="1">
                 <button type="submit" class="btn btn-default">가입하기</button>
                 <a href="../login.jsp" class="btn btn-default">목록으로 가기</a>
