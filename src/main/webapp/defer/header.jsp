@@ -82,7 +82,7 @@
 
                 html {
                     font-family: sans-serif;
-#                    color: #4b5f65;
+                    color: #4b5f65;
                     background: #f5f7fa;
                 }
 
@@ -203,7 +203,7 @@
                 .menu {
                     width: 100%;
                     height: auto;
-                    background: #2f3b3f;
+                    background: #088A08;
                 transition: all 0.3s ease;
                 }
 
@@ -250,7 +250,7 @@
                     position: absolute;
                     top: 100%;
                     min-width: 160px;
-                    background: #39484d;
+                    background: #088A08;
                 }
 
                 .menu ul li:hover > ul { display: block; }
@@ -260,7 +260,7 @@
                 .menu ul ul > li a {
                     padding: 10px 15px;
                     height: auto;
-                    background: #39484d;
+                    background: #088A08;
                 }
 
                 .menu ul ul > li a:hover {
@@ -368,7 +368,7 @@
 
                 a.menu-link {
                     display: block;
-                    color: #fff;
+                    color: #088A08;
                     float: left;
                     text-decoration: none;
                     padding: 10px 16px;
@@ -394,7 +394,7 @@
                 .menu > ul ul {
                         overflow: hidden;
                         max-height: 0;
-                        background-color: #39484d;
+                            #B404AE;
                     }
 
                     .menu > li > ul.sub-menu {
@@ -432,7 +432,7 @@
                     .menu li.has-submenu > a.active:after { content: "-"; }
 
                     .menu ul ul > li a {
-                        background-color: #39484d;
+                        background-color: #088A08;
                     padding: 10px 18px 10px 30px;
                     }
 
