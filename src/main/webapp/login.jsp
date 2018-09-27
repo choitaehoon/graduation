@@ -23,9 +23,7 @@
         <div class="signin-cont cont">
             <form action="login/main" method="post" enctype="multipart/form-data">
                 <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
-                <%--<label for="email">Your email</label>--%>
                 <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
-                <label for="password">Your password</label>
 
                 <a href="login/signUp" id="remember" class="btn btn-default">
                     <label for="remember">회원가입</label>

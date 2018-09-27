@@ -9,13 +9,19 @@ import javax.persistence.*;
 public class Student
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
     String name;
 
-    String password;
+    String password1;
+    String password2;
 
+    String email;
+
+    int type;
+
+
+    @Transient
     @ManyToOne
     @JoinColumn(name="departmentId")
     Department department;

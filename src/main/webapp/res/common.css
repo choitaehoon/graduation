@@ -32,7 +32,8 @@ body .container .full {
     float: left;
     width: 70%;
     height: 100%;
-    padding: 58px 40px 0;
+    padding: 58px 70px 0;
+    padding-top: 20px;
 }
 
 body .container .half.bg {
@@ -109,8 +110,9 @@ body .container .content label {
     user-select: none;
 }
 body .container .content label:not([for='remember']) {
-    display: none;
+    display: block;
 }
+
 body .container .content input.inpt {
     font-size: 14px;
     display: block;
