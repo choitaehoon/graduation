@@ -11,8 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class Manager
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
     String name;

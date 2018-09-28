@@ -12,6 +12,7 @@ import javax.persistence.Id;
 public class Department
 {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
     String name;

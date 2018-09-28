@@ -12,9 +12,8 @@ import javax.persistence.Id;
 public class Professor
 {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
     String name;
-    int type;
-    String email;
 }
