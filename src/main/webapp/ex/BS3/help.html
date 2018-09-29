@@ -34,40 +34,48 @@
 <body>
 
 <div class="wrapper">
-		<div class="sidebar" data-color="azure"
-			data-image="assets/img/logo.jpg">
+    <div class="sidebar" data-color="azure" data-image="assets/img/logo.jpg">
 
-			<!--
+    <!--
 
         Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
         Tip 2: you can also add an image using data-image tag
 
     -->
 
-			<div class="sidebar-wrapper">
-				<div class="logo">
-					<a href="http://www.creative-tim.com" class="simple-text"> SKHU
-						졸업관리 </a>
-				</div>
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text">
+                    SKHU 졸업관리
+                </a>
+            </div>
 
-				<ul class="nav">
-					<li class="active"><a href="dashboardManager.html"> <i
-							class="pe-7s-graph"></i>
-							<p>메인 페이지</p>
-					</a></li>
-					<li><a href="myinfo.html"> <i class="pe-7s-user"></i>
-							<p>나의 정보</p>
-					</a></li>
-					<li>
+            <ul class="nav">
+                <li class="active">
+                    <a href="dashboardManager.html">
+                        <i class="pe-7s-graph"></i>
+                        <p>메인 페이지</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="myinfo.html">
+                        <i class="pe-7s-user"></i>
+                        <p>나의 정보</p>
+                    </a>
+                </li>
+                 <li>
 					<a href="graduationinfo.html"> <i class="pe-7s-bell"></i>
 							<p>졸업관리</p></a>
-							
+				
 						<ul class="dropdown-menu">
 							<li><a href="#Link">소프트웨어공학과</a>
+					
 								<ul>
 									<li><a href="before18.html">18학번 이전</a></li>
 									<li><a href="after18.html">18학번 이후</a></li>
+									<li><a href="before18.html">전공인정규칙</a></li>
 								</ul>
+					
 							</li>
 
 							<li><a href="#Link">컴퓨터공학과</a></li>
@@ -75,76 +83,103 @@
 							<li><a href="#Link">디지털컨텐츠학과</a></li>
 						
 						</ul>
+			
                     </li>
-					<li><a href="notice.html"> <i class="pe-7s-note2"></i>
-							<p>공지사항</p>
-					</a></li>
-					<li><a href="q&a.html"> <i class="pe-7s-smile"></i>
-							<p>Q&A</p>
-					</a></li>
-					<li><a href="help.html"> <i class="pe-7s-news-paper"></i>
-							<p>도움말</p>
-					</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="main-panel">
-			<nav class="navbar navbar-default navbar-fixed">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse"
-							data-target="#navigation-example-2">
-							<span class="sr-only">Toggle navigation</span> <span
-								class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="#">홍길동</a>
-					</div>
-					<div class="collapse navbar-collapse">
-						<ul class="nav navbar-nav navbar-left">
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown"> <i class="fa fa-envelope"></i> <b
-									class="caret hidden-lg hidden-md"></b>
+                    <li>
+                    <a href="studentManager.html">
+                        <i class="pe-7s-notebook"></i>
+                        <p>학생관리</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notice.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>공지사항</p>
+                    </a>
+                </li>
+                 <li>
+                    <a href="q&a.html">
+                      <i class="pe-7s-smile"></i>
+                        <p>Q&A</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="help.html">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>도움말</p>
+                    </a>
+                </li>
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">관리자</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-envelope"></i>
+                                    <b class="caret hidden-lg hidden-md"></b>
 									<p class="hidden-lg hidden-md">
-										4 Notifications <b class="caret"></b>
+										4 Notifications
+										<b class="caret"></b>
 									</p>
-							</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">소프웨어공학과 대체 과목 공지</a></li>
-									<li><a href="#">소프웨어공학과 수강 변경 공지</a></li>
-									<li><a href="#">컴퓨터공학과 공지</a></li>
-									<li><a href="#">컴퓨터공학과 수강 변경 공지</a></li>
-								</ul></li>
-							<li><a href=""> <i class="fa fa-cog"></i>
-									<p class="hidden-lg hidden-md">Setting</p>
-							</a></li>
-						</ul>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">소프웨어공학과 대체 과목 공지</a></li>
+                                <li><a href="#">소프웨어공학과 수강 변경 공지</a></li>
+                                <li><a href="#">컴퓨터공학과 공지</a></li>
+                                <li><a href="#">컴퓨터공학과 수강 변경 공지</a></li>
+                              </ul>
+                        </li>
+                         <li>
+                           <a href="">
+                                <i class="fa fa-cog"></i>
+								<p class="hidden-lg hidden-md">Setting</p>
+                            </a>
+                        </li>
+                    </ul>
 
-						<ul class="nav navbar-nav navbar-right">
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">
-									<p>
-										Dropdown <b class="caret"></b>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <p>
+										Dropdown
+										<b class="caret"></b>
 									</p>
 
-							</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Action</a></li>
-									<li><a href="#">Another action</a></li>
-									<li><a href="#">Something</a></li>
-									<li><a href="#">Another action</a></li>
-									<li><a href="#">Something</a></li>
-									<li class="divider"></li>
-									<li><a href="#">Separated link</a></li>
-								</ul></li>
-							<li><a href="#">
-									<p>로그아웃</p>
-							</a></li>
-							<li class="separator hidden-lg"></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                              </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p>Log out</p>
+                            </a>
+                        </li>
+						<li class="separator hidden-lg"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -155,6 +190,29 @@
                                 <p class="category">졸업 관리 홈페이지 사용법</p>
                             </div>
                           
+                          <div class="wrapper">
+	<div id="three-column" class="container">
+		<div id="tbox1">
+			<div class="title">
+				<h2>졸업 관리란?</h2>
+			</div>
+			<p>복잡한 졸업에 필요한 여러 부수적인 것을 보다 보기 쉽게 만든 페이지 입니다.</p>
+			<a href="#" class="button">Learn More</a> </div>
+		<div id="tbox2">
+			<div class="title">
+				<h2></h2>
+			</div>
+			<p>Proin eu wisi suscipit nulla suscipit interdum. Nullam non wisi a sem semper suscipit eleifend. Donec mattis libero eget urna. Duis  velit ac mauris.</p>
+			<a href="#" class="button">Learn More</a> </div>
+		<div id="tbox3">
+			<div class="title">
+				<h2>Praesent mauris</h2>
+			</div>
+			<p>Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit interdum. Nullam non wisi a sem suscipit  eleifend.</p>
+			<a href="#" class="button">Learn More</a> </div>
+	</div>
+	
+</div>
                         </div>
                     </div>
 

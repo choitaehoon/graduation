@@ -36,7 +36,6 @@
 	rel='stylesheet' type='text/css'>
 <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
-
 <link
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" media="screen">
@@ -47,8 +46,6 @@
 }
 </style>
 </head>
-
-
 <body>
 
 	<div class="wrapper">
@@ -76,23 +73,29 @@
 					<li><a href="myinfo.html"> <i class="pe-7s-user"></i>
 							<p>나의 정보</p>
 					</a></li>
-					<li><a href="graduationinfo.html"> <i class="pe-7s-bell"></i>
+					<li>
+					<a href="graduationinfo.html"> <i class="pe-7s-bell"></i>
 							<p>졸업관리</p></a>
-
-						<ul>
+				
+						<ul class="dropdown-menu">
 							<li><a href="#Link">소프트웨어공학과</a>
+					
 								<ul>
 									<li><a href="before18.html">18학번 이전</a></li>
 									<li><a href="after18.html">18학번 이후</a></li>
 									<li><a href="before18.html">전공인정규칙</a></li>
-								</ul></li>
+								</ul>
+					
+							</li>
 
 							<li><a href="#Link">컴퓨터공학과</a></li>
 							<li><a href="#Link">정보통신학과</a></li>
 							<li><a href="#Link">디지털컨텐츠학과</a></li>
-
-						</ul></li>
-						<li>
+						
+						</ul>
+			
+                    </li>
+                    <li>
                     <a href="studentManager.html">
                         <i class="pe-7s-notebook"></i>
                         <p>학생관리</p>
@@ -174,53 +177,46 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="header">
-									<h4 class="title">졸업 관리</h4>
-									<p class="category">졸업요건 등록</p>
-
+									<h4 class="title">대체 과목 관리</h4>
+									
 
 									<div id="content">
 										<br />
-										<h1>졸업요건 등록</h1>
-										<br /> <label>구분</label>
+										<h1>대체 과목 수정</h1>
+										<br /> <label>제목</label>
 										<div class="form-group">
-											<select class="form-control" style="width: 20%">
-												<option>소프트웨어공학과</option>
-												<option>타과학생</option>
-											</select>
+											<input type="text" style="width: 300px" value="[소프트웨어공학과] 데이터베이스 개론 수업 관련" />
+										</div>
+										<label>내 용</label>
+										<div class="form-group">
+											<textArea cols=100 rows=18>
+											
 
-										</div>
-										<label>적용학번</label>
-										<div class="form-group">
-											<input class="form-control" type="number"
-												style="width: 100px" ;/>
-										</div>
-										<label>전공이름</label>
-										<div class="form-group">
-											<input class="form-control" type="text" style="width: 200px" ;/>
+											
+											</textArea>
 										</div>
 
-										<label>졸업조건</label>
-										<div class="form-group">
-											<textArea cols=80 rows=10></textArea>
+										<div>
+										<form>
+										파일 첨부  <input type="file"> * 2MB까지 가능
+										</form>
 										</div>
-										<label>기타 졸업조건:</label>
-										<div class="form-group">
-											<textArea cols=80 rows=10></textArea>
-										</div>
-
+										
 										<div id="buttons">
 											<a class="btn btn-primary"> <i
 												class="glyphicon glyphicon-ok"></i> 저장
-											</a> <a class="btn btn-default"> <i
-												class="glyphicon glyphicon-list"></i> 목록으로
+											</a> <a class="btn btn-danger" href="#"><i
+												class=" glyphicon glyphicon-remove"></i> 삭제</a> <a href="#"
+												class="btn btn-default"> <i
+												class="glyphicon glyphicon-list"></i> 대체 과목 페이지로 
 											</a>
 
 										</div>
 
 									</div>
+
+
 								</div>
-
-
 							</div>
 						</div>
 
