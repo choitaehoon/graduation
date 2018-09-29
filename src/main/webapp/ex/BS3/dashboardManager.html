@@ -90,7 +90,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="help.html">
+                    <a href="message.html">
                         <i class="pe-7s-news-paper"></i>
                         <p>도움말</p>
                     </a>
@@ -122,10 +122,9 @@
 									</p>
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="#">소프웨어공학과 대체 과목 공지</a></li>
-                                <li><a href="#">소프웨어공학과 수강 변경 공지</a></li>
-                                <li><a href="#">컴퓨터공학과 공지</a></li>
-                                <li><a href="#">컴퓨터공학과 수강 변경 공지</a></li>
+                                <li><a href="sendMessage">쪽지보내기</a></li>
+                                <li><a href="message.html">받은 쪽지함</a></li>
+                                <li><a href="message2.html">보낸 쪽지함</a></li>
                               </ul>
                         </li>
                          <li>
@@ -471,9 +470,8 @@
         	demo.initChartist();
 
         	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
+            	icon: 'pe-7s-mail',
+            	message: "읽지 않은 쪽지가 1통있습니다."
             },{
                 type: 'info',
                 timer: 4000
