@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/defer/header.jsp" %>
 <html>
 <head>
 
@@ -171,5 +170,4 @@
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="${R}assets/js/demo.js"></script>
-
 </html>

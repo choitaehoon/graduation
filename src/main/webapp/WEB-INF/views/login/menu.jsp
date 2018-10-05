@@ -42,7 +42,7 @@
 
            <ul class="nav">
                <li class="active">
-                    <a href="/login/main?id=${member.id}">
+                    <a href="/login/main?type=${member.type}&id=${member.id}">
                         <i class="pe-7s-graph"></i>
                         <p>메인 페이지</p>
                     </a>
@@ -53,43 +53,58 @@
                         <p>나의 정보</p>
                     </a>
                 </li>
-                <li>
-                    <a href="graduationinfo.html"> <i class="pe-7s-bell"></i>
-                        <p>졸업관리</p></a>
+               <li>
+                   <a href="/login/graduationInfo?type=${member.type}&id=${member.id}"> <i class="pe-7s-bell"></i>
+                       <p>졸업관리</p></a>
 
-                    <ul class="dropdown-menu">
-                        <li><a href="#Link">소프트웨어공학과</a>
+                   <ul>
+                       <li><a href="#Link">소프트웨어공학과</a>
 
-                            <ul>
-                                <li><a href="before18.html">18학번 이전</a></li>
-                                <li><a href="after18.html">18학번 이후</a></li>
-                                <li><a href="before18.html">전공인정규칙</a></li>
-                            </ul>
+                           <ul >
+                               <li><a href="/login/before18?type=${member.type}&id=${member.id}">18학번 이전</a></li>
+                               <li><a href="/login/after18?type=${member.type}&id=${member.id}">18학번 이후</a></li>
+                               <li><a href="#">전공인정규칙</a></li>
+                           </ul>
 
-                        </li>
+                       </li>
 
-                        <li><a href="#Link">컴퓨터공학과</a></li>
-                        <li><a href="#Link">정보통신학과</a></li>
-                        <li><a href="#Link">디지털컨텐츠학과</a></li>
 
-                    </ul>
+                       <li><a href="#Link">컴퓨터공학과</a></li>
+                       <li><a href="#Link">정보통신학과</a></li>
+                       <li><a href="#Link">디지털컨텐츠학과</a></li>
+                   </ul>
 
-                </li>
-                <li>
-                    <a href="studentManager.html">
-                        <i class="pe-7s-notebook"></i>
-                        <p>학생관리</p>
-                    </a>
-                </li>
+               </li>
+               <li>
 
-                <li>
-                    <a href="noticeManager.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>공지사항</p>
-                    </a>
+               <li>
+                   <a href="studentManager.html">
+                       <i class="pe-7s-notebook"></i>
+                       <p>학생관리</p>
+                   </a>
+               </li>
 
-                </li>
-                <li>
+
+               <li>
+                   <a href="noticeManager.html">
+                       <i class="pe-7s-note2"></i>
+                       <p>공지사항</p>
+                   </a>
+                   <ul >
+                       <li><a href="noticeManager.html">일반 공지</a></li>
+                       <li><a href="replaceSubject.html">대체 과목 관리</a></li>
+
+                   </ul>
+               </li>
+
+               <li>
+                   <a href="q&a.html">
+                       <i class="pe-7s-smile"></i>
+                       <p>Q&A</p>
+                   </a>
+               </li>
+
+               <li>
                     <a href="message.html">
                         <i class="pe-7s-news-paper"></i>
                         <p>도움말</p>

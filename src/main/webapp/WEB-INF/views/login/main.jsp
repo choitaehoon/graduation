@@ -1,7 +1,4 @@
-<%@include file="/defer/header.jsp"%>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html>
 <head>
     <title>Skhu졸업요건</title>
@@ -307,6 +304,7 @@
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="${R}assets/js/demo.js"></script>
+
 
 <script type="text/javascript">
     $(document).ready(function(){
