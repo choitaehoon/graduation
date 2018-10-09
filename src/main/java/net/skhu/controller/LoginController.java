@@ -27,10 +27,10 @@ public class LoginController
     }
 
     @RequestMapping("myInfo")
-    public String myInfo(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
-    {
-        model.addAttribute("member",typeIdentity.typeSearch(type, id));
-        return "login/myInfo";
+        public String myInfo(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
+        {
+            model.addAttribute("member",typeIdentity.typeSearch(type, id));
+            return "login/myInfo";
     }
 
     /*
