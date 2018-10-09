@@ -57,6 +57,14 @@ public class LoginController
         return "login/signUp";
     }
 
+
+    @RequestMapping("graduationInfo")
+    public String graduationInfo(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
+    {
+        model.addAttribute("member",typeIdentity.typeSearch(type, id));
+        return "login/graduationInfo";
+    }
+
     @RequestMapping("before18")
     public String before18(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
     {
