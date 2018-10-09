@@ -22,8 +22,8 @@
             padding: 0;
         }
         body {
-            #            font: 14px/1.4 Georgia, Serif;
-            #        }
+                        font: 14px/1.4 Georgia, Serif;
+                    }
         #page-wrap {
             margin: 50px;
         }
@@ -52,7 +52,7 @@
         td, th {
             padding: 6px;
             border: 1px solid #ccc;
-            #            text-align: left;
+                        text-align: left;
         }
 
         @media

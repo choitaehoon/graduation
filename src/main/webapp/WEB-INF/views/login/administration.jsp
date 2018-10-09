@@ -15,23 +15,27 @@
  <div class="container">
      <div class="block">
          <h3>학생 관리</h3>
-         <table class="table table-striped">
+         <table class="table table-striped" style="width:150%; max-width:150%; margin-bottom:20px;">
              <thead>
              <tr>
                  <th>학번</th>
                  <th>이름</th>
                  <th>이메일</th>
+                 <th>학과</th>
+                 <th>권한</th>
              </tr>
              </thead>
+
              <tbody>
              <c:forEach var="student" items="${ student }">
                  <tr>
                      <td>${ student.id }</td>
                      <td>${ student.name }</td>
                      <td>${ student.email }</td>
+                     <td>소프트웨어공학과</td>
+                     <td><button class="btn btn-primary">수정</button><button class="btn btn-danger">삭제</button></td>
                  </tr>
              </c:forEach>
-
              </tbody>
          </table>
      </div>
