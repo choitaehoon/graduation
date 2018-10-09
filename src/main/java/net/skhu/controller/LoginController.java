@@ -19,31 +19,6 @@ public class LoginController
     @Autowired  DepartmentRepository departmentRepository;
     @Autowired TypeIdentity typeIdentity;
 
-    @RequestMapping("main")
-    public String login(Model model, User user)
-    {
-        model.addAttribute("member",typeIdentity.distinct(user.getId(), user.getPassword()));
-        return "login/main";
-    }
-
-    @RequestMapping("myInfo")
-        public String myInfo(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
-        {
-            model.addAttribute("member",typeIdentity.typeSearch(type, id));
-            return "login/myInfo";
-    }
-
-    /*
-    * 학생 관리
-    */
-    @RequestMapping("administration")
-    public String administration(Model model, @RequestParam("type") int type ,@RequestParam("id") int id)
-    {
-        model.addAttribute("member",typeIdentity.typeSearch(type, id));
-        model.addAttribute("student",studentRepository.findAll());
-        return "login/administration";
-    }
-
     @RequestMapping("member")
     public String member(Student student)
     {
@@ -56,6 +31,45 @@ public class LoginController
     {
         return "login/signUp";
     }
+
+    @RequestMapping("main")
+    public String login(Model model, User user)
+    {
+        model.addAttribute("member",typeIdentity.distinct(user.getId(), user.getPassword()));
+        return "login/main";
+    }
+
+    /*
+    마이페이지
+     */
+    @RequestMapping("myInfo")
+        public String myInfo(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
+        {
+            model.addAttribute("member",typeIdentity.typeSearch(type, id));
+            return "login/myInfo";
+    }
+
+    /*
+    * 학생 관리
+    */
+    @RequestMapping("studentManager")
+    public String studentManager(Model model, @RequestParam("type") int type ,@RequestParam("id") int id)
+    {
+        model.addAttribute("member",typeIdentity.typeSearch(type, id));
+        model.addAttribute("student",studentRepository.findAll());
+        return "login/studentManager";
+    }
+    /*
+     * 학생 수정
+     */
+    @RequestMapping("manager_stu_info")
+    public String manager_stu_info(Model model, @RequestParam("type") int type ,@RequestParam("id") int id)
+    {
+        model.addAttribute("member",typeIdentity.typeSearch(type, id));
+        return "login/manager_stu_info";
+    }
+
+
 
 
     @RequestMapping("graduationInfo")
