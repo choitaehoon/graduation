@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
@@ -274,4 +273,3 @@
 <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
-</html>
