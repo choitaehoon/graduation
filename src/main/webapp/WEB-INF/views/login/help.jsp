@@ -1,141 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="menu.jsp"%>
-<c:url var="R" value="/" />
+
 <html>
 <head>
-    <meta charset='UTF-8'>
-
-    <title>Responsive Table</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style/style.css"/>
-
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          rel="stylesheet" media="screen">
-
-    <style>
-
-
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            #            font: 14px/1.4 Georgia, Serif;
-            #        }
-        #page-wrap {
-            margin: 50px;
-        }
-        p {
-            margin: 20px 0;
-        }
-
-        /*
-        Generic Styling, for Desktops/Laptops
-        */
-        table {
-            width: 70%;
-            margin:auto;
-            border-collapse: collapse;
-        }
-        /* Zebra striping */
-        tr:nth-of-type(odd) {
-            background: #eee;
-        }
-        th {
-            background: #333;
-            color: white;
-            font-weight: bold;
-            text-align: center;
-        }
-        td, th {
-            padding: 6px;
-            border: 1px solid #ccc;
-            #            text-align: left;
-        }
-
-        @media
-        only screen and (max-width: 760px),
-        (min-device-width: 768px) and (max-device-width: 1024px)  {
-
-            /* Force table to not be like tables anymore */
-            table, thead, tbody, th, td, tr {
-                display: block;
-            }
-
-            /* Hide table headers (but not display: none;, for accessibility) */
-            thead tr {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
-            }
-
-            tr { border: 1px solid #ccc; }
-
-            td.block
-            {
-                border: 1px solid black;
-            }
-            td {
-                /* Behave  like a "row" */
-                border: none;
-                border-bottom: 1px solid #eee;
-                position: relative;
-                padding-left: 50%;
-            }
-
-            td:before {
-                /* Now like a table header */
-                position: absolute;
-                /* Top/left values mimic padding */
-                top: 6px;
-                left: 6px;
-                width: 45%;
-                padding-right: 10px;
-                white-space: nowrap;
-            }
-
-            /*
-            Label the data
-            */
-            td:nth-of-type(1):before { content: "졸업조건"; }
-            td:nth-of-type(2):before { content: "기타졸업조건"; }
-
-        }
-
-        /* Smartphones (portrait and landscape) ----------- */
-        @media only screen
-        and (min-device-width : 320px)
-        and (max-device-width : 480px) {
-            body {
-                padding: 0;
-                margin: 0;
-                width: 320px; }
-        }
-
-        /* iPads (portrait and landscape) ----------- */
-        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-            body {
-                width: 495px;
-            }
-        }
-
-
-
-    </style>
-
-    <script>
-        function fnMove(seq){
-            var offset = $("#div" + seq).offset();
-            $('html, body').animate({scrollTop : offset.top}, 400);
-        }
-    </script>
-
-
 
 </head>
+<body>
 <div class="wrapper">
+    <%@include file="menu.jsp"%>
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -189,26 +60,37 @@
                 </div>
 
 
-                </body>
+                <footer class="footer">
+                    <div class="container-fluid">
+
+                        <p class="copyright pull-right">
+                            &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        </p>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+
+
+</body>
 
 <!--   Core JS Files   -->
-<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${R}assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="${R}assets/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!--  Charts Plugin -->
-<script src="assets/js/chartist.min.js"></script>
+<script src="${R}assets/js/chartist.min.js"></script>
 
 <!--  Notifications Plugin    -->
-<script src="assets/js/bootstrap-notify.js"></script>
+<script src="${R}assets/js/bootstrap-notify.js"></script>
 
 <!--  Google Maps Plugin    -->
-<script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+<script src="${R}assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="assets/js/demo.js"></script>
-
+<script src="${R}assets/js/demo.js"></script>
 </html>
