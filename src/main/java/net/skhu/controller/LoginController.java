@@ -108,4 +108,22 @@ public class LoginController {
         model.addAttribute("member", typeIdentity.typeSearch(type, id));
         return "login/help";
     }
+
+    @RequestMapping("q&a")
+    public String qna(Model model, @RequestParam("type") int type, @RequestParam("id") int id) {
+        model.addAttribute("member", typeIdentity.typeSearch(type, id));
+        return "login/q&a";
+    }
+
+    @RequestMapping("notice")
+    public String notice(Model model, @RequestParam("type") int type, @RequestParam("id") int id) {
+        model.addAttribute("member", typeIdentity.typeSearch(type, id));
+        return "login/notice";
+    }
+
+    @RequestMapping("noticeReplace")
+    public String noticeReplace(Model model, @RequestParam("type") int type, @RequestParam("id") int id) {
+        model.addAttribute("member", typeIdentity.typeSearch(type, id));
+        return "login/noticeReplace";
+    }
 }
