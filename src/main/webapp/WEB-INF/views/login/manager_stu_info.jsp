@@ -53,136 +53,124 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">학생 조회</h4>
-                            <p class="category">학생조회세부</p>
-                            <div>
-                            <table id="hor-minimalist-a" summary="Employee Pay Sheet">
-                                <thead>
-                                <tr>
-                                    <th scope="col">이름</th>
-                                    <th scope="col">학과</th>
-                                    <th scope="col">학번</th>
-                                    <th scope="col">학기</th>
-                                    <th scope="col">전화번호</th>
-                                    <th scope="col">이메일</th>
-                                </tr>
-                                </thead>
+                            <h4 class="title">학생 졸업 관리</h4>
+                            <br><br><br>
+                            <table class="table table-condensed">
                                 <tbody>
                                 <tr>
-                                    <td>김모씨</td>
-                                    <td>소프트웨어공학과</td>
-                                    <td>201432000</td>
-                                    <td>6</td>
-                                    <td>010-1111-2222</td>
-                                    <td>aaa@naver.com</td>
+                                    <td>이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;김모씨</td>
+                                    <td>학과&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;소프트웨어공학과</td>
                                 </tr>
-
+                                <tr>
+                                    <td>학번&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;201432000</td>
+                                    <td>이메일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aaa@naver.com</td>
+                                </tr>
+                                <tr>
+                                    <td>학기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6</td>
+                                    <td style="color:red;">이수 학점&nbsp;&nbsp;130/110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 학점:4.5/4&nbsp;&nbsp;&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>교수님 코멘트&nbsp;&nbsp;&nbsp;</td>
+                                    <td>전필을빨리채우고 계절학기 수강하세요.</td>
+                                </tr>
                                 </tbody>
                             </table>
-                            </div>
-                            <br>
-                            <br>
+                            <p class="category">
+                                <select>
+                                    <option>전공필수</option>
+                                    <option>이수학기별</option>
+                                    <option>교양필수</option>
+                                    <option>학점f조회</option>
+                                    <option>전필 미수강조회</option>
+                                    <option>교필 미수강조회</option>
+                                    <option>기타과정 조회</option>
+                                </select>
+                                <input type="text">
+                                <a href="studentLack.html"> <button type="submit" class="btn btn-primary">조회</button></a>
 
 
-                            <h4>수강한 과목</h4>
-                            <br>
-                            <h5>전체 취득학점 93.0 전체 평점 3.77 백분율 92.7</h5>
-                            <div>
-                            <table id="hor-minimalist-a" summary="Employee Pay Sheet">
-
+                            <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                 <thead>
                                 <tr>
-                                    <th scope="col">년도</th>
-                                    <th scope="col">학기</th>
-                                    <th scope="col">과목코드</th>
-                                    <th scope="col">과목명</th>
-                                    <th scope="col">이수구분</th>
-                                    <th scope="col">학점</th>
-                                    <th scope="col">성적</th>
-
+                                    <th>년도</th>
+                                    <th>학기</th>
+                                    <th>과목코드</th>
+                                    <th>과목명</th>
+                                    <th>이수구분</th>
+                                    <th>학점</th>
+                                    <th>성적등급</th>
                                 </tr>
                                 </thead>
-                                <tbody>
 
+                                <tbody>
                                 <tr>
-                                    <td>2017</td>
+                                    <td>2014</td>
                                     <td>1학기</td>
-                                    <td>AC00004</td>
-                                    <td>영어I</td>
-                                    <td>교선</td>
-                                    <td>3</td>
-                                    <td>BO</td>
+                                    <td>AC00001</td>
+                                    <td>채플(시네마채플)</td>
+                                    <td>교필</td>
+                                    <td>0.0</td>
+                                    <td>p</td>
                                 </tr>
                                 <tr>
-                                    <td>2017</td>
+                                    <td>2014</td>
+                                    <td>1학기</td>
+                                    <td>AC00011</td>
+                                    <td>인문학의 세계-느티아래 강좌</td>
+                                    <td>교필</td>
+                                    <td>3.0</td>
+                                    <td>p</td>
+                                </tr>
+                                <tr>
+                                    <td>2014</td>
+                                    <td>1학기</td>
+                                    <td>AE00009</td>
+                                    <td>삶과 교육</td>
+                                    <td>교선</td>
+                                    <td>3.0</td>
+                                    <td>p</td>
+                                </tr>
+                                <tr style="color:red">
+                                    <td>2014</td>
+                                    <td>1학기</td>
+                                    <td>AE00012</td>
+                                    <td>아시아사회와 문화</td>
+                                    <td>교선</td>
+                                    <td>3.0</td>
+                                    <td>f</td>
+                                </tr>
+                                <tr>
+                                    <td>2014</td>
+                                    <td>1학기</td>
+                                    <td>AE00022</td>
+                                    <td>정보사회론</td>
+                                    <td>교선</td>
+                                    <td>3.0</td>
+                                    <td>B</td>
+                                </tr>
+                                <tr>
+                                    <td>2014</td>
                                     <td>1학기</td>
                                     <td>AF00011</td>
                                     <td>이산수학</td>
                                     <td>교선</td>
-                                    <td>3</td>
-                                    <td>BO</td>
+                                    <td>3.0</td>
+                                    <td>B+</td>
                                 </tr>
-                                <tr>
-                                    <td>2017</td>
-                                    <td>1학기</td>
-                                    <td>IB00001</td>
-                                    <td>C프로그래밍</td>
-                                    <td>전필</td>
-                                    <td>3</td>
-                                    <td>C+</td>
-                                </tr>
-                                <tr>
-                                    <td>2017</td>
-                                    <td>1학기</td>
-                                    <td>IB00002</td>
-                                    <td>과정지도1</td>
-                                    <td>전필</td>
-                                    <td>1</td>
-                                    <td>P</td>
-                                </tr>
-                                <tr>
-                                    <td>2017</td>
-                                    <td>1학기</td>
-                                    <td>AF00016</td>
-                                    <td>대학물리와 실험II</td>
-                                    <td>교선</td>
-                                    <td>3</td>
-                                    <td>A0</td>
-                                </tr>
-                                <tr>
-                                    <td>2017</td>
-                                    <td>1학기</td>
-                                    <td>AF00004</td>
-                                    <td>지구환경과학</td>
-                                    <td>교선</td>
-                                    <td>3</td>
-                                    <td>C+</td>
-                                </tr>
-                                <tr>
-                                    <td>2017</td>
-                                    <td>1학기</td>
-                                    <td>AF00016</td>
-                                    <td>홈페이지제작</td>
-                                    <td>교선</td>
-                                    <td>3</td>
-                                    <td>A0</td>
-                                </tr>
-
                                 </tbody>
                             </table>
+
+                            </p>
+
+
+
                         </div>
-                        <br>
-                        <br>
-
-
-
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-</div>
 
 <footer class="footer">
     <div class="container-fluid">
