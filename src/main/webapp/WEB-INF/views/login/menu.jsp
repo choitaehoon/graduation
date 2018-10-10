@@ -78,7 +78,7 @@
                <li>
 
                <li>
-                   <a href="/login/studentManager?type=${member.type}&id=${member.id}">
+                   <a href="studentManager.html">
                        <i class="pe-7s-notebook"></i>
                        <p>학생관리</p>
                    </a>
@@ -105,10 +105,7 @@
                </li>
 
                <li>
-                    <a href="message.html">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>도움말</p>
-                    </a>
+                   <a href="/login/help?type=${member.type}&id=${member.id}">도움말</a>
                 </li>
             </ul>
     </div>
