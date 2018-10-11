@@ -1,0 +1,14 @@
+.container
+{
+    width: 900px;
+    height: 800px;
+    text-align: center;
+}
+
+.block
+{
+    width: 500px;
+    height: 500px;
+    display: inline-block;
+    padding-top: 200px;
+}
