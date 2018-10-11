@@ -70,20 +70,24 @@
                                     <td style="color:red;">이수 학점&nbsp;&nbsp;130/110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 학점:4.5/4&nbsp;&nbsp;&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td>교수님 코멘트&nbsp;&nbsp;&nbsp;</td>
-                                    <td>전필을빨리채우고 계절학기 수강하세요.</td>
+                                    <td>조치사항&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <textArea cols=50 rows=5 >전필을빨리채우고 계절학기 수강하세요</textArea>
+                                        <button type="submit" class="btn btn-primary">저장</button>
+                                    </td>
+
+
+
                                 </tr>
                                 </tbody>
                             </table>
                             <p class="category">
                                 <select>
                                     <option>전공필수</option>
-                                    <option>이수학기별</option>
                                     <option>교양필수</option>
+                                    <option>이수구분</option>
+                                    <option>과목명</option>
                                     <option>학점f조회</option>
-                                    <option>전필 미수강조회</option>
-                                    <option>교필 미수강조회</option>
-                                    <option>기타과정 조회</option>
                                 </select>
                                 <input type="text">
                                 <a href="studentLack.html"> <button type="submit" class="btn btn-primary">조회</button></a>
