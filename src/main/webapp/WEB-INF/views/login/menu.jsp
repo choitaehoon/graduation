@@ -78,7 +78,11 @@
                <li>
 
                <li>
+<<<<<<< HEAD
                    <a href="studentManager.html">
+=======
+                   <a href="/login/studentManager?type=${member.type}&id=${member.id}">
+>>>>>>> cbb51c552d2cbac933173f0b35ab5b7698cd1d32
                        <i class="pe-7s-notebook"></i>
                        <p>학생관리</p>
                    </a>
