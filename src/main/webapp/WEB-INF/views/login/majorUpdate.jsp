@@ -22,13 +22,8 @@
             padding: 0;
         }
         body {
-<<<<<<< HEAD
-            #            font: 14px/1.4 Georgia, Serif;
-            #        }
-=======
                         font: 14px/1.4 Georgia, Serif;
                     }
->>>>>>> cbb51c552d2cbac933173f0b35ab5b7698cd1d32
         #page-wrap {
             margin: 50px;
         }
@@ -57,11 +52,7 @@
         td, th {
             padding: 6px;
             border: 1px solid #ccc;
-<<<<<<< HEAD
-            #            text-align: left;
-=======
                         text-align: left;
->>>>>>> cbb51c552d2cbac933173f0b35ab5b7698cd1d32
         }
 
         @media

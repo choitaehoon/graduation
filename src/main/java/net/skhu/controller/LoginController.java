@@ -33,19 +33,6 @@ public class LoginController {
         return "login/myInfo";
     }
 
-<<<<<<< HEAD
-    /*
-     * 학생 관리
-     */
-    @RequestMapping("administration")
-    public String administration(Model model, @RequestParam("type") int type, @RequestParam("id") int id) {
-        model.addAttribute("member", typeIdentity.typeSearch(type, id));
-        model.addAttribute("student", studentRepository.findAll());
-        return "login/administration";
-    }
-
-=======
->>>>>>> cbb51c552d2cbac933173f0b35ab5b7698cd1d32
     @RequestMapping("member")
     public String member(Student student) {
         studentRepository.save(student);
@@ -56,9 +43,6 @@ public class LoginController {
     public String signUp() {
         return "login/signUp";
     }
-
-<<<<<<< HEAD
-=======
     /*
      * 학생 관리
      */
@@ -73,9 +57,6 @@ public class LoginController {
         model.addAttribute("member", typeIdentity.typeSearch(type, id));
         return "login/manager_stu_info";
     }
-
-
->>>>>>> cbb51c552d2cbac933173f0b35ab5b7698cd1d32
 
     @RequestMapping("graduationInfo")
     public String graduationInfo(Model model, @RequestParam("type") int type, @RequestParam("id") int id) {
