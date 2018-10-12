@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: JiEun
   Date: 2018-10-12
-  Time: 오후 5:27
+  Time: 오후 6:38
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -180,29 +180,22 @@
 
                                 <div id="content">
                                     <br />
-                                    <h1>질문 답변하기</h1>
+                                    <h1>질문 등록</h1>
                                     <br /> <label>제목</label>
                                     <div class="form-group">
-                                        <input type="text" style="width: 300px" value="디지털 컨텐츠 학과 수업 '디지털 음악 II'에 관하여 질문이 있습니다." />
+                                        <input type="text" style="width: 300px" value="[IT학부] SM 사업 공지(1학년 멘티 모집)" />
                                     </div>
                                     <br /> <label>작성자</label>
                                     <div class="form-group">
                                         <input type="text" style="width: 100px" value="손송암" />
                                     </div>
-                                    <label>질문 내용</label>
+                                    <label>내 용</label>
                                     <div class="form-group">
-											<textArea cols=80 rows=10>
+											<textArea cols=100 rows=18>
 
 안녕하세요 디지털 컨텐츠 학과 수업을 수강하고 있는 손송암이라고 합니다.
 
-
 											</textArea>
-                                    </div>
-                                    <label>답변 내용</label>
-                                    <div class="form-group">
-											<textArea cols=80 rows=10>
-손송암 학생 안녕하세요 관리자 입니다.
- 질문해주신 문제에 대해서 설명드리려고 합니다...</textArea>
                                     </div>
 
                                     <div>
@@ -218,7 +211,7 @@
                                         </a> <a class="btn btn-danger" href="#"><i
                                             class=" glyphicon glyphicon-remove"></i> 삭제</a> <a href="#"
                                                                                                class="btn btn-default"> <i
-                                            class="glyphicon glyphicon-list"></i> Q&A으로
+                                            class="glyphicon glyphicon-list"></i> Q&A로
                                     </a>
 
                                     </div>
