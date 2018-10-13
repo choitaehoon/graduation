@@ -109,5 +109,4 @@
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="${R}assets/js/demo.js"></script>
->>>>>>> cbb51c552d2cbac933173f0b35ab5b7698cd1d32
 </html>
