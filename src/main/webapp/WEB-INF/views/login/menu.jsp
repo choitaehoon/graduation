@@ -86,7 +86,7 @@
 
 
                <li>
-                   <a href="noticeManager.html">
+                   <a href="/login/noticeManager?type=${member.type}&id=${member.id}">
                        <i class="pe-7s-note2"></i>
                        <p>공지사항</p>
                    </a>

@@ -108,6 +108,7 @@ public class LoginController {
 
     @RequestMapping("help")
     public String help(Model model, @RequestParam("type") int type, @RequestParam("id") int id) {
+
         model.addAttribute("member", typeIdentity.typeSearch(type, id));
         return "login/help";
     }
@@ -122,6 +123,12 @@ public class LoginController {
     public String notice(Model model, @RequestParam("type") int type, @RequestParam("id") int id) {
         model.addAttribute("member", typeIdentity.typeSearch(type, id));
         return "login/notice";
+    }
+
+    @RequestMapping("noticeManager")
+    public String noticeManager(Model model, @RequestParam("type") int type, @RequestParam("id") int id) {
+        model.addAttribute("member", typeIdentity.typeSearch(type, id));
+        return "login/noticeManager";
     }
 
     @RequestMapping("noticeReplace")
