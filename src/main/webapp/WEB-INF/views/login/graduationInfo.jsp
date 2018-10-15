@@ -99,7 +99,7 @@
                             </table>
                             <div class="pull-right" style="margin-right:10px;">
                                 <button class="btn btn-primary">수강내역 엑셀 업로드</button>
-                                <button class="btn btn-default" >삭제</button>
+                                <button class="btn btn-danger" >삭제</button>
                             </div>
                         </div>
                     </div>
