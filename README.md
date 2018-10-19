@@ -7,4 +7,4 @@
 </ul>
 <hr>
 <h1>디비 모델링</h1>
-<img src="https://github.com/choitaehoon/graduation/blob/master/src/main/webapp/res/images/graduationImageUpdate.png">
+<img src="https://github.com/choitaehoon/graduation/blob/master/src/main/webapp/res/images/graduationImage.png">
