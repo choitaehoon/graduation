@@ -24,7 +24,7 @@ public class LoginController {
     @RequestMapping("main")
     public String login(Model model, User user) {
         model.addAttribute("member", typeIdentity.distinct(user.getId(), user.getPassword()));
-        return "login/main";
+        return "/WEB-INF/main.jsp";
     }
 
     @RequestMapping("myInfo")
@@ -42,6 +42,11 @@ public class LoginController {
     @RequestMapping("signUp")
     public String signUp() {
         return "login/signUp";
+    }
+
+    @RequestMapping("findPassword")
+    public String findPassword() {
+        return "login/findPassword";
     }
     /*
      * 학생 관리

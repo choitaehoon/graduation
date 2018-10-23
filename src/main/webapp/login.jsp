@@ -32,7 +32,7 @@
                     <%--<label for="remember">Remember me</label>--%>
                     <div class="submit-wrap">
                         <input type="submit" value="Sign in" class="submit">
-                        <a href="#" class="more">Forgot your password?</a>
+                        <a href="login/findPassword" class="more">비밀번호를 잃어버리셧나요?</a>
                     </div>
             </form>
         </div>

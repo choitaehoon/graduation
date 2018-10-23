@@ -25,7 +25,7 @@
                 <input type="text" name="email" id="email" class="inpt" required="required" placeholder="이메일">
                 <input type="hidden" name="type" value="1">
                 <button type="submit" class="btn btn-default">가입하기</button>
-                <a href="../login.jsp" class="btn btn-default">목록으로 가기</a>
+                <a href="../login.jsp" class="btn btn-primary">홈</a>
             </form>
         </div>
     </div>
