@@ -3,7 +3,7 @@ package net.skhu.domain;
 import lombok.Data;
 
 @Data
-public class Professor
+public class Admin
 {
     int id;
     String name;

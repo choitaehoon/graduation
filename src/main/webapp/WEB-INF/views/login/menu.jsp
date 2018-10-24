@@ -8,8 +8,6 @@
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-
-
     <!-- Bootstrap core CSS     -->
     <link href="${R}assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -19,10 +17,8 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="${R}assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
-
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="${R}assets/css/demo.css" rel="stylesheet" />
-
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -30,7 +26,6 @@
     <link href="${R}assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>
-
 
 <div class="sidebar" data-color="azure" data-image="${R}assets/img/logo.jpg">
     <div class="sidebar-wrapper">
@@ -171,18 +166,26 @@
                             <li><a href="#">Separated link</a></li>
                         </ul>
                     </li>
+
+                    <c:if test="${login.id > 0}">
                     <li>
                         <a href="../login.jsp">
-                            <p>Log out</p>
+                           ${login.id}님 환영합니다 <p>Log out</p>
                         </a>
                     </li>
+                    </c:if>
+
+                    <c:if test="${login.id < 0}">
+                        <li>
+                            <a href="../login.jsp">
+                                <p>Log in</p>
+                            </a>
+                        </li>
+                    </c:if>
+
                     <li class="separator hidden-lg"></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- 위의 메뉴바 이후 구현 -->
-
-
-
-
+</div>

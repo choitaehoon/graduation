@@ -14,7 +14,17 @@ public class LoginController {
     @Autowired
     TypeIdentity typeIdentity;
 
-//    @RequestMapping("main")
+    @RequestMapping("signUp")
+    public String signUp() {
+        return "login/signUp";
+    }
+
+    @RequestMapping("findPassword")
+    public String findPassword() {
+        return "login/findPassword";
+    }
+
+    //    @RequestMapping("main")
 //    public String login(Model model, User user) {
 //        model.addAttribute("member", typeIdentity.distinct(user.getId(), user.getPassword()));
 //        return "/WEB-INF/main.jsp";
@@ -32,15 +42,6 @@ public class LoginController {
 //        return "../login.jsp";
 //    }
 
-    @RequestMapping("signUp")
-    public String signUp() {
-        return "login/signUp";
-    }
-
-    @RequestMapping("findPassword")
-    public String findPassword() {
-        return "login/findPassword";
-    }
     /*
      * 학생 관리
      */
