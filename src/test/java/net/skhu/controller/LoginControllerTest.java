@@ -1,6 +1,5 @@
 package net.skhu.controller;
 
-import net.skhu.repository.StudentRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,6 @@ import static org.junit.Assert.*;
 @DataJpaTest
 public class LoginControllerTest
 {
-    @Autowired
-    StudentRepository studentRepository;
 
     @Test
     public void login()
