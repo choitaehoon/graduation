@@ -24,7 +24,8 @@ public class LoginController {
         return "login/findPassword";
     }
 
-    //    @RequestMapping("main")
+
+//    @RequestMapping("main")
 //    public String login(Model model, User user) {
 //        model.addAttribute("member", typeIdentity.distinct(user.getId(), user.getPassword()));
 //        return "/WEB-INF/main.jsp";
