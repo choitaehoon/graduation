@@ -4,9 +4,16 @@
 
 <mapper namespace="net.skhu.mapper.AdminMapper">
 
-    <select id="findByIdAndPassword" resultType="Admin">
-        select * from Admin
+    <select id="findByIdAndPassword" resultType="int">
+        select count(*) from Admin
         where id = #{id} and password = #{password}
   </select>
+
+    <select id="findById" resultType="Admin">
+        SELECT *
+        FROM admin
+        where id=#{id} ;
+
+    </select>
 
 </mapper>

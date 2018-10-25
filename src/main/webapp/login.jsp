@@ -21,7 +21,12 @@
         </div>
         <div class="content">
             <div class="signin-cont cont">
-                <form action="login/main" method="post" enctype="multipart/form-data">
+                <form action="login/main" method="post" modetAttribute="User">
+                    <div class="typeSelect">
+                    <input type="radio" name="type" value="1">학생</input>
+                    <input type="radio" name="type" value="2">교수</input>
+                    </div>
+
                     <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
                     <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
 
