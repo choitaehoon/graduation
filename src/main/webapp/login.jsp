@@ -24,19 +24,19 @@
         </div>
         <div class="content">
             <div class="signin-cont cont">
-                <form action="login/main" method="post" modetAttribute="User">
+                <form action="graduation" method="post" modetAttribute="User">
 
                     <input type="text" name="id" id="id" value="${user.id}" class="inpt" required="required" placeholder="학번">
                     <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
 
-                    <a href="login/signUp" id="remember" class="btn btn-default">
+                    <a href="signUp" id="remember" class="btn btn-default">
                         <label>회원가입</label></a>
 
                         <%--<input type="checkbox" id="remember" class="checkbox" checked>--%>
                         <%--<label for="remember">Remember me</label>--%>
                         <div class="submit-wrap">
                             <input type="submit" value="로그인" class="submit">
-                            <a href="login/findPassword" class="more">비밀번호를 잃어버리셧나요?</a>
+                            <a href="findPassword" class="more">비밀번호를 잃어버리셧나요?</a>
                         </div>
                     <div>
                             <c:if test="${ error != null }">
@@ -45,12 +45,12 @@
                     </div>
                 </form>
             </div>
-
+            <br/>
             <div class="content">
                 <div class="guest-cont cont">
                     <form>
 
-                        <a href="login/guest" id="guest" class="btn btn-default">
+                        <a href="guest" id="guest" class="btn btn-default">
                             <label for="remember">게스트로그인</label>
                         </a>
                     </form>
