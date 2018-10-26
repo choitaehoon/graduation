@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <%@include file="../menu/menu.jsp"%>
+    <%@include file="menu.jsp"%>
         <div class="content">
             <div class="container-fluid">
                 <div class="row">

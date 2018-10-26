@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="../menu/menu.jsp"%>
+<%@include file="menu.jsp"%>
 <c:url var="R" value="/" />
 <html>
 <head>

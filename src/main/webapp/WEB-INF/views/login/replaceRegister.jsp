@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: JiEun
   Date: 2018-10-14
-  Time: 오전 12:52
+  Time: 오전 12:48
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <%@include file="../menu/menu.jsp"%>
+    <%@include file="menu.jsp"%>
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -24,7 +24,7 @@
 
                             <div id="content">
                                 <br />
-                                <h1>대체 과목 수정</h1>
+                                <h1>대체 과목 등록</h1>
                                 <br /> <label>제목</label>
                                 <div class="form-group">
                                     <input type="text" style="width: 300px" value="[소프트웨어공학과] 데이터베이스 개론 수업 관련" />
@@ -40,6 +40,7 @@
 
                                 <div>
                                     <form>
+                                        날짜 : <input type="month"><br>
                                         파일 첨부  <input type="file"> * 2MB까지 가능
                                     </form>
                                 </div>
