@@ -6,10 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/login")
@@ -30,21 +26,10 @@ public class LoginController {
 
     @RequestMapping("main")
     public String login(Model model, User user) {
-//        String message=typeIdentity.beforeLogin(user);
-//        if(message !=null) {
-//            model.addAttribute("error",message);
-//            return ".../login";
-//        }
-//        else{
-//            model.addAttribute("member", typeIdentity.distinct(user));
-//            model.addAttribute("type", user.getType());
-//            return "login/main";
-//        }
-        model.addAttribute("member", typeIdentity.distinct(user));
-        model.addAttribute("type", user.getType());
+
+        model.addAttribute("member", typeIdentity.distinct(user.getType(),user.getId(), user.getPassword()));
+        model.addAttribute("type",user.getType());
         return "login/main";
-
-
     }
 //
 //    @RequestMapping("myInfo")
