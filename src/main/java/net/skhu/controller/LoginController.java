@@ -2,10 +2,11 @@ package net.skhu.controller;
 
 import net.skhu.Service.TypeIdentity;
 import net.skhu.domain.User;
+import net.skhu.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
     @Autowired
     TypeIdentity typeIdentity;
+    @Autowired
+    StudentMapper studentMapper;
 
     @RequestMapping("signUp")
     public String signUp() {
@@ -49,5 +52,12 @@ public class LoginController {
 //        return "login/main";
 
 
+    }
+
+    @RequestMapping(value = "password", method = RequestMethod.POST)
+    @ResponseBody
+    public String password(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("answer") String answer, )
+    {
+        return studentMapper.findByPassword(id, name, answer);
     }
 }

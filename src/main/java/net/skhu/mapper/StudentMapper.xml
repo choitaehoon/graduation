@@ -20,8 +20,10 @@
         select * from student
     </select>
 
-
-
+    <select id="findByPassword" resultType="String">
+        select password from student
+        where question = #{answer} and name = #{name} and id = #{id}
+    </select>
 
 
 
