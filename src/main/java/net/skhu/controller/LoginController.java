@@ -6,12 +6,13 @@ import net.skhu.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.*;
-=======
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
->>>>>>> 255d90b99b9a45d2c5522a0f39a1a680cc3e3abf
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.logging.Logger;
 
 
 @Controller
@@ -61,8 +62,9 @@ public class LoginController {
 
     @RequestMapping(value = "password", method = RequestMethod.POST)
     @ResponseBody
-    public String password(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("answer") String answer, )
+    public String password(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("answer") String answer)
     {
+        System.out.println(studentMapper.findByPassword(id, name, answer));
         return studentMapper.findByPassword(id, name, answer);
     }
 }

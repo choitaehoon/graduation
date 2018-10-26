@@ -45,13 +45,9 @@
                     </div>
                 </form>
             </div>
-<<<<<<< HEAD
 
-
-
-=======
             <br/>
->>>>>>> 255d90b99b9a45d2c5522a0f39a1a680cc3e3abf
+
             <div class="content">
                 <div class="guest-cont cont">
                     <form>
