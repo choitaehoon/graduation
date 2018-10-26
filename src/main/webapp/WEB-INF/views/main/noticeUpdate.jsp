@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: JiEun
   Date: 2018-10-14
-  Time: 오전 12:40
+  Time: 오전 12:44
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <%@include file="menu.jsp"%>
+    <%@include file="../menu/menu.jsp"%>
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -24,7 +24,7 @@
 
                             <div id="content">
                                 <br />
-                                <h1>공지사항 등록</h1>
+                                <h1>공지사항 수정</h1>
                                 <br /> <label>제목</label>
                                 <div class="form-group">
                                     <input type="text" style="width: 300px" value="[IT학부] SM 사업 공지(1학년 멘티 모집)" />

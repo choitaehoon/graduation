@@ -21,8 +21,8 @@
     <link href="${R}assets/css/demo.css" rel="stylesheet" />
 
     <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="${R}http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="${R}http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css"/>
     <link href="${R}assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>
@@ -42,12 +42,16 @@
                         <p>메인 페이지</p>
                     </a>
                 </li>
+
+              <c:if test="${member.id >0}">
                 <li>
+
                     <a href="/login/myInfo?type=${type}&id=${member.id}">
                         <i class="pe-7s-user"></i>
                         <p>나의 정보</p>
                     </a>
                 </li>
+              </c:if>
                <li>
                    <a href="/login/graduationInfo?type=${type}&id=${member.id}"> <i class="pe-7s-bell"></i>
                        <p>졸업관리</p></a>
@@ -71,14 +75,14 @@
 
                </li>
                <li>
-
+                   <c:if test="${type==2}">
                <li>
                    <a href="/login/studentManager?type=${type}&id=${member.id}">
                        <i class="pe-7s-notebook"></i>
                        <p>학생관리</p>
                    </a>
                </li>
-
+               </c:if>
 
                <li>
                    <a href="/login/noticeManager?type=${type}&id=${member.id}">
@@ -91,14 +95,14 @@
 
                    </ul>
                </li>
-
-               <li>
+               <c:if test="${member.id >0}">
+                   <li>
                    <a href="/login/q&a?type=${type}&id=${member.id}">
                        <i class="pe-7s-smile"></i>
                        <p>Q&A</p>
                    </a>
-               </li>
-
+                   </li>
+               </c:if>
                <li>
                    <a href="/login/help?type=${type}&id=${member.id}">
                        <i class="pe-7s-news-paper"></i>
@@ -120,6 +124,9 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
+                    <c:if test="${type== 0}">
+                        <p>${member.name} 게스트님</p>
+                    </c:if>
                     <c:if test="${type== 1}">
                         <p>${member.name} 학생님</p>
                     </c:if>
@@ -139,10 +146,12 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <c:if test="${member.id < 0}">
+
+
+                    <c:if test="${type==0}">
                     <li >
 
-                        <a href="login/singin">
+                        <a href="../login.jsp">
                             <p>로그인</p>
                         </a>
                     </li>
