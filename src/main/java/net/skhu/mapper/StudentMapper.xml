@@ -7,6 +7,14 @@
     <select id="findByIdAndPassword" resultType="Student">
         select * from student
         where id = #{id} and password = #{password}
-  </select>
+   </select>
+
+    <select id="findAll">
+
+        select * from student
+
+    </select>
+
+
 
 </mapper>
