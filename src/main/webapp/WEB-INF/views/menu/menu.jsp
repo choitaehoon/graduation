@@ -30,14 +30,14 @@
 <div class="sidebar" data-color="azure" data-image="${R}assets/img/logo.jpg">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="/login/main?type=${member.type}&id=${member.id}" class="simple-text">
+            <a href="/login/main?type=${type}&id=${member.id}" class="simple-text">
                     SKHU 졸업관리
             </a>
         </div>
 
            <ul class="nav">
                <li class="active">
-                    <a href="/login/main?type=${member.type}&id=${member.id}">
+                    <a href="/login/main?type=${type}&id=${member.id}">
                         <i class="pe-7s-graph"></i>
                         <p>메인 페이지</p>
                     </a>
@@ -46,22 +46,22 @@
               <c:if test="${member.id >0}">
                 <li>
 
-                    <a href="/login/myInfo?type=${member.type}&id=${member.id}">
+                    <a href="/login/myInfo?type=${type}&id=${member.id}">
                         <i class="pe-7s-user"></i>
                         <p>나의 정보</p>
                     </a>
                 </li>
               </c:if>
                <li>
-                   <a href="/login/graduationInfo?type=${member.type}&id=${member.id}"> <i class="pe-7s-bell"></i>
+                   <a href="/login/graduationInfo?type=${type}&id=${member.id}"> <i class="pe-7s-bell"></i>
                        <p>졸업관리</p></a>
 
                    <ul>
                        <li><a href="#Link">소프트웨어공학과</a>
 
                            <ul >
-                               <li><a href="/login/before18?type=${member.type}&id=${member.id}">18학번 이전</a></li>
-                               <li><a href="/login/after18?type=${member.type}&id=${member.id}">18학번 이후</a></li>
+                               <li><a href="/login/before18?type=${type}&id=${member.id}">18학번 이전</a></li>
+                               <li><a href="/login/after18?type=${type}&id=${member.id}">18학번 이후</a></li>
                                <li><a href="#">전공인정규칙</a></li>
                            </ul>
 
@@ -77,7 +77,7 @@
                <li>
                    <c:if test="${type==2}">
                <li>
-                   <a href="/login/studentManager?type=${member.type}&id=${member.id}">
+                   <a href="/login/studentManager?type=${type}&id=${member.id}">
                        <i class="pe-7s-notebook"></i>
                        <p>학생관리</p>
                    </a>
@@ -85,7 +85,7 @@
                </c:if>
 
                <li>
-                   <a href="/login/noticeManager?type=${member.type}&id=${member.id}">
+                   <a href="/login/noticeManager?type=${type}&id=${member.id}">
                        <i class="pe-7s-note2"></i>
                        <p>공지사항</p>
                    </a>
@@ -97,14 +97,14 @@
                </li>
                <c:if test="${member.id >0}">
                    <li>
-                   <a href="/login/q&a?type=${member.type}&id=${member.id}">
+                   <a href="/login/q&a?type=${type}&id=${member.id}">
                        <i class="pe-7s-smile"></i>
                        <p>Q&A</p>
                    </a>
                    </li>
                </c:if>
                <li>
-                   <a href="/login/help?type=${member.type}&id=${member.id}">
+                   <a href="/login/help?type=${type}&id=${member.id}">
                        <i class="pe-7s-news-paper"></i>
                        <p>도움말</p>
                    </a>
@@ -124,13 +124,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <c:if test="${type==0}">
+                    <c:if test="${type== 0}">
                         <p>${member.name} 게스트님</p>
                     </c:if>
-                    <c:if test="${member.type== 1}">
+                    <c:if test="${type== 1}">
                         <p>${member.name} 학생님</p>
                     </c:if>
-                    <c:if test="${member.type== 2}">
+                    <c:if test="${type== 2}">
                         <p>${member.name} 관리자님</p>
                     </c:if>
 

@@ -25,28 +25,21 @@ public class LoginController {
     }
 
 
-    @RequestMapping("guest")
-    public String guestMain(Model model) {
-        model.addAttribute("type", 0);
-        return "login/main";
-
-    }
-
     @RequestMapping("main")
     public String login(Model model, User user) {
-        Object check=typeIdentity.distinct(user);
-        if(check == null) {
-            model.addAttribute("id",user.getId());
-            model.addAttribute("error","fail");
-            return "../../login";
-        }
-        else{
-            model.addAttribute("member", check);
-            return "main";
-        }
-//        model.addAttribute("member", typeIdentity.distinct(user));
-//        model.addAttribute("type", user.getType());
-//        return "login/main";
+//        String message=typeIdentity.beforeLogin(user);
+//        if(message !=null) {
+//            model.addAttribute("error",message);
+//            return ".../login";
+//        }
+//        else{
+//            model.addAttribute("member", typeIdentity.distinct(user));
+//            model.addAttribute("type", user.getType());
+//            return "login/main";
+//        }
+        model.addAttribute("member", typeIdentity.distinct(user));
+        model.addAttribute("type", user.getType());
+        return "login/main";
 
 
     }

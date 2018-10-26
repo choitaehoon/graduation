@@ -20,17 +20,25 @@
         <h1>SHKU졸업요건</h1>
         <div class="tabs">
             <span class="tab signin active"><a href="#">Sign in</a></span>
-            <span class="tab guest"><a href="#">guest</a></span>
+            <%--<span class="tab signup"><a href="#signup">Sign up</a></span>--%>
         </div>
         <div class="content">
             <div class="signin-cont cont">
                 <form action="login/main" method="post" modetAttribute="User">
+                    <div class="typeSelect">
+                    <input type="radio" name="type" value="1">학생</input>
+                    <input type="radio" name="type" value="2">교수</input>
+                    </div>
 
-                    <input type="text" name="id" id="id" value="${user.id}" class="inpt" required="required" placeholder="학번">
+                    <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
                     <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
 
+
                     <a href="login/signUp" id="remember" class="btn btn-default">
-                        <label>회원가입</label></a>
+                        <label for="remember">회원가입</label>
+
+                        <a href="login/main?type=0" id="guest" class="btn btn-default">
+                            <label for="remember">게스트로그인</label>
 
                         <%--<input type="checkbox" id="remember" class="checkbox" checked>--%>
                         <%--<label for="remember">Remember me</label>--%>
@@ -38,23 +46,10 @@
                             <input type="submit" value="로그인" class="submit">
                             <a href="login/findPassword" class="more">비밀번호를 잃어버리셧나요?</a>
                         </div>
-                    <div>
-                            <c:if test="${ error != null }">
-                            <div style="color: #bb0502 ">아이디 or 비밀번호를 잘못 입력하셧습니다</div>
-                            </c:if>
-                    </div>
+                        <c:if test="${ not empty error }">
+                        <div class="alert alert-error"><span style="color:red">${ error }</span></div>
+                        </c:if>
                 </form>
-            </div>
-
-            <div class="content">
-                <div class="guest-cont cont">
-                    <form>
-
-                        <a href="login/guest" id="guest" class="btn btn-default">
-                            <label for="remember">게스트로그인</label>
-                        </a>
-                    </form>
-                </div>
             </div>
         </div>
     </article>
@@ -71,11 +66,11 @@
             $('.cont').hide();
             $('.signin-cont').show();
         }
-        if ($(this).hasClass('guest')) {
+        if ($(this).hasClass('signup')) {
             $('.tabs .tab').removeClass('active');
             $(this).addClass('active');
             $('.cont').hide();
-            $('.guest-cont').show();
+            $('.signup-cont').show();
         }
     });
     $('.container .bg').mousemove(function(e){

@@ -17,14 +17,6 @@ public class Student
     String question;
     Department department;
     GraduationRule graduationRule;
-    int type;
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
 
     public int getId() {
         return id;
