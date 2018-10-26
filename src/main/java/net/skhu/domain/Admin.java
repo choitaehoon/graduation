@@ -12,7 +12,14 @@ public class Admin
     String phone;
     Department department;
 
+    int type;
+    public int getType() {
+        return type;
+    }
 
+    public void setType(int type) {
+        this.type = type;
+    }
     public int getId() {
         return id;
     }

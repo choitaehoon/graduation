@@ -1,5 +1,7 @@
 package net.skhu.Service;
 
+import net.skhu.domain.Admin;
+import net.skhu.domain.Student;
 import net.skhu.domain.User;
 import net.skhu.mapper.AdminMapper;
 import net.skhu.mapper.StudentMapper;
@@ -18,17 +20,19 @@ public class TypeIdentity
 
     public Object distinct(User user) {
 
-        if(user.getType()==1) {
-            if (studentMapper.findByIdAndPassword(user.getId(), user.getPassword()) == 1)
-                return studentMapper.findById(user.getId());
-        }
-        else if(user.getType()==2){
-            if (adminMapper.findByIdAndPassword(user.getId(), user.getPassword()) == 1)
-                return adminMapper.findById(user.getId());
 
+        if (studentMapper.findByIdAndPassword(user.getId(), user.getPassword()) == 1) {
+            Student student=studentMapper.findById(user.getId());
+            student.setType(1);
+            return student;
         }
-
-        return null;
+        else if (adminMapper.findByIdAndPassword(user.getId(), user.getPassword()) == 1) {
+            Admin admin=adminMapper.findById(user.getId());
+            admin.setType(2);
+            return admin;
+        }
+        else
+            return null;
 
 
     }
