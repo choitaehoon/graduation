@@ -33,12 +33,9 @@
                     <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
                     <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
 
-
+                    
                     <a href="login/signUp" id="remember" class="btn btn-default">
                         <label for="remember">회원가입</label>
-
-                        <a href="login/main?type=0" id="guest" class="btn btn-default">
-                            <label for="remember">게스트로그인</label>
 
                         <%--<input type="checkbox" id="remember" class="checkbox" checked>--%>
                         <%--<label for="remember">Remember me</label>--%>
@@ -81,5 +78,3 @@
 
 </body>
 </html>
-
-
