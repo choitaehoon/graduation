@@ -149,11 +149,22 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="login/singin" class="dropdown-toggle" data-toggle="dropdown">
-                            <p>로그인</p>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <p>
+                                Dropdown
+                                <b class="caret"></b>
+                            </p>
 
                         </a>
-
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
                     </li>
 
                     <c:if test="${login.id > 0}">
