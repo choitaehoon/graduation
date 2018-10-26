@@ -30,34 +30,34 @@
 <div class="sidebar" data-color="azure" data-image="${R}assets/img/logo.jpg">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text">
+            <a href="/login/main?type=${type}&id=${member.id}" class="simple-text">
                     SKHU 졸업관리
             </a>
         </div>
 
            <ul class="nav">
                <li class="active">
-                    <a href="/login/main?type=${member.type}&id=${member.id}">
+                    <a href="/login/main?type=${type}&id=${member.id}">
                         <i class="pe-7s-graph"></i>
                         <p>메인 페이지</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/login/myInfo?type=${member.type}&id=${member.id}">
+                    <a href="/login/myInfo?type=${type}&id=${member.id}">
                         <i class="pe-7s-user"></i>
                         <p>나의 정보</p>
                     </a>
                 </li>
                <li>
-                   <a href="/login/graduationInfo?type=${member.type}&id=${member.id}"> <i class="pe-7s-bell"></i>
+                   <a href="/login/graduationInfo?type=${type}&id=${member.id}"> <i class="pe-7s-bell"></i>
                        <p>졸업관리</p></a>
 
                    <ul>
                        <li><a href="#Link">소프트웨어공학과</a>
 
                            <ul >
-                               <li><a href="/login/before18?type=${member.type}&id=${member.id}">18학번 이전</a></li>
-                               <li><a href="/login/after18?type=${member.type}&id=${member.id}">18학번 이후</a></li>
+                               <li><a href="/login/before18?type=${type}&id=${member.id}">18학번 이전</a></li>
+                               <li><a href="/login/after18?type=${type}&id=${member.id}">18학번 이후</a></li>
                                <li><a href="#">전공인정규칙</a></li>
                            </ul>
 
@@ -73,7 +73,7 @@
                <li>
 
                <li>
-                   <a href="/login/studentManager?type=${member.type}&id=${member.id}">
+                   <a href="/login/studentManager?type=${type}&id=${member.id}">
                        <i class="pe-7s-notebook"></i>
                        <p>학생관리</p>
                    </a>
@@ -81,26 +81,26 @@
 
 
                <li>
-                   <a href="/login/noticeManager?type=${member.type}&id=${member.id}">
+                   <a href="/login/noticeManager?type=${type}&id=${member.id}">
                        <i class="pe-7s-note2"></i>
                        <p>공지사항</p>
                    </a>
                    <ul >
-                       <li><a href="/login/notice?type=${member.type}&id=${member.id}">일반 공지</li>
-                       <li><a href="/login/noticeReplace?type=${member.type}&id=${member.id}">대체과목 공지</a></li>
+                       <li><a href="/login/notice?type=${type}&id=${member.id}">일반 공지</li>
+                       <li><a href="/login/noticeReplace?type=${type}&id=${member.id}">대체과목 공지</a></li>
 
                    </ul>
                </li>
 
                <li>
-                   <a href="/login/q&a?type=${member.type}&id=${member.id}">
+                   <a href="/login/q&a?type=${type}&id=${member.id}">
                        <i class="pe-7s-smile"></i>
                        <p>Q&A</p>
                    </a>
                </li>
 
                <li>
-                   <a href="/login/help?type=${member.type}&id=${member.id}">
+                   <a href="/login/help?type=${type}&id=${member.id}">
                        <i class="pe-7s-news-paper"></i>
                        <p>도움말</p>
                    </a>
@@ -119,58 +119,43 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">${member.name}</a>
+                <a class="navbar-brand" href="#">
+                    <c:if test="${type== 1}">
+                        <p>${member.name} 학생님</p>
+                    </c:if>
+                    <c:if test="${type== 2}">
+                        <p>${member.name} 관리자님</p>
+                    </c:if>
+
+
+
+                </a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope"></i>
-                            <b class="caret hidden-lg hidden-md"></b>
-                            <p class="hidden-lg hidden-md">
-                                4 Notifications
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="sendMessage.html">쪽지 보내기</a></li>
-                            <li><a href="message.html">받은 쪽지함</a></li>
-                            <li><a href="message2.html">보낸 쪽지함</a></li>
-                            <li><a href="messageSet.html">수신 설정</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="fa fa-cog"></i>
-                            <p class="hidden-lg hidden-md">Setting</p>
-                        </a>
-                    </li>
+
+
+
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="login/singin" class="dropdown-toggle" data-toggle="dropdown">
+                    <c:if test="${member.id < 0}">
+                    <li >
+
+                        <a href="login/singin">
                             <p>로그인</p>
-
-                        </a>
-
-                    </li>
-
-                    <c:if test="${login.id > 0}">
-                    <li>
-                        <a href="../login.jsp">
-                           ${login.id}님 환영합니다 <p>Log out</p>
                         </a>
                     </li>
                     </c:if>
-
-                    <c:if test="${login.id < 0}">
+                    <c:if test="${member.id >0}">
                         <li>
                             <a href="../login.jsp">
-                                <p>Log in</p>
+                                <p>Log out</p>
                             </a>
                         </li>
                     </c:if>
+
+
 
                     <li class="separator hidden-lg"></li>
                 </ul>
