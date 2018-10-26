@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/login")
@@ -24,13 +25,11 @@ public class LoginController {
     }
 
 
-    @RequestMapping("main")
-    public String login(Model model, User user) {
-
-        model.addAttribute("member", typeIdentity.distinct(user.getType(),user.getId(), user.getPassword()));
-        model.addAttribute("type",user.getType());
-        return "login/main";
-    }
+//    @RequestMapping("main")
+//    public String login(Model model, User user) {
+//        model.addAttribute("member", typeIdentity.distinct(user.getId(), user.getPassword()));
+//        return "/WEB-INF/main.jsp";
+//    }
 //
 //    @RequestMapping("myInfo")
 //    public String myInfo(Model model, @RequestParam("type") int type, @RequestParam("id") int id) {

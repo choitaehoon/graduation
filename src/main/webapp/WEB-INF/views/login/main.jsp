@@ -291,7 +291,6 @@
 <script src="${R}assets/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!--  Charts Plugin -->
-<script src="${R}assets/js/chartist.min.js"></script>
 
 <!--  Notifications Plugin    -->
 <script src="${R}assets/js/bootstrap-notify.js"></script>
@@ -306,6 +305,20 @@
 <script src="${R}assets/js/demo.js"></script>
 
 
+<script type="text/javascript">
+    $(document).ready(function(){
 
+        demo.initChartist();
+
+        $.notify({
+            icon: 'pe-7s-mail',
+            message: "읽지 않은 쪽지가 1통있습니다."
+        },{
+            type: 'info',
+            timer: 4000
+        });
+
+    });
+</script>
 
 </html>

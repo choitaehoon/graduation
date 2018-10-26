@@ -9,6 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AdminMapper
 {
-    int findByIdAndPassword(@Param("id") int id, @Param("password") String password);
-    Admin findById(int id);
+    Admin findByIdAndPassword(@Param("id") int id, @Param("password") String password);
 }

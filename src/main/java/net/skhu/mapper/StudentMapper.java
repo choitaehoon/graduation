@@ -9,12 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StudentMapper
 {
-
-
-    int findByIdAndPassword(@Param("id") int id, @Param("password") String password);
-
-    Student findById(int id);
-
-
-
+    Student findByIdAndPassword(@Param("id") int id, @Param("password") String password);
 }

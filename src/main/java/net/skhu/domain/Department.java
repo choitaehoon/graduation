@@ -6,5 +6,5 @@ import lombok.Data;
 public class Department
 {
     int id;
-    String departmentName;
+    String name;
 }
