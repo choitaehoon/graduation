@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <c:url var="R" value="/" />
 <!doctype html>
@@ -10,6 +11,8 @@
     <link rel="stylesheet" href="${R}res/common.css">
     <script src="${R}res/common.js"></script>
 </head>
+
+
 <body>
 
 <section class="container">
@@ -30,21 +33,26 @@
                     <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
                     <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
 
+                    
                     <a href="login/signUp" id="remember" class="btn btn-default">
                         <label for="remember">회원가입</label>
 
                         <%--<input type="checkbox" id="remember" class="checkbox" checked>--%>
                         <%--<label for="remember">Remember me</label>--%>
                         <div class="submit-wrap">
-                            <input type="submit" value="Sign in" class="submit">
+                            <input type="submit" value="로그인" class="submit">
                             <a href="login/findPassword" class="more">비밀번호를 잃어버리셧나요?</a>
                         </div>
+                        <c:if test="${ not empty error }">
+                        <div class="alert alert-error"><span style="color:red">${ error }</span></div>
+                        </c:if>
                 </form>
             </div>
         </div>
     </article>
     <div class="half bg" style="background-position: -60px 20px"></div>
 </section>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
