@@ -50,10 +50,16 @@ public class TypeIdentity
 
     public Object typeCheck(int type, int id)
     {
-        if (type == 1) //학생 이면
-            return studentMapper.findById(id);
-        else //교수이면
-            return adminMapper.findById(id);
+        if (type == 1) { //학생 이면
+            Student student = studentMapper.findById(id);
+            student.setType(1);
+            return student;
+        }
+        else { //교수이면
+            Admin admin = adminMapper.findById(id);
+            admin.setType(2);
+            return admin;
+        }
     }
 
     public void typeUpdate(User user)

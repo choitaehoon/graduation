@@ -43,6 +43,7 @@ public class LoginController {
         studentMapper.insert(student);
         return "../../login";
     }
+
    /* 김지은 추가 중복 아이디 체크*/
     /*학번 중복체크*/
    @ResponseBody
@@ -52,17 +53,65 @@ public class LoginController {
        int rowCount = studentMapper.selectByLoginIdCheck(student.getId());
        return String.valueOf(rowCount);
    }
+
+
     @RequestMapping("findPassword")
     public String findPassword() {
         return "login/findPassword";
     }
 
+    @RequestMapping(value = "password", method = RequestMethod.POST)
+    @ResponseBody
+    public String password(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("answer") String answer)
+    {
+        return studentMapper.findByPassword(id, name, answer);
+    }
 
+    /*
+    게스트로그인
+     */
     @RequestMapping("guest")
     public String guestMain(Model model) {
         model.addAttribute("type", 0);
         return "login/main";
 
+    }
+
+
+    @RequestMapping(value = "graduation",method = RequestMethod.GET)
+    public String main(Model model, @RequestParam("type") int type ,@RequestParam("id") int id) {
+
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "login/main";
+    }
+    /*
+    로그인햇을때
+     */
+    @RequestMapping(value = "graduation",method = RequestMethod.POST)
+    public String login(Model model, User user) {
+        Object check=typeIdentity.distinct(user);
+        if(check == null) {
+            model.addAttribute("id",user.getId());
+            model.addAttribute("error","fail");
+            return "../../login";
+        }
+        else{
+            model.addAttribute("member", check);
+            return "login/main";
+        }
+    }
+
+
+
+    /*
+    내정보
+     */
+    @RequestMapping("myInfo")
+    public String myInfo(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        System.out.println(type+" "+id+" "+"myInfo");
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/myInfo";
     }
 
     @RequestMapping(value = "updateMember")
@@ -75,37 +124,6 @@ public class LoginController {
         return "redirect:myInfo";
     }
 
-    @RequestMapping(value = "graduation")
-    public String login(Model model, User user) {
-        Object check=typeIdentity.distinct(user);
-        if(check == null) {
-            model.addAttribute("id",user.getId());
-            model.addAttribute("error","fail");
-            return "../../login";
-        }
-        else{
-            model.addAttribute("member", check);
-            return "login/main";
-        }
-//        model.addAttribute("member", typeIdentity.distinct(user));
-//        model.addAttribute("type", user.getType());
-//        return "login/main";
-    }
 
-    @RequestMapping("myInfo")
-    public String myInfo(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
-    {
-        System.out.println(type+" "+id+" "+"myInfo");
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        model.addAttribute("type",type);
-        return "main/myInfo";
-    }
-
-    @RequestMapping(value = "password", method = RequestMethod.POST)
-    @ResponseBody
-    public String password(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("answer") String answer)
-    {
-        return studentMapper.findByPassword(id, name, answer);
-    }
 
 }

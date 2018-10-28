@@ -30,14 +30,14 @@
 <div class="sidebar" data-color="azure" data-image="${R}assets/img/logo.jpg">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="/login/main?type=${member.type}&id=${member.id}" class="simple-text">
+            <a href="graduation?type=${member.type}&id=${member.id}" class="simple-text">
                     SKHU 졸업관리
             </a>
         </div>
 
            <ul class="nav">
                <li class="active">
-                    <a href="/login/main?type=${member.type}&id=${member.id}">
+                    <a href="graduation?type=${member.type}&id=${member.id}">
                         <i class="pe-7s-graph"></i>
                         <p>메인 페이지</p>
                     </a>
