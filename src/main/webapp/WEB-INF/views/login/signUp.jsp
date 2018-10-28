@@ -54,7 +54,7 @@
         <div class="signin-cont cont">
             <form:form method="post" modelAttribute="student">
                 <div class="form-group">
-                <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번" value="${student.id}">
+                <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번" >
                     <button type="button"  id="checkbtn">학번 중복 체크</button>
                 </div>
                 <input type="text" name="name" id="name" class="inpt" required="required" placeholder="이름">
@@ -65,6 +65,7 @@
                 <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
                 <input type="password" name="password2" id="checkPwd" class="inpt" required="required" placeholder="비밀번호 확인">
                 <input type="email" name="email" id="email" class="inpt" required="required" placeholder="이메일">
+                <input type="text" name="question" id="answer" class="inpt" required="required" placeholder="좋아하는 과일은?">
                 <input type="text" name="phone" id="phone" class="inpt" required="required" placeholder="핸드폰번호">
                 <input type="hidden" name="graduationRule_id" value="1"/>
 
