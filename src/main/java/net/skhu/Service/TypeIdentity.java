@@ -48,7 +48,6 @@ public class TypeIdentity
 
     }
 
-<<<<<<< HEAD
     public Object typeCheck(int type, int id)
     {
         if (type == 1) //학생 이면
@@ -58,6 +57,4 @@ public class TypeIdentity
     }
 
 }
-=======
-}
->>>>>>> 36602b827b07dabb68a90b5d53c0fdf8d18787cf
+
