@@ -51,6 +51,7 @@ public class LoginController {
        int rowCount = studentMapper.selectByLoginIdCheck(student.getId());
        return String.valueOf(rowCount);
    }
+
     @RequestMapping("findPassword")
     public String findPassword() {
         return "login/findPassword";
@@ -76,9 +77,6 @@ public class LoginController {
             model.addAttribute("member", check);
             return "login/main";
         }
-//        model.addAttribute("member", typeIdentity.distinct(user));
-//        model.addAttribute("type", user.getType());
-//        return "login/main";
     }
 
     @RequestMapping("myInfo")
