@@ -4,7 +4,7 @@
 
 </head>
 <body>
-<div class="wrapper">
+ <div class="wrapper">
     <%@include file="../menu/menu.jsp"%>
 
         <div class="content">
@@ -21,22 +21,23 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>이름</label>
-                                                <input type="text" class="form-control" disabled placeholder="Company" value="홍길동">
+                                                <input type="text" class="form-control" disabled placeholder="Company" value="${member.name}">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>id</label>
-                                                <input type="text" class="form-control" placeholder="Username" value="1102356">
+                                                <input type="text" class="form-control" placeholder="Username" value="${member.id}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>이메일</label>
-                                                <input type="email" class="form-control" placeholder="aaa@naver.com">
+                                                <input type="email" class="form-control" value="${member.email}">
                                             </div>
                                         </div>
                                     </div>
+
 
                                     <div class="row">
                                         <div class="col-md-6">
@@ -56,8 +57,8 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>주소</label>
-                                                <input type="text" class="form-control" placeholder="Home Address" value="서울특별시 **구 **동 ~.~">
+                                                <label>comment</label>
+                                                <input type="text" class="form-control" placeholder="Home Address" value="${member.comment}">
                                             </div>
                                         </div>
                                     </div>
@@ -65,20 +66,20 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>직위</label>
-                                                <input type="text" class="form-control" placeholder="City" value="교수">
+                                                <label>질문 답</label>
+                                                <input type="text" class="form-control" placeholder="City" value="${member.question}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>전화번호</label>
-                                                <input type="text" class="form-control" placeholder="Country" value="02-2610-1234">
+                                                <input type="text" class="form-control" placeholder="Country" value="${member.phone}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>경력사항</label>
-                                                <input type="number" class="form-control" placeholder="기술연구원">
+                                                <label>총 학점 점수</label>
+                                                <input type="number" class="form-control" placeholder="${member.avgGrade}">
                                             </div>
                                         </div>
                                     </div>
@@ -147,8 +148,9 @@
         </div>
     </footer>
 
-</div>
-</div>
+  </div>
+
+
 
 
 </body>

@@ -46,7 +46,7 @@
               <c:if test="${member.id >0}">
                 <li>
 
-                    <a href="/login/myInfo?type=${member.type}&id=${member.id}">
+                    <a href="myInfo?type=${member.type}&id=${member.id}">
                         <i class="pe-7s-user"></i>
                         <p>나의 정보</p>
                     </a>

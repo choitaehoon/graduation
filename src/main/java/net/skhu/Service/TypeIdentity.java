@@ -48,4 +48,12 @@ public class TypeIdentity
 
     }
 
+    public Object typeCheck(int type, int id)
+    {
+        if (type == 1) //학생 이면
+            return studentMapper.findById(id);
+        else //교수이면
+            return adminMapper.findById(id);
+    }
+
 }
