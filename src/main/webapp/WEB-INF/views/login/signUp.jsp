@@ -9,7 +9,7 @@
           rel="stylesheet" media="screen">
     <script src="${R}http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="${R}https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="${R}res/common.css">
+    <link rel="stylesheet" href="res/common.css">
     <script src="res/common.js"></script>
     <script>
         function checkPwd() {
@@ -44,6 +44,21 @@
             });    //end on
         }); //end ready
     </script>
+
+    <style>
+
+        body .container {
+            position: relative;
+            overflow: hidden;
+            width: 700px;
+            height: 600px;
+            margin: 80px auto 0;
+            background-color: #ffffff;
+            -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+            -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+        }
+    </style>
 </head>
 <body>
 
