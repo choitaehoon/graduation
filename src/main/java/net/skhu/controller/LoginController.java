@@ -59,10 +59,6 @@ public class LoginController {
             model.addAttribute("member", check);
             return "login/main";
         }
-//        model.addAttribute("member", typeIdentity.distinct(user));
-//        model.addAttribute("type", user.getType());
-//        return "login/main";
-
 
     }
 
