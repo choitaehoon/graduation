@@ -7,16 +7,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet" media="screen">
-<<<<<<< HEAD
     <script src="${R}http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="${R}https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="res/common.css">
     <script src="res/common.js"></script>
-=======
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/res/common.css">
->>>>>>> 7e7b045613f9929c628f0bbec936f2ce4c75673b
+
     <script>
         function checkPwd() {
             var f1 = document.forms[0];
@@ -87,7 +82,7 @@
                 <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
                 <input type="password" name="password2" id="checkPwd" class="inpt" required="required" placeholder="비밀번호 확인">
                 <input type="email" name="email" id="email" class="inpt" required="required" placeholder="이메일">
-                <input type="text" name="question" id="answer" class="inpt" required="required" placeholder="좋아하는 과일은?">
+                <input type="text" name="question" id="answer" class="inpt" required="required" placeholder="(비밀번호 찾기 질문)좋아하는 과일은?">
                 <input type="text" name="phone" id="phone" class="inpt" required="required" placeholder="핸드폰번호">
                 <input type="hidden" name="graduationRule_id" value="1"/>
 
