@@ -37,7 +37,15 @@
 	VALUES (#{id}, #{name}, #{department_Id}, #{password}, #{email}, #{phone},#{graduationRule_id})
 	</insert>
 
-
+    <update id="updateMember">
+    update student set
+        name = #{name} ,
+        email = #{email} ,
+        password = #{password} ,
+        question = #{question} ,
+        phone = #{phone}
+    where id = #{id}
+    </update>
 
 
 </mapper>

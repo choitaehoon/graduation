@@ -16,24 +16,25 @@
                                 <h4 class="title">내정보</h4>
                             </div>
                             <div class="content">
-                                <form action="updateMember" method="post">
+                                <form action="updateMember">
+                                    <input type="hidden" name="type" value="${type}">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>이름</label>
-                                                <input type="text" class="form-control" disabled placeholder="Company" value="${member.name}">
+                                                <input type="text" class="form-control" name="name"  value="${member.name}">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>id</label>
-                                                <input type="text" class="form-control" placeholder="Username" value="${member.id}">
+                                                <input type="text" class="form-control" placeholder="Username" name="id" value="${member.id}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>이메일</label>
-                                                <input type="email" class="form-control" value="${member.email}">
+                                                <input type="email" class="form-control" name="email" value="${member.email}">
                                             </div>
                                         </div>
                                     </div>
@@ -43,7 +44,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>비밀번호 변경</label>
-                                                <input type="text" class="form-control" placeholder="입력하세요" value="">
+                                                <input type="text" class="form-control" placeholder="입력하세요" name="password" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -54,6 +55,8 @@
                                         </div>
                                     </div>
 
+                                    <%--학생이면 실행--%>
+                                    <c:if test="${type == 1}">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -62,28 +65,34 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </c:if>
+
 
                                     <div class="row">
+                                        <c:if test="${type == 1}">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>질문 답</label>
-                                                <input type="text" class="form-control" placeholder="City" value="${member.question}">
+                                                <input type="text" class="form-control" placeholder="City" name="question" value="${member.question}">
                                             </div>
                                         </div>
+                                        </c:if>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>전화번호</label>
-                                                <input type="text" class="form-control" placeholder="Country" value="${member.phone}">
+                                                <input type="text" class="form-control" placeholder="Country" name="phone" value="${member.phone}">
                                             </div>
                                         </div>
+                                        <c:if test="${type == 1}">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>총 학점 점수</label>
                                                 <input type="number" class="form-control" placeholder="${member.avgGrade}">
                                             </div>
                                         </div>
+                                        </c:if>
                                     </div>
-
+                                    <c:if test="${type == 1}">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -92,7 +101,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    </c:if>
                                     <button type="submit" class="btn btn-info btn-fill pull-right">수정</button>
                                     <div class="clearfix"></div>
                                 </form>

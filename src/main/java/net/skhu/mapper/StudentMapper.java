@@ -1,6 +1,7 @@
 package net.skhu.mapper;
 
 import net.skhu.domain.Student;
+import net.skhu.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -15,4 +16,5 @@ public interface StudentMapper
     String findByPassword(@Param("id") int id, @Param("name") String name, @Param("answer") String answer);
     void insert(Student student);
     int selectByLoginIdCheck(int id);
+    void updateMember(User user);
 }

@@ -13,7 +13,15 @@
         SELECT *
         FROM admin
         where id=#{id} ;
-
     </select>
+
+    <update id="updateMember">
+      update admin set
+        name = #{name} ,
+        password = #{password} ,
+        email = #{email} ,
+        phone = #{phone}
+      where id = #{id}
+    </update>
 
 </mapper>

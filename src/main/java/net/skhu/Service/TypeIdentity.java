@@ -56,5 +56,13 @@ public class TypeIdentity
             return adminMapper.findById(id);
     }
 
+    public void typeUpdate(User user)
+    {
+        if (user.getType() == 1) //학생이라면
+            studentMapper.updateMember(user);
+        else
+            adminMapper.updateMember(user);
+    }
+
 }
 

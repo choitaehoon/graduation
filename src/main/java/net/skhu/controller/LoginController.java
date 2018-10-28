@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -64,6 +65,16 @@ public class LoginController {
 
     }
 
+    @RequestMapping(value = "updateMember")
+    public String updateMember(User user, RedirectAttributes redirectAttributes)
+    {
+        typeIdentity.typeUpdate(user);
+        redirectAttributes.addAttribute("type",user.getType());
+        redirectAttributes.addAttribute("id",user.getId());
+        System.out.println(user.getType()+" "+user.getId()+" "+"updateMember");
+        return "redirect:myInfo";
+    }
+
     @RequestMapping(value = "graduation")
     public String login(Model model, User user) {
         Object check=typeIdentity.distinct(user);
@@ -84,7 +95,9 @@ public class LoginController {
     @RequestMapping("myInfo")
     public String myInfo(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
     {
+        System.out.println(type+" "+id+" "+"myInfo");
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        model.addAttribute("type",type);
         return "main/myInfo";
     }
 
