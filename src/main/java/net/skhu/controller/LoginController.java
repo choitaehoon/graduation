@@ -44,7 +44,15 @@ public class LoginController {
         studentMapper.insert(student);
         return "../../login";
     }
-
+   /* 김지은 추가 중복 아이디 체크*/
+    /*학번 중복체크*/
+   @ResponseBody
+   @RequestMapping(value="checkSignup", method=RequestMethod.POST)
+   public  String  checkSignup(Student student,Model model)
+   {
+       int rowCount = StudentMapper.selectByLoginIdCheck(student.getId());
+       return String.valueOf(rowCount);
+   }
     @RequestMapping("findPassword")
     public String findPassword() {
         return "login/findPassword";

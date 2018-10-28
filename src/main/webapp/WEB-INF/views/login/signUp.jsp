@@ -25,7 +25,23 @@
             }
 
         }
-
+        $(document).ready(function(){
+            $('#checkbtn').on('click', function(){
+                $.ajax({
+                    url: './checkSignup',
+                    type: 'POST',
+                    data: {
+                        "id" : $('#id').val()
+                    },
+                    success: function(data){
+                        if($.trim(data) == 0)
+                            alert("사용 할 수 있습니다.");
+                        else
+                            alert("사용 할 수 없습니다");
+                    }
+                });    //end ajax
+            });    //end on
+        }); //end ready
     </script>
 </head>
 <body>
@@ -37,7 +53,10 @@
     <div class="content">
         <div class="signin-cont cont">
             <form:form method="post" modelAttribute="student">
-                <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
+                <div class="form-group">
+                <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번" value="${student.id}">
+                    <button type="button"  id="checkbtn">학번 중복 체크</button>
+                </div>
                 <input type="text" name="name" id="name" class="inpt" required="required" placeholder="이름">
                 <div class="form-group">
                     <form:select path="department_Id" class="form-control"

@@ -25,12 +25,11 @@
         where question = #{answer} and name = #{name} and id = #{id}
     </select>
 
-    <!--김지은이 회원가입으로 추가한 mapper-->
-<!--    <select id ="findAll2" resultType="String"">
-        select s.*, d.name
-        from student as s inner join department as d
-        on s.
-    </select>-->
+
+    <!-- 로그인 중복 체크 -->
+    <select id="selectByLoginIdCheck" resultType="int">
+	select count(*) from student where id = #{id}
+	</select>
 
 <!--    나중에 otp 추가하기-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
