@@ -33,8 +33,8 @@
 
 <!--    나중에 otp 추가하기-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-	INSERT Student (id, name, department_id, password, email, phone,graduationRule_id)
-	VALUES (#{id}, #{name}, #{department_Id}, #{password}, #{email}, #{phone},#{graduationRule_id})
+	INSERT Student (id, name, department_id, password, email,question, phone,graduationRule_id)
+	VALUES (#{id}, #{name}, #{department_Id}, #{password}, #{email},#{question}, #{phone},#{graduationRule_id})
 	</insert>
 
     <update id="updateMember">

@@ -7,9 +7,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet" media="screen">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/res/common.css">
+    <script src="${R}http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="${R}https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="res/common.css">
+    <script src="res/common.js"></script>
+
     <script>
         function checkPwd() {
             var f1 = document.forms[0];
@@ -43,6 +45,21 @@
             });    //end on
         }); //end ready
     </script>
+
+    <style>
+
+        body .container {
+            position: relative;
+            overflow: hidden;
+            width: 700px;
+            height: 600px;
+            margin: 80px auto 0;
+            background-color: #ffffff;
+            -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+            -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+        }
+    </style>
 </head>
 <body>
 
@@ -54,7 +71,7 @@
         <div class="signin-cont cont">
             <form:form method="post" modelAttribute="student">
                 <div class="form-group">
-                <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번" value="${student.id}">
+                <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번" >
                     <button type="button"  id="checkbtn">학번 중복 체크</button>
                 </div>
                 <input type="text" name="name" id="name" class="inpt" required="required" placeholder="이름">
@@ -65,6 +82,7 @@
                 <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
                 <input type="password" name="password2" id="checkPwd" class="inpt" required="required" placeholder="비밀번호 확인">
                 <input type="email" name="email" id="email" class="inpt" required="required" placeholder="이메일">
+                <input type="text" name="question" id="answer" class="inpt" required="required" placeholder="(비밀번호 찾기 질문)좋아하는 과일은?">
                 <input type="text" name="phone" id="phone" class="inpt" required="required" placeholder="핸드폰번호">
                 <input type="hidden" name="graduationRule_id" value="1"/>
 
