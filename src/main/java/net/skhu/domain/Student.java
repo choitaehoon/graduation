@@ -16,8 +16,37 @@ public class Student
     double avgMajor;
     String question;
     Department department;
-    GraduationRule graduationRule;
+    int graduationRule_id;
     int type;
+
+    public int getGraduationRule_id() {
+        return graduationRule_id;
+    }
+
+    public void setGraduationRule_id(int graduationRule_id) {
+        this.graduationRule_id = graduationRule_id;
+    }
+
+    int department_Id;
+    String departmentName;
+
+    public int getDepartment_Id() {
+        return department_Id;
+    }
+
+    public void setDepartment_Id(int department_Id) {
+        this.department_Id = department_Id;
+    }
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
+
     public int getType() {
         return type;
     }
@@ -114,11 +143,6 @@ public class Student
         this.department = department;
     }
 
-    public GraduationRule getGraduationRule() {
-        return graduationRule;
-    }
 
-    public void setGraduationRule(GraduationRule graduationRule) {
-        this.graduationRule = graduationRule;
-    }
+
 }

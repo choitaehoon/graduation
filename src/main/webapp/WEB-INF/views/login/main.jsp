@@ -6,7 +6,7 @@
 
 <body>
 <div class="wrapper">
-        <%@include file="../menu/menu.jsp"%>
+    <%@include file="../menu/menu.jsp"%>
 
     <div class="content">
         <div class="container-fluid">
@@ -276,7 +276,7 @@
     <footer class="footer">
         <div class="container-fluid">
             <p class="copyright pull-right">
-                &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                &copy; <script>document.write(new Date().getFullYear())</script> <a href="${R}http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
             </p>
         </div>
     </footer>
@@ -297,7 +297,7 @@
 <script src="${R}assets/js/bootstrap-notify.js"></script>
 
 <!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<script type="text/javascript" src="${R}https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="${R}assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
@@ -306,6 +306,6 @@
 <script src="${R}assets/js/demo.js"></script>
 
 
-
+</script>
 
 </html>

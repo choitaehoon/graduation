@@ -39,15 +39,16 @@ public class TypeIdentity
     public String beforeLogin(User user) {
         String error="아이디 or 비밀번호가 잘못되었습니다";
         if (studentMapper.findByIdAndPassword(user.getId(), user.getPassword()) == 0)
-                return error;
+            return error;
 
         else if (adminMapper.findByIdAndPassword(user.getId(), user.getPassword()) == 0)
-                return error;
+            return error;
 
         return null;
 
     }
 
+<<<<<<< HEAD
     public Object typeCheck(int type, int id)
     {
         if (type == 1) //학생 이면
@@ -57,3 +58,6 @@ public class TypeIdentity
     }
 
 }
+=======
+}
+>>>>>>> 36602b827b07dabb68a90b5d53c0fdf8d18787cf

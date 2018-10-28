@@ -26,5 +26,18 @@
     </select>
 
 
+    <!-- 로그인 중복 체크 -->
+    <select id="selectByLoginIdCheck" resultType="int">
+	select count(*) from student where id = #{id}
+	</select>
+
+<!--    나중에 otp 추가하기-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+	INSERT Student (id, name, department_id, password, email, phone,graduationRule_id)
+	VALUES (#{id}, #{name}, #{department_Id}, #{password}, #{email}, #{phone},#{graduationRule_id})
+	</insert>
+
+
+
 
 </mapper>

@@ -8,8 +8,8 @@
           rel="stylesheet" media="screen">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="${R}res/common.css">
-    <script src="${R}res/common.js"></script>
+    <link rel="stylesheet" href="res/common.css">
+    <script src="res/common.js"></script>
 </head>
 
 
