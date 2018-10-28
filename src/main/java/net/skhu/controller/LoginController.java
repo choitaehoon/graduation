@@ -29,9 +29,20 @@ public class LoginController {
     @Autowired
     DepartmentMapper departmentMapper;
 
-    @RequestMapping("signUp")
-    public String signUp() {
+    @RequestMapping(value="signUp",method=RequestMethod.GET)
+    public String signUp(Model model,Student student) {
+        List<Department> departments = departmentMapper.findAll();
+        model.addAttribute("departments",departments);
+        model.addAttribute("student",student);
         return "login/signUp";
+
+    }
+
+    /*김지은 추가 insert*/
+    @RequestMapping(value="signUp", method=RequestMethod.POST)
+    public String create(Student student) {
+        studentMapper.insert(student);
+        return "../../login";
     }
 
     @RequestMapping("findPassword")
@@ -69,11 +80,8 @@ public class LoginController {
         System.out.println(studentMapper.findByPassword(id, name, answer));
         return studentMapper.findByPassword(id, name, answer);
     }
-/*김지은 추가 insert*/
-    @RequestMapping(value="create", method=RequestMethod.POST)
-    public String create(Model model, Student student) {
-        studentMapper.insert(student);
-        return "../../login";
-    }
+
+
+
 
 }

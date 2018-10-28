@@ -1,4 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:url var="R" value="/" />
 <!doctype html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -33,19 +36,25 @@
 
     <div class="content">
         <div class="signin-cont cont">
-            <form action="../member" method="post" enctype="multipart/form-data">
+            <form:form method="post" modelAttribute="student">
                 <input type="text" name="id" id="id" class="inpt" required="required" placeholder="학번">
                 <input type="text" name="name" id="name" class="inpt" required="required" placeholder="이름">
-                <input type="text" name="department" id="department" class="inpt" required="required" placeholder="학과">
+                <div class="form-group">
+                    <form:select path="department_Id" class="form-control"
+                                 itemValue="id" itemLabel="departmentName" items="${ departments }" />
+                </div>
                 <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
                 <input type="password" name="password2" id="checkPwd" class="inpt" required="required" placeholder="비밀번호 확인">
-                <input type="text" name="email" id="email" class="inpt" required="required" placeholder="이메일">
+                <input type="email" name="email" id="email" class="inpt" required="required" placeholder="이메일">
+                <input type="text" name="phone" id="phone" class="inpt" required="required" placeholder="핸드폰번호">
+                <input type="hidden" name="graduationRule_id" value="1"/>
+
                 <%--OTP가 구현하면 적을 것--%>
 <%--                <input type="text" name="otp" id="otp" class="inpt" required="required" placeholder="OTP 입력">--%>
-                <input type="hidden" name="type" value="1">
-                 <button type="submit" class="btn btn-default"> <a href="../login.jsp">가입하기</a></button>
+
+                 <button type="submit" class="btn btn-default">가입하기</button>
                 <a href="../login.jsp" class="btn btn-primary">홈</a>
-            </form>
+            </form:form>
         </div>
     </div>
 </article>
