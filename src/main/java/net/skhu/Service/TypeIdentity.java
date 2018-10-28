@@ -39,10 +39,10 @@ public class TypeIdentity
     public String beforeLogin(User user) {
         String error="아이디 or 비밀번호가 잘못되었습니다";
         if (studentMapper.findByIdAndPassword(user.getId(), user.getPassword()) == 0)
-                return error;
+            return error;
 
         else if (adminMapper.findByIdAndPassword(user.getId(), user.getPassword()) == 0)
-                return error;
+            return error;
 
         return null;
 

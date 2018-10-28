@@ -1,7 +1,10 @@
 package net.skhu.controller;
 
 import net.skhu.Service.TypeIdentity;
+import net.skhu.domain.Department;
+import net.skhu.domain.Student;
 import net.skhu.domain.User;
+import net.skhu.mapper.DepartmentMapper;
 import net.skhu.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 
@@ -22,6 +26,8 @@ public class LoginController {
     TypeIdentity typeIdentity;
     @Autowired
     StudentMapper studentMapper;
+    @Autowired
+    DepartmentMapper departmentMapper;
 
     @RequestMapping("signUp")
     public String signUp() {
@@ -67,4 +73,11 @@ public class LoginController {
         System.out.println(studentMapper.findByPassword(id, name, answer));
         return studentMapper.findByPassword(id, name, answer);
     }
+/*김지은 추가 insert*/
+    @RequestMapping(value="create", method=RequestMethod.POST)
+    public String create(Model model, Student student) {
+        studentMapper.insert(student);
+        return "../../login";
+    }
+
 }

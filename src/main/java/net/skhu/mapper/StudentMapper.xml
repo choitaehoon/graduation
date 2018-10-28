@@ -25,6 +25,20 @@
         where question = #{answer} and name = #{name} and id = #{id}
     </select>
 
+    <!--김지은이 회원가입으로 추가한 mapper-->
+<!--    <select id ="findAll2" resultType="String"">
+        select s.*, d.name
+        from student as s inner join department as d
+        on s.
+    </select>-->
+
+<!--    나중에 otp 추가하기-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+	INSERT Student (id, name, department_id, password, password2, email)
+	VALUES (#{id}, #{name}, #{department_id} #{password}, #{password2}, #{email})
+	</insert>
+
+
 
 
 </mapper>
