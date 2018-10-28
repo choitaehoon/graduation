@@ -16,7 +16,7 @@
                                 <h4 class="title">내정보</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form action="updateMember" method="post">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">

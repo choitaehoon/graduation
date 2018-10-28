@@ -15,12 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-<<<<<<< HEAD
-=======
 import java.util.List;
-import java.util.logging.Logger;
-
->>>>>>> 36602b827b07dabb68a90b5d53c0fdf8d18787cf
 
 @Controller
 @RequestMapping("/")
@@ -81,7 +76,6 @@ public class LoginController {
             model.addAttribute("member", check);
             return "login/main";
         }
-<<<<<<< HEAD
 //        model.addAttribute("member", typeIdentity.distinct(user));
 //        model.addAttribute("type", user.getType());
 //        return "login/main";
@@ -92,9 +86,6 @@ public class LoginController {
     {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/myInfo";
-=======
-
->>>>>>> 36602b827b07dabb68a90b5d53c0fdf8d18787cf
     }
 
     @RequestMapping(value = "password", method = RequestMethod.POST)
@@ -103,8 +94,5 @@ public class LoginController {
     {
         return studentMapper.findByPassword(id, name, answer);
     }
-
-
-
 
 }
