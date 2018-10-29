@@ -18,15 +18,40 @@
             var pw1 = f1.password.value;
             var pw2 = f1.password2.value;
             if (pw1 != pw2) {
-                document.getElementById('password2').style.color = "red";
-                document.getElementById('password2').innerHTML = "동일한 암호를 입력하세요.";
+                document.getElementById('checkPwd').style.color = "red";
+                document.getElementById('checkPwd').innerHTML = "동일한 암호를 입력하세요.";
             } else {
-                document.getElementById('password2').style.color = "black";
-                document.getElementById('password2').innerHTML = "암호가 확인 되었습니다.";
+                document.getElementById('checkPwd').style.color = "black";
+                document.getElementById('checkPwd').innerHTML = "암호가 확인 되었습니다.";
 
             }
 
         }
+
+/*function checkPwd() {
+    var inputed = $('.pass').val();
+    var reinputed = $('#repwd').val();
+    if(reinputed=="" && (inputed != reinputed || inputed == reinputed)){
+        $(".signupbtn").prop("disabled", true);
+        $(".signupbtn").css("background-color", "#aaaaaa");
+        $("#repwd").css("background-color", "#FFCECE");
+    }
+    else if (inputed == reinputed) {
+        $("#repwd").css("background-color", "#B0F6AC");
+        pwdCheck = 1;
+        if(idCheck==1 && pwdCheck == 1) {
+            $(".signupbtn").prop("disabled", false);
+            $(".signupbtn").css("background-color", "#4CAF50");
+            signupCheck();
+        }
+    } else if (inputed != reinputed) {
+        pwdCheck = 0;
+        $(".signupbtn").prop("disabled", true);
+        $(".signupbtn").css("background-color", "#aaaaaa");
+        $("#repwd").css("background-color", "#FFCECE");
+
+    }
+}*/
         $(document).ready(function(){
             $('#checkbtn').on('click', function(){
                 $.ajax({
@@ -80,7 +105,7 @@
                                  itemValue="id" itemLabel="departmentName" items="${ departments }" />
                 </div>
                 <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
-                <input type="password" name="password2" id="checkPwd" class="inpt" required="required" placeholder="비밀번호 확인">
+                <input type="password" name="password2" id="checkPwd" onkeyup="checkPwd()" class="inpt" required="required" placeholder="비밀번호 확인">
                 <input type="email" name="email" id="email" class="inpt" required="required" placeholder="이메일">
                 <input type="text" name="question" id="answer" class="inpt" required="required" placeholder="(비밀번호 찾기 질문)좋아하는 과일은?">
                 <input type="text" name="phone" id="phone" class="inpt" required="required" placeholder="핸드폰번호">

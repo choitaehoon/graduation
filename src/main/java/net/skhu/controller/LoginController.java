@@ -49,7 +49,7 @@ public class LoginController {
    @RequestMapping(value="checkSignup", method=RequestMethod.POST)
    public  String  checkSignup(Student student,Model model)
    {
-       int rowCount = studentMapper.selectByLoginIdCheck(student.getId());
+       int rowCount = StudentMapper.selectByLoginIdCheck(student.getId());
        return String.valueOf(rowCount);
    }
     @RequestMapping("findPassword")
