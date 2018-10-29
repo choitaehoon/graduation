@@ -50,7 +50,7 @@ public class LoginController {
    @RequestMapping(value="checkSignup", method=RequestMethod.POST)
    public  String  checkSignup(Student student,Model model)
    {
-       int rowCount = StudentMapper.selectByLoginIdCheck(student.getId());
+       int rowCount = studentMapper.selectByLoginIdCheck(student.getId());
        return String.valueOf(rowCount);
    }
 
