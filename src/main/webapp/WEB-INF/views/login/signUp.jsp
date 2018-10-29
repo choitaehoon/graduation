@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="res/common.css">
     <script src="res/common.js"></script>
 
-    <script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
         function checkPwd() {
             var f1 = document.forms[0];
             var pw1 = f1.password.value;
@@ -25,15 +26,16 @@
                 document.getElementById('password2').innerHTML = "암호가 확인 되었습니다.";
 
             }
-
         }
+
         $(document).ready(function(){
-            $('#checkbtn').on('click', function(){
+            $("#checkbtn").click(function(){
+                var id = $("#id").val();
                 $.ajax({
                     url: './checkSignup',
                     type: 'POST',
                     data: {
-                        "id" : $('#id').val()
+                        id : $('#id').val()
                     },
                     success: function(data){
                         if($.trim(data) == 0)

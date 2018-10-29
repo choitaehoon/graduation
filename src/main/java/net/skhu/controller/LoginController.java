@@ -44,7 +44,7 @@ public class LoginController {
         return "../../login";
     }
 
-   /* 김지은 추가 중복 아이디 체크*/
+   /* 추가 중복 아이디 체크*/
     /*학번 중복체크*/
    @ResponseBody
    @RequestMapping(value="checkSignup", method=RequestMethod.POST)
