@@ -47,7 +47,7 @@ public class LoginController {
    /* 김지은 추가 중복 아이디 체크*/
     /*학번 중복체크*/
    @ResponseBody
-   @RequestMapping(value="checkSignup", method=RequestMethod.POST)
+   @RequestMapping(value="checkSignUp", method=RequestMethod.POST)
    public  String  checkSignup(Student student,Model model)
    {
        int rowCount = studentMapper.selectByLoginIdCheck(student.getId());
