@@ -44,13 +44,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>비밀번호 변경</label>
-                                                <input type="text" class="form-control" placeholder="입력하세요" name="password" value="">
+                                                <input type="password" class="form-control" placeholder="입력하세요" name="password" value="${member.password}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>비밀번호 변경확인</label>
-                                                <input type="text" class="form-control" placeholder="입력하세요" value="">
+                                                <input type="password" class="form-control" placeholder="입력하세요" value="${member.password}">
                                             </div>
                                         </div>
                                     </div>
