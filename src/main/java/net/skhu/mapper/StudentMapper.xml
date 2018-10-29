@@ -16,7 +16,7 @@
     </select>
 
 
-    <select id="findAll">
+    <select id="findAll" resultType="Student">
         select * from student
     </select>
 
