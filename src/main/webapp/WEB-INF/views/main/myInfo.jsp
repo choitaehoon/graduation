@@ -17,7 +17,7 @@
                             </div>
                             <div class="content">
                                 <form action="updateMember">
-                                    <input type="hidden" name="type" value="${type}">
+                                    <input type="hidden" name="type" value="${member.type}">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
@@ -44,19 +44,19 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>비밀번호 변경</label>
-                                                <input type="text" class="form-control" placeholder="입력하세요" name="password" value="">
+                                                <input type="password" class="form-control" placeholder="입력하세요" name="password" value="${member.password}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>비밀번호 변경확인</label>
-                                                <input type="text" class="form-control" placeholder="입력하세요" value="">
+                                                <input type="password" class="form-control" placeholder="입력하세요" value="${member.password}">
                                             </div>
                                         </div>
                                     </div>
 
                                     <%--학생이면 실행--%>
-                                    <c:if test="${type == 1}">
+                                    <c:if test="${member.type == 1}">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -69,7 +69,7 @@
 
 
                                     <div class="row">
-                                        <c:if test="${type == 1}">
+                                        <c:if test="${member.type == 1}">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>질문 답</label>
@@ -83,7 +83,7 @@
                                                 <input type="text" class="form-control" placeholder="Country" name="phone" value="${member.phone}">
                                             </div>
                                         </div>
-                                        <c:if test="${type == 1}">
+                                        <c:if test="${member.type == 1}">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>총 학점 점수</label>
@@ -92,7 +92,7 @@
                                         </div>
                                         </c:if>
                                     </div>
-                                    <c:if test="${type == 1}">
+                                    <c:if test="${member.type == 1}">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -119,19 +119,10 @@
                                     <a href="#">
                                         <i class="pe-7s-smile" style="size:128px"></i>
 
-                                        <h4 class="title">홍길동<br />
-                                            <small>소프트웨어공학과 교수</small>
                                         </h4>
                                     </a>
                                 </div>
-                                <p class="description text-center">
-                                    <br>
-                                    가르치는과목들<br>
-                                    1.과정지도2<br>
-                                    2.파이썬<br>
-                                    3.자료구조<br>
-                                    4.디비플젝<br>
-                                </p>
+
                             </div>
                             <hr>
                             <div class="text-center">

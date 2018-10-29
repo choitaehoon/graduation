@@ -105,9 +105,14 @@
                                  itemValue="id" itemLabel="departmentName" items="${ departments }" />
                 </div>
                 <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
+<<<<<<< HEAD
                 <input type="password" name="password2" id="checkPwd" onkeyup="checkPwd()" class="inpt" required="required" placeholder="비밀번호 확인">
                 <input type="email" name="email" id="email" class="inpt" required="required" placeholder="이메일">
+=======
+                <input type="password" name="password2" id="checkPwd" class="inpt" required="required" placeholder="비밀번호 확인">
+>>>>>>> 54a81856b9953490f17933452819153b35d1db42
                 <input type="text" name="question" id="answer" class="inpt" required="required" placeholder="(비밀번호 찾기 질문)좋아하는 과일은?">
+                <input type="email" name="email" id="email" class="inpt" required="required" placeholder="이메일">
                 <input type="text" name="phone" id="phone" class="inpt" required="required" placeholder="핸드폰번호">
                 <input type="hidden" name="graduationRule_id" value="1"/>
 
