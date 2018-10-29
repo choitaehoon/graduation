@@ -79,7 +79,7 @@
             position: relative;
             overflow: hidden;
             width: 700px;
-            height: 600px;
+            height: 650px;
             margin: 80px auto 0;
             background-color: #ffffff;
             -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
@@ -106,8 +106,9 @@
                     <form:select path="department_Id" class="form-control"
                                  itemValue="id" itemLabel="departmentName" items="${ departments }" />
                 </div>
-                <input type="password" name="password" id="password" class="inpt" required="required" placeholder="비밀번호">
+                <input type="password" name="password" id="passwrod" class="inpt" required="required" placeholder="비밀번호">
                 <input type="password" name="password2" id="checkPwd" class="inpt" required="required" placeholder="비밀번호 확인">
+                <button type="button" onclick="checkPwd()">비밀번호 일치 확인</button>
                 
                 <input type="text" name="question" id="answer" class="inpt" required="required" placeholder="(비밀번호 찾기 질문)좋아하는 과일은?">
                 <input type="email" name="email" id="email" class="inpt" required="required" placeholder="이메일">
