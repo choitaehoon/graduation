@@ -124,6 +124,20 @@ public class LoginController {
         return "redirect:myInfo";
     }
 
+    @RequestMapping("test")
+    public String test(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        List<Student> students = studentMapper.findAll();
+        model.addAttribute("students", students);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/test";
+    }
 
+    @RequestMapping("studentManager2")
+    public String studentManager2(Model model,@RequestParam("studentId") int studentId, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/studentManager2";
+    }
 
 }
