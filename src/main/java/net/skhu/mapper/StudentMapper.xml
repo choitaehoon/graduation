@@ -9,8 +9,9 @@
    </select>
 
     <select id="findById" resultType="Student">
-        SELECT s.*, d.departmentName FROM student s
+        SELECT s.*, d.departmentName,r.detailType FROM student s
         left join department d on s.department_id = d.id
+        left join graduationRule r on s.graduationRule_id=r.id
         where s.id=#{id} ;
 
     </select>
