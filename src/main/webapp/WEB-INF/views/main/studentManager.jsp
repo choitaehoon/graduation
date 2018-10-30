@@ -97,4 +97,6 @@
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="${R}assets/js/demo.js"></script>
+
+<script src="${R}res/common.js"></script>
 </html>
