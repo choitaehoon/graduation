@@ -16,9 +16,20 @@
     </select>
 
 
-    <select id="findAll" resultType="Student">
-        select * from student
+    <select id="findAll" resultMap="resultMap1">
+        select s.*, d.departmentName
+        from student s inner join department d
+        on s.department_id = d.id
     </select>
+
+    <resultMap id="resultMap1" type="Student">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="email" column="email" />
+        <association property="department" javaType="Department">
+            <result property="departmentName" column="departmentName" />
+        </association>
+    </resultMap>
 
     <select id="findByPassword" resultType="String">
         select password from student

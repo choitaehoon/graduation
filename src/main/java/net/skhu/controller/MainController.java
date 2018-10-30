@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -25,6 +26,13 @@ public class MainController {
     StudentMapper studentMapper;
     @Autowired
     DepartmentMapper departmentMapper;
+
+    @RequestMapping(value = "graduation",method = RequestMethod.GET)
+    public String main(Model model, @RequestParam("type") int type ,@RequestParam("id") int id)
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "login/main";
+    }
 
     @RequestMapping("manageClass")
     public String manageClass(Model model, @RequestParam("type") int type , @RequestParam("id") int id )

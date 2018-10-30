@@ -57,7 +57,7 @@
         <c:if test="${member.type == 2}">
             <li>
             <a href="/main/studentManager?type=${member.type}&id=${member.id}">
-            <i class="pe-7s-users"></i>
+            <i class="pe-7s-add-user"></i>
             <p>학생관리</p> </a>
             </li>
         </c:if>

@@ -17,18 +17,12 @@
                                 <br><br><br>
                                 <p class="category">
                                     <select>
-                                        <option>학년별</option>
-                                        <option>이수학기별</option>
-                                        <option>학번별</option>
-                                        <option>학과별</option>
                                         <option>이름</option>
+                                        <option>학과별</option>
                                         <option>학번</option>
-                                        <option>전공 필수 미충족</option>
-                                        <option>교양 필수 미충족</option>
-                                        <option>졸업요건 미충족 학생 관리</option>
                                     </select>
                                     <input type="text">
-                                    <a href="studentLack.html"> <button type="submit" class="btn btn-primary">조회</button></a>
+                                    <a href=""> <button type="submit" class="btn btn-primary">조회</button></a>
 
 
                                 <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
@@ -43,49 +37,15 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td>201432000</td>
-                                        <td>김모씨</td>
-                                        <td>aaa@naver.com</td>
-                                        <td>소프트웨어공학과</td>
-                                        <td><a href="/login/manager_stu_info?type=${member.type}&id=${member.id}"><button class="btn btn-primary">수정</button></a>
-                                            <a href="studentGraduation.html"> <button class="btn btn-danger">삭제</button></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>201432001</td>
-                                        <td>최모씨</td>
-                                        <td>qwjkasdiuqebn@naver.com</td>
-                                        <td>소프트웨어공학과</td>
-                                        <td><button class="btn btn-primary">수정</button><button class="btn btn-danger">삭제</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>201432002</td>
-                                        <td>이모씨</td>
-                                        <td>pqwoenqweh@naver.com</td>
-                                        <td>소프트웨어공학과</td>
-                                        <td><button class="btn btn-primary">수정</button><button class="btn btn-danger">삭제</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>201432003</td>
-                                        <td>강모씨</td>
-                                        <td>zmzsjdiqweui@naver.com</td>
-                                        <td>소프트웨어공학과</td>
-                                        <td><button class="btn btn-primary">수정</button><button class="btn btn-danger">삭제</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>201432004</td>
-                                        <td>김가나</td>
-                                        <td>1111111@naver.com</td>
-                                        <td>소프트웨어공학과</td>
-                                        <td><button class="btn btn-primary">수정</button><button class="btn btn-danger">삭제</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>201432005</td>
-                                        <td>서모씨</td>
-                                        <td>22222222222@naver.com</td>
-                                        <td>소프트웨어공학과</td>
-                                        <td><button class="btn btn-primary">수정</button><button class="btn btn-danger">삭제</button></td>
-                                    </tr>
+                                    <c:forEach var="student" items="${ students }">
+                                        <tr data-url="studentManager2?studentId=${ student.id }&type=${member.type}&id=${member.id}">
+                                            <td>${ student.id }</td>
+                                            <td>${ student.name }</td>
+                                            <td>${ student.email }</td>
+                                            <td>${ student.department.departmentName}</td>
+                                            <td><button class="btn btn-primary">수정</button></td>
+                                        </tr>
+                                    </c:forEach></tbody>
                                     </tbody>
                                 </table>
 
