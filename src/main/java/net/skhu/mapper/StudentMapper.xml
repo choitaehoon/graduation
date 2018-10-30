@@ -9,9 +9,9 @@
    </select>
 
     <select id="findById" resultType="Student">
-        SELECT *
-        FROM student
-        where id=#{id} ;
+        SELECT s.*, d.departmentName FROM student s
+        left join department d on s.department_id = d.id
+        where s.id=#{id} ;
 
     </select>
 
