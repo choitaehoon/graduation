@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.skhu.mapper.StudentMapper">
+    <select id="findByIdAndPassword" resultType="int">
+        select count(*) from student
+        where id = #{id} and password = #{password}
+   </select>
+
+    <select id="findById" resultType="Student">
+        SELECT *
+        FROM student
+        where id=#{id} ;
+
+    </select>
+
+
+    <select id="findAll" resultType="Student">
+        select * from student
+    </select>
+
+    <select id="findByPassword" resultType="String">
+        select password from student
+        where question = #{answer} and name = #{name} and id = #{id}
+    </select>
+
+
+    <!-- 로그인 중복 체크 -->
+    <select id="selectByLoginIdCheck" resultType="int">
+	select count(*) from student where id = #{id}
+	</select>
+
+<!--    나중에 otp 추가하기-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+	INSERT Student (id, name, department_id, password, email,question, phone,graduationRule_id)
+	VALUES (#{id}, #{name}, #{department_Id}, #{password}, #{email},#{question}, #{phone},#{graduationRule_id})
+	</insert>
+
+    <update id="updateMember">
+    update student set
+        name = #{name} ,
+        email = #{email} ,
+        password = #{password} ,
+        question = #{question} ,
+        phone = #{phone}
+    where id = #{id}
+    </update>
+
+
+</mapper>
