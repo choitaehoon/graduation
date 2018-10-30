@@ -79,9 +79,11 @@ public class MainController {
         return "main/test";
     }
 
-    @RequestMapping("studentManager2")
+    @RequestMapping(value="studentManager2", method=RequestMethod.GET)
     public String studentManager2(Model model,@RequestParam("studentId") int studentId, @RequestParam("type") int type ,@RequestParam("id") int id )
     {
+        Student student = studentMapper.findById(studentId);
+        model.addAttribute("student", student);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/studentManager2";
     }
