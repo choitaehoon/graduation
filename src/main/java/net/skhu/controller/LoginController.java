@@ -19,7 +19,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
 public class LoginController {
     @Autowired
     TypeIdentity typeIdentity;
@@ -103,41 +102,41 @@ public class LoginController {
 
 
 
-    /*
-    내정보
-     */
-    @RequestMapping("myInfo")
-    public String myInfo(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
-    {
-        System.out.println(type+" "+id+" "+"myInfo");
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        return "main/myInfo";
-    }
-
-    @RequestMapping(value = "updateMember")
-    public String updateMember(User user, RedirectAttributes redirectAttributes)
-    {
-        typeIdentity.typeUpdate(user);
-        redirectAttributes.addAttribute("type",user.getType());
-        redirectAttributes.addAttribute("id",user.getId());
-        System.out.println(user.getType()+" "+user.getId()+" "+"updateMember");
-        return "redirect:myInfo";
-    }
-
-    @RequestMapping("test")
-    public String test(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
-    {
-        List<Student> students = studentMapper.findAll();
-        model.addAttribute("students", students);
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        return "main/test";
-    }
-
-    @RequestMapping("studentManager2")
-    public String studentManager2(Model model,@RequestParam("studentId") int studentId, @RequestParam("type") int type ,@RequestParam("id") int id )
-    {
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        return "main/studentManager2";
-    }
+//    /*
+//    내정보
+//     */
+//    @RequestMapping("myInfo")
+//    public String myInfo(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+//    {
+//        System.out.println(type+" "+id+" "+"myInfo");
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/myInfo";
+//    }
+//
+//    @RequestMapping(value = "updateMember")
+//    public String updateMember(User user, RedirectAttributes redirectAttributes)
+//    {
+//        typeIdentity.typeUpdate(user);
+//        redirectAttributes.addAttribute("type",user.getType());
+//        redirectAttributes.addAttribute("id",user.getId());
+//        System.out.println(user.getType()+" "+user.getId()+" "+"updateMember");
+//        return "redirect:myInfo";
+//    }
+//
+//    @RequestMapping("test")
+//    public String test(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+//    {
+//        List<Student> students = studentMapper.findAll();
+//        model.addAttribute("students", students);
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/test";
+//    }
+//
+//    @RequestMapping("studentManager2")
+//    public String studentManager2(Model model,@RequestParam("studentId") int studentId, @RequestParam("type") int type ,@RequestParam("id") int id )
+//    {
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/studentManager2";
+//    }
 
 }

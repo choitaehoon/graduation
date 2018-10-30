@@ -1,6 +1,86 @@
 package net.skhu.controller;
 
+
+import net.skhu.Service.TypeIdentity;
+import net.skhu.domain.Student;
+import net.skhu.domain.User;
+import net.skhu.mapper.DepartmentMapper;
+import net.skhu.mapper.StudentMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
+
+@Controller
+@RequestMapping("/main")
 public class MainController {
+
+    @Autowired
+    TypeIdentity typeIdentity;
+    @Autowired
+    StudentMapper studentMapper;
+    @Autowired
+    DepartmentMapper departmentMapper;
+
+    @RequestMapping("manageClass")
+    public String manageClass(Model model, @RequestParam("type") int type , @RequestParam("id") int id )
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/manageClass";
+    }
+
+    /*
+//    내정보
+//     */
+    @RequestMapping("myInfo")
+    public String myInfo(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        System.out.println(type+" "+id+" "+"myInfo");
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/myInfo";
+    }
+
+    @RequestMapping(value = "updateMember")
+    public String updateMember(User user, RedirectAttributes redirectAttributes)
+    {
+        typeIdentity.typeUpdate(user);
+        redirectAttributes.addAttribute("type",user.getType());
+        redirectAttributes.addAttribute("id",user.getId());
+        System.out.println(user.getType()+" "+user.getId()+" "+"updateMember");
+        return "redirect:myInfo";
+    }
+
+    @RequestMapping("studentManager")
+    public String studentManager(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        model.addAttribute("students", studentMapper.findAll());
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/studentManager";
+    }
+
+    @RequestMapping("test")
+    public String test(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        List<Student> students = studentMapper.findAll();
+        model.addAttribute("students", students);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/test";
+    }
+
+    @RequestMapping("studentManager2")
+    public String studentManager2(Model model,@RequestParam("studentId") int studentId, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/studentManager2";
+    }
+
+
+
+
 
 //
 //    @RequestMapping("myInfo")

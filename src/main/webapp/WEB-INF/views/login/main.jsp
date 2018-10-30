@@ -306,6 +306,4 @@
 <script src="${R}assets/js/demo.js"></script>
 
 
-</script>
-
 </html>
