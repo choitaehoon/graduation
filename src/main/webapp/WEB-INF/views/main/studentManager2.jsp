@@ -19,35 +19,34 @@
                                 <tbody>
                                 <tr>
                                     <td>이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.name }</td>
-                                    <td>학과&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.departmentName }</td>
+                                    <td>학과&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.department.departmentName }</td>
                                 </tr>
                                 <tr>
                                     <td>학번&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.id }</td>
                                     <td>이메일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.email }</td>
                                 </tr>
                                 <tr>
-                                    <td>학기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6</td>
-                                    <td style="color:red;">이수 학점&nbsp;&nbsp;130/110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 학점:4.5/4&nbsp;&nbsp;&nbsp;</td>
+                                    <td>학기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ 6 }</td>
+                                    <td style="color:red;">이수 학점&nbsp;&nbsp;?/130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 학점:?/4.5&nbsp;&nbsp;&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td>교수님 코멘트&nbsp;&nbsp;&nbsp;</td>
-                                    <td>${ student.comment }</td>
+                                    <td>이수중인 과정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.detailType }</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>교수님 코멘트&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.comment }</td>
+                                    <td></td>
                                 </tr>
                                 </tbody>
                             </table>
                             <p class="category">
-                                <select>
-                                    <option>전공필수</option>
-                                    <option>이수학기별</option>
-                                    <option>교양필수</option>
-                                    <option>학점f조회</option>
-                                    <option>전필 미수강조회</option>
-                                    <option>교필 미수강조회</option>
-                                    <option>기타과정 조회</option>
-                                </select>
-                                <input type="text">
-                                <a href=#> <button type="submit" class="btn btn-primary">조회</button></a>
 
+                                <form method="POST">
+                                    <button type="submit" class="btn btn-primary" name="choice" value="1">전체</button>
+                                    <button type="submit" class="btn btn-primary" name="choice" value="2">전공필수</button>
+                                    <button type="submit" class="btn btn-primary" name="choice" value="3">교양필수</button>
+                                    <button type="submit" class="btn btn-primary" name="choice" value="4">F학점</button>
+                                </form>
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                 <thead>
@@ -63,60 +62,17 @@
                                 </thead>
 
                                 <tbody>
-                                <tr>
-                                    <td>2014</td>
-                                    <td>1학기</td>
-                                    <td>AC00001</td>
-                                    <td>채플(시네마채플)</td>
-                                    <td>교필</td>
-                                    <td>0.0</td>
-                                    <td>p</td>
-                                </tr>
-                                <tr>
-                                    <td>2014</td>
-                                    <td>1학기</td>
-                                    <td>AC00011</td>
-                                    <td>인문학의 세계-느티아래 강좌</td>
-                                    <td>교필</td>
-                                    <td>3.0</td>
-                                    <td>p</td>
-                                </tr>
-                                <tr>
-                                    <td>2014</td>
-                                    <td>1학기</td>
-                                    <td>AE00009</td>
-                                    <td>삶과 교육</td>
-                                    <td>교선</td>
-                                    <td>3.0</td>
-                                    <td>p</td>
-                                </tr>
-                                <tr style="color:red">
-                                    <td>2014</td>
-                                    <td>1학기</td>
-                                    <td>AE00012</td>
-                                    <td>아시아사회와 문화</td>
-                                    <td>교선</td>
-                                    <td>3.0</td>
-                                    <td>f</td>
-                                </tr>
-                                <tr>
-                                    <td>2014</td>
-                                    <td>1학기</td>
-                                    <td>AE00022</td>
-                                    <td>정보사회론</td>
-                                    <td>교선</td>
-                                    <td>3.0</td>
-                                    <td>B</td>
-                                </tr>
-                                <tr>
-                                    <td>2014</td>
-                                    <td>1학기</td>
-                                    <td>AF00011</td>
-                                    <td>이산수학</td>
-                                    <td>교선</td>
-                                    <td>3.0</td>
-                                    <td>B+</td>
-                                </tr>
+                                <c:forEach var="lecture" items="${ student.myLecture }">
+                                    <tr>
+                                        <td>${ lecture.year }</td>
+                                        <td>${ lecture.semester }</td>
+                                        <td>${ lecture.id }</td>
+                                        <td>${ lecture.title }</td>
+                                        <td>${ lecture.detailType }</td>
+                                        <td>${ lecture.credit }</td>
+                                        <td>${ lecture.gradeA }</td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
 
