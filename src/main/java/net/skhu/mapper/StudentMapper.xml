@@ -7,14 +7,35 @@
         select count(*) from student
         where id = #{id} and password = #{password}
    </select>
-
-    <select id="findById" resultType="Student">
-        SELECT s.*, d.departmentName,r.detailType FROM student s
+    <!--  학번으로 학생찾기 -->
+    <select id="findById" resultMap="resultMapId">
+        SELECT s.*, d.departmentName,r.detailType, m.* FROM student s
         left join department d on s.department_id = d.id
         left join graduationRule r on s.graduationRule_id=r.id
-        where s.id=#{id} ;
-
+        left join mylecture m on s.id = m.student_id
+        where s.id = #{id} ;
     </select>
+
+
+    <resultMap id="resultMapId" type="Student">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="email" column="email" />
+        <result property="comment" column="comment" />
+        <result property="detailType" column="detailType" />
+        <association property="department" javaType="Department">
+            <result property="departmentName" column="departmentName" />
+        </association>
+        <collection property="myLecture" ofType="Lecture">
+            <id property="year" column="lecture_year"/>
+            <id property="semester" column="lecture_semester"/>
+            <id property="id" column="lecture_id"/>
+            <result property="title" column="title"/>
+            <result property="detailType" column="detailtype"/>
+            <result property="credit" column="credit"/>
+            <result property="grade" column="grade"/>
+        </collection>
+    </resultMap>
 
 
     <select id="findAll" resultMap="resultMap1">
@@ -31,6 +52,7 @@
             <result property="departmentName" column="departmentName" />
         </association>
     </resultMap>
+
 
     <select id="findByPassword" resultType="String">
         select password from student
