@@ -119,11 +119,6 @@
         </a>
         </li>
 
-        <li>
-        <a href="test?type=${member.type}&id=${member.id}">
-        <p>학생관리(Test)</p>
-        </a>
-        </li>
         </ul>
         </div>
         </div>
