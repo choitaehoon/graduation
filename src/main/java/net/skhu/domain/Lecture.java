@@ -14,6 +14,25 @@ public class Lecture
     int credit;
     String subType;
 
+    String detailType;
+    String grade;
+
+    public String getDetailType() {
+        return detailType;
+    }
+
+    public void setDetailType(String detailType) {
+        this.detailType = detailType;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
     public int getYear() {
         return year;
     }

@@ -2,6 +2,8 @@ package net.skhu.domain;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Student
 {
@@ -25,5 +27,6 @@ public class Student
     int graduationRule_id;
     String detailType;
 
+    List<Lecture> myLecture;
 
 }
