@@ -16,6 +16,18 @@ public class Lecture
 
     String detailType;
     String grade;
+    String gradeA;
+
+
+    public String getGradeA() {
+        return gradeA;
+    }
+
+    public void setGradeA(String gradeA) {
+        this.gradeA = gradeA;
+    }
+
+
 
     public String getDetailType() {
         return detailType;
