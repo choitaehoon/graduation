@@ -61,7 +61,7 @@
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-                                    <tr data-url="classEdit?&type=${member.type}&id=${member.id}">
+                                    <tr data-url="classEdit?lecture=${lecture}&type=${member.type}&id=${member.id}">
                                     <td>${lecture.year}</td>
                                     <td>${lecture.semester}</td>
                                     <td>${lecture.id}</td>
@@ -72,8 +72,8 @@
                                     <td>${lecture.credit}</td>
                                     <td><a href='classEdit?lecture=${lecture}&type=${member.type}&id=${member.id}'>
                                         <button class="btn btn-primary">수정</button>
-                                    </a></td>
-                                    <%--<a href="studentGraduation.html"> <button class="btn btn-danger">삭제</button></a></td>--%>
+                                    </a>
+                                    </td>
                                 </tr>
                                 </c:forEach>
                                 </tbody>
