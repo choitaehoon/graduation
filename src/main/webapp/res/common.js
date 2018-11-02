@@ -17,12 +17,18 @@ $('.container .bg').mousemove(function (e) {
     var amountMovedY = (e.pageY * -1 / 9);
     $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
 });
-{
-    $("[data-url]").click(function () {
+
+
+
+$(function() {
+
+    $("[data-url]").click(function() {
         var url = $(this).attr("data-url");
         location.href = url;
     })
-    $("[data-confirm-delete]").click(function () {
+
+    $("[data-confirm-delete]").click(function() {
         return confirm("삭제하시겠습니까?");
     })
-}
+
+})

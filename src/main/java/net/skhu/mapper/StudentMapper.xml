@@ -7,13 +7,49 @@
         select count(*) from student
         where id = #{id} and password = #{password}
    </select>
-
-    <select id="findById" resultType="Student">
-        SELECT *
-        FROM student
-        where id=#{id} ;
-
+    <!--  학번으로 학생찾기 -->
+    <select id="findById" resultMap="resultMapId">
+        SELECT s.*, d.departmentName,r.detailType , m.*, m.detailType as detailType2,
+        CASE WHEN grade = '4.5' THEN 'A+'
+        WHEN grade = '4.0' THEN 'A0'
+        WHEN grade = '3.5' THEN 'B+'
+        WHEN grade = '3.0' THEN 'B0'
+        WHEN grade = '2.5' THEN 'C+'
+        WHEN grade = '2.0' THEN 'C0'
+        WHEN grade = '1.5' THEN 'D+'
+        WHEN grade = '1.0' THEN 'D0'
+        WHEN grade = '0.0' THEN 'F'
+        WHEN grade = 'P' THEN 'P'
+        else 'NP'
+        END AS gradeA
+        FROM student s
+        left join department d on s.department_id = d.id
+        left join graduationRule r on s.graduationRule_id=r.id
+        left join mylecture m on s.id = m.student_id
+        where s.id = #{id} ;
     </select>
+
+
+    <resultMap id="resultMapId" type="Student">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="email" column="email" />
+        <result property="comment" column="comment" />
+        <result property="detailType" column="detailType" />
+        <association property="department" javaType="Department">
+            <result property="departmentName" column="departmentName" />
+        </association>
+        <collection property="myLecture" ofType="Lecture">
+            <id property="year" column="lecture_year"/>
+            <id property="semester" column="lecture_semester"/>
+            <id property="id" column="lecture_id"/>
+            <result property="title" column="title"/>
+            <result property="detailType" column="detailType2"/>
+            <result property="credit" column="credit"/>
+            <result property="grade" column="grade"/>
+            <result property="gradeA" column="gradeA"/>
+        </collection>
+    </resultMap>
 
     <select id="selectPage" resultType="Student">
         <bind name="start" value="(currentPage-1)*pageSize"/>
@@ -43,6 +79,7 @@
             <result property="departmentName" column="departmentName" />
         </association>
     </resultMap>
+
 
     <select id="findByPassword" resultType="String">
         select password from student

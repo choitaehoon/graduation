@@ -1,8 +1,13 @@
 package net.skhu.controller;
 
 
+import net.skhu.Service.LectureService;
 import net.skhu.Service.TypeIdentity;
+<<<<<<< HEAD
 import net.skhu.domain.Pagination;
+=======
+import net.skhu.domain.Lecture;
+>>>>>>> c3aa0db40403d073b8c2ba5b3a4463eda1557370
 import net.skhu.domain.Student;
 import net.skhu.domain.User;
 import net.skhu.mapper.DepartmentMapper;
@@ -27,6 +32,9 @@ public class MainController {
     StudentMapper studentMapper;
     @Autowired
     DepartmentMapper departmentMapper;
+    @Autowired
+    LectureService lectureService;
+
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
     public String main(Model model, @RequestParam("type") int type ,@RequestParam("id") int id)
@@ -35,12 +43,30 @@ public class MainController {
         return "login/main";
     }
 
+    /* 수업관리 페이지*/
     @RequestMapping("manageClass")
     public String manageClass(Model model, @RequestParam("type") int type , @RequestParam("id") int id )
     {
+
+        model.addAttribute("lectures",lectureService.lectureList());
+
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/manageClass";
     }
+    /* 수업관리 페이지*/
+    @RequestMapping("classEdit")
+    public String edit(Model model,@RequestParam("lecture")Lecture lecture,@RequestParam("type") int type , @RequestParam("id") int id )
+    {
+
+        model.addAttribute("lecture",lectureService.findLecture(lecture.getYear(),lecture.getId()));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/classEdit";
+    }
+
+
+
+
+
 
     /*
 //    내정보
@@ -81,9 +107,11 @@ public class MainController {
         return "main/test";
     }
 
-    @RequestMapping("studentManager2")
+    @RequestMapping(value="studentManager2", method=RequestMethod.GET)
     public String studentManager2(Model model,@RequestParam("studentId") int studentId, @RequestParam("type") int type ,@RequestParam("id") int id )
     {
+        Student student = studentMapper.findById(studentId);
+        model.addAttribute("student", student);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/studentManager2";
     }

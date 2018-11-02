@@ -1,5 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<c:url var="R" value="/" />
+<!doctype html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" media="screen">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${R}res/common.css">
+    <script src="${R}res/common.js"></script>
 
 </head>
 <body>
@@ -40,6 +51,7 @@
                                     <th>개설학기</th>
                                     <th>과목코드</th>
                                     <th>분반</th>
+                                    <th>교수명</th>
                                     <th>과목명</th>
                                     <th>이수구분</th>
                                     <th>이수학점</th>
@@ -48,27 +60,22 @@
                                 </thead>
 
                                 <tbody>
-                                <tr>
-                                    <td>2018</td>
-                                    <td>2학기</td>
-                                    <td>IC00040</td>
-                                    <td>고급웹프로그래밍II</td>
-                                    <td>100195</td>
-                                    <td>3</td>
-                                    <td>전공</td>
-                                    <td><a href='#'>
+                                <c:forEach var="lecture" items="${lectures}">
+                                    <tr data-url="classEdit?&lecture=${lecture}&type=${member.type}&id=${member.id}">
+                                    <td>${lecture.year}</td>
+                                    <td>${lecture.semester}</td>
+                                    <td>${lecture.id}</td>
+                                    <td>${lecture.split}</td>
+                                    <td>${lecture.admin.name}</td>
+                                    <td>${lecture.title}</td>
+                                    <td>${lecture.subType}</td>
+                                    <td>${lecture.credit}</td>
+                                    <td><a href='classEdit?lecture=${lecture}&type=${member.type}&id=${member.id}'>
                                         <button class="btn btn-primary">수정</button>
                                     </a></td>
                                     <%--<a href="studentGraduation.html"> <button class="btn btn-danger">삭제</button></a></td>--%>
                                 </tr>
-                                    <td>2018</td>
-                                    <td>2학기</td>
-                                    <td>IC00030</td>
-                                    <td>데이터베이스 캡스톤디자인</td>
-                                    <td>100035</td>
-                                    <td>6</td>
-                                    <td>전공</td>
-                                    <td><a href='#'><button class="btn btn-primary">수정</button></a></td>
+                                </c:forEach>
                                 </tbody>
                             </table>
 

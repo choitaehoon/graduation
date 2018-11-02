@@ -2,6 +2,8 @@ package net.skhu.domain;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Student
 {
@@ -16,12 +18,15 @@ public class Student
     double avgMajor;
     String question;
     Department department;
-    int graduationRule_id;
     int type;
 
 
     int department_Id;
     String departmentName;
 
+    int graduationRule_id;
+    String detailType;
+
+    List<Lecture> myLecture;
 
 }
