@@ -42,12 +42,12 @@
                                 <h1>수업 등록</h1>
                                 <br />
 
-                                <form method="post" modelAttribute="lecture">
-                                <input type="hidden" name="year" value="now()">
+                                <form:form method="post" modelAttribute="lecture">
                                 <label>개설학기</label>
                                 <div class="form-group">
-                                    <form:input class="form-control" path="year" style="width: 100px" />
+                                    <form:input class="form-control" path="semester" style="width: 100px" />
                                 </div>
+
                                 <label>과목코드</label>
                                 <div class="form-group">
                                     <form:input class="form-control" path="id" style="width: 200px" />
@@ -59,7 +59,7 @@
                                 </div>
                                 <label>교수</label>
                                 <div class="form-group">
-                                    <form:input class="form-control" path="${lecture.admin.name}" style="width: 200px"/>
+                                    <form:input class="form-control" path="admin_id" style="width: 200px"/>
                                 </div>
                                 <label>과목명</label>
                                 <div class="form-group">
@@ -82,7 +82,7 @@
                                 </a>
 
                                 </div>
-                                </form>
+                                </form:form>
                             </div>
                         </div>
 

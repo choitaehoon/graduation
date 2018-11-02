@@ -11,6 +11,7 @@ import net.skhu.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,10 +53,10 @@ public class MainController {
 
     /* 수업관리 페이지*/
     @RequestMapping("classEdit")
-    public String edit(Model model,@RequestParam("lecture")Lecture lecture,@RequestParam("type") int type , @RequestParam("id") int id )
+    public String edit(Model model,Lecture lecture, @RequestParam("type") int type , @RequestParam("id") int id )
     {
 
-        model.addAttribute("lecture",lectureService.findLecture(lecture.getYear(),lecture.getId()));
+        model.addAttribute("lecture",lectureService.findLecture(lecture.getYear(), lecture.getId(),lecture.getAdmin_id()));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/classEdit";
     }

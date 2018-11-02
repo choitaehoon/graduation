@@ -31,6 +31,9 @@
 
         <div class="sidebar" data-color="azure" data-image="${R}assets/img/logo.jpg">
         <div class="sidebar-wrapper">
+
+
+
         <div class="logo">
         <a href="graduation?type=${member.type}&id=${member.id}" class="simple-text">
         SKHU 졸업관리
