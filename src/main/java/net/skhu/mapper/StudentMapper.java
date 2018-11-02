@@ -1,5 +1,6 @@
 package net.skhu.mapper;
 
+import net.skhu.domain.Pagination;
 import net.skhu.domain.Student;
 import net.skhu.domain.User;
 import org.apache.ibatis.annotations.Mapper;
@@ -20,4 +21,6 @@ public interface StudentMapper
     int selectByLoginIdCheck(int id);
     void updateMember(User user);
     List<Student> findAll();
+    int selectCount();
+    List<Student> selectPage(Pagination pagination);
 }

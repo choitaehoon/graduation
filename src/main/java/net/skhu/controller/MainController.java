@@ -3,7 +3,11 @@ package net.skhu.controller;
 
 import net.skhu.Service.LectureService;
 import net.skhu.Service.TypeIdentity;
+<<<<<<< HEAD
+import net.skhu.domain.Pagination;
+=======
 import net.skhu.domain.Lecture;
+>>>>>>> c3aa0db40403d073b8c2ba5b3a4463eda1557370
 import net.skhu.domain.Student;
 import net.skhu.domain.User;
 import net.skhu.mapper.DepartmentMapper;
@@ -87,9 +91,10 @@ public class MainController {
     }
 
     @RequestMapping("studentManager")
-    public String studentManager(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    public String studentManager(Model model, Pagination pagination, @RequestParam("type") int type , @RequestParam("id") int id )
     {
-        model.addAttribute("students", studentMapper.findAll());
+        pagination.setRecordCount(studentMapper.selectCount());
+        model.addAttribute("listes",studentMapper.selectPage(pagination));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/studentManager";
     }
