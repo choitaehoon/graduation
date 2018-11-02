@@ -1,5 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
+
+    <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
+          rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("div.pagination a").click(function() {
+                $("input[name=pg]").val($(this).attr("data-page"));
+                $("form").submit();
+            });
+        });
+    </script>
 
 </head>
 <body>
@@ -24,8 +37,12 @@
                                     <input type="text">
                                     <a href=""> <button type="submit" class="btn btn-primary">조회</button></a>
 
-
-                                <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
+                                <form method="get">
+                                    <input type="hidden" name="pg" value="1" />
+                                    <input type="hidden" name="type" value="${member.type}"  />
+                                    <input type="hidden" name="id" value="${member.id}" />
+                                <table class="table table-striped" style="
+                                width:100%; max-width:100%; margin-bottom:20px;">
                                     <thead>
                                     <tr>
                                         <th>학번</th>
@@ -35,22 +52,30 @@
                                         <th>권한</th>
                                     </tr>
                                     </thead>
-
                                     <tbody>
-                                    <c:forEach var="student" items="${ students }">
-                                        <tr data-url="studentManager2?studentId=${ student.id }&type=${member.type}&id=${member.id}">
-                                            <td>${ student.id }</td>
-                                            <td>${ student.name }</td>
-                                            <td>${ student.email }</td>
-                                            <td>${ student.department.departmentName}</td>
+                                    <c:forEach var="list" items="${ listes }">
+                                        <tr data-url="studentManager2?studentId=${ list.id }&type=${member.type}&id=${member.id}">
+                                            <td>${ list.id }</td>
+                                            <td>${ list.name }</td>
+                                            <td>${ list.email }</td>
+                                            <td>${ list.departmentName}</td>
                                             <td><button class="btn btn-primary">수정</button></td>
                                         </tr>
-                                    </c:forEach></tbody>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
 
+                                <%--/* 페이지 네이션 */--%>
+                                <div class="pagination pagination-small pagination-centered">
+                                    <ul>
+                                        <c:forEach var="page" items="${ pagination.pageList }">
+                                            <li class='${ page.cssClass }'>
+                                                <a data-page="${ page.number }">${ page.label }</a></li>
+                                        </c:forEach>
+                                    </ul>
+                                </div>
                                 </p>
-
+                            </form>
 
 
                             </div>

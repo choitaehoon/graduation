@@ -15,6 +15,19 @@
 
     </select>
 
+    <select id="selectPage" resultType="Student">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
+      select s.*, d.departmentName
+        from student s inner join department d
+        on s.department_id = d.id
+      limit ${start} , ${end}
+    </select>
+
+    <select id="selectCount" resultType="int">
+        select count(*) from student
+    </select>
+
 
     <select id="findAll" resultMap="resultMap1">
         select s.*, d.departmentName
