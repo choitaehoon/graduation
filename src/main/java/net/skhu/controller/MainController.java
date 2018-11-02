@@ -1,13 +1,9 @@
 package net.skhu.controller;
 
 
-import net.skhu.Service.LectureService;
 import net.skhu.Service.TypeIdentity;
-<<<<<<< HEAD
 import net.skhu.domain.Pagination;
-=======
 import net.skhu.domain.Lecture;
->>>>>>> c3aa0db40403d073b8c2ba5b3a4463eda1557370
 import net.skhu.domain.Student;
 import net.skhu.domain.User;
 import net.skhu.mapper.DepartmentMapper;
@@ -32,8 +28,8 @@ public class MainController {
     StudentMapper studentMapper;
     @Autowired
     DepartmentMapper departmentMapper;
-    @Autowired
-    LectureService lectureService;
+//    @Autowired
+//    LectureService lectureService;
 
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
@@ -53,6 +49,7 @@ public class MainController {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/manageClass";
     }
+
     /* 수업관리 페이지*/
     @RequestMapping("classEdit")
     public String edit(Model model,@RequestParam("lecture")Lecture lecture,@RequestParam("type") int type , @RequestParam("id") int id )
@@ -115,8 +112,6 @@ public class MainController {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/studentManager2";
     }
-
-
 
 
 
