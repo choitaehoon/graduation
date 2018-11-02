@@ -61,7 +61,7 @@
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-                                    <tr data-url="classEdit?&lecture=${lecture}&type=${member.type}&id=${member.id}">
+                                    <tr data-url="classEdit?&type=${member.type}&id=${member.id}">
                                     <td>${lecture.year}</td>
                                     <td>${lecture.semester}</td>
                                     <td>${lecture.id}</td>
