@@ -51,12 +51,23 @@ public class MainController {
         return "main/manageClass";
     }
 
-    /* 수업관리 페이지*/
+    /* 수업수정 페이지*/
     @RequestMapping("classEdit")
-    public String edit(Model model,Lecture lecture, @RequestParam("type") int type , @RequestParam("id") int id )
+    public String edit(Model model,Lecture lecture, @RequestParam("type") int type , @RequestParam("userId") int id )
     {
+        model.addAttribute("lecture",lectureService.findLecture(lecture.getYear(),lecture.getSemester(),lecture.getId(),lecture.getAdmin_id()));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/classEdit";
+    }
 
-        model.addAttribute("class",lectureService.findLecture(lecture.getYear(),lecture.getId(),lecture.getAdmin_id()));
+
+    /* 수업등록 페이지*/
+    @RequestMapping("classCreate")
+    public String create(Model model,@RequestParam("type") int type , @RequestParam("id") int id )
+    {
+        Lecture lecture =new Lecture();
+        model.addAttribute("lecture",lecture);
+
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/classEdit";
     }

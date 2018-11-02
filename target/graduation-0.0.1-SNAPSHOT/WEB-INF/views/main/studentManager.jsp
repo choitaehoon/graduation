@@ -13,6 +13,8 @@
             });
         });
     </script>
+    <link rel="stylesheet" href="${R}res/common.css">
+    <script src="${R}res/common.js"></script>
 
 </head>
 <body>
@@ -37,10 +39,7 @@
                                     <input type="text">
                                     <a href=""> <button type="submit" class="btn btn-primary">조회</button></a>
 
-                                <form method="get">
-                                    <input type="hidden" name="pg" value="1" />
-                                    <input type="hidden" name="type" value="${member.type}"  />
-                                    <input type="hidden" name="id" value="${member.id}" />
+
                                 <table class="table table-striped" style="
                                 width:100%; max-width:100%; margin-bottom:20px;">
                                     <thead>
@@ -59,12 +58,16 @@
                                             <td>${ list.name }</td>
                                             <td>${ list.email }</td>
                                             <td>${ list.departmentName}</td>
-                                            <td><button class="btn btn-primary">수정</button></td>
+                                            <td><a href="studentManager2?studentId=${ list.id }&type=${member.type}&id=${member.id}" >
+                                                <button class="btn btn-primary">수정</button></a></td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
                                 </table>
-
+                                <form method="get">
+                                    <input type="hidden" name="pg" value="1" />
+                                    <input type="hidden" name="type" value="${member.type}"  />
+                                    <input type="hidden" name="id" value="${member.id}" />
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
 
@@ -74,8 +77,9 @@
                                         </c:forEach>
 
                                 </div>
+                                </form>
                                 </p>
-                            </form>
+
 
 
                             </div>
@@ -123,5 +127,4 @@
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="${R}assets/js/demo.js"></script>
 
-<script src="${R}res/common.js"></script>
 </html>

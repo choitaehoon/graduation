@@ -7,8 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet" media="screen">
-    <%--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>--%>
-    <%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${R}res/common.css">
     <script src="${R}res/common.js"></script>
 
@@ -39,6 +39,11 @@
 
                             <h4 class="title"> 수업 관리</h4>
                             <br><br><br>
+                            <div class="pull-right mb5">
+                                <a href="classCreate?type=${member.type}&id=${member.id}" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-user"></span> 수업등록</a>
+                            </div>
+
                             <p class="category">
                                 <select>
                                     <option>년도</option>
@@ -56,11 +61,7 @@
                                     <button type="submit" class="btn btn-primary">조회</button>
                                 </a>
 
-                            <form method="get">
 
-                            <input type="hidden" name="pg" value="1" />
-                            <input type="hidden" name="type" value="${member.type}"  />
-                            <input type="hidden" name="id" value="${member.id}" />
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                 <thead>
@@ -79,7 +80,7 @@
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-                                    <tr data-url="classEdit?lecture=${lecture}&type=${member.type}&id=${member.id}">
+                                    <tr data-url="classEdit?type=${member.type}&id=${member.id}">
                                     <td>${lecture.year}</td>
                                     <td>${lecture.semester}</td>
                                     <td>${lecture.id}</td>
@@ -88,7 +89,7 @@
                                     <td>${lecture.title}</td>
                                     <td>${lecture.subType}</td>
                                     <td>${lecture.credit}</td>
-                                    <td><a href='classEdit?lecture=${lecture}&type=${member.type}&id=${member.id}'>
+                                    <td><a href='classEdit?type=${member.type}&userId=${member.id}'>
                                         <button class="btn btn-primary">수정</button>
                                     </a>
                                     </td>
@@ -98,6 +99,11 @@
                             </table>
                         </form>
                             </p>
+                            <form>
+
+                                <input type="hidden" name="pg" value="1" />
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="id" value="${member.id}" />
                             <%--/* 페이지 네이션 */--%>
                             <div class="pagination pagination-small pagination-centered">
 
@@ -108,7 +114,7 @@
 
                                     </c:forEach>
                             </div>
-
+                            </form>
                         </div>
                     </div>
                 </div>
