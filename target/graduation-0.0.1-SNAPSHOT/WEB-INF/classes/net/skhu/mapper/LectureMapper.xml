@@ -26,11 +26,14 @@
     </resultMap>
 
     <select id="findAll" resultMap="adminResultMap">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
        select l.*,a.name adminName
        from lecture l
        left join admin a
        on l.admin_id= a.id
        where year ="2018"
+       limit ${start} , ${end}
 
     </select>
 
@@ -39,7 +42,7 @@
        from lecture l
        left join admin a
        on l.admin_id= a.id
-       where year=#{year} and id LIKE #{id}
+       where l.year=#{year} and l.id LIKE #{id} and l.admin_id=#{admin_id}
 
     </select>
 

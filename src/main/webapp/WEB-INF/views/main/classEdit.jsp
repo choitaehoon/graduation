@@ -42,7 +42,7 @@
                                 <h1>수업 등록</h1>
                                 <br />
 
-                                <form:form method="post" modelAttribute="lecture">
+                                <form:form method="post" modelAttribute="class">
                                 <label>개설학기</label>
                                 <div class="form-group">
                                     <form:input class="form-control" path="semester" style="width: 100px" />

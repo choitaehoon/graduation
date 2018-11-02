@@ -1,11 +1,9 @@
 package net.skhu.controller;
 
 
+import net.skhu.Service.LectureService;
 import net.skhu.Service.TypeIdentity;
-<<<<<<< HEAD
-=======
 import net.skhu.domain.Pagination;
->>>>>>> aa3f3179f6ee0524aa3b0d262b5cf1301dec1429
 import net.skhu.domain.Lecture;
 import net.skhu.domain.Student;
 import net.skhu.domain.User;
@@ -32,8 +30,8 @@ public class MainController {
     StudentMapper studentMapper;
     @Autowired
     DepartmentMapper departmentMapper;
-//    @Autowired
-//    LectureService lectureService;
+    @Autowired
+    LectureService lectureService;
 
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
@@ -45,11 +43,10 @@ public class MainController {
 
     /* 수업관리 페이지*/
     @RequestMapping("manageClass")
-    public String manageClass(Model model, @RequestParam("type") int type , @RequestParam("id") int id )
+    public String manageClass(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
     {
-
-        model.addAttribute("lectures",lectureService.lectureList());
-
+        pagination.setRecordCount(lectureService.pageCount());
+        model.addAttribute("lectures",lectureService.lectureList(pagination));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/manageClass";
     }
@@ -59,7 +56,7 @@ public class MainController {
     public String edit(Model model,Lecture lecture, @RequestParam("type") int type , @RequestParam("id") int id )
     {
 
-        model.addAttribute("lecture",lectureService.findLecture(lecture.getYear(), lecture.getId(),lecture.getAdmin_id()));
+        model.addAttribute("class",lectureService.findLecture(lecture.getYear(),lecture.getId(),lecture.getAdmin_id()));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/classEdit";
     }

@@ -7,11 +7,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet" media="screen">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <%--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>--%>
+    <%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
     <link rel="stylesheet" href="${R}res/common.css">
     <script src="${R}res/common.js"></script>
 
+    <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
+          rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("div.pagination a").click(function() {
+                $("input[name=pg]").val($(this).attr("data-page"));
+                $("form").submit();
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -24,6 +35,8 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
+
+
                             <h4 class="title"> 수업 관리</h4>
                             <br><br><br>
                             <p class="category">
@@ -43,6 +56,11 @@
                                     <button type="submit" class="btn btn-primary">조회</button>
                                 </a>
 
+                            <form method="get">
+
+                            <input type="hidden" name="pg" value="1" />
+                            <input type="hidden" name="type" value="${member.type}"  />
+                            <input type="hidden" name="id" value="${member.id}" />
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                 <thead>
@@ -61,7 +79,7 @@
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-                                    <tr data-url="classEdit?&lecture=${lecture}&type=${member.type}&id=${member.id}">
+                                    <tr data-url="classEdit?lecture=${lecture}&type=${member.type}&id=${member.id}">
                                     <td>${lecture.year}</td>
                                     <td>${lecture.semester}</td>
                                     <td>${lecture.id}</td>
@@ -72,15 +90,24 @@
                                     <td>${lecture.credit}</td>
                                     <td><a href='classEdit?lecture=${lecture}&type=${member.type}&id=${member.id}'>
                                         <button class="btn btn-primary">수정</button>
-                                    </a></td>
-                                    <%--<a href="studentGraduation.html"> <button class="btn btn-danger">삭제</button></a></td>--%>
+                                    </a>
+                                    </td>
                                 </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
-
+                        </form>
                             </p>
+                            <%--/* 페이지 네이션 */--%>
+                            <div class="pagination pagination-small pagination-centered">
 
+                                    <c:forEach var="page" items="${ pagination.pageList }">
+
+                                        <li class='${ page.cssClass }'>
+                                            <a data-page="${ page.number }">${ page.label }</a></li>
+
+                                    </c:forEach>
+                            </div>
 
                         </div>
                     </div>
@@ -108,17 +135,17 @@
 
 
 </body>
-<!-- Core JS Files -->
+<!--   Core JS Files   -->
 <script src="${R}assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="${R}assets/js/bootstrap.min.js" type="text/javascript"></script>
 
-<!-- Charts Plugin -->
+<!--  Charts Plugin -->
 <script src="${R}assets/js/chartist.min.js"></script>
 
-<!-- Notifications Plugin -->
+<!--  Notifications Plugin    -->
 <script src="${R}assets/js/bootstrap-notify.js"></script>
 
-<!-- Google Maps Plugin -->
+<!--  Google Maps Plugin    -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
@@ -126,4 +153,5 @@
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="${R}assets/js/demo.js"></script>
+
 </html>
