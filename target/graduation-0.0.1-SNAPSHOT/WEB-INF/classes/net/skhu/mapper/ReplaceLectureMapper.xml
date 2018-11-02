@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.skhu.mapper.ReplaceLectureMapper">
+
+<!--    모든 대체 과목 조회하기-->
+<!--    <select id="findAll" resultType="replacelecture">
+       select l.*,a.name
+       from lecture l
+       left join admin a
+       on l.admin_id= a.id;
+
+    </select>-->
+    <!--이름별로 대체 과목 조회하기 -->
+<!--    <select id="findBytitle" resultType="replacelecture">
+        select
+        from
+    </select>-->
+
+
+</mapper>
