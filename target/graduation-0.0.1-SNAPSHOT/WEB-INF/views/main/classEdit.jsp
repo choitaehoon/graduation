@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-    <c:url var="R" value="/" />
+<c:url var="R" value="/" />
     <!doctype html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -40,6 +40,10 @@
                                 <br />
 
                                <form:form method="post" modelAttribute="lecture">
+
+                                   <label>년도</label>
+                                   <form:input path="year" class="form-control" placeholder="년도" style="width: 100px" />
+
                                 <label>개설학기</label>
                                 <div class="form-group">
                                    <form:input path="semester" class="form-control" placeholder="개설학기" style="width: 100px" />
@@ -60,7 +64,7 @@
                                 </div>
                                 <label>과목명</label>
                                 <div class="form-group">
-                                    <form:input path="title" class="form-control" placeholder="과목명" style="width: 200px"/>
+                                    <form:input path="title" class="form-control" placeholder="과목명" style="width: 300px"/>
                                 </div>
                                 <label>이수구분</label>
                                 <div class="form-group">
@@ -72,11 +76,10 @@
                                 </div>
 
                                 <div id="buttons">
-                                    <a class="btn btn-primary"> <i
-                                            class="glyphicon glyphicon-ok"></i> 저장
-                                    </a> <a href="manageClass?type=${member.type}&id=${member.id}" class="btn btn-default"> <i
-                                        class="glyphicon glyphicon-list"></i> 목록으로
-                                </a>
+                                    <button type="submit"> <a class="btn btn-primary"> <i class="glyphicon glyphicon-ok"></i> 저장</a></button>
+                                    <a href="manageClass?type=${member.type}&userId=${member.id}&${pagination.queryString}" class="btn btn-default">
+                                        <i class="glyphicon glyphicon-list"></i> 목록으로
+                                    </a>
 
                                 </div>
                                </form:form>

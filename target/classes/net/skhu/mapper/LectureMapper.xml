@@ -32,7 +32,9 @@
        from lecture l
        left join admin a
        on l.admin_id= a.id
+      order by year desc
        limit ${start} , ${end}
+
 
     </select>
 
@@ -43,6 +45,7 @@
        on l.admin_id= a.id
        where year=#{year} and semester like #{semester} and l.id LIKE #{id} and admin_id=#{admin_id}
 
+
     </select>
 
 
@@ -51,5 +54,27 @@
         from lecture
 
     </select>
+
+    <insert id="insert">
+    INSERT Lecture (year, semester, id , split, title, admin_id, credit, subType)
+	VALUES (#{year}, #{semester}, #{id}, #{split}, #{title},#{admin_id}, #{credit},#{subType})
+    </insert>
+
+    <update id="update">
+        update lecture set
+        year = #{year} ,
+        semester = #{semester} ,
+        id = #{id} ,
+        split = #{split} ,
+        title = #{title},
+        admin_id = #{admin_id},
+        credit = #{credit},
+        subType = #{subType}
+        where year=#{year} and semester like #{semester} and id LIKE #{id} and split = #{split}
+
+
+    </update>
+
+
 
 </mapper>

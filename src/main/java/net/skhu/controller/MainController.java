@@ -45,26 +45,6 @@ public class MainController {
         return "login/main";
     }
 
-    /* 수업관리 페이지*/
-//    @RequestMapping("manageClass")
-//    public String manageClass(Model model, @RequestParam("type") int type , @RequestParam("id") int id )
-//    {
-//
-//        model.addAttribute("lectures",lectureService.lectureList());
-//
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/manageClass";
-//    }
-//
-//    /* 수업관리 페이지*/
-//    @RequestMapping("classEdit")
-//    public String edit(Model model,Lecture lecture, @RequestParam("type") int type , @RequestParam("id") int id )
-//    {
-//
-//        model.addAttribute("lecture",lectureService.findLecture(lecture.getYear(), lecture.getId(),lecture.getAdmin_id()));
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/classEdit";
-//    }
 
     @RequestMapping("manageClass")
     public String manageClass(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
@@ -75,35 +55,50 @@ public class MainController {
         return "main/manageClass";
     }
 
-//    @RequestMapping("manageClass")
-//    public String manageClass(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
-//    {
-//        pagination.setRecordCount(lectureService.pageCount());
-//        model.addAttribute("lectures",lectureService.lectureList(pagination));
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/manageClass";
-//    }
-//
 //    /* 수업수정 페이지*/
-//    @RequestMapping("classEdit")
-//    public String edit(Model model,@RequestParam("year") int year,@RequestParam("semester") String semester,@RequestParam("lecId") String lecId,
-//                       @RequestParam("adminId") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
-//    {
-//        model.addAttribute("lecture",lectureService.findLecture(year,semester,lecId,adminId));
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/classEdit";
-//    }
+    @RequestMapping("classEdit")
+    public String edit(Model model,Pagination pagination,@RequestParam("year") int year,@RequestParam("semester") String semester,@RequestParam("lecId") String lecId,
+                       @RequestParam("adminId") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
+    {
+        model.addAttribute("lecture",lectureService.findLecture(year,semester,lecId,adminId));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/classEdit";
+    }
+
+    /* 수업수정*/
+    @RequestMapping(value="classEdit",method = RequestMethod.POST)
+    public String edit(Model model,Lecture lecture,Pagination pagination, @RequestParam("type") int type , @RequestParam("userId") int id)
+    {
+        lectureService.lecUpdate(lecture);
+
+        pagination.setRecordCount(lectureService.pageCount());
+        model.addAttribute("lectures",lectureService.lectureList(pagination));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/manageClass";
+    }
 
 
     /* 수업등록 페이지*/
     @RequestMapping("classCreate")
-    public String create(Model model,@RequestParam("type") int type , @RequestParam("id") int id )
+    public String create(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("userId") int id )
     {
         Lecture lecture =new Lecture();
         model.addAttribute("lecture",lecture);
-
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/classEdit";
+    }
+
+    /* 수업등록*/
+    @RequestMapping(value = "classCreate",method = RequestMethod.POST)
+    public String create(Model model,Pagination pagination,Lecture lecture,@RequestParam("type") int type , @RequestParam("userId") int id )
+    {
+
+        lectureService.lecInsert(lecture);
+
+        pagination.setRecordCount(lectureService.pageCount());
+        model.addAttribute("lectures",lectureService.lectureList(pagination));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/manageClass";
     }
 
 

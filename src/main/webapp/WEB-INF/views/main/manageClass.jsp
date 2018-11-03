@@ -40,7 +40,7 @@
                             <h4 class="title"> 수업 관리</h4>
                             <br><br><br>
                             <div class="pull-right mb5">
-                                <a href="classCreate?type=${member.type}&id=${member.id}" class="btn btn-info">
+                                <a href="classCreate?type=${member.type}&userId=${member.id}&${pagination.queryString}" class="btn btn-info">
                                     <span class="glyphicon glyphicon-user"></span> 수업등록</a>
                             </div>
 
@@ -74,13 +74,14 @@
                                     <th>과목명</th>
                                     <th>이수구분</th>
                                     <th>이수학점</th>
+                                    <th>과목수정</th>
 
                                 </tr>
                                 </thead>
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-                                    <tr data-url="classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}">
+                                    <tr data-url="classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}">
                                     <td>${lecture.year}</td>
                                     <td>${lecture.semester}</td>
                                     <td>${lecture.id}</td>
@@ -89,7 +90,7 @@
                                     <td>${lecture.title}</td>
                                     <td>${lecture.subType}</td>
                                     <td>${lecture.credit}</td>
-                                    <td><a href='classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}'>
+                                    <td><a href='classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}'>
                                         <button class="btn btn-primary">수정</button>
                                     </a>
                                     </td>

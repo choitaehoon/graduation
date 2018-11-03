@@ -28,4 +28,15 @@ public class LectureService{
     public int pageCount(){
         return lectureMapper.count();
     }
+
+    public void lecInsert(Lecture lecture){
+        lectureMapper.insert(lecture);
+    }
+
+    public void lecUpdate(Lecture lecture){
+        lectureMapper.update(lecture);
+    }
+
+
+
 }

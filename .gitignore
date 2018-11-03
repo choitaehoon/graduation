@@ -1,3 +1,4 @@
+
 # Created by https://www.gitignore.io/api/intellij
 
 ### Intellij ###
@@ -50,4 +51,4 @@ fabric.properties
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
 # *.iml
-# modules.xml
+# modules.xml.idea/*
