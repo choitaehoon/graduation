@@ -2,12 +2,11 @@ package net.skhu.controller;
 
 
 import net.skhu.Service.LectureService;
+import net.skhu.Service.ReplaceService;
 import net.skhu.Service.TypeIdentity;
-import net.skhu.domain.Pagination;
-import net.skhu.domain.Lecture;
-import net.skhu.domain.Student;
-import net.skhu.domain.User;
+import net.skhu.domain.*;
 import net.skhu.mapper.DepartmentMapper;
+import net.skhu.mapper.ReplaceLectureMapper;
 import net.skhu.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +31,10 @@ public class MainController {
     DepartmentMapper departmentMapper;
     @Autowired
     LectureService lectureService;
+    @Autowired
+    ReplaceLectureMapper replaceLectureMapper;
+    @Autowired
+    ReplaceService replaceService;
 
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
@@ -73,7 +76,16 @@ public class MainController {
         return "main/classEdit";
     }
 
+    /* 대체과목 페이지*/
+    @RequestMapping("showReplaceLecture")
+    public String showReplaceLecture(Model model,Pagination pagination)
+    {
+        pagination.setRecordCount(ReplaceService.pageCount());
+        model.addAttribute("lectures",lectureService.lectureList(pagination));
+        model.addAttribute("replaceLecture",replaceService.lectureList(pagination));
 
+        return "main/replaceLecture";
+    }
 
 
 
