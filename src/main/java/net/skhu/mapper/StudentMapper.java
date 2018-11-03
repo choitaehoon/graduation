@@ -23,4 +23,5 @@ public interface StudentMapper
     List<Student> findAll();
     int selectCount();
     List<Student> selectPage(Pagination pagination);
+    Student findByStudent(int id);
 }

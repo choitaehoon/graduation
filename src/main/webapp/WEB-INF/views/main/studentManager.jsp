@@ -59,7 +59,11 @@
                                             <td>${ list.name }</td>
                                             <td>${ list.email }</td>
                                             <td>${ list.departmentName}</td>
-                                            <td><button class="btn btn-primary">수정</button></td>
+                                            <td>
+                                                <a href="studentEdit?type=${member.type}&id=${member.id}">
+                                                <button type="button" class="btn btn-primary">수정</button>
+                                                </a>
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -67,12 +71,10 @@
 
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
-                                    <ul>
                                         <c:forEach var="page" items="${ pagination.pageList }">
                                             <li class='${ page.cssClass }'>
                                                 <a data-page="${ page.number }">${ page.label }</a></li>
                                         </c:forEach>
-                                    </ul>
                                 </div>
                                 </p>
                             </form>

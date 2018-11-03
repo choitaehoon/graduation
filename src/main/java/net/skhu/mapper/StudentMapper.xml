@@ -51,6 +51,12 @@
         </collection>
     </resultMap>
 
+    <select id="findByStudent" resultType="Student">
+        select * from student
+        where id = #{id}
+    </select>
+
+
     <select id="selectPage" resultType="Student">
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>

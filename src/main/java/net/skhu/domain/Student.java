@@ -20,8 +20,7 @@ public class Student
     Department department;
     int type;
 
-
-    int department_Id;
+    int department_id;
     String departmentName;
 
     int graduationRule_id;
