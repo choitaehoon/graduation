@@ -6,11 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8432313c-138a-4be5-8ef6-204ea58dc981" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/graduation-0.0.1-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/graduation-0.0.1-SNAPSHOT.war" afterDir="false" />
-    </list>
+    <list default="true" id="8432313c-138a-4be5-8ef6-204ea58dc981" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,15 +28,15 @@
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="1015" column="10" lean-forward="true" selection-start-line="1015" selection-start-column="10" selection-end-line="1015" selection-end-column="10" />
+              <caret line="1017" column="10" lean-forward="true" selection-start-line="1017" selection-start-column="10" selection-end-line="1017" selection-end-column="10" />
               <folding>
-                <element signature="e#3119#3123#0" expanded="true" />
-                <element signature="e#3123#3127#0" expanded="true" />
-                <element signature="e#3127#3131#0" expanded="true" />
-                <element signature="e#3131#3135#0" expanded="true" />
-                <element signature="e#3135#3139#0" expanded="true" />
-                <element signature="e#3139#3143#0" expanded="true" />
-                <element signature="e#3143#3147#0" expanded="true" />
+                <element signature="e#3360#3364#0" expanded="true" />
+                <element signature="e#3364#3368#0" expanded="true" />
+                <element signature="e#3368#3372#0" expanded="true" />
+                <element signature="e#3372#3376#0" expanded="true" />
+                <element signature="e#3376#3380#0" expanded="true" />
+                <element signature="e#3380#3384#0" expanded="true" />
+                <element signature="e#3384#3388#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,10 +123,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-50" />
-    <option name="y" value="256" />
-    <option name="width" value="1937" />
-    <option name="height" value="1057" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -495,7 +491,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17877000" />
+    <option name="totallyTimeSpent" value="18148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
@@ -923,15 +919,15 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="1015" column="10" lean-forward="true" selection-start-line="1015" selection-start-column="10" selection-end-line="1015" selection-end-column="10" />
+          <caret line="1017" column="10" lean-forward="true" selection-start-line="1017" selection-start-column="10" selection-end-line="1017" selection-end-column="10" />
           <folding>
-            <element signature="e#3119#3123#0" expanded="true" />
-            <element signature="e#3123#3127#0" expanded="true" />
-            <element signature="e#3127#3131#0" expanded="true" />
-            <element signature="e#3131#3135#0" expanded="true" />
-            <element signature="e#3135#3139#0" expanded="true" />
-            <element signature="e#3139#3143#0" expanded="true" />
-            <element signature="e#3143#3147#0" expanded="true" />
+            <element signature="e#3360#3364#0" expanded="true" />
+            <element signature="e#3364#3368#0" expanded="true" />
+            <element signature="e#3368#3372#0" expanded="true" />
+            <element signature="e#3372#3376#0" expanded="true" />
+            <element signature="e#3376#3380#0" expanded="true" />
+            <element signature="e#3380#3384#0" expanded="true" />
+            <element signature="e#3384#3388#0" expanded="true" />
           </folding>
         </state>
       </provider>
