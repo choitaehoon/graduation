@@ -14,7 +14,6 @@
 .idea
 *.iws
 *.iml
-<<<<<<< HEAD
 *.ipr
 
 ### NetBeans ###
@@ -24,15 +23,3 @@
 /dist/
 /nbdist/
 /.nb-gradle/
-=======
-.settings
-.git
-.svn
-*.class
-*.bak
-<<<<<<< HEAD
-.idea
-=======
-.idea
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
->>>>>>> 9e8027d624e077e8597162c37bd5c317bb3ad205

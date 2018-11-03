@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8432313c-138a-4be5-8ef6-204ea58dc981" name="Default" comment="" />
+    <list default="true" id="8432313c-138a-4be5-8ef6-204ea58dc981" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/skhu/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/skhu/controller/MainController.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,39 +25,26 @@
     </option>
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
-    <leaf />
-=======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="1017" column="10" lean-forward="true" selection-start-line="1017" selection-start-column="10" selection-end-line="1017" selection-end-column="10" />
-              <folding>
-                <element signature="e#3360#3364#0" expanded="true" />
-                <element signature="e#3364#3368#0" expanded="true" />
-                <element signature="e#3368#3372#0" expanded="true" />
-                <element signature="e#3372#3376#0" expanded="true" />
-                <element signature="e#3376#3380#0" expanded="true" />
-                <element signature="e#3380#3384#0" expanded="true" />
-                <element signature="e#3384#3388#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="381">
+              <caret line="724" column="94" lean-forward="true" selection-start-line="724" selection-start-column="94" selection-end-line="724" selection-end-column="94" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="36" column="45" lean-forward="true" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
+            <state relative-caret-position="266">
+              <caret line="29" column="114" selection-start-line="29" selection-start-column="114" selection-end-line="29" selection-end-column="114" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -138,10 +127,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
-=======
       <pane id="PackagesPane" />
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -153,14 +139,11 @@
             <path>
               <item name="graduation" type="b2602c69:ProjectViewProjectNode" />
               <item name="graduation" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-=======
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="graduation" type="b2602c69:ProjectViewProjectNode" />
               <item name="graduation" type="462c0819:PsiDirectoryNode" />
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -171,8 +154,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
-<<<<<<< HEAD
-=======
             <path>
               <item name="graduation" type="b2602c69:ProjectViewProjectNode" />
               <item name="graduation" type="462c0819:PsiDirectoryNode" />
@@ -291,16 +272,11 @@
               <item name="graduation" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-<<<<<<< HEAD
-      <pane id="PackagesPane" />
-=======
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -309,7 +285,7 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/디비플젝/백업/graduation(3)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
+    <property name="settings.editor.selected.configurable" value="project.propGUI" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -323,7 +299,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.login.jsp">
+  <component name="RunManager" selected="Tomcat Server.login.jsp (1)">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -369,31 +345,24 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="login.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.10" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="login.jsp (1)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.23" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/login.jsp" />
       <deployment>
-        <artifact name="graduation:war exploded">
+        <artifact name="graduation:war">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-<<<<<<< HEAD
-        <option name="BASE_DIRECTORY_NAME" value="login_jsp_graduation_16" />
-=======
         <option name="BASE_DIRECTORY_NAME" value="login_jsp_(1)_graduation_5" />
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
       <predefined_log_file id="Tomcat Manager" enabled="false" />
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="62878" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
           <option name="USE_DEFAULT" value="true" />
@@ -408,23 +377,6 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-<<<<<<< HEAD
-=======
       <method>
         <option name="BuildArtifacts" enabled="true">
           <artifact name="graduation:war" />
@@ -481,7 +433,6 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -506,9 +457,11 @@
     <list>
       <item itemvalue="Spring Boot.GraduationApplication" />
       <item itemvalue="Tomcat Server.login.jsp" />
+      <item itemvalue="Tomcat Server.login.jsp (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Tomcat Server.login.jsp (1)" />
         <item itemvalue="Tomcat Server.login.jsp" />
       </list>
     </recent_temporary>
@@ -531,87 +484,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="18148000" />
-=======
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="17406000" />
+    <option name="totallyTimeSpent" value="17327000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <layout>
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32913166" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
-      <window_info anchor="bottom" id="Tail" />
-      <window_info anchor="right" id="Database" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info anchor="bottom" id="Java Enterprise" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Spring" />
-      <window_info anchor="bottom" id="CheckStyle" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966533" />
-      <window_info anchor="right" id="Bean Validation" />
-      <window_info id="Web" side_tool="true" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="10" />
-      <window_info id="Designer" order="0" />
-      <window_info anchor="right" id="Palette" order="6" />
-      <window_info anchor="bottom" id="Run" order="13" visible="true" weight="0.1834734" />
-      <window_info anchor="bottom" id="Spring" order="2" />
-      <window_info id="Image Layers" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="15" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info id="Web" order="4" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="bottom" id="CheckStyle" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.32913166" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.21017402" />
-      <window_info anchor="bottom" id="Tail" order="9" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" />
-      <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="right" id="Maven Projects" order="0" weight="0.32931727" />
-      <window_info anchor="bottom" id="Inspection" order="16" weight="0.4" />
-      <window_info anchor="right" id="Database" order="2" />
-      <window_info anchor="bottom" id="Message" order="11" />
-      <window_info anchor="bottom" id="TODO" order="17" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="12" />
-      <window_info anchor="right" id="Bean Validation" order="5" />
-      <window_info anchor="bottom" id="Debug" order="14" weight="0.4" />
-=======
-    <option name="totallyTimeSpent" value="17877000" />
->>>>>>> 9e8027d624e077e8597162c37bd5c317bb3ad205
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
+    <frame x="-1928" y="55" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -632,10 +508,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="14" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.44079885" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33696836" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22885907" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18176973" />
       <window_info anchor="right" id="Bean Validation" order="9" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -676,7 +552,6 @@
       <window_info anchor="bottom" id="Spring" order="2" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
       <window_info id="Designer" order="0" />
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,8 +561,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-=======
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main/manageClass.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1320">
@@ -695,7 +568,6 @@
         </state>
       </provider>
     </entry>
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
     <entry file="file://$PROJECT_DIR$/src/main/java/net/skhu/mapper/LectureMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -795,6 +667,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="724" column="94" lean-forward="true" selection-start-line="724" selection-start-column="94" selection-end-line="724" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1185">
@@ -813,6 +692,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -869,6 +751,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
           <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -911,6 +796,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1018,7 +906,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/net/skhu/mapper/ReplaceLectureMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225" />
-<<<<<<< HEAD
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
@@ -1028,42 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-=======
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="36" column="45" lean-forward="true" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="1017" column="10" lean-forward="true" selection-start-line="1017" selection-start-column="10" selection-end-line="1017" selection-end-column="10" />
-          <folding>
-            <element signature="e#3360#3364#0" expanded="true" />
-            <element signature="e#3364#3368#0" expanded="true" />
-            <element signature="e#3368#3372#0" expanded="true" />
-            <element signature="e#3372#3376#0" expanded="true" />
-            <element signature="e#3376#3380#0" expanded="true" />
-            <element signature="e#3380#3384#0" expanded="true" />
-            <element signature="e#3384#3388#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>
@@ -1131,86 +982,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>graduation:war</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Spring</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>graduation</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
