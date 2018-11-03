@@ -13,8 +13,4 @@ bin
 .svn
 *.class
 *.bak
-<<<<<<< HEAD
 .idea
-=======
-.idea
->>>>>>> c32169b24e807924b8375bc707060156ef829e48
