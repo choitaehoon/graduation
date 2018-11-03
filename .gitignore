@@ -23,7 +23,4 @@
 /dist/
 /nbdist/
 /.nb-gradle/
-src/main/java/net/skhu/controller/LoginController.java
-src/main/java/net/skhu/controller/LoginController.java
-*.java
-src/main/java/net/skhu/controller/LoginController.java
+
