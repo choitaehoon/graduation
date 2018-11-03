@@ -39,10 +39,17 @@
                                 <br />
                                 <br />
 
+<<<<<<< HEAD
+                                <form:form method="post" modelAttribute="lecture">
+                                <label>개설학기</label>
+                                <div class="form-group">
+                                    <form:input class="form-control" path="semester" style="width: 100px" />
+=======
                                <form:form method="post" modelAttribute="lecture">
                                 <label>개설학기</label>
                                 <div class="form-group">
                                    <form:input path="semester" class="form-control" placeholder="개설학기" style="width: 100px" />
+>>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
                                 </div>
 
                                 <label>과목코드</label>
@@ -56,7 +63,11 @@
                                 </div>
                                 <label>교수</label>
                                 <div class="form-group">
+<<<<<<< HEAD
+                                    <form:input class="form-control" path="admin_id" style="width: 200px"/>
+=======
                                     <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>
+>>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
                                 </div>
                                 <label>과목명</label>
                                 <div class="form-group">
@@ -79,7 +90,11 @@
                                 </a>
 
                                 </div>
+<<<<<<< HEAD
+                                </form:form>
+=======
                                </form:form>
+>>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
                             </div>
                         </div>
 

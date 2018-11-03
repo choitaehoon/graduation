@@ -41,7 +41,11 @@
        from lecture l
        left join admin a
        on l.admin_id= a.id
+<<<<<<< HEAD
+       where l.year=#{year} and l.id LIKE #{id} and l.admin_id=#{admin_id}
+=======
        where year=#{year} and semester like #{semester} and l.id LIKE #{id} and admin_id=#{admin_id}
+>>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
 
     </select>
 
