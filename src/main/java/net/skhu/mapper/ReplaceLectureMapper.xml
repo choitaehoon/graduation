@@ -4,8 +4,9 @@
 
 <mapper namespace="net.skhu.mapper.ReplaceLectureMapper">
 
+
 <!--    모든 대체 과목 조회하기-->
-    <select id="findAll" resultType="resultreplace">
+    <select id="findAll" resultType="ReplaceLecture">
         select l.year,l.semester,l.id,l.title,l.subType
         from lecture l left join  replacelecture r
         on l.id = r.closeLecture

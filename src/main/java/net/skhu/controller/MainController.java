@@ -45,27 +45,7 @@ public class MainController {
     }
 
     /* 수업관리 페이지*/
-<<<<<<< HEAD
-//    @RequestMapping("manageClass")
-//    public String manageClass(Model model, @RequestParam("type") int type , @RequestParam("id") int id )
-//    {
-//
-//        model.addAttribute("lectures",lectureService.lectureList());
-//
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/manageClass";
-//    }
-//
-//    /* 수업관리 페이지*/
-//    @RequestMapping("classEdit")
-//    public String edit(Model model,Lecture lecture, @RequestParam("type") int type , @RequestParam("id") int id )
-//    {
-//
-//        model.addAttribute("lecture",lectureService.findLecture(lecture.getYear(), lecture.getId(),lecture.getAdmin_id()));
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/classEdit";
-//    }
-=======
+
     @RequestMapping("manageClass")
     public String manageClass(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
     {
@@ -96,15 +76,15 @@ public class MainController {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/classEdit";
     }
->>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
+
 
     /* 대체과목 페이지*/
     @RequestMapping("showReplaceLecture")
     public String showReplaceLecture(Model model,Pagination pagination)
     {
-        pagination.setRecordCount(ReplaceService.pageCount());
+        pagination.setRecordCount(replaceService.pageCount());
         model.addAttribute("lectures",lectureService.lectureList(pagination));
-        model.addAttribute("replaceLecture",replaceService.lectureList(pagination));
+        model.addAttribute("replaceLecture",replaceService.replaceLectureList());
 
         return "main/replaceLecture";
     }

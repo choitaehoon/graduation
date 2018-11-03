@@ -80,11 +80,7 @@
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-<<<<<<< HEAD
-                                    <tr data-url="classEdit?&type=${member.type}&id=${member.id}">
-=======
                                     <tr data-url="classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}">
->>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
                                     <td>${lecture.year}</td>
                                     <td>${lecture.semester}</td>
                                     <td>${lecture.id}</td>
