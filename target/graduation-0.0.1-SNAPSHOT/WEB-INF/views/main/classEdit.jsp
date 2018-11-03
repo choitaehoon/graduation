@@ -32,57 +32,69 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">수업 관리</h4>
-                            <p class="category">수업 등록</p>
-
-
+                            <h4 class="title">수업 ${ lecture.year > 0 ? "수정" : "등록" }</h4>
+                            <p class="category">수업관리</p>
 
                             <div id="content">
                                 <br />
-                                <h1>수업 등록</h1>
                                 <br />
 
+<<<<<<< HEAD
                                 <form:form method="post" modelAttribute="lecture">
                                 <label>개설학기</label>
                                 <div class="form-group">
                                     <form:input class="form-control" path="semester" style="width: 100px" />
+=======
+                               <form:form method="post" modelAttribute="lecture">
+                                <label>개설학기</label>
+                                <div class="form-group">
+                                   <form:input path="semester" class="form-control" placeholder="개설학기" style="width: 100px" />
+>>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
                                 </div>
 
                                 <label>과목코드</label>
                                 <div class="form-group">
-                                    <form:input class="form-control" path="id" style="width: 200px" />
+                                    <form:input path="id" class="form-control"   placeholder="과목코드" style="width: 200px" />
                                 </div>
 
                                 <label>분반</label>
                                 <div class="form-group">
-                                    <form:input class="form-control" path="split" style="width: 200px"/>
+                                    <form:input path="split" class="form-control" placeholder="분반" style="width: 200px"/>
                                 </div>
                                 <label>교수</label>
                                 <div class="form-group">
+<<<<<<< HEAD
                                     <form:input class="form-control" path="admin_id" style="width: 200px"/>
+=======
+                                    <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>
+>>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
                                 </div>
                                 <label>과목명</label>
                                 <div class="form-group">
-                                    <form:input class="form-control" path="title" style="width: 200px"/>
+                                    <form:input path="title" class="form-control" placeholder="과목명" style="width: 200px"/>
                                 </div>
                                 <label>이수구분</label>
                                 <div class="form-group">
-                                    <form:input class="form-control" path="subType" style="width: 200px"/>
+                                    <form:input path="subType" class="form-control" placeholder="전공or교양" style="width: 200px"/>
                                 </div>
                                 <label>이수학점</label>
                                 <div class="form-group">
-                                    <form:input class="form-control" path="credit" style="width: 200px"/>
+                                    <form:input path="credit" class="form-control" placeholder="이수학점" style="width: 200px"/>
                                 </div>
 
                                 <div id="buttons">
                                     <a class="btn btn-primary"> <i
                                             class="glyphicon glyphicon-ok"></i> 저장
-                                    </a> <a class="btn btn-default"> <i
+                                    </a> <a href="manageClass?type=${member.type}&id=${member.id}" class="btn btn-default"> <i
                                         class="glyphicon glyphicon-list"></i> 목록으로
                                 </a>
 
                                 </div>
+<<<<<<< HEAD
                                 </form:form>
+=======
+                               </form:form>
+>>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
                             </div>
                         </div>
 

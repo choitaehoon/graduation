@@ -6,14 +6,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet" media="screen">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="${R}http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="${R}https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${R}res/common.css">
     <script src="${R}res/common.js"></script>
-    <style>
-
-
-    </style>
 </head>
 
 
@@ -36,16 +32,16 @@
                     <a href="signUp" id="remember" class="btn btn-default">
                         <label>회원가입</label></a>
 
-                        <%--<input type="checkbox" id="remember" class="checkbox" checked>--%>
-                        <%--<label for="remember">Remember me</label>--%>
-                        <div class="submit-wrap">
-                            <input type="submit" value="로그인" class="submit">
-                            <a href="findPassword" class="more">비밀번호를 잃어버리셧나요?</a>
-                        </div>
+                    <%--<input type="checkbox" id="remember" class="checkbox" checked>--%>
+                    <%--<label for="remember">Remember me</label>--%>
+                    <div class="submit-wrap">
+                        <input type="submit" value="로그인" class="submit">
+                        <a href="findPassword" class="more">비밀번호를 잃어버리셧나요?</a>
+                    </div>
                     <div>
-                            <c:if test="${ error != null }">
+                        <c:if test="${ error != null }">
                             <div style="color: #bb0502 ">아이디 or 비밀번호를 잘못 입력하셧습니다</div>
-                            </c:if>
+                        </c:if>
                     </div>
                 </form>
             </div>

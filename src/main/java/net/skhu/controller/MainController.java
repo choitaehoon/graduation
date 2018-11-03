@@ -1,6 +1,7 @@
 package net.skhu.controller;
 
 
+import net.skhu.Service.LectureService;
 import net.skhu.Service.TypeIdentity;
 import net.skhu.domain.Pagination;
 import net.skhu.domain.Lecture;
@@ -29,8 +30,8 @@ public class MainController {
     StudentMapper studentMapper;
     @Autowired
     DepartmentMapper departmentMapper;
-//    @Autowired
-//    LectureService lectureService;
+    @Autowired
+    LectureService lectureService;
 
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
@@ -41,6 +42,7 @@ public class MainController {
     }
 
     /* 수업관리 페이지*/
+<<<<<<< HEAD
 //    @RequestMapping("manageClass")
 //    public String manageClass(Model model, @RequestParam("type") int type , @RequestParam("id") int id )
 //    {
@@ -60,6 +62,38 @@ public class MainController {
 //        model.addAttribute("member",typeIdentity.typeCheck(type,id));
 //        return "main/classEdit";
 //    }
+=======
+    @RequestMapping("manageClass")
+    public String manageClass(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
+    {
+        pagination.setRecordCount(lectureService.pageCount());
+        model.addAttribute("lectures",lectureService.lectureList(pagination));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/manageClass";
+    }
+
+    /* 수업수정 페이지*/
+    @RequestMapping("classEdit")
+    public String edit(Model model,@RequestParam("year") int year,@RequestParam("semester") String semester,@RequestParam("lecId") String lecId,
+                       @RequestParam("adminId") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
+    {
+        model.addAttribute("lecture",lectureService.findLecture(year,semester,lecId,adminId));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/classEdit";
+    }
+
+
+    /* 수업등록 페이지*/
+    @RequestMapping("classCreate")
+    public String create(Model model,@RequestParam("type") int type , @RequestParam("id") int id )
+    {
+        Lecture lecture =new Lecture();
+        model.addAttribute("lecture",lecture);
+
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/classEdit";
+    }
+>>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
 
 
 

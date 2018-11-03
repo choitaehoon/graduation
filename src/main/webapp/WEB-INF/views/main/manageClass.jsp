@@ -12,6 +12,17 @@
     <link rel="stylesheet" href="${R}res/common.css">
     <script src="${R}res/common.js"></script>
 
+    <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
+          rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("div.pagination a").click(function() {
+                $("input[name=pg]").val($(this).attr("data-page"));
+                $("form").submit();
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -24,8 +35,15 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
+
+
                             <h4 class="title"> 수업 관리</h4>
                             <br><br><br>
+                            <div class="pull-right mb5">
+                                <a href="classCreate?type=${member.type}&id=${member.id}" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-user"></span> 수업등록</a>
+                            </div>
+
                             <p class="category">
                                 <select>
                                     <option>년도</option>
@@ -42,6 +60,7 @@
                                 <a href="#">
                                     <button type="submit" class="btn btn-primary">조회</button>
                                 </a>
+
 
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
@@ -61,7 +80,7 @@
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-                                    <tr data-url="classEdit?&type=${member.type}&id=${member.id}">
+                                    <tr data-url="classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}">
                                     <td>${lecture.year}</td>
                                     <td>${lecture.semester}</td>
                                     <td>${lecture.id}</td>
@@ -70,18 +89,32 @@
                                     <td>${lecture.title}</td>
                                     <td>${lecture.subType}</td>
                                     <td>${lecture.credit}</td>
-                                    <td><a href='classEdit?lecture=${lecture}&type=${member.type}&id=${member.id}'>
+                                    <td><a href='classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}'>
                                         <button class="btn btn-primary">수정</button>
-                                    </a></td>
-                                    <%--<a href="studentGraduation.html"> <button class="btn btn-danger">삭제</button></a></td>--%>
+                                    </a>
+                                    </td>
                                 </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
-
+                        </form>
                             </p>
+                            <form>
 
+                                <input type="hidden" name="pg" value="1" />
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="id" value="${member.id}" />
+                            <%--/* 페이지 네이션 */--%>
+                            <div class="pagination pagination-small pagination-centered">
 
+                                    <c:forEach var="page" items="${ pagination.pageList }">
+
+                                        <li class='${ page.cssClass }'>
+                                            <a data-page="${ page.number }">${ page.label }</a></li>
+
+                                    </c:forEach>
+                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -108,17 +141,17 @@
 
 
 </body>
-<!-- Core JS Files -->
+<!--   Core JS Files   -->
 <script src="${R}assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="${R}assets/js/bootstrap.min.js" type="text/javascript"></script>
 
-<!-- Charts Plugin -->
+<!--  Charts Plugin -->
 <script src="${R}assets/js/chartist.min.js"></script>
 
-<!-- Notifications Plugin -->
+<!--  Notifications Plugin    -->
 <script src="${R}assets/js/bootstrap-notify.js"></script>
 
-<!-- Google Maps Plugin -->
+<!--  Google Maps Plugin    -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
@@ -126,4 +159,5 @@
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="${R}assets/js/demo.js"></script>
+
 </html>
