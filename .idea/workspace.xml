@@ -6,7 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="8432313c-138a-4be5-8ef6-204ea58dc981" name="Default" comment="" />
+=======
+    <list default="true" id="8432313c-138a-4be5-8ef6-204ea58dc981" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/skhu/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/skhu/controller/MainController.java" afterDir="false" />
+    </list>
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,11 +30,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="210">
               <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+=======
+            <state relative-caret-position="480">
+              <caret line="32" column="47" lean-forward="true" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/skhu/controller/MainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
             </state>
           </provider>
         </entry>
@@ -61,7 +84,10 @@
         <option value="$PROJECT_DIR$/src/main/java/net/skhu/mapper/LectureMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/skhu/mapper/ReplaceLectureMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/net/skhu/controller/MainController.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/webapp/login.jsp" />
+=======
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
       </list>
     </option>
   </component>
@@ -148,6 +174,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="skhu" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -157,6 +184,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="skhu" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -221,7 +250,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.login.jsp">
+  <component name="RunManager" selected="Tomcat Server.login.jsp (1)">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -267,6 +296,44 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration name="login.jsp (1)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.23" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/login.jsp" />
+      <deployment>
+        <artifact name="graduation:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="login_jsp_(1)_graduation_4" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="graduation:war" />
+        </option>
+      </method>
+    </configuration>
     <configuration name="login.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.10" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/login.jsp" />
       <deployment>
@@ -308,9 +375,11 @@
     <list>
       <item itemvalue="Spring Boot.GraduationApplication" />
       <item itemvalue="Tomcat Server.login.jsp" />
+      <item itemvalue="Tomcat Server.login.jsp (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Tomcat Server.login.jsp (1)" />
         <item itemvalue="Tomcat Server.login.jsp" />
       </list>
     </recent_temporary>
@@ -328,12 +397,20 @@
       <workItem from="1541163627138" duration="11356000" />
       <workItem from="1541222584802" duration="2400000" />
       <workItem from="1541252063991" duration="263000" />
+<<<<<<< HEAD
       <workItem from="1541252371633" duration="3910000" />
+=======
+      <workItem from="1541252371633" duration="3258000" />
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="17929000" />
+=======
+    <option name="totallyTimeSpent" value="17277000" />
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -360,7 +437,11 @@
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="bottom" id="Version Control" order="8" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="13" weight="0.1834734" />
+=======
+      <window_info anchor="bottom" id="Run" order="13" visible="true" weight="0.1834734" />
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
       <window_info anchor="bottom" id="Spring" order="2" />
       <window_info anchor="bottom" id="CheckStyle" order="5" />
       <window_info anchor="bottom" id="Terminal" order="3" />
@@ -602,6 +683,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main/classEdit.jsp">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
@@ -626,6 +708,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/skhu/mapper/LectureMapper.xml">
+=======
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-399">
           <caret selection-end-line="2" selection-end-column="54" />
@@ -642,6 +726,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/net/skhu/mapper/ReplaceLectureMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -698,11 +783,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/skhu/mapper/ReplaceLectureMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/skhu/Service/ReplaceService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/skhu/mapper/LectureMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="435">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
@@ -712,11 +807,16 @@
             <element signature="e#657#658#0" expanded="true" />
             <element signature="e#708#709#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="-399">
+          <caret selection-end-line="2" selection-end-column="54" />
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="240">
           <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
         </state>
@@ -726,12 +826,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
+=======
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -744,23 +849,12 @@
         <state relative-caret-position="210">
           <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/skhu/mapper/ReplaceLectureMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225" />
+>>>>>>> 0c90fe6e6f2e3f3c7023bd23327f935e70f125d5
       </provider>
     </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

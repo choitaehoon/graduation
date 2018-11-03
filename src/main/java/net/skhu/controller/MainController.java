@@ -8,10 +8,10 @@ import net.skhu.domain.*;
 import net.skhu.mapper.DepartmentMapper;
 import net.skhu.mapper.ReplaceLectureMapper;
 import net.skhu.mapper.StudentMapper;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +22,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/main")
 public class MainController {
+    private static org.slf4j.Logger logger =  LoggerFactory.getLogger(MainController.class);
 
     @Autowired
     TypeIdentity typeIdentity;
@@ -45,6 +46,25 @@ public class MainController {
     }
 
     /* 수업관리 페이지*/
+//    @RequestMapping("manageClass")
+//    public String manageClass(Model model, @RequestParam("type") int type , @RequestParam("id") int id )
+//    {
+//
+//        model.addAttribute("lectures",lectureService.lectureList());
+//
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/manageClass";
+//    }
+//
+//    /* 수업관리 페이지*/
+//    @RequestMapping("classEdit")
+//    public String edit(Model model,Lecture lecture, @RequestParam("type") int type , @RequestParam("id") int id )
+//    {
+//
+//        model.addAttribute("lecture",lectureService.findLecture(lecture.getYear(), lecture.getId(),lecture.getAdmin_id()));
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/classEdit";
+//    }
 
     @RequestMapping("manageClass")
     public String manageClass(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
@@ -55,15 +75,24 @@ public class MainController {
         return "main/manageClass";
     }
 
-    /* 수업수정 페이지*/
-    @RequestMapping("classEdit")
-    public String edit(Model model,@RequestParam("year") int year,@RequestParam("semester") String semester,@RequestParam("lecId") String lecId,
-                       @RequestParam("adminId") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
-    {
-        model.addAttribute("lecture",lectureService.findLecture(year,semester,lecId,adminId));
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        return "main/classEdit";
-    }
+//    @RequestMapping("manageClass")
+//    public String manageClass(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
+//    {
+//        pagination.setRecordCount(lectureService.pageCount());
+//        model.addAttribute("lectures",lectureService.lectureList(pagination));
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/manageClass";
+//    }
+//
+//    /* 수업수정 페이지*/
+//    @RequestMapping("classEdit")
+//    public String edit(Model model,@RequestParam("year") int year,@RequestParam("semester") String semester,@RequestParam("lecId") String lecId,
+//                       @RequestParam("adminId") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
+//    {
+//        model.addAttribute("lecture",lectureService.findLecture(year,semester,lecId,adminId));
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/classEdit";
+//    }
 
 
     /* 수업등록 페이지*/
@@ -131,12 +160,28 @@ public class MainController {
         return "main/test";
     }
 
-    @RequestMapping("studentEdit")
-    public String edit(Model model, Student student ,@RequestParam("type") int type ,@RequestParam("id") int id)
+    /*
+      student.getType을 지정한이유
+      student로 바인딩 되서 타입을 담고있다.그래서 type이 2가 되어서 교수 정보를 가져올 수 있다.
+     */
+
+    @RequestMapping(value = "studentEdit", method = RequestMethod.GET)
+    public String edit(Model model, Student student , Pagination pagination ,@RequestParam("adminId")  int adminId)
     {
-        model.addAttribute("member",studentMapper.findByStudent(id));
+        model.addAttribute("student",studentMapper.findByStudent(student.getId()));
+        model.addAttribute("member",typeIdentity.typeCheck(student.getType(),adminId));
         model.addAttribute("departments",departmentMapper.findAll());
         return "main/studentEdit";
+    }
+
+
+    @RequestMapping(value = "studentEdit", method = RequestMethod.POST)
+    public String edit(Student student,RedirectAttributes redirectAttributes,@RequestParam("adminId")  int adminId)
+    {
+        studentMapper.updateNameAndDepartment(student);
+        redirectAttributes.addAttribute("type",student.getType());
+        redirectAttributes.addAttribute("id",adminId);
+        return "redirect:studentManager";
     }
 
     @RequestMapping(value="studentManager2", method=RequestMethod.GET)

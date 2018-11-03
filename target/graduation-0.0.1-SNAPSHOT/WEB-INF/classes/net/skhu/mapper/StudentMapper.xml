@@ -115,4 +115,11 @@
     </update>
 
 
+    <update id="updateNameAndDepartment">
+        update student set
+          name = #{name} ,
+          department_id = #{department_id}
+        where id = #{id}
+    </update>
+
 </mapper>

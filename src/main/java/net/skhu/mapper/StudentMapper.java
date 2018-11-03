@@ -24,4 +24,5 @@ public interface StudentMapper
     int selectCount();
     List<Student> selectPage(Pagination pagination);
     Student findByStudent(int id);
+    void updateNameAndDepartment(Student student);
 }

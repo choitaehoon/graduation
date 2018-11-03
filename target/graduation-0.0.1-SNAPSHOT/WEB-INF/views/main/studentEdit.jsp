@@ -17,7 +17,10 @@
                         <div class="header">
                             <h4 class="title"> 학생 수정</h4>
                             <br><br><br>
-                            <form:form method="post" modelAttribute="student">
+
+                            <form:form method="post" modelAttribute="student" style="width:30%; margin-left:350;">
+                                <input type="hidden" name="adminId" value="${member.id}">
+                                <input type="hidden" name="type" value="${member.type}">
                                 <div class="form-group">
                                     <label>학번:</label>
                                     <form:input path="id" class="form-control w200" />
@@ -31,7 +34,15 @@
                                     <form:select path="department_id" class="form-control w200"
                                                  itemValue="id" itemLabel="departmentName" items="${ departments  }" />
                                 </div>
+                                <hr/>
+                                <div>
+                                    <button type="submit" class="btn btn-primary">저장</button>
+                                    <a href="" data-confirm-delete><button type="button" class="btn btn-danger">삭제</button></a>
+                                    <a href="studentManager?type=${member.type}&id=${member.id}&${pagination.queryString}" class="btn btn-info">목록으로</a>
+                                </div>
                             </form:form>
+
+
                             </p>
                             </form>
 
