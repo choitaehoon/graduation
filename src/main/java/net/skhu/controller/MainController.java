@@ -53,9 +53,10 @@ public class MainController {
 
     /* 수업수정 페이지*/
     @RequestMapping("classEdit")
-    public String edit(Model model,Lecture lecture, @RequestParam("type") int type , @RequestParam("userId") int id )
+    public String edit(Model model,@RequestParam("year") int year,@RequestParam("semester") String semester,@RequestParam("lecId") String lecId,
+                       @RequestParam("adminId") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
     {
-        model.addAttribute("lecture",lectureService.findLecture(lecture.getYear(),lecture.getSemester(),lecture.getId(),lecture.getAdmin_id()));
+        model.addAttribute("lecture",lectureService.findLecture(year,semester,lecId,adminId));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/classEdit";
     }

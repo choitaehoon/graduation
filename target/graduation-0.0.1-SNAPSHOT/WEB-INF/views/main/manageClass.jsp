@@ -80,7 +80,7 @@
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-                                    <tr data-url="classEdit?type=${member.type}&id=${member.id}">
+                                    <tr data-url="classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}">
                                     <td>${lecture.year}</td>
                                     <td>${lecture.semester}</td>
                                     <td>${lecture.id}</td>
@@ -89,7 +89,7 @@
                                     <td>${lecture.title}</td>
                                     <td>${lecture.subType}</td>
                                     <td>${lecture.credit}</td>
-                                    <td><a href='classEdit?type=${member.type}&userId=${member.id}'>
+                                    <td><a href='classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}'>
                                         <button class="btn btn-primary">수정</button>
                                     </a>
                                     </td>
