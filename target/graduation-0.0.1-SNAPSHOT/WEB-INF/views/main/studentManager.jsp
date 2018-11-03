@@ -51,6 +51,7 @@
                                         <th>권한</th>
                                     </tr>
                                     </thead>
+
                                     <tbody>
                                     <c:forEach var="list" items="${ listes }">
                                         <tr data-url="studentManager2?studentId=${ list.id }&type=${member.type}&id=${member.id}">
@@ -58,19 +59,15 @@
                                             <td>${ list.name }</td>
                                             <td>${ list.email }</td>
                                             <td>${ list.departmentName}</td>
-<<<<<<< HEAD
                                             <td>
-                                                <a href="studentEdit?type=${member.type}&id=${member.id}">
+                                                <a href="studentEdit?type=${member.type}&id=${list.id}&name=${list.name}&adminId=${member.id}&${pagination.queryString}">
                                                 <button type="button" class="btn btn-primary">수정</button>
                                                 </a>
                                             </td>
-=======
-                                            <td><a href="studentManager2?studentId=${ list.id }&type=${member.type}&id=${member.id}" >
-                                                <button class="btn btn-primary">수정</button></a></td>
->>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
                                         </tr>
                                     </c:forEach>
                                     </tbody>
+
                                 </table>
                                 <form method="get">
                                     <input type="hidden" name="pg" value="1" />
@@ -78,18 +75,10 @@
                                     <input type="hidden" name="id" value="${member.id}" />
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
-<<<<<<< HEAD
-=======
-
->>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
                                         <c:forEach var="page" items="${ pagination.pageList }">
                                             <li class='${ page.cssClass }'>
                                                 <a data-page="${ page.number }">${ page.label }</a></li>
                                         </c:forEach>
-<<<<<<< HEAD
-=======
-
->>>>>>> 1ae5eb588ffa0216798b3c5c61581337df53d3d2
                                 </div>
                                 </form>
                                 </p>
