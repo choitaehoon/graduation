@@ -4,19 +4,36 @@
 
 <mapper namespace="net.skhu.mapper.ReplaceLectureMapper">
 
-<!--    모든 대체 과목 조회하기-->
-<!--    <select id="findAll" resultType="replacelecture">
-       select l.*,a.name
-       from lecture l
-       left join admin a
-       on l.admin_id= a.id;
 
-    </select>-->
-    <!--이름별로 대체 과목 조회하기 -->
+<!--    모든 대체 과목 조회하기-->
+    <select id="findAll" resultType="ReplaceLecture">
+        select l.year,l.semester,l.id,l.title,l.subType
+        from lecture l left join  replacelecture r
+        on l.id = r.closeLecture
+        order by year, semester;
+
+    </select>
+
+    <!--강의 이름별로 대체 과목 조회하기 -->
 <!--    <select id="findBytitle" resultType="replacelecture">
         select
         from
     </select>-->
 
+    <!--   대체 될 과목 추가하기-->
+    <update id="updateRL2">
+    update replacelecture set
+        replaceLecture = #{replacelecture}
+    where closelecture = #{closelecture }
+    </update>
+
+    <!--페이지네이션시 필요한 count-->
+    <select id="count" resultType="int">
+        select count(*)
+        from lecture l left join  replacelecture r
+        on l.id = r.closeLecture
+        order by year, semester;
+
+    </select>
 
 </mapper>

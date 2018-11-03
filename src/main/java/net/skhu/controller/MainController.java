@@ -1,12 +1,15 @@
 package net.skhu.controller;
 
 
+<<<<<<< HEAD
+=======
+import net.skhu.Service.LectureService;
+import net.skhu.Service.ReplaceService;
+>>>>>>> ea1c33902b304f8da354dce739cb82d662721e7f
 import net.skhu.Service.TypeIdentity;
-import net.skhu.domain.Pagination;
-import net.skhu.domain.Lecture;
-import net.skhu.domain.Student;
-import net.skhu.domain.User;
+import net.skhu.domain.*;
 import net.skhu.mapper.DepartmentMapper;
+import net.skhu.mapper.ReplaceLectureMapper;
 import net.skhu.mapper.StudentMapper;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +33,17 @@ public class MainController {
     StudentMapper studentMapper;
     @Autowired
     DepartmentMapper departmentMapper;
+<<<<<<< HEAD
 //    @Autowired
 //    LectureService lectureService;
+=======
+    @Autowired
+    LectureService lectureService;
+    @Autowired
+    ReplaceLectureMapper replaceLectureMapper;
+    @Autowired
+    ReplaceService replaceService;
+>>>>>>> ea1c33902b304f8da354dce739cb82d662721e7f
 
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
@@ -42,6 +54,7 @@ public class MainController {
     }
 
     /* 수업관리 페이지*/
+<<<<<<< HEAD
 //    @RequestMapping("manageClass")
 //    public String manageClass(Model model, @RequestParam("type") int type , @RequestParam("id") int id )
 //    {
@@ -61,6 +74,17 @@ public class MainController {
 //        model.addAttribute("member",typeIdentity.typeCheck(type,id));
 //        return "main/classEdit";
 //    }
+=======
+
+    @RequestMapping("manageClass")
+    public String manageClass(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
+    {
+        pagination.setRecordCount(lectureService.pageCount());
+        model.addAttribute("lectures",lectureService.lectureList(pagination));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/manageClass";
+    }
+>>>>>>> ea1c33902b304f8da354dce739cb82d662721e7f
 
 //    @RequestMapping("manageClass")
 //    public String manageClass(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
@@ -92,6 +116,23 @@ public class MainController {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/classEdit";
     }
+<<<<<<< HEAD
+=======
+
+
+    /* 대체과목 페이지*/
+    @RequestMapping("showReplaceLecture")
+    public String showReplaceLecture(Model model,Pagination pagination)
+    {
+        pagination.setRecordCount(replaceService.pageCount());
+        model.addAttribute("lectures",lectureService.lectureList(pagination));
+        model.addAttribute("replaceLecture",replaceService.replaceLectureList());
+
+        return "main/replaceLecture";
+    }
+
+
+>>>>>>> ea1c33902b304f8da354dce739cb82d662721e7f
 
 
     /*

@@ -17,10 +17,14 @@
                         <div class="header">
                             <h4 class="title"> 학생 수정</h4>
                             <br><br><br>
+<<<<<<< HEAD
 
                             <form:form method="post" modelAttribute="student" style="width:30%; margin-left:350;">
                                 <input type="hidden" name="adminId" value="${member.id}">
                                 <input type="hidden" name="type" value="${member.type}">
+=======
+                            <form:form method="post" modelAttribute="student">
+>>>>>>> ea1c33902b304f8da354dce739cb82d662721e7f
                                 <div class="form-group">
                                     <label>학번:</label>
                                     <form:input path="id" class="form-control w200" />
@@ -34,6 +38,7 @@
                                     <form:select path="department_id" class="form-control w200"
                                                  itemValue="id" itemLabel="departmentName" items="${ departments  }" />
                                 </div>
+<<<<<<< HEAD
                                 <hr/>
                                 <div>
                                     <button type="submit" class="btn btn-primary">저장</button>
@@ -43,6 +48,9 @@
                             </form:form>
 
 
+=======
+                            </form:form>
+>>>>>>> ea1c33902b304f8da354dce739cb82d662721e7f
                             </p>
                             </form>
 
