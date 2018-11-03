@@ -27,8 +27,6 @@ public class ReplaceService {
     public int pageCount(){
         return replaceLectureMapper.count();
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 0eaff6aeb40a05d608a11353e9d844ca24d5267b
+

@@ -12,7 +12,8 @@
         on l.id = r.closeLecture
         order by year, semester;
 
-    </select>-->
+    </select>
+
     <!--강의 이름별로 대체 과목 조회하기 -->
 <!--    <select id="findBytitle" resultType="replacelecture">
         select
