@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: graduation
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: xogns
+Built-By: JiEun
 Implementation-Vendor-Id: net.skhu
 Created-By: IntelliJ IDEA
 Build-Jdk: 1.8.0_131
