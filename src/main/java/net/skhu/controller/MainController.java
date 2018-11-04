@@ -187,6 +187,30 @@ public class MainController {
         Student student = studentMapper.findById(studentId);
         model.addAttribute("student", student);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        model.addAttribute("totalSemester",studentMapper.totalSemester(studentId));
+        model.addAttribute("totalCredit",studentMapper.totalCredit(studentId));
+        model.addAttribute("avgGrade",studentMapper.avgGrade(studentId));
+        return "main/studentManager2";
+    }
+
+    @RequestMapping(value="studentManager2", method=RequestMethod.POST)
+    public String studentManager2(Model model,@RequestParam("studentId") int studentId, @RequestParam("type") int type ,@RequestParam("id") int id, @RequestParam("btn") int btn)
+    {
+        Student student = studentMapper.findById(studentId);
+        if(btn==2){
+            student = studentMapper.findByIdMajor(studentId);
+        }
+        else if(btn==3){
+            student = studentMapper.findByIdCulture(studentId);
+        }
+        else if(btn==4){
+            student = studentMapper.findByIdF(studentId);
+        }
+        model.addAttribute("student", student);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        model.addAttribute("totalSemester",studentMapper.totalSemester(studentId));
+        model.addAttribute("totalCredit",studentMapper.totalCredit(studentId));
+        model.addAttribute("avgGrade",studentMapper.avgGrade(studentId));
         return "main/studentManager2";
     }
 
