@@ -94,7 +94,6 @@ public class MainController {
     {
 
         lectureService.lecInsert(lecture);
-
         pagination.setRecordCount(lectureService.pageCount());
         model.addAttribute("lectures",lectureService.lectureList(pagination));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
@@ -139,11 +138,12 @@ public class MainController {
 
     @RequestMapping("studentManager")
     public String studentManager(Model model, Pagination pagination, @RequestParam("type") int type , @RequestParam("id") int id , @RequestParam(value = "choice", defaultValue = "0") int choice,
-                                 @RequestParam(value = "search", defaultValue = "false") String search)
+                                 @RequestParam(value = "search", defaultValue = "") String search)
     {
-        pagination.setRecordCount(studentMapper.selectCount());
-        model.addAttribute("listes",studentMapper.selectPage(pagination));
+        pagination.setRecordCount(studentMapper.selectCount(choice,search));
+        model.addAttribute("listes",studentMapper.selectPage(pagination.getPg(),pagination.getPageSize(), choice, search));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        model.addAttribute("search",search);
         return "main/studentManager";
     }
 
