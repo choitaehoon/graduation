@@ -31,13 +31,16 @@
                                 <h4 class="title"> 졸업 관리</h4>
                                 <br><br><br>
                                 <p class="category">
-                                    <select>
-                                        <option>이름</option>
-                                        <option>학과별</option>
-                                        <option>학번</option>
+
+                                <form>
+                                    <select name="choice">
+                                        <option value="1">이름</option>
+                                        <option value="2">학과별</option>
+                                        <option value="3">학번</option>
                                     </select>
-                                    <input type="text">
-                                    <a href=""> <button type="submit" class="btn btn-primary">조회</button></a>
+                                    <input type="text" name="search" value="${search}">
+                                    <button type="submit" class="btn btn-primary">조회</button></a>
+                                </form>
 
 
                                 <table class="table table-striped" style="

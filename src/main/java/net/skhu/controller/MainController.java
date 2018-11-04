@@ -138,13 +138,15 @@ public class MainController {
     }
 
     @RequestMapping("studentManager")
-    public String studentManager(Model model, Pagination pagination, @RequestParam("type") int type , @RequestParam("id") int id )
+    public String studentManager(Model model, Pagination pagination, @RequestParam("type") int type , @RequestParam("id") int id , @RequestParam(value = "choice", defaultValue = "0") int choice,
+                                 @RequestParam(value = "search", defaultValue = "false") String search)
     {
         pagination.setRecordCount(studentMapper.selectCount());
         model.addAttribute("listes",studentMapper.selectPage(pagination));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/studentManager";
     }
+
 
     @RequestMapping("test")
     public String test(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
