@@ -214,5 +214,19 @@ public class MainController {
         return "main/studentManager2";
     }
 
+    @RequestMapping("after18")
+    public String after18(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/after18";
+    }
+    @RequestMapping("before18")
+    public String before18(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/before18";
+    }
+
+
 
 }
