@@ -26,8 +26,8 @@
                                     <td>이메일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.email }</td>
                                 </tr>
                                 <tr>
-                                    <td>학기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ 6 }</td>
-                                    <td style="color:red;">이수 학점&nbsp;&nbsp;?/130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 학점:?/4.5&nbsp;&nbsp;&nbsp;</td>
+                                    <td>학기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${totalSemester+1}</td>
+                                    <td>이수 학점&nbsp;:&nbsp;${totalCredit}&nbsp;/&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;평균 학점&nbsp;:&nbsp;${avgGrade}&nbsp;/&nbsp;4.5&nbsp;&nbsp;&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td>이수중인 과정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.detailType }</td>
@@ -42,10 +42,10 @@
                             <p class="category">
 
                                 <form method="POST">
-                                    <button type="submit" class="btn btn-primary" name="choice" value="1">전체</button>
-                                    <button type="submit" class="btn btn-primary" name="choice" value="2">전공필수</button>
-                                    <button type="submit" class="btn btn-primary" name="choice" value="3">교양필수</button>
-                                    <button type="submit" class="btn btn-primary" name="choice" value="4">F학점</button>
+                                    <button type="submit" class="btn btn-primary" name="btn" value="1">전체</button>
+                                    <button type="submit" class="btn btn-primary" name="btn" value="2">전공필수</button>
+                                    <button type="submit" class="btn btn-primary" name="btn" value="3">교양필수</button>
+                                    <button type="submit" class="btn btn-primary" name="btn" value="4">F학점</button>
                                 </form>
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
