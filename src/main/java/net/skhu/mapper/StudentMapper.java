@@ -16,6 +16,9 @@ public interface StudentMapper
 
     int findByIdAndPassword(@Param("id") int id, @Param("password") String password);
     Student findById(int id);
+    Student findByIdMajor(int id);
+    Student findByIdCulture(int id);
+    Student findByIdF(int id);
     String findByPassword(@Param("id") int id, @Param("name") String name, @Param("answer") String answer);
     void insert(Student student);
     int selectByLoginIdCheck(int id);
@@ -25,4 +28,7 @@ public interface StudentMapper
     List<Student> selectPage(Pagination pagination);
     Student findByStudent(int id);
     void updateNameAndDepartment(Student student);
+    int totalSemester(int id);
+    int totalCredit(int id);
+    double avgGrade(int id);
 }
