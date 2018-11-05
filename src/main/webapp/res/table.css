@@ -1,0 +1,7 @@
+#table {display: table; width: 100%;}
+.row {display: table-row;}
+.cell {display: table-cell; padding: 3px; border-bottom: 1px solid #DDD;}
+.col1 { width: 20%;}
+.col2 {width: 20%;}
+.col3 {width: 40%;}
+.col4 {width: 20%;}
