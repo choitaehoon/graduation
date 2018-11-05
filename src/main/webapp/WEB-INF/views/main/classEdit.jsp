@@ -2,15 +2,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:url var="R" value="/" />
-    <!doctype html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-              rel="stylesheet" media="screen">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="${R}res/common.css">
-        <script src="${R}res/common.js"></script>
+<!doctype html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" media="screen">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${R}res/common.css">
+    <script src="${R}res/common.js"></script>
 
     <style>
         #content {
@@ -39,50 +39,50 @@
                                 <br />
                                 <br />
 
-                               <form:form method="post" modelAttribute="lecture">
+                                <form:form method="post" modelAttribute="lecture">
 
-                                   <label>년도</label>
-                                   <form:input path="year" class="form-control" placeholder="년도" style="width: 100px" />
+                                    <label>년도</label>
+                                    <form:input path="year" class="form-control" placeholder="년도" style="width: 100px" />
 
-                                <label>개설학기</label>
-                                <div class="form-group">
-                                   <form:input path="semester" class="form-control" placeholder="개설학기" style="width: 100px" />
-                                </div>
+                                    <label>개설학기</label>
+                                    <div class="form-group">
+                                        <form:input path="semester" class="form-control" placeholder="개설학기" style="width: 100px" />
+                                    </div>
 
-                                <label>과목코드</label>
-                                <div class="form-group">
-                                    <form:input path="id" class="form-control"   placeholder="과목코드" style="width: 200px" />
-                                </div>
+                                    <label>과목코드</label>
+                                    <div class="form-group">
+                                        <form:input path="id" class="form-control"   placeholder="과목코드" style="width: 200px" />
+                                    </div>
 
-                                <label>분반</label>
-                                <div class="form-group">
-                                    <form:input path="split" class="form-control" placeholder="분반" style="width: 200px"/>
-                                </div>
-                                <label>교수</label>
-                                <div class="form-group">
-                                    <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>
-                                </div>
-                                <label>과목명</label>
-                                <div class="form-group">
-                                    <form:input path="title" class="form-control" placeholder="과목명" style="width: 300px"/>
-                                </div>
-                                <label>이수구분</label>
-                                <div class="form-group">
-                                    <form:input path="subType" class="form-control" placeholder="전공or교양" style="width: 200px"/>
-                                </div>
-                                <label>이수학점</label>
-                                <div class="form-group">
-                                    <form:input path="credit" class="form-control" placeholder="이수학점" style="width: 200px"/>
-                                </div>
+                                    <label>분반</label>
+                                    <div class="form-group">
+                                        <form:input path="split" class="form-control" placeholder="분반" style="width: 200px"/>
+                                    </div>
+                                    <label>교수</label>
+                                    <div class="form-group">
+                                        <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>
+                                    </div>
+                                    <label>과목명</label>
+                                    <div class="form-group">
+                                        <form:input path="title" class="form-control" placeholder="과목명" style="width: 300px"/>
+                                    </div>
+                                    <label>이수구분</label>
+                                    <div class="form-group">
+                                        <form:input path="subType" class="form-control" placeholder="전공or교양" style="width: 200px"/>
+                                    </div>
+                                    <label>이수학점</label>
+                                    <div class="form-group">
+                                        <form:input path="credit" class="form-control" placeholder="이수학점" style="width: 200px"/>
+                                    </div>
 
-                                <div id="buttons">
-                                    <button type="submit"> <a class="btn btn-primary"> <i class="glyphicon glyphicon-ok"></i> 저장</a></button>
-                                    <a href="manageClass?type=${member.type}&userId=${member.id}&${pagination.queryString}" class="btn btn-default">
-                                        <i class="glyphicon glyphicon-list"></i> 목록으로
-                                    </a>
+                                    <div id="buttons">
+                                        <button type="submit"> <a class="btn btn-primary"> <i class="glyphicon glyphicon-ok"></i> 저장</a></button>
+                                        <a href="manageClass?type=${member.type}&id=${member.id}&${pagination.queryString}" class="btn btn-default">
+                                            <i class="glyphicon glyphicon-list"></i> 목록으로
+                                        </a>
 
-                                </div>
-                               </form:form>
+                                    </div>
+                                </form:form>
                             </div>
                         </div>
 

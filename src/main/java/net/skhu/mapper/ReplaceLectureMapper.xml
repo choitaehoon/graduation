@@ -5,24 +5,34 @@
 <mapper namespace="net.skhu.mapper.ReplaceLectureMapper">
 
 
-    <resultMap id="replaceLecture1" type="replaceLecture">
-        <id property="year" column="year"></id>
-        <id property="semester" column="semester"></id>
-        <id property="id" column="id"></id>
-        <id property="split" column="split"></id>
-        <result property="admin_id" column="admin_id"></result>
-        <result property="title" column="title"></result>
-        <result property="credit" column="credit"></result>
-        <result property="subType" column="subType"></result>
+    <!--<resultMap id="replaceLecture1" type="replaceLecture">-->
+        <!--<id property="year" column="year"></id>-->
+        <!--<id property="semester" column="semester"></id>-->
+        <!--<id property="id" column="id"></id>-->
+        <!--<id property="split" column="split"></id>-->
+        <!--<result property="admin_id" column="admin_id"></result>-->
+        <!--<result property="title" column="title"></result>-->
+        <!--<result property="credit" column="credit"></result>-->
+        <!--<result property="subType" column="subType"></result>-->
 
 
-    </resultMap>
-<!--    모든 대체 과목 조회하기-->
-<<<<<<< HEAD
-    <select id="findAll" resultMap="replaceLecture1">
-=======
-<<<<<<< HEAD
-    <!--<select id="findAll" resultType="ReplaceLecture">-->
+    <!--</resultMap>-->
+<!--&lt;!&ndash;    모든 대체 과목 조회하기&ndash;&gt;-->
+
+    <!--<select id="findAll" resultMap="replaceLecture1">-->
+
+    <!--&lt;!&ndash;<select id="findAll" resultType="ReplaceLecture">&ndash;&gt;-->
+        <!--&lt;!&ndash;<bind name="start" value="(currentPage-1)*pageSize"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<bind name="end" value="pageSize"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;select l.year,l.semester,l.id,l.title,l.subType&ndash;&gt;-->
+        <!--&lt;!&ndash;from lecture l left join  replacelecture r&ndash;&gt;-->
+        <!--&lt;!&ndash;on l.id = r.closeLecture&ndash;&gt;-->
+        <!--&lt;!&ndash;order by year, semester;&ndash;&gt;-->
+
+    <!--&lt;!&ndash;</select>&ndash;&gt;-->
+<!--=======-->
+    <!--<select id="findAll" resultMap="replaceLecture">-->
+<!--&gt;>>>>>> 901b2e26fd12fcdcd26ac746f07a34bbc19178da-->
         <!--<bind name="start" value="(currentPage-1)*pageSize"/>-->
         <!--<bind name="end" value="pageSize"/>-->
         <!--select l.year,l.semester,l.id,l.title,l.subType-->
@@ -31,39 +41,28 @@
         <!--order by year, semester;-->
 
     <!--</select>-->
-=======
-    <select id="findAll" resultMap="replaceLecture">
->>>>>>> 901b2e26fd12fcdcd26ac746f07a34bbc19178da
-        <bind name="start" value="(currentPage-1)*pageSize"/>
-        <bind name="end" value="pageSize"/>
-        select l.year,l.semester,l.id,l.title,l.subType
-        from lecture l left join  replacelecture r
-        on l.id = r.closeLecture
-        order by year, semester;
+<!--&gt;>>>>>> parent of ea86d96... 수업관리 update-->
 
-    </select>
->>>>>>> parent of ea86d96... 수업관리 update
+    <!--&lt;!&ndash;강의 이름별로 대체 과목 조회하기 &ndash;&gt;-->
+<!--&lt;!&ndash;    <select id="findBytitle" resultType="replacelecture">-->
+        <!--select-->
+        <!--from-->
+    <!--</select>&ndash;&gt;-->
 
-    <!--강의 이름별로 대체 과목 조회하기 -->
-<!--    <select id="findBytitle" resultType="replacelecture">
-        select
-        from
-    </select>-->
+    <!--&lt;!&ndash;   대체 될 과목 추가하기&ndash;&gt;-->
+    <!--<update id="updateRL2">-->
+    <!--update replacelecture set-->
+        <!--replaceLecture = #{replacelecture}-->
+    <!--where closelecture = #{closelecture }-->
+    <!--</update>-->
 
-    <!--   대체 될 과목 추가하기-->
-    <update id="updateRL2">
-    update replacelecture set
-        replaceLecture = #{replacelecture}
-    where closelecture = #{closelecture }
-    </update>
+    <!--&lt;!&ndash;페이지네이션시 필요한 count&ndash;&gt;-->
+    <!--<select id="count" resultType="int">-->
+        <!--select count(*)-->
+        <!--from lecture l left join  replacelecture r-->
+        <!--on l.id = r.closeLecture-->
+        <!--order by year, semester;-->
 
-    <!--페이지네이션시 필요한 count-->
-    <select id="count" resultType="int">
-        select count(*)
-        from lecture l left join  replacelecture r
-        on l.id = r.closeLecture
-        order by year, semester;
-
-    </select>
+    <!--</select>-->
 
 </mapper>

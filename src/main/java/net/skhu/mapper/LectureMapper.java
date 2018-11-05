@@ -17,6 +17,7 @@ public interface LectureMapper {
     Lecture findLecture(@Param("year") int year,@Param("semester") String semester,@Param("id") String id, @Param("admin_id") int admin_id);
     List<Lecture> findAll(Pagination pagination);
     int count();
+    int srchCount(@Param("choice") int choice, @Param("srch") String srch);
     void update(Lecture lecture);
     void insert(Lecture lecture);
 

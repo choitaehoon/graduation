@@ -28,34 +28,34 @@
     <select id="findLecBySrch" resultMap="ResultMap1">
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>
-       select l.*,a.name adminName
-       from lecture l
-       left join admin a
-       on l.admin_id= a.id
+        select l.*,a.name adminName
+        from lecture l
+        left join admin a
+        on l.admin_id= a.id
         <where>
             <if test="choice == 0">
-                year = ${srch}
+                year = #{srch}
             </if>
             <if test="choice == 1">
-                semester like ${srch}+"%"
+                semester like concat(#{srch},'%')
             </if>
             <if test="choice == 2">
-                l.id LIKE ${srch} +"%"
+                l.id LIKE concat(#{srch},'%')
             </if>
-            <if test="choice = =3">
-                title LIKE ${srch} +"%"
+            <if test="choice ==3">
+                l.title LIKE concat(#{srch},'%')
             </if>
             <if test="choice == 4">
-                subType LIKE ${srch}+"%"
+                subType LIKE concat(#{srch},'%')
             </if>
             <if test="choice == 5">
-                crdeit = ${srch}
+                credit = #{srch}
 
             </if>
 
         </where>
-       order by year desc
-       limit ${start} , ${end}
+        order by year desc
+        limit ${start} , ${end}
 
 
     </select>
@@ -87,6 +87,36 @@
     <select id="count" resultType="int">
         select count(*)
         from lecture
+
+    </select>
+
+    <select id="srchCount" resultType="int">
+        select count(*)
+        from lecture l
+        left join admin a
+        on l.admin_id= a.id
+        <where>
+            <if test="choice == 0">
+                year = ${srch}
+            </if>
+            <if test="choice == 1">
+                semester like concat(#{srch},'%')
+            </if>
+            <if test="choice == 2">
+                l.id LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice ==3">
+                title LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 4">
+                subType LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 5">
+                credit = #{srch}
+
+            </if>
+
+        </where>
 
     </select>
 
