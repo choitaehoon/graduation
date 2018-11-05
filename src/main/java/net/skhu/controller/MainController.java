@@ -94,7 +94,6 @@ public class MainController {
     {
 
         lectureService.lecInsert(lecture);
-
         pagination.setRecordCount(lectureService.pageCount());
         model.addAttribute("lectures",lectureService.lectureList(pagination));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
@@ -102,19 +101,68 @@ public class MainController {
     }
 
 
-    /* 대체과목 페이지*/
-    @RequestMapping("showReplaceLecture")
-    public String showReplaceLecture(Model model,Pagination pagination)
+    /* 대체과목 메인 페이지*/
+    @RequestMapping("replaceLecture")
+    public String showReplaceLecture(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
     {
         pagination.setRecordCount(replaceService.pageCount());
         model.addAttribute("lectures",lectureService.lectureList(pagination));
-        model.addAttribute("replaceLecture",replaceService.replaceLectureList());
+<<<<<<< HEAD
+        model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
 
         return "main/replaceLecture";
     }
+//
+//    /* 대체과목 페이지*/
+//    @RequestMapping("replaceCreate")
+//    public String createReplace(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("userId") int id )
+//    {
+//        Lecture lecture =new Lecture();
+//        model.addAttribute("lecture",lecture);
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/classEdit";
+//    }
+//    /* 대체 과목 등록*/
+//    @RequestMapping(value = "replaceCreate",method = RequestMethod.POST)
+//    public String createReplace(Model model,Pagination pagination,ReplaceLecture replaceLecture,@RequestParam("type") int type , @RequestParam("userId") int id )
+//    {
+//
+//        replaceService.replaceInsert(replaceLecture);
+//
+//        pagination.setRecordCount(replaceService.pageCount());
+//        model.addAttribute("lectures",replaceService.lectureList(pagination));
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/manageClass";
+//    }
+//
+//    //  대체 과목 수정  페이지*/
+//    @RequestMapping("replaceEdit")
+//    public String editReplace(Model model,Pagination pagination,@RequestParam("year") int year,@RequestParam("semester") String semester,@RequestParam("lecId") String lecId,
+//                       @RequestParam("adminId") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
+//    {
+//        model.addAttribute("lecture",lectureService.findLecture(year,semester,lecId,adminId));
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/classEdit";
+//    }
+//
+//    /* 대체 과목 수정*/
+//    @RequestMapping(value="replaceEdit",method = RequestMethod.POST)
+//    public String editReplace(Model model,ReplaceLecture replaceLecture,Pagination pagination, @RequestParam("type") int type , @RequestParam("userId") int id)
+//    {
+//        ReplaceService.replaceUpdate(replaceLecture);
+//
+//        pagination.setRecordCount(replaceService.pageCount());
+//        model.addAttribute("lectures",replaceService.lectureList(pagination));
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/manageClass";
+//    }
+=======
+        model.addAttribute("replaceLecture",replaceService.replaceLectureList());
+        return "main/replaceLecture";
+    }
 
-
-
+>>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
 
     /*
 //    내정보
@@ -139,11 +187,13 @@ public class MainController {
 
     @RequestMapping("studentManager")
     public String studentManager(Model model, Pagination pagination, @RequestParam("type") int type , @RequestParam("id") int id , @RequestParam(value = "choice", defaultValue = "0") int choice,
-                                 @RequestParam(value = "search", defaultValue = "false") String search)
+                                 @RequestParam(value = "search", defaultValue = "") String search)
     {
-        pagination.setRecordCount(studentMapper.selectCount());
-        model.addAttribute("listes",studentMapper.selectPage(pagination));
+        pagination.setRecordCount(studentMapper.selectCount(choice,search));
+        model.addAttribute("listes",studentMapper.selectPage(pagination.getPg(), pagination.getPageSize(), choice, search));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        model.addAttribute("search",search);
+        model.addAttribute("selected",typeIdentity.selectCheck(choice));
         return "main/studentManager";
     }
 
@@ -213,6 +263,20 @@ public class MainController {
         model.addAttribute("avgGrade",studentMapper.avgGrade(studentId));
         return "main/studentManager2";
     }
+
+    @RequestMapping("after18")
+    public String after18(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/after18";
+    }
+    @RequestMapping("before18")
+    public String before18(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/before18";
+    }
+
 
 
 }

@@ -29,6 +29,67 @@
         where s.id = #{id} ;
     </select>
 
+    <select id="findByIdMajor" resultMap="resultMapId">
+        SELECT s.*, d.departmentName,r.detailType , m.*, m.detailType as detailType2,
+        CASE WHEN grade = '4.5' THEN 'A+'
+        WHEN grade = '4.0' THEN 'A0'
+        WHEN grade = '3.5' THEN 'B+'
+        WHEN grade = '3.0' THEN 'B0'
+        WHEN grade = '2.5' THEN 'C+'
+        WHEN grade = '2.0' THEN 'C0'
+        WHEN grade = '1.5' THEN 'D+'
+        WHEN grade = '1.0' THEN 'D0'
+        WHEN grade = '0.0' THEN 'F'
+        WHEN grade = 'P' THEN 'P'
+        else 'NP'
+        END AS gradeA
+        FROM student s
+        left join department d on s.department_id = d.id
+        left join graduationRule r on s.graduationRule_id=r.id
+        left join mylecture m on s.id = m.student_id
+        where s.id = #{id} and m.detailType='전필';
+    </select>
+    <select id="findByIdCulture" resultMap="resultMapId">
+        SELECT s.*, d.departmentName,r.detailType , m.*, m.detailType as detailType2,
+        CASE WHEN grade = '4.5' THEN 'A+'
+        WHEN grade = '4.0' THEN 'A0'
+        WHEN grade = '3.5' THEN 'B+'
+        WHEN grade = '3.0' THEN 'B0'
+        WHEN grade = '2.5' THEN 'C+'
+        WHEN grade = '2.0' THEN 'C0'
+        WHEN grade = '1.5' THEN 'D+'
+        WHEN grade = '1.0' THEN 'D0'
+        WHEN grade = '0.0' THEN 'F'
+        WHEN grade = 'P' THEN 'P'
+        else 'NP'
+        END AS gradeA
+        FROM student s
+        left join department d on s.department_id = d.id
+        left join graduationRule r on s.graduationRule_id=r.id
+        left join mylecture m on s.id = m.student_id
+        where s.id = #{id} and m.detailType='교필';
+    </select>
+    <select id="findByIdF" resultMap="resultMapId">
+        SELECT s.*, d.departmentName,r.detailType , m.*, m.detailType as detailType2,
+        CASE WHEN grade = '4.5' THEN 'A+'
+        WHEN grade = '4.0' THEN 'A0'
+        WHEN grade = '3.5' THEN 'B+'
+        WHEN grade = '3.0' THEN 'B0'
+        WHEN grade = '2.5' THEN 'C+'
+        WHEN grade = '2.0' THEN 'C0'
+        WHEN grade = '1.5' THEN 'D+'
+        WHEN grade = '1.0' THEN 'D0'
+        WHEN grade = '0.0' THEN 'F'
+        WHEN grade = 'P' THEN 'P'
+        else 'NP'
+        END AS gradeA
+        FROM student s
+        left join department d on s.department_id = d.id
+        left join graduationRule r on s.graduationRule_id=r.id
+        left join mylecture m on s.id = m.student_id
+        where s.id = #{id} and m.grade='0.0';
+    </select>
+
 
     <resultMap id="resultMapId" type="Student">
         <id property="id" column="id" />
@@ -50,6 +111,28 @@
             <result property="gradeA" column="gradeA"/>
         </collection>
     </resultMap>
+
+    <select id="totalSemester" resultType="int">
+      select count(distinct m.lecture_year, m.lecture_semester) totalSemester
+		from student s left join mylecture m
+        on s.id=m.student_id
+        where s.id=#{id};
+    </select>
+
+    <select id="totalCredit" resultType="int">
+      select ifnull(sum(m.credit),0) totalCredit
+	  from student s left join mylecture m
+	  on s.id=m.student_id
+	  where s.id=#{id};
+    </select>
+
+    <select id="avgGrade" resultType="double">
+      select ifnull(round(sum(m.grade*m.credit)/sum(m.credit),2),0.0)
+      from student s left join mylecture m on s.id=m.student_id
+      where m.grade not in('P','NP') and s.id =#{id};
+    </select>
+
+
 
     <select id="findByStudent" resultType="Student">
         select * from student

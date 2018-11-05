@@ -11,6 +11,8 @@ public class ReplaceLecture {
     String closeLecture;
     String replaceLecture;
 
+    Lecture lecture;
+
     int year;
     String semester;
     String title;

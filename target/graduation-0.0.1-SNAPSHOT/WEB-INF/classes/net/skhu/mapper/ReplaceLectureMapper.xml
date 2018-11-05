@@ -6,7 +6,9 @@
 
 
 <!--    모든 대체 과목 조회하기-->
-    <select id="findAll" resultType="ReplaceLecture">
+    <select id="findAll" resultMap="replaceLecture">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
         select l.year,l.semester,l.id,l.title,l.subType
         from lecture l left join  replacelecture r
         on l.id = r.closeLecture

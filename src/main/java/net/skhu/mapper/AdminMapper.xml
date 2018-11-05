@@ -9,7 +9,7 @@
         where id = #{id} and password = #{password}
   </select>
 
-    <select id="findById" resultType="Admin">
+    <select id="findByAdmin" resultType="Admin">
         SELECT *
         FROM admin
         where id=#{id} ;

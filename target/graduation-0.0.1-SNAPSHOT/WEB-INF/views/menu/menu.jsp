@@ -98,6 +98,17 @@
         </li>
 
         <li>
+<<<<<<< HEAD
+        <a href="/main/replaceLecture?type=${member.type}&id=${member.id}">
+=======
+        <a href="/login/replaceLecture?type=${member.type}&id=${member.id}">
+>>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
+        <i class="pe-7s-note2"></i>
+        <p>대체 과목 관리</p>
+        </a>
+        </li>
+
+        <li>
         <a href="/login/noticeManager?type=${member.type}&id=${member.id}">
         <i class="pe-7s-note2"></i>
         <p>공지사항</p>

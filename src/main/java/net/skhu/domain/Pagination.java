@@ -15,9 +15,10 @@ public class Pagination
     int pg;
     int sz;
 
-    /* pg만 getter와 setter 만든이유는 받는게 currentPage때문에
+    /* pg만 getter와 setter 만든 이유는 받는게 currentPage때문에
         만들었다.
      */
+
     public int getPg() {
         return currentPage;
     }

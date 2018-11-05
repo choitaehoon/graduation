@@ -6,6 +6,7 @@ import net.skhu.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -24,8 +25,8 @@ public interface StudentMapper
     int selectByLoginIdCheck(int id);
     void updateMember(User user);
     List<Student> findAll();
-    int selectCount();
-    List<Student> selectPage(Pagination pagination);
+    int selectCount(@Param("choice") int choice, @Param("search") String search);
+    List<Student> selectPage(@Param("currentPage") int currentPage, @Param("pageSize") int pageSize, @Param("choice") int choice, @Param("search") String search);
     Student findByStudent(int id);
     void updateNameAndDepartment(Student student);
     int totalSemester(int id);
