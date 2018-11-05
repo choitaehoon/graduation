@@ -44,16 +44,17 @@
                                 </thead>
 
                                 <tbody>
-                                <c:forEach var="replacelecture" items="${ replacelecture }">
-                                    <tr data-url="replaceLecture><%--?studentId=${ student.id }"--%>
+                                <c:forEach var="replacelecture" items="${ replacelectures }">
+                                    <tr data-url="replaceLecture?year=${replacelecture.lecture.year}&semester=${ replacelecture.lecture.semester }&id=${ replacelecture.lecture.id }&subType=${ replacelecture.lecture.subType}">
                                         <td>${ replacelecture.lecture.year }</td>
                                         <td>${ replacelecture.lecture.semester }</td>
                                         <td>${ replacelecture.lecture.id }</td>
                                         <td>${ replacelecture.lecture.subType}</td>
                                       <%--  <td><button class="btn btn-primary">수정</button></td>--%>
                                     </tr>
-                                </c:forEach></tbody>
+                                </c:forEach>
                                 </tbody>
+
                             </table>
 
                             </p>

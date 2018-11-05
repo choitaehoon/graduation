@@ -1,5 +1,6 @@
 package net.skhu.Service;
 
+import net.skhu.domain.Pagination;
 import net.skhu.domain.ReplaceLecture;
 import net.skhu.mapper.ReplaceLectureMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,9 @@ public class ReplaceService {
     @Autowired
     ReplaceLectureMapper replaceLectureMapper;
 
-    public List<ReplaceLecture> replaceLectureList(){
-        return replaceLectureMapper.findAll();
+    public List<ReplaceLecture> replaceLectureList(Pagination pagination){
+        return replaceLectureMapper.findAll(pagination);
     }
-
 
 /*    public Lecture findLecture(int year,String lectureId,int adminId){
 
@@ -27,6 +27,17 @@ public class ReplaceService {
     public int pageCount(){
         return replaceLectureMapper.count();
     }
+
+
+    public void replaceInsert(ReplaceLecture replaceLecture){
+        replaceLectureMapper.insert(replaceLecture);
+    }
+
+    public void replaceUpdate(ReplaceLecture replaceLecture){
+        replaceLectureMapper.updateRL2(replaceLecture);
+    }
+
+
 
 }
 

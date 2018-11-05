@@ -98,7 +98,7 @@
         </li>
 
         <li>
-        <a href="/login/replaceLecture?type=${member.type}&id=${member.id}">
+        <a href="/main/replaceLecture?type=${member.type}&id=${member.id}">
         <i class="pe-7s-note2"></i>
         <p>대체 과목 관리</p>
         </a>
