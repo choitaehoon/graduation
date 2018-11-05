@@ -112,7 +112,10 @@ public class MainController {
     }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 104bbdf... Merge branch 'master' of https://github.com/choitaehoon/graduation
 //    /* 대체과목 메인 페이지*/
 //    @RequestMapping("replaceLecture")
 //    public String showReplaceLecture(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
@@ -124,6 +127,7 @@ public class MainController {
 //
 //        return "main/replaceLecture";
 //    }
+<<<<<<< HEAD
 
 //    /* 대체과목 메인 페이지*/
 //    @RequestMapping("replaceLecture")
@@ -136,6 +140,8 @@ public class MainController {
 //        return "main/replaceLecture";
 //    }
 
+=======
+>>>>>>> parent of 104bbdf... Merge branch 'master' of https://github.com/choitaehoon/graduation
 //
 //    /* 대체과목 페이지*/
 //    @RequestMapping("replaceCreate")
