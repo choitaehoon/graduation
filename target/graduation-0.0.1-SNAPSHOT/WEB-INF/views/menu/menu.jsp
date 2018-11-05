@@ -98,15 +98,7 @@
         </li>
 
         <li>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <a href="/main/replaceLecture?type=${member.type}&id=${member.id}">
-=======
-        <a href="/login/replaceLecture?type=${member.type}&id=${member.id}">
->>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
-=======
-        <a href="/login/replaceLecture?type=${member.type}&id=${member.id}">
->>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
         <i class="pe-7s-note2"></i>
         <p>대체 과목 관리</p>
         </a>
@@ -155,6 +147,8 @@
         <a class="navbar-brand" href="#">
         <c:if test="${type==0}">
             <p>${member.name} 게스트님</p>
+            <input type="hidden" name="id" value="0">
+            <input type="hidden" name="type" value="0">
         </c:if>
         <c:if test="${member.type== 1}">
             <p>${member.name} 학생님</p>

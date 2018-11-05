@@ -6,15 +6,15 @@
 
 
 <!--    모든 대체 과목 조회하기-->
-    <select id="findAll" resultMap="replaceLecture">
-        <bind name="start" value="(currentPage-1)*pageSize"/>
-        <bind name="end" value="pageSize"/>
-        select l.year,l.semester,l.id,l.title,l.subType
-        from lecture l left join  replacelecture r
-        on l.id = r.closeLecture
-        order by year, semester;
+    <!--<select id="findAll" resultMap="replaceLecture">-->
+        <!--<bind name="start" value="(currentPage-1)*pageSize"/>-->
+        <!--<bind name="end" value="pageSize"/>-->
+        <!--select l.year,l.semester,l.id,l.title,l.subType-->
+        <!--from lecture l left join  replacelecture r-->
+        <!--on l.id = r.closeLecture-->
+        <!--order by year, semester;-->
 
-    </select>
+    <!--</select>-->
 
     <!--강의 이름별로 대체 과목 조회하기 -->
 <!--    <select id="findBytitle" resultType="replacelecture">

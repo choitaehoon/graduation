@@ -34,22 +34,22 @@
        on l.admin_id= a.id
         <where>
             <if test="choice == 0">
-                year = ${srch}
+                year = #{srch}
             </if>
             <if test="choice == 1">
-                semester like ${srch}+"%"
+                semester like concat(#{srch},'%')
             </if>
             <if test="choice == 2">
-                l.id LIKE ${srch} +"%"
+                l.id LIKE concat(#{srch},'%')
             </if>
-            <if test="choice = =3">
-                title LIKE ${srch} +"%"
+            <if test="choice ==3">
+                l.title LIKE concat(#{srch},'%')
             </if>
             <if test="choice == 4">
-                subType LIKE ${srch}+"%"
+                subType LIKE concat(#{srch},'%')
             </if>
             <if test="choice == 5">
-                crdeit = ${srch}
+                crdeit = #{srch}
 
             </if>
 
@@ -87,6 +87,36 @@
     <select id="count" resultType="int">
         select count(*)
         from lecture
+
+    </select>
+
+    <select id="srchCount" resultType="int">
+        select count(*)
+        from lecture l
+        left join admin a
+        on l.admin_id= a.id
+        <where>
+            <if test="choice == 0">
+                year = ${srch}
+            </if>
+            <if test="choice == 1">
+                semester like concat(#{srch},'%')
+            </if>
+            <if test="choice == 2">
+                l.id LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice ==3">
+                title LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 4">
+                subType LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 5">
+                crdeit = #{srch}
+
+            </if>
+
+        </where>
 
     </select>
 
