@@ -41,12 +41,12 @@
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
                                     <select name="choice">
-                                        <option value="1">이름</option>
-                                        <option value="2">학과별</option>
-                                        <option value="3">학번</option>
+                                        <option value="1" ${selected[0]}>이름</option>
+                                        <option value="2" ${selected[1]}>학과별</option>
+                                        <option value="3" ${selected[2]}>학번</option>
                                     </select>
                                     <input type="text" name="search" value="${search}">
-                                    <button type="submit" class="btn btn-primary">조회</button></a>
+                                    <button type="submit" class="btn btn-primary">조회</button>
                                 </form>
 
 

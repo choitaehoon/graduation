@@ -8,6 +8,8 @@ import net.skhu.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -34,8 +36,8 @@ public class TypeIdentity
         else
             return null;
 
-
     }
+
     public String beforeLogin(User user) {
         String error="아이디 or 비밀번호가 잘못되었습니다";
         if (studentMapper.findByIdAndPassword(user.getId(), user.getPassword()) == 0)
@@ -46,6 +48,18 @@ public class TypeIdentity
 
         return null;
 
+    }
+
+    public String[] selectCheck(int choice)
+    {
+        if (choice == 0)
+            return new String[]{"","",""};
+        else if (choice == 1)
+            return new String[]{"selected","",""};
+        else if(choice == 2)
+            return new String[]{"","selected",""};
+        else
+            return new String[]{"","","selected"};
     }
 
     public Object typeCheck(int type, int id)

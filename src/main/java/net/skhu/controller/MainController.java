@@ -108,11 +108,8 @@ public class MainController {
         pagination.setRecordCount(replaceService.pageCount());
         model.addAttribute("lectures",lectureService.lectureList(pagination));
         model.addAttribute("replaceLecture",replaceService.replaceLectureList());
-
         return "main/replaceLecture";
     }
-
-
 
 
     /*
@@ -141,9 +138,10 @@ public class MainController {
                                  @RequestParam(value = "search", defaultValue = "") String search)
     {
         pagination.setRecordCount(studentMapper.selectCount(choice,search));
-        model.addAttribute("listes",studentMapper.selectPage(pagination.getPg(),pagination.getPageSize(), choice, search));
+        model.addAttribute("listes",studentMapper.selectPage(pagination.getPg(), pagination.getPageSize(), choice, search));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         model.addAttribute("search",search);
+        model.addAttribute("selected",typeIdentity.selectCheck(choice));
         return "main/studentManager";
     }
 
