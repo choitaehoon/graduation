@@ -108,9 +108,13 @@ public class MainController {
         pagination.setRecordCount(replaceService.pageCount());
         model.addAttribute("lectures",lectureService.lectureList(pagination));
 <<<<<<< HEAD
+<<<<<<< HEAD
         model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
 
+=======
+        model.addAttribute("replaceLecture",replaceService.replaceLectureList());
+>>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
         return "main/replaceLecture";
     }
 //
@@ -162,6 +166,9 @@ public class MainController {
         return "main/replaceLecture";
     }
 
+<<<<<<< HEAD
+>>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
+=======
 >>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
 
     /*

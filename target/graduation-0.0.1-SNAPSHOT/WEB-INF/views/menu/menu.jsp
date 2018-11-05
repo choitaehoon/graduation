@@ -99,7 +99,11 @@
 
         <li>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <a href="/main/replaceLecture?type=${member.type}&id=${member.id}">
+=======
+        <a href="/login/replaceLecture?type=${member.type}&id=${member.id}">
+>>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
 =======
         <a href="/login/replaceLecture?type=${member.type}&id=${member.id}">
 >>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
