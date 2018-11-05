@@ -174,15 +174,11 @@ public class MainController {
 //        model.addAttribute("member",typeIdentity.typeCheck(type,id));
 //        return "main/manageClass";
 //    }
-=======
+/*
         model.addAttribute("replaceLecture",replaceService.replaceLectureList());
         return "main/replaceLecture";
-    }
+    }*/
 
-<<<<<<< HEAD
->>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
-=======
->>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
 
     /*
 //    내정보
@@ -296,7 +292,6 @@ public class MainController {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/before18";
     }
-
 
 
 }
