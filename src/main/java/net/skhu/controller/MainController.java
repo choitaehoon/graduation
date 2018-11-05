@@ -120,8 +120,15 @@ public class MainController {
     {
         pagination.setRecordCount(replaceService.pageCount());
         model.addAttribute("lectures",lectureService.lectureList(pagination));
+<<<<<<< HEAD
         model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
+=======
+<<<<<<< HEAD
+        model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+
+>>>>>>> parent of 1af4ffe... Merge branch 'master' of https://github.com/choitaehoon/graduation
         return "main/replaceLecture";
     }
 //
@@ -173,6 +180,10 @@ public class MainController {
         return "main/replaceLecture";
     }*/
 
+<<<<<<< HEAD
+=======
+>>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
+>>>>>>> parent of 1af4ffe... Merge branch 'master' of https://github.com/choitaehoon/graduation
 
     /*
 //    내정보

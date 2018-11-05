@@ -58,3 +58,5 @@ fabric.properties
 # Maven
 log/
 target/
+src/main/java/net/skhu/controller/MainController.java
+target/graduation-0.0.1-SNAPSHOT/WEB-INF/views/menu/menu.jsp

@@ -5,8 +5,20 @@
 <mapper namespace="net.skhu.mapper.ReplaceLectureMapper">
 
 
+    <resultMap id="replaceLecture1" type="replaceLecture">
+        <id property="year" column="year"></id>
+        <id property="semester" column="semester"></id>
+        <id property="id" column="id"></id>
+        <id property="split" column="split"></id>
+        <result property="admin_id" column="admin_id"></result>
+        <result property="title" column="title"></result>
+        <result property="credit" column="credit"></result>
+        <result property="subType" column="subType"></result>
+
+
+    </resultMap>
 <!--    모든 대체 과목 조회하기-->
-    <select id="findAll" resultMap="replaceLecture">
+    <select id="findAll" resultMap="replaceLecture1">
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>
         select l.year,l.semester,l.id,l.title,l.subType
