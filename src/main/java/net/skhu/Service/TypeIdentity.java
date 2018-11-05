@@ -23,13 +23,13 @@ public class TypeIdentity
     public Object distinct(User user) {
 
 
-        if (studentMapper.findByIdAndPassword(user.getId(), user.getPassword()) == 1) {
-            Student student=studentMapper.findById(user.getId());
+        if (studentMapper.findByIdAndPassword(user.getId(),user.getPassword()) == 1) {
+            Student student=studentMapper.findByStudent(user.getId());
             student.setType(1);
             return student;
         }
-        else if (adminMapper.findByIdAndPassword(user.getId(), user.getPassword()) == 1) {
-            Admin admin=adminMapper.findById(user.getId());
+        else if (adminMapper.findByIdAndPassword(user.getId(),user.getPassword()) == 1) {
+            Admin admin=adminMapper.findByAdmin(user.getId());
             admin.setType(2);
             return admin;
         }
@@ -65,12 +65,12 @@ public class TypeIdentity
     public Object typeCheck(int type, int id)
     {
         if (type == 1) { //학생 이면
-            Student student = studentMapper.findById(id);
+            Student student = studentMapper.findByStudent(id);
             student.setType(1);
             return student;
         }
         else { //교수이면
-            Admin admin = adminMapper.findById(id);
+            Admin admin = adminMapper.findByAdmin(id);
             admin.setType(2);
             return admin;
         }

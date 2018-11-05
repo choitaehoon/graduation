@@ -82,8 +82,8 @@
         <li><a href="#Link">소프트웨어공학과</a>
 
         <ul >
-        <li><a href="/login/before18?type=${member.type}&id=${member.id}">18학번 이전</a></li>
-        <li><a href="/login/after18?type=${member.type}&id=${member.id}">18학번 이후</a></li>
+        <li><a href="/main/before18?type=${member.type}&id=${member.id}">18학번 이전</a></li>
+        <li><a href="/main/after18?type=${member.type}&id=${member.id}">18학번 이후</a></li>
         <li><a href="#">전공인정규칙</a></li>
         </ul>
 
@@ -147,6 +147,8 @@
         <a class="navbar-brand" href="#">
         <c:if test="${type==0}">
             <p>${member.name} 게스트님</p>
+            <input type="hidden" name="id" value="0">
+            <input type="hidden" name="type" value="0">
         </c:if>
         <c:if test="${member.type== 1}">
             <p>${member.name} 학생님</p>
