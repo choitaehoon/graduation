@@ -18,7 +18,22 @@
 
     </resultMap>
 <!--    모든 대체 과목 조회하기-->
+<<<<<<< HEAD
     <select id="findAll" resultMap="replaceLecture1">
+=======
+<<<<<<< HEAD
+    <!--<select id="findAll" resultType="ReplaceLecture">-->
+        <!--<bind name="start" value="(currentPage-1)*pageSize"/>-->
+        <!--<bind name="end" value="pageSize"/>-->
+        <!--select l.year,l.semester,l.id,l.title,l.subType-->
+        <!--from lecture l left join  replacelecture r-->
+        <!--on l.id = r.closeLecture-->
+        <!--order by year, semester;-->
+
+    <!--</select>-->
+=======
+    <select id="findAll" resultMap="replaceLecture">
+>>>>>>> 901b2e26fd12fcdcd26ac746f07a34bbc19178da
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>
         select l.year,l.semester,l.id,l.title,l.subType
@@ -27,6 +42,7 @@
         order by year, semester;
 
     </select>
+>>>>>>> parent of ea86d96... 수업관리 update
 
     <!--강의 이름별로 대체 과목 조회하기 -->
 <!--    <select id="findBytitle" resultType="replacelecture">
