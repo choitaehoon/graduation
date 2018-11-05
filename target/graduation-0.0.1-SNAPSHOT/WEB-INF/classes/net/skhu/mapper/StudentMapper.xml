@@ -146,35 +146,11 @@
       select s.*, d.departmentName
         from student s inner join department d
         on s.department_id = d.id
-        <where>
-            <if test="choice == 1">
-                s.name like concat(#{search},'%')
-            </if>
-            <if test="choice == 2">
-                d.departmentName like concat(#{search},'%')
-            </if>
-            <if test="choice == 3">
-                s.id like concat (#{search},'%')
-            </if>
-        </where>
       limit ${start} , ${end}
     </select>
 
     <select id="selectCount" resultType="int">
-        select count(*)
-        from student s inner join department d
-        on s.department_id = d.id
-        <where>
-            <if test="choice == 1">
-                s.name like concat(#{search},'%')
-            </if>
-            <if test="choice == 2">
-                d.departmentName like concat(#{search},'%')
-            </if>
-            <if test="choice == 3">
-                s.id like concat (#{search},'%')
-            </if>
-        </where>
+        select count(*) from student
     </select>
 
 

@@ -49,6 +49,7 @@ public class MainController {
     @RequestMapping("manageClass")
     public String manageClass(Model model,Pagination pagination, @RequestParam("type") int type , @RequestParam("id") int id )
     {
+        System.out.println(lectureService.pageCount());
 
         pagination.setRecordCount(lectureService.pageCount());
         model.addAttribute("lectures",lectureService.lectureList(pagination));
@@ -58,13 +59,12 @@ public class MainController {
 
     @RequestMapping(value = "manageClass",method = RequestMethod.POST)
     public String manageClass(Model model,Pagination pagination,@RequestParam(value = "choice", defaultValue = "0") int choice,
-                              @RequestParam(value = "srch",defaultValue = "") String srch, @RequestParam("type") int type , @RequestParam("userId") int id )
+                              @RequestParam(value = "srch",defaultValue = "") String srch, @RequestParam("type") int type , @RequestParam("id") int id )
     {
-        pagination.setRecordCount(lectureService.pageSrchCount(choice,srch));
+        pagination.setRecordCount(lectureService.pageCount());
 
         model.addAttribute("lectures",lectureService.srchByLecList(pagination.getPg(),pagination.getPageSize(),choice,srch));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        model.addAttribute("selected",lectureService.selectCheck(choice));
         return "main/manageClass";
     }
 
@@ -80,13 +80,14 @@ public class MainController {
 
     /* 수업수정*/
     @RequestMapping(value="classEdit",method = RequestMethod.POST)
-    public String edit(Model model,Lecture lecture,Pagination pagination, @RequestParam("type") int type , @RequestParam("userId") int id
-                        ,RedirectAttributes redirectAttributes)
+    public String edit(Model model,Lecture lecture,Pagination pagination, @RequestParam("type") int type , @RequestParam("userId") int id)
     {
         lectureService.lecUpdate(lecture);
-        redirectAttributes.addAttribute("type",type);
-        redirectAttributes.addAttribute("id",id);
-        return "redirect:manageClass";
+
+        pagination.setRecordCount(lectureService.pageCount());
+        model.addAttribute("lectures",lectureService.lectureList(pagination));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/manageClass";
     }
 
 
@@ -102,16 +103,18 @@ public class MainController {
 
     /* 수업등록*/
     @RequestMapping(value = "classCreate",method = RequestMethod.POST)
-    public String create(Lecture lecture,@RequestParam("type") int type , @RequestParam("userId") int id,RedirectAttributes redirectAttributes )
+    public String create(Model model,Pagination pagination,Lecture lecture,@RequestParam("type") int type , @RequestParam("userId") int id )
     {
 
         lectureService.lecInsert(lecture);
-        redirectAttributes.addAttribute("type",type);
-        redirectAttributes.addAttribute("id",id);
-        return "redirect:manageClass";
+        pagination.setRecordCount(lectureService.pageCount());
+        model.addAttribute("lectures",lectureService.lectureList(pagination));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/manageClass";
     }
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -142,6 +145,24 @@ public class MainController {
 
 =======
 >>>>>>> parent of 104bbdf... Merge branch 'master' of https://github.com/choitaehoon/graduation
+=======
+    /* 대체과목 메인 페이지*/
+    @RequestMapping("replaceLecture")
+    public String showReplaceLecture(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
+    {
+        pagination.setRecordCount(replaceService.pageCount());
+        model.addAttribute("lectures",lectureService.lectureList(pagination));
+<<<<<<< HEAD
+<<<<<<< HEAD
+        model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+
+=======
+        model.addAttribute("replaceLecture",replaceService.replaceLectureList());
+>>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
+        return "main/replaceLecture";
+    }
+>>>>>>> parent of ea86d96... 수업관리 update
 //
 //    /* 대체과목 페이지*/
 //    @RequestMapping("replaceCreate")

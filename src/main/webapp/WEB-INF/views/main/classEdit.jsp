@@ -77,7 +77,7 @@
 
                                 <div id="buttons">
                                     <button type="submit"> <a class="btn btn-primary"> <i class="glyphicon glyphicon-ok"></i> 저장</a></button>
-                                    <a href="manageClass?type=${member.type}&id=${member.id}&${pagination.queryString}" class="btn btn-default">
+                                    <a href="manageClass?type=${member.type}&userId=${member.id}&${pagination.queryString}" class="btn btn-default">
                                         <i class="glyphicon glyphicon-list"></i> 목록으로
                                     </a>
 

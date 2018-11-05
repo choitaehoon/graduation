@@ -47,16 +47,16 @@
                             <form method="post">
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
-                                <input type="hidden" name="userId" value="${member.id}" />
+                                <input type="hidden" name="id" value="${member.id}" />
 
                                 <p class="category">
                                 <select name="choice">
-                                    <option value="0" ${selected[0]}>년도</option>
-                                    <option value="1" ${selected[1]}>개설학기</option>
-                                    <option value="2" ${selected[2]}>과목코드</option>
-                                    <option value="3" ${selected[3]}>과목명</option>
-                                    <option value="4" ${selected[4]}>이수구분</option>
-                                    <option value="5" ${selected[5]}>이수학점</option>
+                                    <option value="0">년도</option>
+                                    <option value="1">개설학기</option>
+                                    <option value="2">과목코드</option>
+                                    <option value="3">과목명</option>
+                                    <option value="4">이수구분</option>
+                                    <option value="5">이수학점</option>
                                 </select>
 
                                 <input type="text" name="srch" value="${srch}"/>
@@ -93,7 +93,7 @@
                                     <td>${lecture.subType}</td>
                                     <td>${lecture.credit}</td>
                                     <td><a href='classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}'>
-                                        <button  type="button" class="btn btn-primary">수정</button>
+                                        <button class="btn btn-primary">수정</button>
                                     </a>
                                     </td>
                                 </tr>
