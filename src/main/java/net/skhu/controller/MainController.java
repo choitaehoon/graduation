@@ -112,6 +112,7 @@ public class MainController {
     }
 
 
+<<<<<<< HEAD
 //    /* 대체과목 메인 페이지*/
 //    @RequestMapping("replaceLecture")
 //    public String showReplaceLecture(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
@@ -123,6 +124,18 @@ public class MainController {
 //
 //        return "main/replaceLecture";
 //    }
+=======
+    /* 대체과목 메인 페이지*/
+    @RequestMapping("replaceLecture")
+    public String showReplaceLecture(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
+    {
+        pagination.setRecordCount(replaceService.pageCount());
+        model.addAttribute("lectures",lectureService.lectureList(pagination));
+        model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/replaceLecture";
+    }
+>>>>>>> 9a3bb7797085305fc1bda1d3526b05992b65d716
 //
 //    /* 대체과목 페이지*/
 //    @RequestMapping("replaceCreate")
