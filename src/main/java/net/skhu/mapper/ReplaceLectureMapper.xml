@@ -6,7 +6,7 @@
 
 
 <!--    모든 대체 과목 조회하기-->
-    <!--<select id="findAll" resultMap="replaceLecture">-->
+    <!--<select id="findAll" resultType="ReplaceLecture">-->
         <!--<bind name="start" value="(currentPage-1)*pageSize"/>-->
         <!--<bind name="end" value="pageSize"/>-->
         <!--select l.year,l.semester,l.id,l.title,l.subType-->
