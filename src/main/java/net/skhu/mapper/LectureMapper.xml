@@ -5,7 +5,7 @@
 <mapper namespace="net.skhu.mapper.LectureMapper">
 
 
-    <resultMap id="adminResultMap" type="Lecture">
+    <resultMap id="ResultMap1" type="Lecture">
         <id property="year" column="year"></id>
         <id property="semester" column="semester"></id>
         <id property="id" column="id"></id>
@@ -25,20 +25,55 @@
 
     </resultMap>
 
-    <select id="findAll" resultMap="adminResultMap">
+    <select id="findLecBySrch" resultMap="ResultMap1">
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>
        select l.*,a.name adminName
        from lecture l
        left join admin a
        on l.admin_id= a.id
-      order by year desc
+        <where>
+            <if test="choice == 0">
+                year = ${srch}
+            </if>
+            <if test="choice == 1">
+                semester like ${srch}+"%"
+            </if>
+            <if test="choice == 2">
+                l.id LIKE ${srch} +"%"
+            </if>
+            <if test="choice = =3">
+                title LIKE ${srch} +"%"
+            </if>
+            <if test="choice == 4">
+                subType LIKE ${srch}+"%"
+            </if>
+            <if test="choice == 5">
+                crdeit = ${srch}
+
+            </if>
+
+        </where>
+       order by year desc
        limit ${start} , ${end}
 
 
     </select>
 
-    <select id="findLecture" resultMap="adminResultMap">
+    <select id="findAll" resultMap="ResultMap1">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
+        select l.*,a.name adminName
+        from lecture l
+        left join admin a
+        on l.admin_id= a.id
+        order by year desc
+        limit ${start} , ${end}
+
+
+    </select>
+
+    <select id="findLecture" resultMap="ResultMap1">
        select l.*,a.name adminName
        from lecture l
        left join admin a

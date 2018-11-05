@@ -47,10 +47,23 @@ public class MainController {
 
 
     @RequestMapping("manageClass")
-    public String manageClass(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
+    public String manageClass(Model model,Pagination pagination, @RequestParam("type") int type , @RequestParam("id") int id )
     {
+        System.out.println(lectureService.pageCount());
+
         pagination.setRecordCount(lectureService.pageCount());
         model.addAttribute("lectures",lectureService.lectureList(pagination));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/manageClass";
+    }
+
+    @RequestMapping(value = "manageClass",method = RequestMethod.POST)
+    public String manageClass(Model model,Pagination pagination,@RequestParam(value = "choice", defaultValue = "0") int choice,
+                              @RequestParam(value = "srch",defaultValue = "") String srch, @RequestParam("type") int type , @RequestParam("id") int id )
+    {
+        pagination.setRecordCount(lectureService.pageCount());
+
+        model.addAttribute("lectures",lectureService.srchByLecList(pagination.getPg(),pagination.getPageSize(),choice,srch));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/manageClass";
     }

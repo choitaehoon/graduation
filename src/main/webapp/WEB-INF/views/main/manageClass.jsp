@@ -44,23 +44,25 @@
                                     <span class="glyphicon glyphicon-user"></span> 수업등록</a>
                             </div>
 
-                            <p class="category">
-                                <select>
-                                    <option>년도</option>
-                                    <option>개설학기</option>
-                                    <option>과목코드</option>
-                                    <option>학과별</option>
-                                    <option>과목명</option>
-                                    <option>이수구분</option>
-                                    <option>이수학점</option>
-                                    <option>학과별</option>
+                            <form method="post">
+                                <input type="hidden" name="pg" value="1">
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="id" value="${member.id}" />
+
+                                <p class="category">
+                                <select name="choice">
+                                    <option value="0">년도</option>
+                                    <option value="1">개설학기</option>
+                                    <option value="2">과목코드</option>
+                                    <option value="3">과목명</option>
+                                    <option value="4">이수구분</option>
+                                    <option value="5">이수학점</option>
                                 </select>
 
-                                <input type="text"/>
-                                <a href="#">
+                                <input type="text" name="srch" value="${srch}"/>
+                                <a >
                                     <button type="submit" class="btn btn-primary">조회</button>
                                 </a>
-
 
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
@@ -98,13 +100,9 @@
                                 </c:forEach>
                                 </tbody>
                             </table>
-                        </form>
-                            </p>
-                            <form>
 
-                                <input type="hidden" name="pg" value="1" />
-                                <input type="hidden" name="type" value="${member.type}"  />
-                                <input type="hidden" name="id" value="${member.id}" />
+                            </p>
+
                             <%--/* 페이지 네이션 */--%>
                             <div class="pagination pagination-small pagination-centered">
 

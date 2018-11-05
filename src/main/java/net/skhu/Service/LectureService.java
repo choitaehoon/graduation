@@ -14,8 +14,15 @@ public class LectureService{
     @Autowired
     LectureMapper lectureMapper;
 
+    static String[] target = {"year, semester, l.id, title, subType, credit"};
 
-    public List<Lecture> lectureList(Pagination pagination) {
+    /* 검색해서 리스트 조회*/
+    public List<Lecture> srchByLecList(int currentPage,int pageSize,int choice,String srch) {
+        return lectureMapper.findLecBySrch(currentPage,pageSize,choice,srch);
+    }
+
+    /* 그냥 finAll*/
+    public List<Lecture> lectureList(Pagination pagination){
         return lectureMapper.findAll(pagination);
     }
 

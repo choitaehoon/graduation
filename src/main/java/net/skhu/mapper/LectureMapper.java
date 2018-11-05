@@ -13,8 +13,9 @@ import java.util.List;
 public interface LectureMapper {
 
 
-    List<Lecture> findAll(Pagination pagination);
+    List<Lecture> findLecBySrch(@Param("currentPage") int currentPage,@Param("pageSize") int pageSize,@Param("choice") int choice,@Param("srch") String srch);
     Lecture findLecture(@Param("year") int year,@Param("semester") String semester,@Param("id") String id, @Param("admin_id") int admin_id);
+    List<Lecture> findAll(Pagination pagination);
     int count();
     void update(Lecture lecture);
     void insert(Lecture lecture);
