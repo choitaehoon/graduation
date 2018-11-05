@@ -115,6 +115,20 @@ public class MainController {
 
 
 
+<<<<<<< HEAD
+=======
+//    /* 대체과목 메인 페이지*/
+//    @RequestMapping("replaceLecture")
+//    public String showReplaceLecture(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
+//    {
+//        pagination.setRecordCount(replaceService.pageCount());
+//        model.addAttribute("lectures",lectureService.lectureList(pagination));
+//        model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//
+//        return "main/replaceLecture";
+//    }
+>>>>>>> parent of f98874b... Revert "Merge branch 'master' of https://github.com/choitaehoon/graduation"
 
 
 //
@@ -130,6 +144,19 @@ public class MainController {
 //        return "main/replaceLecture";
 //    }
 
+<<<<<<< HEAD
+=======
+//
+//    /* 대체과목 페이지*/
+//    @RequestMapping("replaceCreate")
+//    public String createReplace(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("userId") int id )
+//    {
+//        Lecture lecture =new Lecture();
+//        model.addAttribute("lecture",lecture);
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        return "main/classEdit";
+//    }
+>>>>>>> parent of f98874b... Revert "Merge branch 'master' of https://github.com/choitaehoon/graduation"
 //    /* 대체 과목 등록*/
 //    @RequestMapping(value = "replaceCreate",method = RequestMethod.POST)
 //    public String createReplace(Model model,Pagination pagination,ReplaceLecture replaceLecture,@RequestParam("type") int type , @RequestParam("userId") int id )
