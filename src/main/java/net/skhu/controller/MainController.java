@@ -114,76 +114,22 @@ public class MainController {
     }
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of 104bbdf... Merge branch 'master' of https://github.com/choitaehoon/graduation
+
+
+//
 //    /* 대체과목 메인 페이지*/
 //    @RequestMapping("replaceLecture")
-//    public String showReplaceLecture(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
-//    {
+//    public String showReplaceLecture(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id ) {
 //        pagination.setRecordCount(replaceService.pageCount());
-//        model.addAttribute("lectures",lectureService.lectureList(pagination));
-//        model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        model.addAttribute("lectures", lectureService.lectureList(pagination));
+//        model.addAttribute("replacelectures", replaceService.replaceLectureList(pagination));
+//        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+//        model.addAttribute("replaceLecture", replaceService.replaceLectureList());
 //
 //        return "main/replaceLecture";
 //    }
-<<<<<<< HEAD
 
-//    /* 대체과목 메인 페이지*/
-//    @RequestMapping("replaceLecture")
-//    public String showReplaceLecture(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
-//    {
-//        pagination.setRecordCount(replaceService.pageCount());
-//        model.addAttribute("lectures",lectureService.lectureList(pagination));
-//        model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/replaceLecture";
-//    }
-
-=======
->>>>>>> parent of 104bbdf... Merge branch 'master' of https://github.com/choitaehoon/graduation
-=======
-    /* 대체과목 메인 페이지*/
-    @RequestMapping("replaceLecture")
-    public String showReplaceLecture(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
-    {
-        pagination.setRecordCount(replaceService.pageCount());
-        model.addAttribute("lectures",lectureService.lectureList(pagination));
-<<<<<<< HEAD
-<<<<<<< HEAD
-        model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-=======
-<<<<<<< HEAD
-        model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-
->>>>>>> parent of 1af4ffe... Merge branch 'master' of https://github.com/choitaehoon/graduation
-=======
-<<<<<<< HEAD
-        model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-
-=======
-        model.addAttribute("replaceLecture",replaceService.replaceLectureList());
->>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
->>>>>>> 901b2e26fd12fcdcd26ac746f07a34bbc19178da
-        return "main/replaceLecture";
-    }
->>>>>>> parent of ea86d96... 수업관리 update
-//
-//    /* 대체과목 페이지*/
-//    @RequestMapping("replaceCreate")
-//    public String createReplace(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("userId") int id )
-//    {
-//        Lecture lecture =new Lecture();
-//        model.addAttribute("lecture",lecture);
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/classEdit";
-//    }
 //    /* 대체 과목 등록*/
 //    @RequestMapping(value = "replaceCreate",method = RequestMethod.POST)
 //    public String createReplace(Model model,Pagination pagination,ReplaceLecture replaceLecture,@RequestParam("type") int type , @RequestParam("userId") int id )
@@ -223,10 +169,6 @@ public class MainController {
         return "main/replaceLecture";
     }*/
 
-<<<<<<< HEAD
-=======
->>>>>>> 9788d587c06b8d44dfac3adf8c06fc1b08660826
->>>>>>> parent of 1af4ffe... Merge branch 'master' of https://github.com/choitaehoon/graduation
 
     /*
 //    내정보
