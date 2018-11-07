@@ -54,7 +54,7 @@
 
 
                             <div class="pull-right mb5">
-                                <button  class="btn btn-info" onclick="window.open('classExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=430,height=300,location=no,status=no,scrollbars=yes');">엑셀업로드</button>
+                                <button  class="btn btn-info" onclick="window.open('classExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=450,height=300,location=no,status=no,scrollbars=yes');">엑셀업로드</button>
 
                                 <a href="classCreate?type=${member.type}&userId=${member.id}&${pagination.queryString}" class="btn btn-info">
                                     <span class="glyphicon glyphicon-user"></span> 수업등록</a>
