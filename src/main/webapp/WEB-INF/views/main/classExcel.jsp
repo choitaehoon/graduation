@@ -32,7 +32,7 @@
 <br>
 <div id="content">
 <form id="excelUploadForm" name="excelUploadForm" enctype="multipart/form-data" method="post"
-      action= "${pageContext.request.contextPath}/user/excelUploadAjax">
+      action= "${pageContext.request.contextPath}/main/excelUploadAjax?type=${member.type}&userId=${member.id}&${pagination.queryString}">
     <div class="contents">
         <div>
             <h3>수업 엑셀 업로드</h3>
@@ -47,7 +47,7 @@
     </div>
 
     <div class="bottom">
-        <button type="button" id="addExcelImpoartBtn" class="btn btn-info" onclick="check()" ><span>추가</span></button>
+        <button type="submit" id="addExcelImpoartBtn" class="btn btn-info" onclick="check()"><span>추가</span></button>
     </div>
 </form>
 </div>
