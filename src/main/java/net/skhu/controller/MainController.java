@@ -6,6 +6,7 @@ import net.skhu.Service.ReplaceService;
 import net.skhu.Service.TypeIdentity;
 import net.skhu.domain.*;
 import net.skhu.mapper.DepartmentMapper;
+import net.skhu.mapper.MyLectureMapper;
 import net.skhu.mapper.ReplaceLectureMapper;
 import net.skhu.mapper.StudentMapper;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
@@ -43,6 +44,8 @@ public class MainController {
     ReplaceLectureMapper replaceLectureMapper;
     @Autowired
     ReplaceService replaceService;
+    @Autowired
+    MyLectureMapper myLectureMapper;
 
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
@@ -263,7 +266,7 @@ public class MainController {
         model.addAttribute("listes",studentMapper.selectPage(pagination.getPg(), pagination.getPageSize(), choice, search));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         model.addAttribute("search",search);
-        model.addAttribute("selected",typeIdentity.selectCheck(choice));
+        model.addAttribute("selected",lectureService.selectChecKAndSearch(choice));
         return "main/studentManager";
     }
 
@@ -338,11 +341,15 @@ public class MainController {
     }
 
     @RequestMapping("graduationInfo")
-    public String graduationInfo(Model model,Pagination pagination,@RequestParam("type") int type, @RequestParam("id") int id)
+    public String graduationInfo(Model model,Pagination pagination,@RequestParam("type") int type, @RequestParam("id") int id,@RequestParam(value = "choice", defaultValue = "0") int choice,
+                                    @RequestParam(value = "search", defaultValue = "") String search)
     {
-        pagination.setRecordCount(studentMapper.courseCount());
+
+        pagination.setRecordCount(myLectureMapper.courseCount(choice,search,id));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        model.addAttribute("student",studentMapper.findByIdPage(pagination.getPg(),pagination.getSz(),id));
+        model.addAttribute("myLecture",myLectureMapper.findByIdPage(pagination.getPg(),pagination.getPageSize(),id,choice,search));
+        model.addAttribute("selected",lectureService.selectCheckAndTwo(choice));
+        model.addAttribute("search",search);
         return "main/graduationInfo";
     }
 

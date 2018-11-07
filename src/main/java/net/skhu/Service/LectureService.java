@@ -52,6 +52,27 @@ public class LectureService{
         lectureMapper.update(lecture);
     }
 
+    public String[] selectChecKAndSearch(int choice)
+    {
+        if (choice == 0)
+            return new String[]{"","",""};
+        else if (choice == 1)
+            return new String[]{"selected","",""};
+        else if(choice == 2)
+            return new String[]{"","selected",""};
+        else
+            return new String[]{"","","selected"};
+    }
+
+    public String[] selectCheckAndTwo(int choice)
+    {
+        String[] temp = new String[3];
+        for (int i=1; i<=2; ++i)
+            if (i == choice) temp[i] = "selected";
+        return temp;
+    }
+
+
     public String[] selectCheck(int choice)
     {
         if (choice == 0)
