@@ -61,7 +61,6 @@ public class MainController {
                               @RequestParam(value = "srch",defaultValue = "") String srch, @RequestParam("type") int type , @RequestParam("userId") int id )
     {
         pagination.setRecordCount(lectureService.pageSrchCount(choice,srch));
-
         model.addAttribute("lectures",lectureService.srchByLecList(pagination.getPg(),pagination.getPageSize(),choice,srch));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         model.addAttribute("selected",lectureService.selectCheck(choice));
@@ -222,16 +221,6 @@ public class MainController {
         return "main/studentManager";
     }
 
-
-    @RequestMapping("test")
-    public String test(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
-    {
-        List<Student> students = studentMapper.findAll();
-        model.addAttribute("students", students);
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        return "main/test";
-    }
-
     /*
       student.getType을 지정한이유
       student로 바인딩 되서 타입을 담고있다.그래서 type이 2가 되어서 교수 정보를 가져올 수 있다.
@@ -306,6 +295,7 @@ public class MainController {
     public String graduationInfo(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
     {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        model.addAttribute("student",studentMapper.findById(id));
         return "main/graduationInfo";
     }
 

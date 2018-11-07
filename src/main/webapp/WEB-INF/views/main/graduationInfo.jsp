@@ -105,6 +105,34 @@
                     </div>
                 </div>
 
+                <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
+                    <thead>
+                    <tr>
+                        <th>년도</th>
+                        <th>학기</th>
+                        <th>과목코드</th>
+                        <th>과목명</th>
+                        <th>이수구분</th>
+                        <th>학점</th>
+                        <th>성적등급</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <c:forEach var="lecture" items="${ student.myLecture }">
+                        <tr>
+                            <td>${ lecture.year }</td>
+                            <td>${ lecture.semester }</td>
+                            <td>${ lecture.id }</td>
+                            <td>${ lecture.title }</td>
+                            <td>${ lecture.detailType }</td>
+                            <td>${ lecture.credit }</td>
+                            <td>${ lecture.gradeA }</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>
