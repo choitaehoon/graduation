@@ -286,5 +286,11 @@ public class MainController {
         return "main/before18";
     }
 
+    @RequestMapping("graduationInfo")
+    public String graduationInfo(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/graduationInfo";
+    }
 
 }

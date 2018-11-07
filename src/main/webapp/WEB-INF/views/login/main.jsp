@@ -258,7 +258,7 @@
                             <div class="footer">
                                 <hr>
                                 <div class="stats">
-                                    <i class="fa fa-history"></i> 3분전에 질문이 올라왔습니다.
+                                    <i class="fa fa-history"></i> 3전에 질문이 올라왔습니다.
                                 </div>
                             </div>
                         </div>

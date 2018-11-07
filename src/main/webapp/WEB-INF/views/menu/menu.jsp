@@ -74,9 +74,19 @@
             </li>
         </c:if>
 
+        <%--<li>--%>
+        <c:if test="${member.type == 1}">
+            <li>
+            <a href="/main/graduationInfo?type=${member.type}&id=${member.id}">
+            <i class="pe-7s-study"></i>
+            <p>나의 졸업 관리</p> </a>
+            </li>
+        </c:if>
+
         <li>
         <a href="/login/graduationInfo?type=${member.type}&id=${member.id}"> <i class="pe-7s-bell"></i>
-        <p>졸업관리</p></a>
+        <p>졸업 요건</p></a>
+        </li>
 
         <ul>
         <li><a href="#Link">소프트웨어공학과</a>
