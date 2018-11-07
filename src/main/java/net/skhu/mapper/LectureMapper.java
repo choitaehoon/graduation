@@ -20,5 +20,6 @@ public interface LectureMapper {
     int srchCount(@Param("choice") int choice, @Param("srch") String srch);
     void update(Lecture lecture);
     void insert(Lecture lecture);
+    void delete(Lecture lecture);
 
 }
