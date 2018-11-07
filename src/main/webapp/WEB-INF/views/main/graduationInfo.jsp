@@ -116,6 +116,18 @@
                     </div>
                 </div>
 
+                <form>
+                    <input type="hidden" name="pg" value="1">
+                    <input type="hidden" name="type" value="${member.type}"  />
+                    <input type="hidden" name="id" value="${member.id}" />
+                    <select name="choice">
+                        <option value="1" ${selected[1]}>과목명</option>
+                        <option value="2" ${selected[2]}>년도</option>
+                    </select>
+                    <input type="text" name="search" value="${search}">
+                    <button type="submit" class="btn btn-primary">조회</button>
+                </form>
+
                 <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                     <thead>
                     <tr>
@@ -130,11 +142,11 @@
                     </thead>
 
                     <tbody>
-                    <c:forEach var="lecture" items="${ student.myLecture }">
+                    <c:forEach var="lecture" items="${ myLecture }">
                         <tr>
-                            <td>${ lecture.year }</td>
-                            <td>${ lecture.semester }</td>
-                            <td>${ lecture.id }</td>
+                            <td>${ lecture.lecture_year }</td>
+                            <td>${ lecture.lecture_semester }</td>
+                            <td>${ lecture.lecture_id }</td>
                             <td>${ lecture.title }</td>
                             <td>${ lecture.detailType }</td>
                             <td>${ lecture.credit }</td>
@@ -142,17 +154,19 @@
                         </tr>
                     </c:forEach>
                     </tbody>
+
                 </table>
 
                 <form method="get">
                     <input type="hidden" name="pg" value="1" />
                     <input type="hidden" name="type" value="${member.type}"  />
                     <input type="hidden" name="id" value="${member.id}" />
-                    <%--/* 페이지 네이션 */--%>
+                <%--/* 페이지 네이션 */--%>
                     <div class="pagination pagination-small pagination-centered">
                         <c:forEach var="page" items="${ pagination.pageList }">
                             <li class='${ page.cssClass }'>
-                                <a data-page="${ page.number }">${ page.label }</a></li>
+                                <a data-page="${ page.number }">${ page.label }</a>
+                            </li>
                         </c:forEach>
                     </div>
                 </form>

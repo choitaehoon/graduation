@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.skhu.mapper.MyLectureMapper">
+        <select id="courseCount" resultType="int">
+            SELECT count(*)
+            FROM student s
+            left join department d on s.department_id = d.id
+            left join graduationRule r on s.graduationRule_id=r.id
+            left join mylecture m on s.id = m.student_id
+            where s.id = #{id}
+            <if test="choice == 1">
+               and m.title like concat(#{search},'%')
+             </if>
+             <if test="choice == 2">
+               and m.lecture_year like concat(#{search},'%')
+             </if>
+        </select>
+
+            <select id="findByIdPage" resultType="MyLecture">
+              <bind name="start" value="(currentPage-1)*pageSize"/>
+              <bind name="end" value="pageSize"/>
+                SELECT s.*, d.departmentName,r.detailType , m.*, m.detailType as detailType2,
+                CASE WHEN grade = '4.5' THEN 'A+'
+                WHEN grade = '4.0' THEN 'A0'
+                WHEN grade = '3.5' THEN 'B+'
+                WHEN grade = '3.0' THEN 'B0'
+                WHEN grade = '2.5' THEN 'C+'
+                WHEN grade = '2.0' THEN 'C0'
+                WHEN grade = '1.5' THEN 'D+'
+                WHEN grade = '1.0' THEN 'D0'
+                WHEN grade = '0.0' THEN 'F'
+                WHEN grade = 'P' THEN 'P'
+                else 'NP'
+                END AS gradeA
+                FROM student s
+                left join department d on s.department_id = d.id
+                left join graduationRule r on s.graduationRule_id=r.id
+                left join mylecture m on s.id = m.student_id
+                where s.id = #{id}
+                            <if test="choice == 1">
+                               and m.title like concat(#{search},'%')
+                             </if>
+                             <if test="choice == 2">
+                               and m.lecture_year like concat(#{search},'%')
+                             </if>
+                limit ${start} , ${end}
+            </select>
+</mapper>
