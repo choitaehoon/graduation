@@ -63,5 +63,8 @@ public class LectureService{
         else
             return new String[]{"","","","","","selected"};
     }
+    public void lectureDelete(Lecture lecture){
+        lectureMapper.delete(lecture);
+    }
 
 }

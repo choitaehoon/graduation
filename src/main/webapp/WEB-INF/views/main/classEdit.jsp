@@ -35,58 +35,81 @@
                             <h4 class="title">수업 ${ lecture.year > 0 ? "수정" : "등록" }</h4>
                             <p class="category">수업관리</p>
 
-                            <div id="content">
                                 <br />
                                 <br />
 
                                 <form:form method="post" modelAttribute="lecture">
+                                <table class="table table-condensed">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <label>년도</label>
+                                            <form:input path="year" class="form-control" placeholder="년도" style="width: 100px" />
 
-                                    <label>년도</label>
-                                    <form:input path="year" class="form-control" placeholder="년도" style="width: 100px" />
 
-                                    <label>개설학기</label>
-                                    <div class="form-group">
-                                        <form:input path="semester" class="form-control" placeholder="개설학기" style="width: 100px" />
-                                    </div>
+                                        </td>
+                                        <td>
+                                            <label>개설학기</label>
+                                            <form:input path="semester" class="form-control" placeholder="개설학기" style="width: 100px" />
+                                        </td>
 
-                                    <label>과목코드</label>
-                                    <div class="form-group">
-                                        <form:input path="id" class="form-control"   placeholder="과목코드" style="width: 200px" />
-                                    </div>
+                                        <td>
+                                            <label>분반</label>
+                                            <form:input path="split" class="form-control" placeholder="분반" style="width: 200px"/>
+                                        </td>
 
-                                    <label>분반</label>
-                                    <div class="form-group">
-                                        <form:input path="split" class="form-control" placeholder="분반" style="width: 200px"/>
-                                    </div>
-                                    <label>교수</label>
-                                    <div class="form-group">
-                                        <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>
-                                    </div>
-                                    <label>과목명</label>
-                                    <div class="form-group">
-                                        <form:input path="title" class="form-control" placeholder="과목명" style="width: 300px"/>
-                                    </div>
-                                    <label>이수구분</label>
-                                    <div class="form-group">
-                                        <form:input path="subType" class="form-control" placeholder="전공or교양" style="width: 200px"/>
-                                    </div>
-                                    <label>이수학점</label>
-                                    <div class="form-group">
-                                        <form:input path="credit" class="form-control" placeholder="이수학점" style="width: 200px"/>
-                                    </div>
+                                        <td>
+                                            <label>교수번호</label>
+                                            <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>
+                                        </td>
 
-                                    <div id="buttons">
-                                        <button type="submit"> <a class="btn btn-primary"> <i class="glyphicon glyphicon-ok"></i> 저장</a></button>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label>과목코드</label>
+                                            <form:input path="id" class="form-control"   placeholder="과목코드" style="width: 200px" />
+
+                                        </td>
+
+                                        <td>
+                                            <label>과목명</label>
+                                                <form:input path="title" class="form-control" placeholder="과목명" style="width: 300px"/>
+                                        </td>
+
+                                        <td>
+                                            <label>이수구분</label>
+
+                                            <form:select path="subType"  class="form-control">
+                                                <form:option value="전공"></form:option>
+                                                <form:option value="교양"></form:option>
+                                            </form:select>
+                                                <%--<form:input path="subType" class="form-control" placeholder="전공or교양" style="width: 200px"/>--%>
+                                        </td>
+                                        <td>
+                                            <label>이수학점</label>
+                                                <form:input path="credit" class="form-control" placeholder="이수학점" style="width: 200px"/>
+                                        </td>
+
+                                    </tr>
+                                    </tbody>
+
+
+
+
+                                </table>
+
+                                    <div id="buttons" class="pull-right">
+                                        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
+                                        <a data-confirm-delete  href="delete?lecture=${lecture}&type=${member.type}&userId=${member.id}" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i>삭제</a>
                                         <a href="manageClass?type=${member.type}&id=${member.id}&${pagination.queryString}" class="btn btn-default">
                                             <i class="glyphicon glyphicon-list"></i> 목록으로
                                         </a>
 
                                     </div>
                                 </form:form>
-                            </div>
+                            <%--</div>--%>
                         </div>
-
-
                     </div>
                 </div>
 

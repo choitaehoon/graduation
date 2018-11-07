@@ -97,7 +97,7 @@
         on l.admin_id= a.id
         <where>
             <if test="choice == 0">
-                year = ${srch}
+                l.year = #{srch}
             </if>
             <if test="choice == 1">
                 semester like concat(#{srch},'%')
@@ -139,6 +139,12 @@
 
 
     </update>
+
+    <delete id="delete">
+
+      Delete from lecture
+      where year=#{year} and semester like #{semester} and id LIKE #{id} and split = #{split}
+    </delete>
 
 
 

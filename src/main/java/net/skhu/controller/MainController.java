@@ -89,6 +89,14 @@ public class MainController {
         return "redirect:manageClass";
     }
 
+    @RequestMapping("delete")
+    public String delete(Model model,Lecture lecture,@RequestParam("type") int type , @RequestParam("userId") int id,RedirectAttributes redirectAttributes )
+    {
+        lectureService.lectureDelete(lecture);
+        redirectAttributes.addAttribute("type",type);
+        redirectAttributes.addAttribute("id",id);
+        return "redirect:manageClass";
+    }
 
     /* 수업등록 페이지*/
     @RequestMapping("classCreate")
@@ -110,6 +118,8 @@ public class MainController {
         redirectAttributes.addAttribute("id",id);
         return "redirect:manageClass";
     }
+
+
 
 
 //    //    /* 대체과목 메인 페이지*/
