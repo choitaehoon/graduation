@@ -1,6 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-
+    <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
+          rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("div.pagination a").click(function() {
+                $("input[name=pg]").val($(this).attr("data-page"));
+                $("form").submit();
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -75,6 +85,19 @@
                                 </c:forEach>
                                 </tbody>
                             </table>
+
+                            <form method="get">
+                                <input type="hidden" name="pg" value="1" />
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="id" value="${member.id}" />
+                                <%--/* 페이지 네이션 */--%>
+                                <div class="pagination pagination-small pagination-centered">
+                                    <c:forEach var="page" items="${ pagination.pageList }">
+                                        <li class='${ page.cssClass }'>
+                                            <a data-page="${ page.number }">${ page.label }</a></li>
+                                    </c:forEach>
+                                </div>
+                            </form>
 
                             </p>
 

@@ -67,47 +67,47 @@
                                     </a>
                             </form>
 
-                                <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
-                                    <thead>
-                                    <tr>
-                                        <th>년도</th>
-                                        <th>개설학기</th>
-                                        <th>과목코드</th>
-                                        <th>분반</th>
-                                        <th>교수명</th>
-                                        <th>과목명</th>
-                                        <th>이수구분</th>
-                                        <th>이수학점</th>
-                                        <th>과목수정</th>
+                            <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
+                                <thead>
+                                <tr>
+                                    <th>년도</th>
+                                    <th>개설학기</th>
+                                    <th>과목코드</th>
+                                    <th>분반</th>
+                                    <th>교수명</th>
+                                    <th>과목명</th>
+                                    <th>이수구분</th>
+                                    <th>이수학점</th>
+                                    <th>과목수정</th>
 
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <c:forEach var="lecture" items="${lectures}">
+                                    <tr data-url="classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}">
+                                        <td>${lecture.year}</td>
+                                        <td>${lecture.semester}</td>
+                                        <td>${lecture.id}</td>
+                                        <td>${lecture.split}</td>
+                                        <td>${lecture.admin.name}</td>
+                                        <td>${lecture.title}</td>
+                                        <td>${lecture.subType}</td>
+                                        <td>${lecture.credit}</td>
+                                        <td><a href='classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}'>
+                                            <button  type="button" class="btn btn-primary">수정</button>
+                                        </a>
+                                        </td>
                                     </tr>
-                                    </thead>
+                                </c:forEach>
+                                </tbody>
+                            </table>
 
-                                    <tbody>
-                                    <c:forEach var="lecture" items="${lectures}">
-                                        <tr data-url="classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}">
-                                            <td>${lecture.year}</td>
-                                            <td>${lecture.semester}</td>
-                                            <td>${lecture.id}</td>
-                                            <td>${lecture.split}</td>
-                                            <td>${lecture.admin.name}</td>
-                                            <td>${lecture.title}</td>
-                                            <td>${lecture.subType}</td>
-                                            <td>${lecture.credit}</td>
-                                            <td><a href='classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}'>
-                                                <button  type="button" class="btn btn-primary">수정</button>
-                                            </a>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-
-                                </p>
-                                <form>
-                                    <input type="hidden" name="pg" value="1">
-                                    <input type="hidden" name="type" value="${member.type}"  />
-                                    <input type="hidden" name="id" value="${member.id}" />
+                            </p>
+                            <form>
+                                <input type="hidden" name="pg" value="1">
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="id" value="${member.id}" />
 
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
@@ -119,7 +119,7 @@
 
                                     </c:forEach>
                                 </div>
-                                </form>
+                            </form>
                         </div>
                     </div>
                 </div>

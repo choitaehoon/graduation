@@ -14,8 +14,9 @@ import java.util.List;
 @Repository
 public interface StudentMapper
 {
-
+    int courseCount();
     int findByIdAndPassword(@Param("id") int id, @Param("password") String password);
+    Student findByIdPage(@Param("pg")int pg, @Param("sz") int sz,@Param("id") int id);
     Student findById(int id);
     Student findByIdMajor(int id);
     Student findByIdCulture(int id);

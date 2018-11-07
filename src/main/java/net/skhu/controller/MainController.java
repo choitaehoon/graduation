@@ -292,10 +292,11 @@ public class MainController {
     }
 
     @RequestMapping("graduationInfo")
-    public String graduationInfo(Model model, @RequestParam("type") int type, @RequestParam("id") int id)
+    public String graduationInfo(Model model,Pagination pagination,@RequestParam("type") int type, @RequestParam("id") int id)
     {
+        pagination.setRecordCount(studentMapper.courseCount());
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        model.addAttribute("student",studentMapper.findById(id));
+        model.addAttribute("student",studentMapper.findByIdPage(pagination.getPg(),pagination.getSz(),id));
         return "main/graduationInfo";
     }
 
