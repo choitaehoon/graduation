@@ -124,6 +124,13 @@ public class MainController {
         return "redirect:manageClass";
     }
 
+    /*엑셀로 수업등록 페이지 */
+    @RequestMapping("classExcel")
+    public String classExcel(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("userId") int id )
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/classExcel";
+    }
 
 
 
