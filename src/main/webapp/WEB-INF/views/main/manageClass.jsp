@@ -44,6 +44,8 @@
                                     <span class="glyphicon glyphicon-user"></span> 수업등록</a>
                             </div>
 
+
+
                             <form method="post">
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
@@ -63,7 +65,7 @@
                                     <a >
                                         <button type="submit" class="btn btn-primary">조회</button>
                                     </a>
-
+                            </form>
 
                                 <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                     <thead>
@@ -102,6 +104,10 @@
                                 </table>
 
                                 </p>
+                                <form>
+                                    <input type="hidden" name="pg" value="1">
+                                    <input type="hidden" name="type" value="${member.type}"  />
+                                    <input type="hidden" name="id" value="${member.id}" />
 
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
@@ -113,7 +119,7 @@
 
                                     </c:forEach>
                                 </div>
-                            </form>
+                                </form>
                         </div>
                     </div>
                 </div>
