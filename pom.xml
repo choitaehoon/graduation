@@ -31,6 +31,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--mybatis 설정-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -55,22 +56,40 @@
             <scope>test</scope>
         </dependency>
 
+        <!--setter getter 자동생성-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
 
+        <!--jstl 언어사용 을위해-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
 
+        <!--jason 처리하는 라이브러리-->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.13</version>
         </dependency>
+
+
+        <!-- Excel Read/Write 를 위한 Dependency 추가 2개 -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.11</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
