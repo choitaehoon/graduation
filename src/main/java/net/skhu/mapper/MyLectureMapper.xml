@@ -47,4 +47,8 @@
                              </if>
                 limit ${start} , ${end}
             </select>
+
+            <delete id="delete">
+                delete from mylecture where remove = #{id}
+            </delete>
 </mapper>

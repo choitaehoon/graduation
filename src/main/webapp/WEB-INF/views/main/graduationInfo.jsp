@@ -128,6 +128,27 @@
                     <button type="submit" class="btn btn-primary">조회</button>
                 </form>
 
+
+
+                <div class="pull-right">
+                    <form action="deleteLecture" method="post">
+                        <input type="hidden" name="type" value="${member.type}">
+                        <input type="hidden" name="id" value="${member.id}">
+                        <input type="hidden" name="choice" value="${choice}">
+                        <input type="hidden" name="search" value="${search}">
+                    <%--<a href="deleteLecture?type=${member.type}&id=${member.id}&choice=${choice}&search=${search}&lectureId=${lecture.id}&${pagination.queryString}" >--%>
+                        <button type="submit" class="btn btn-danger">시물레이션 삭제</button>
+                    </a>
+                    </form>
+                </div>
+
+                <div class="pull-right" style="margin-right:10px;">
+                    <a href="">
+                        <button type="button" class="btn btn-primary">수강 등록</button>
+                    </a>
+                </div>
+
+
                 <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                     <thead>
                     <tr>
@@ -161,6 +182,8 @@
                     <input type="hidden" name="pg" value="1" />
                     <input type="hidden" name="type" value="${member.type}"  />
                     <input type="hidden" name="id" value="${member.id}" />
+                    <input type="hidden" name="choice" value="${choice}" />
+                    <input type="hidden" name="search" value="${search}" />
                 <%--/* 페이지 네이션 */--%>
                     <div class="pagination pagination-small pagination-centered">
                         <c:forEach var="page" items="${ pagination.pageList }">

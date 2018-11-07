@@ -305,13 +305,25 @@ public class MainController {
     public String graduationInfo(Model model,Pagination pagination,@RequestParam("type") int type, @RequestParam("id") int id,@RequestParam(value = "choice", defaultValue = "0") int choice,
                                     @RequestParam(value = "search", defaultValue = "") String search)
     {
-
         pagination.setRecordCount(myLectureMapper.courseCount(choice,search,id));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         model.addAttribute("myLecture",myLectureMapper.findByIdPage(pagination.getPg(),pagination.getPageSize(),id,choice,search));
         model.addAttribute("selected",lectureService.selectCheckAndTwo(choice));
         model.addAttribute("search",search);
+        model.addAttribute("choice",choice);
         return "main/graduationInfo";
+    }
+
+    @RequestMapping(value = "deleteLecture",method = RequestMethod.POST)
+    public String delete(Model model,@RequestParam("type") int type, @RequestParam("id") int id,@RequestParam(value = "choice", defaultValue = "0") int choice,
+                         @RequestParam(value = "search", defaultValue = "") String search, RedirectAttributes redirectAttributes)
+    {
+        myLectureMapper.delete(1);
+        redirectAttributes.addAttribute("type",type);
+        redirectAttributes.addAttribute("id",id);
+        redirectAttributes.addAttribute("choice",choice);
+        redirectAttributes.addAttribute("search",search);
+        return "redirect:graduationInfo";
     }
 
 }
