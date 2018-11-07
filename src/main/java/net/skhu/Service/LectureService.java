@@ -67,4 +67,13 @@ public class LectureService{
         lectureMapper.delete(lecture);
     }
 
+    public Lecture deleteSet(int year,String semester,String lecId, int split){
+        Lecture lecture=new Lecture();
+        lecture.setYear(year);
+        lecture.setSemester(semester);
+        lecture.setId(lecId);
+        lecture.setSplit(split);
+        return lecture;
+    }
+
 }

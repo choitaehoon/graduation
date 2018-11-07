@@ -83,6 +83,8 @@ public class MainController {
     public String edit(Model model,Lecture lecture,Pagination pagination, @RequestParam("type") int type , @RequestParam("userId") int id
             ,RedirectAttributes redirectAttributes)
     {
+        logger.info(lecture.getTitle());
+
         lectureService.lecUpdate(lecture);
         redirectAttributes.addAttribute("type",type);
         redirectAttributes.addAttribute("id",id);
@@ -90,9 +92,13 @@ public class MainController {
     }
 
     @RequestMapping("delete")
-    public String delete(Model model,Lecture lecture,@RequestParam("type") int type , @RequestParam("userId") int id,RedirectAttributes redirectAttributes )
+    public String delete(Model model,@RequestParam("year") int year,@RequestParam("semester") String semester,@RequestParam("lecId") String lecId
+            ,@RequestParam("split") int split,@RequestParam("type") int type , @RequestParam("userId") int id,RedirectAttributes redirectAttributes )
     {
-        lectureService.lectureDelete(lecture);
+        Lecture deleteLec=lectureService.deleteSet(year,semester,lecId,split);
+
+        logger.info(deleteLec.getId());
+        lectureService.lectureDelete(deleteLec);
         redirectAttributes.addAttribute("type",type);
         redirectAttributes.addAttribute("id",id);
         return "redirect:manageClass";

@@ -101,7 +101,11 @@
 
                                     <div id="buttons" class="pull-right">
                                         <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
-                                        <a data-confirm-delete  href="delete?lecture=${lecture}&type=${member.type}&userId=${member.id}" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i>삭제</a>
+
+                                        <a data-confirm-delete  href="delete?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&split=${lecture.split}&type=${member.type}&userId=${member.id}" class="btn btn-danger">
+                                            <i class="glyphicon glyphicon-remove"></i>삭제
+                                        </a>
+
                                         <a href="manageClass?type=${member.type}&id=${member.id}&${pagination.queryString}" class="btn btn-default">
                                             <i class="glyphicon glyphicon-list"></i> 목록으로
                                         </a>
