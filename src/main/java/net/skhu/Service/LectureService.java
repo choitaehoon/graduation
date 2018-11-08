@@ -36,7 +36,7 @@ public class LectureService{
     }
 
 
-    public int pageSrchCount(int choice, String srch){
+       public int pageSrchCount(int choice, String srch){
         return lectureMapper.srchCount(choice,srch);
     }
 

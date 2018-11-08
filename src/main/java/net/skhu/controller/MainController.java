@@ -361,6 +361,13 @@ public class MainController {
         model.addAttribute("totalCredit",studentMapper.totalCredit(id));
         model.addAttribute("totalCreditMajor",studentMapper.totalCreditMajor(id));
         model.addAttribute("totalCreditCulture",studentMapper.totalCreditCulture(id));
+        model.addAttribute("creditPercent",studentMapper.creditPercent(id));
+        model.addAttribute("creditPercentMajor",studentMapper.creditPercentMajor(id));
+        model.addAttribute("creditPercentCulture",studentMapper.creditPercentCulture(id));
+        model.addAttribute("chapleCount",studentMapper.chapleCount(id));
+        model.addAttribute("chaplePercent",studentMapper.chaplePercent(id));
+        model.addAttribute("volunteerCount",studentMapper.volunteerCount(id));
+        model.addAttribute("volunteerPercent",studentMapper.volunteerPercent(id));
         model.addAttribute("myLecture",myLectureMapper.findByIdPage(pagination.getPg(),pagination.getPageSize(),id,choice,search));
         model.addAttribute("selected",lectureService.selectCheckAndTwo(choice));
         model.addAttribute("search",search);

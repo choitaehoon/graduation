@@ -156,20 +156,71 @@
       select ifnull(sum(m.credit),0) totalCredit
 	  from student s left join mylecture m
 	  on s.id=m.student_id
-	  where s.id=#{id} and m.detailType='전선'or'전필'or'전탐';
+	  where (s.id=#{id}) and (m.detailType='전선'or m.detailType='전필'or m.detailType='전탐');
     </select>
 
     <select id="totalCreditCulture" resultType="int">
       select ifnull(sum(m.credit),0) totalCredit
 	  from student s left join mylecture m
 	  on s.id=m.student_id
-	  where s.id=#{id} and m.detailType='교선'or'교필';
+	  where (s.id=#{id}) and (m.detailType='교선'or m.detailType='교필');
     </select>
 
     <select id="avgGrade" resultType="double">
       select ifnull(round(sum(m.grade*m.credit)/sum(m.credit),2),0.0)
       from student s left join mylecture m on s.id=m.student_id
       where m.grade not in('P','NP') and s.id =#{id};
+    </select>
+
+    <select id="creditPercent" resultType="int">
+      select ifnull(round(sum(m.credit)/130*100,0),0) totalCredit
+      from student s left join mylecture m
+      on s.id=m.student_id
+      where s.id=#{id};
+    </select>
+
+    <select id="creditPercentMajor" resultType="int">
+      select ifnull(round(sum(m.credit)/r.majorGoal*100,0),0) totalCredit
+      from student s
+      left join mylecture m on s.id=m.student_id
+      left join graduationrule r on s.graduationrule_id=r.id
+      where s.id=#{id} and (m.detailType='전선'or m.detailType='전필'or m.detailType='전탐');
+    </select>
+
+    <select id="creditPercentCulture" resultType="int">
+      select ifnull(round(sum(m.credit)/r.cultureGoal*100,0),0) totalCredit
+      from student s
+      left join mylecture m on s.id=m.student_id
+      left join graduationrule r on s.graduationrule_id=r.id
+      where s.id=#{id} and (m.detailType='교선'or m.detailType='교필');
+    </select>
+
+    <select id="chapleCount" resultType="int">
+      SELECT count(*) FROM student s
+      left join mylecture m
+      on s.id=m.student_id
+      where (s.id=#{id}) and((m.lecture_id='AC00001') or (m.title LIKE '%채플%'));
+    </select>
+
+    <select id="chaplePercent" resultType="int">
+      SELECT round(count(*)/2*100,0) FROM student s
+      left join mylecture m
+      on s.id=m.student_id
+      where (s.id=#{id}) and((m.lecture_id='AC00001') or (m.title LIKE '%채플%'));
+    </select>
+
+    <select id="volunteerCount" resultType="int">
+      SELECT count(*) FROM student s
+      left join mylecture m
+      on s.id=m.student_id
+      where (s.id=#{id}) and(m.title LIKE '%봉사%')
+    </select>
+
+    <select id="volunteerPercent" resultType="int">
+      SELECT count(*)*100 FROM student s
+      left join mylecture m
+      on s.id=m.student_id
+      where (s.id=#{id}) and(m.title LIKE '%봉사%');
     </select>
 
 

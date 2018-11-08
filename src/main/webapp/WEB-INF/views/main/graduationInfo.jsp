@@ -49,7 +49,7 @@
                                 <tr>
                                     <td>
                                         <h4>총 학점</h4>
-                                        <div class="c100 p${totalCredit}">
+                                        <div class="c100 p${creditPercent}">
                                             <span>${totalCredit}/130</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
@@ -59,7 +59,7 @@
                                     </td>
                                     <td>
                                         <h3>전공 학점</h3>
-                                        <div class="c100 p${totalCreditMajor} orange">
+                                        <div class="c100 p${creditPercentMajor} orange">
                                             <span>${totalCreditMajor}/${student.majorGoal}</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
@@ -69,7 +69,7 @@
                                     </td>
                                     <td>
                                         <h3>교양 학점</h3>
-                                        <div class="c100 p${totalCreditCulture}/${student.cultureGoal} green">
+                                        <div class="c100 p${creditPercentCulture} green">
                                             <span>${totalCreditCulture}/${student.cultureGoal}</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
@@ -79,8 +79,8 @@
                                     </td>
                                     <td>
                                         <h3>채플 이수</h3>
-                                        <div class="c100 p50">
-                                            <span>1/2</span>
+                                        <div class="c100 p${chaplePercent}">
+                                            <span>${chapleCount}/2</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
                                                 <div class="fill"></div>
@@ -89,8 +89,8 @@
                                     </td>
                                     <td>
                                         <h3>봉사 이수</h3>
-                                        <div class="c100 p0">
-                                            <span>0/1</span>
+                                        <div class="c100 p${volunteerPercent}">
+                                            <span>${volunteerCount}/1</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
                                                 <div class="fill"></div>
@@ -132,7 +132,7 @@
                 </div>
 
                 <div class="pull-right" style="margin-right:10px;">
-                    <a href="">
+                    <a href="/register/subjectRegister?type=${member.type}&id=${member.id}">
                         <button type="button" class="btn btn-primary" >시뮬레이션 수강 등록</button>
                     </a>
                 </div>
@@ -173,7 +173,7 @@
                     <input type="hidden" name="id" value="${member.id}" />
                     <input type="hidden" name="choice" value="${choice}" />
                     <input type="hidden" name="search" value="${search}" />
-                <%--/* 페이지 네이션 */--%>
+                    <%--/* 페이지 네이션 */--%>
                     <div class="pagination pagination-small pagination-centered">
                         <c:forEach var="page" items="${ pagination.pageList }">
                             <li class='${ page.cssClass }'>
@@ -187,17 +187,17 @@
         </div>
     </div>
 
-<footer class="footer">
-    <div class="container-fluid">
+    <footer class="footer">
+        <div class="container-fluid">
 
-        <p class="copyright pull-right">
-            &copy;
-            <script>document.write(new Date().getFullYear())</script>
-            <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-            love for a better web
-        </p>
-    </div>
-</footer>
+            <p class="copyright pull-right">
+                &copy;
+                <script>document.write(new Date().getFullYear())</script>
+                <a href="http://www.creative-tim.com">Creative Tim</a>, made with
+                love for a better web
+            </p>
+        </div>
+    </footer>
 
 
 </div>
@@ -228,7 +228,7 @@
 <!--  table  -->
 <link href="assets/css/style.css" rel="stylesheet" />
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        rel="stylesheet" media="screen">
+      rel="stylesheet" media="screen">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </html>
