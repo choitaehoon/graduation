@@ -106,9 +106,15 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <form>
-                    <input type="hidden" name="pg" value="1">
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <form>
+                                <input type="hidden" name="pg" value="1">
                     <input type="hidden" name="type" value="${member.type}"  />
                     <input type="hidden" name="id" value="${member.id}" />
                     <select name="choice">
@@ -182,25 +188,27 @@
                         </c:forEach>
                     </div>
                 </form>
-
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
     </div>
 
     <footer class="footer">
         <div class="container-fluid">
 
             <p class="copyright pull-right">
-                &copy;
-                <script>document.write(new Date().getFullYear())</script>
-                <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-                love for a better web
+
+                <script>
+
+                </script>
+
             </p>
         </div>
     </footer>
 
 
-</div>
+
 </div>
 
 

@@ -32,7 +32,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title"> 졸업 관리</h4>
+                                <h4 class="title"> 학생 관리</h4>
                                 <br><br><br>
                                 <p class="category">
 
