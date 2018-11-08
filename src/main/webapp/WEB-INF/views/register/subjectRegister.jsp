@@ -87,7 +87,7 @@
                                     <th>과목명</th>
                                     <th>이수구분</th>
                                     <th>이수학점</th>
-
+                                    <th>시뮬레이션 과목 추가</th>
                                 </tr>
                                 </thead>
 
@@ -102,6 +102,11 @@
                                         <td>${lecture.title}</td>
                                         <td>${lecture.subType}</td>
                                         <td>${lecture.credit}</td>
+                                        <td>
+                                            <a href="simulationRegister?year=${lecture.year}&semester=${lecture.semester}&lecture_id=${lecture.id}&lecture_split=${lecture.split}&title=${lecture.title}&detailType=${lecture.subType}">
+                                                <button type="button" class="btn btn-primary">등록</button>
+                                            </a>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

@@ -26,4 +26,11 @@ public class RegisterContoller
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "register/subjectRegister";
     }
+
+    @RequestMapping("simulationRegister")
+    public String simulationRegister()
+    {
+
+        return "redirect:subjectRegister";
+    }
 }
