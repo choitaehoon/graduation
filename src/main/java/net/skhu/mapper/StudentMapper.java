@@ -34,5 +34,12 @@ public interface StudentMapper
     int totalCredit(int id);
     int totalCreditMajor(int id);
     int totalCreditCulture(int id);
+    int creditPercent(int id);
+    int creditPercentMajor(int id);
+    int creditPercentCulture(int id);
+    int chapleCount(int id);
+    int chaplePercent(int id);
+    int volunteerCount(int id);
+    int volunteerPercent(int id);
     double avgGrade(int id);
 }
