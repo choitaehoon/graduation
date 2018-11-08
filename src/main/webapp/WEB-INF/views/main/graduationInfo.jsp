@@ -12,7 +12,11 @@
                 $("input[name=pg]").val($(this).attr("data-page"));
                 $("form").submit();
             });
+            $("#data-confirm-delete").click(function() {
+                return confirm("삭제하시겠습니까?");
+            });
         });
+
     </script>
 </head>
 <body>
@@ -123,14 +127,13 @@
                         <input type="hidden" name="id" value="${member.id}">
                         <input type="hidden" name="choice" value="${choice}">
                         <input type="hidden" name="search" value="${search}">
-                        <button type="submit" class="btn btn-danger" >시물레이션 삭제</button>
-                    </a>
+                        <button type="submit" class="btn btn-danger" id="data-confirm-delete">시물레이션 삭제</button>
                     </form>
                 </div>
 
                 <div class="pull-right" style="margin-right:10px;">
                     <a href="">
-                        <button type="button" class="btn btn-primary">수강 등록</button>
+                        <button type="button" class="btn btn-primary" >수강 등록</button>
                     </a>
                 </div>
 
