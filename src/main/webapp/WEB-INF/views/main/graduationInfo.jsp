@@ -1,11 +1,10 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html>
 <head>
     <link rel="stylesheet" href="/res/circle.css">
     <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
           rel="stylesheet">
+    <script src="${R}res/common.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
         $(function() {
@@ -136,8 +135,7 @@
                         <input type="hidden" name="id" value="${member.id}">
                         <input type="hidden" name="choice" value="${choice}">
                         <input type="hidden" name="search" value="${search}">
-                    <%--<a href="deleteLecture?type=${member.type}&id=${member.id}&choice=${choice}&search=${search}&lectureId=${lecture.id}&${pagination.queryString}" >--%>
-                        <button type="submit" class="btn btn-danger">시물레이션 삭제</button>
+                        <button type="submit" class="btn btn-danger" >시물레이션 삭제</button>
                     </a>
                     </form>
                 </div>
