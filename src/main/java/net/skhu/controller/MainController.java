@@ -346,6 +346,10 @@ public class MainController {
     {
         pagination.setRecordCount(myLectureMapper.courseCount(choice,search,id));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        model.addAttribute("student", studentMapper.findById(id));
+        model.addAttribute("totalCredit",studentMapper.totalCredit(id));
+        model.addAttribute("totalCreditMajor",studentMapper.totalCreditMajor(id));
+        model.addAttribute("totalCreditCulture",studentMapper.totalCreditCulture(id));
         model.addAttribute("myLecture",myLectureMapper.findByIdPage(pagination.getPg(),pagination.getPageSize(),id,choice,search));
         model.addAttribute("selected",lectureService.selectCheckAndTwo(choice));
         model.addAttribute("search",search);
