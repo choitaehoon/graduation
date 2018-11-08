@@ -132,7 +132,7 @@
                 </div>
 
                 <div class="pull-right" style="margin-right:10px;">
-                    <a href="">
+                    <a href="/register/subjectRegister?type=${member.type}&id=${member.id}">
                         <button type="button" class="btn btn-primary" >시뮬레이션 수강 등록</button>
                     </a>
                 </div>
