@@ -34,7 +34,7 @@
 
     <!--  학번으로 학생찾기 -->
     <select id="findById" resultMap="resultMapId">
-        SELECT s.*, d.departmentName,r.detailType , m.*, m.detailType as detailType2,
+        SELECT s.*, d.departmentName,r.detailType ,r.majorGoal, r.cultureGoal, m.*, m.detailType as detailType2,
         CASE WHEN grade = '4.5' THEN 'A+'
         WHEN grade = '4.0' THEN 'A0'
         WHEN grade = '3.5' THEN 'B+'
@@ -121,6 +121,8 @@
         <result property="email" column="email" />
         <result property="comment" column="comment" />
         <result property="detailType" column="detailType" />
+        <result property="majorGoal" column="majorGoal"/>
+        <result property="cultureGoal" column="cultureGoal"/>
         <association property="department" javaType="Department">
             <result property="departmentName" column="departmentName" />
         </association>
@@ -148,6 +150,20 @@
 	  from student s left join mylecture m
 	  on s.id=m.student_id
 	  where s.id=#{id};
+    </select>
+
+    <select id="totalCreditMajor" resultType="int">
+      select ifnull(sum(m.credit),0) totalCredit
+	  from student s left join mylecture m
+	  on s.id=m.student_id
+	  where s.id=#{id} and m.detailType='전선'or'전필'or'전탐';
+    </select>
+
+    <select id="totalCreditCulture" resultType="int">
+      select ifnull(sum(m.credit),0) totalCredit
+	  from student s left join mylecture m
+	  on s.id=m.student_id
+	  where s.id=#{id} and m.detailType='교선'or'교필';
     </select>
 
     <select id="avgGrade" resultType="double">

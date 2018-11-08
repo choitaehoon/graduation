@@ -32,5 +32,7 @@ public interface StudentMapper
     void updateNameAndDepartment(Student student);
     int totalSemester(int id);
     int totalCredit(int id);
+    int totalCreditMajor(int id);
+    int totalCreditCulture(int id);
     double avgGrade(int id);
 }
