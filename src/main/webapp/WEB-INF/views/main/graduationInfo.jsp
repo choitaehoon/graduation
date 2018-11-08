@@ -133,7 +133,7 @@
 
                 <div class="pull-right" style="margin-right:10px;">
                     <a href="">
-                        <button type="button" class="btn btn-primary" >수강 등록</button>
+                        <button type="button" class="btn btn-primary" >시뮬레이션 수강 등록</button>
                     </a>
                 </div>
 
