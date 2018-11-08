@@ -30,7 +30,7 @@
                             <p class="category">나의 졸업 관리 페이지입니다.</p>
                             <br/>
                             <h2 class="title">소프트웨어공학과</h2>
-                            <h4 class="title">-전공 심화 과정</h4>
+                            <h4 class="title">-${student.detailType}</h4>
                         </div>
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover table-striped">
@@ -45,25 +45,19 @@
                                 </div>
                                 <tr>
                                     <td>
-                                        <h3>총 학점</h3>
-                                        <div class="c100 p74 big">
-                                            <span>74%</span>
+                                        <h4>총 학점</h4>
+                                        <div class="c100 p${totalCredit}">
+                                            <span>${totalCredit}/130</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
                                                 <div class="fill"></div>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        <h2>● 97/130</h2>
-                                        <h3>-전공과목 18학점 부족</h3>
-                                        <h3>-교양과목 18학점 부족</h3>
-                                    </td>
                                     </td>
                                     <td>
                                         <h3>전공 학점</h3>
-                                        <div class="c100 p69 orange big">
-                                            <span>69%</span>
+                                        <div class="c100 p${totalCreditMajor} orange">
+                                            <span>${totalCreditMajor}/${student.majorGoal}</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
                                                 <div class="fill"></div>
@@ -71,16 +65,18 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <h2>● 42/60</h2>
-                                        <h3>-'알고리즘' 과목 미수강</h3>
-                                        <h3>-'자료구조' 과목 미수강</h3>
-                                        <h3>-'졸업지도' 과목 미수강</h3>
+                                        <h3>교양 학점</h3>
+                                        <div class="c100 p${totalCreditCulture}/${student.cultureGoal} green">
+                                            <span>${totalCreditCulture}/${student.cultureGoal}</span>
+                                            <div class="slice">
+                                                <div class="bar"></div>
+                                                <div class="fill"></div>
+                                            </div>
+                                        </div>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td>
                                         <h3>채플 이수</h3>
-                                        <div class="c100 p50 green big">
+                                        <div class="c100 p50">
                                             <span>1/2</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
@@ -89,22 +85,14 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <h2>● 1/2</h2>
-                                        <h3>-'채플' 1회 미수강</h3>
-                                    </td>
-                                    <td>
                                         <h3>봉사 이수</h3>
-                                        <div class="c100 p0 big">
+                                        <div class="c100 p0">
                                             <span>0/1</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
                                                 <div class="fill"></div>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        <h2>● 0/1</h2>
-                                        <h3>-'사회봉사' 1회 미수강</h3>
                                     </td>
                                 </tr>
                             </table>
