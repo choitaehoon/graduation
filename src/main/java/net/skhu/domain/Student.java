@@ -25,6 +25,8 @@ public class Student
 
     int graduationRule_id;
     String detailType;
+    int majorGoal;
+    int cultureGoal;
 
     List<Lecture> myLecture;
 
