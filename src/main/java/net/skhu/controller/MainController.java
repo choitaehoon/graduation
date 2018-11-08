@@ -2,6 +2,7 @@ package net.skhu.controller;
 
 
 import net.skhu.Service.LectureService;
+import net.skhu.Service.MyLecService;
 import net.skhu.Service.ReplaceService;
 import net.skhu.Service.TypeIdentity;
 import net.skhu.domain.*;
@@ -46,6 +47,8 @@ public class MainController {
     ReplaceService replaceService;
     @Autowired
     MyLectureMapper myLectureMapper;
+    @Autowired
+    MyLecService myLecService;
 
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
@@ -152,7 +155,7 @@ public class MainController {
         }
 
 //        엑셀파일이 c 디스크에 있어야함
-        File destFile = new File("C:\\"+excelFile.getOriginalFilename());
+        File destFile = new File("C:\\Users\\user\\Desktop\\"+excelFile.getOriginalFilename());
 
         try{
             excelFile.transferTo(destFile);
@@ -161,8 +164,16 @@ public class MainController {
             throw new RuntimeException(e.getMessage(),e);
         }
 
+        //관리자일때,수업리스트 업로드
+        if(type==2) {
+            lectureService.excelUpload(destFile);
+        }
+        //학생일때, 내가 수강한 과목 업로드
+        else if(type==1){
+            myLecService.excelUpload(destFile,id);
+        }
 
-        lectureService.excelUpload(destFile);
+
 //        destFile.delete();
 
 
@@ -367,6 +378,14 @@ public class MainController {
         redirectAttributes.addAttribute("choice",choice);
         redirectAttributes.addAttribute("search",search);
         return "redirect:graduationInfo";
+    }
+
+    /*엑셀로 내가수강한 수업 등록록 페이지 */
+    @RequestMapping("myLecExcel")
+    public String myLecExcel(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("userId") int id )
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/myLecExcel";
     }
 
 }

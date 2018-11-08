@@ -100,7 +100,7 @@
                                 </tr>
                             </table>
                             <div class="pull-right" style="margin-right:10px;">
-                                <button class="btn btn-primary">수강내역 엑셀 업로드</button>
+                                <button class="btn btn-primary" onclick="window.open('myLecExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=450,height=300,location=no,status=no,scrollbars=yes');">수강내역 엑셀 업로드</button>
                                 <button class="btn btn-danger" >삭제</button>
                             </div>
                         </div>

@@ -16,4 +16,5 @@ public class MyLecture
     String grade;
     int student_id;
     String gradeA;
+    int remove;
 }
