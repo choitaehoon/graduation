@@ -11,7 +11,7 @@ public class MyLecture
     String lecture_id;
     int lecture_split;
     String title;
-    String detailType;
+    String detailType2;
     String credit;
     String grade;
     int student_id;

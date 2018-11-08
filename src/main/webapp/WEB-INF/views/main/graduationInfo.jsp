@@ -155,7 +155,7 @@
                             <td>${ lecture.lecture_semester }</td>
                             <td>${ lecture.lecture_id }</td>
                             <td>${ lecture.title }</td>
-                            <td>${ lecture.detailType }</td>
+                            <td>${ lecture.detailType2 }</td>
                             <td>${ lecture.credit }</td>
                             <td>${ lecture.gradeA }</td>
                         </tr>
