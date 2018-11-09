@@ -103,7 +103,7 @@
                 </div>
                 <input type="text" name="name" id="name" class="inpt" required="required" placeholder="이름">
                 <div class="form-group">
-                    <form:select path="department_Id" class="form-control"
+                    <form:select path="department_id" class="form-control"
                                  itemValue="id" itemLabel="departmentName" items="${ departments }" />
                 </div>
                 <input type="password" name="password" id="passwrod" class="inpt" required="required" placeholder="비밀번호">

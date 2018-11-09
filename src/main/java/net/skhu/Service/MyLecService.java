@@ -39,31 +39,31 @@ public class MyLecService {
         for (Map<String, String> article : excelContent) {
 
             //객체 안에 엑셀 데이터값 받아서 넣기
-//            myLecture=new MyLecture();
-//            myLecture.setLecture_year(Integer.valueOf(article.get("A")));//년도
-//            myLecture.setLecture_semester(article.get("B"));//학기
-//            myLecture.setLecture_id(article.get("C"));//과목코드
-//            myLecture.setLecture_split(Integer.valueOf(article.get("D")));//분반
-//            myLecture.setTitle(article.get("E"));//과목명
-//            myLecture.setDetailType2(article.get("F"));//전필, 전선, 패논패, 채플
-//            myLecture.setCredit(article.get("G"));//이수학점
-//            myLecture.setGrade(article.get("H"));//내가 받은 점수 (A,B,C...)
-//            myLecture.setStudent_id(userId);//학생
-//            myLecture.setRemove(0);// 내가 들은 수업이니까 0으로 지정
+            myLecture=new MyLecture();
+            myLecture.setLecture_year(Integer.valueOf(article.get("A")));//년도
+            myLecture.setLecture_semester(article.get("B"));//학기
+            myLecture.setLecture_id(article.get("C"));//과목코드
+            myLecture.setLecture_split(Integer.valueOf(article.get("D")));//분반
+            myLecture.setTitle(article.get("E"));//과목명
+            myLecture.setDetailType(article.get("F"));//전필, 전선, 패논패, 채플
+            myLecture.setCredit(article.get("G"));//이수학점
+            myLecture.setGrade(article.get("H"));//내가 받은 점수 (A,B,C...)
+            myLecture.setStudent_id(userId);//학생
+            myLecture.setRemove(0);// 내가 들은 수업이니까 0으로 지정
 
             //데이터값을 잘 가져오는 지 확인하기 위해
-            System.out.println(article.get("A"));
-            System.out.println(article.get("B"));
-            System.out.println(article.get("C"));
-            System.out.println(article.get("D"));
-            System.out.println(article.get("E"));
-            System.out.println(article.get("F"));
-            System.out.println(article.get("G"));
-            System.out.println(article.get("H"));
-            System.out.println(Integer.toString(userId));
+//            System.out.println(article.get("A"));
+//            System.out.println(article.get("B"));
+//            System.out.println(article.get("C"));
+//            System.out.println(article.get("D"));
+//            System.out.println(article.get("E"));
+//            System.out.println(article.get("F"));
+//            System.out.println(article.get("G"));
+//            System.out.println(article.get("H"));
+//            System.out.println(Integer.toString(userId));
 
             //데이터 한개 행 담은 객체 insert
-//            this.insert(myLecture);
+            myLectureMapper.insert(myLecture);
 
         }
     }

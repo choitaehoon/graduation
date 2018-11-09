@@ -376,10 +376,10 @@ public class MainController {
     }
 
     @RequestMapping(value = "deleteLecture",method = RequestMethod.POST)
-    public String delete(Model model,@RequestParam("type") int type, @RequestParam("id") int id,@RequestParam(value = "choice", defaultValue = "0") int choice,
+    public String delete(Model model,@RequestParam("type") int type,@RequestParam("remove") int remove,@RequestParam("id") int id,@RequestParam(value = "choice", defaultValue = "0") int choice,
                          @RequestParam(value = "search", defaultValue = "") String search, RedirectAttributes redirectAttributes)
     {
-        myLectureMapper.delete(1);
+        myLectureMapper.delete(remove);
         redirectAttributes.addAttribute("type",type);
         redirectAttributes.addAttribute("id",id);
         redirectAttributes.addAttribute("choice",choice);

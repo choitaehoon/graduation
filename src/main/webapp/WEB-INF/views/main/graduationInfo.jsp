@@ -34,7 +34,7 @@
                             <br/>
                             <h2 class="title">소프트웨어공학과</h2>
                             <h4 class="title">-${student.detailType}</h4>
-                        </div>
+
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover table-striped">
                                 <div class="pull-right" style="margin-right:10px;">
@@ -99,10 +99,21 @@
                                     </td>
                                 </tr>
                             </table>
+
+                            <div class="pull-right">
+                                <form action="deleteLecture" method="post">
+                                    <input type="hidden" name="remove" value=0>
+                                    <input type="hidden" name="type" value="${member.type}">
+                                    <input type="hidden" name="id" value="${member.id}">
+                                    <input type="hidden" name="choice" value="${choice}">
+                                    <input type="hidden" name="search" value="${search}">
+                                    <button type="submit" class="btn btn-danger" id="data-confirm-delete">수강내역 삭제</button>
+                                </form>
+                            </div>
                             <div class="pull-right" style="margin-right:10px;">
                                 <button class="btn btn-primary" onclick="window.open('myLecExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=450,height=300,location=no,status=no,scrollbars=yes');">수강내역 엑셀 업로드</button>
-                                <button class="btn btn-danger" >삭제</button>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -129,6 +140,7 @@
 
                 <div class="pull-right">
                     <form action="deleteLecture" method="post">
+                        <input type="hidden" name="remove" value=1>
                         <input type="hidden" name="type" value="${member.type}">
                         <input type="hidden" name="id" value="${member.id}">
                         <input type="hidden" name="choice" value="${choice}">
