@@ -74,6 +74,11 @@
                                     <a >
                                         <button type="submit" class="btn btn-primary">조회</button>
                                     </a>
+                                <div class="pull-right">
+                                    <a href="/main/graduationInfo?type=${member.type}&id=${member.id}">
+                                        <button type="button" class="btn btn-success">목록으로 가기</button>
+                                    </a>
+                                </div>
                             </form>
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
