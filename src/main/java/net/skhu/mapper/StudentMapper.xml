@@ -319,6 +319,4 @@
           department_id = #{department_id}
         where id = #{id}
     </update>
-
-
 </mapper>

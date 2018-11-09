@@ -51,4 +51,9 @@
             <delete id="delete">
                 delete from mylecture where remove = #{id}
             </delete>
+
+            <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+                    insert mylecture(lecture_year,lecture_semester,lecture_id,lecture_split,title,detailType,credit,grade,student_id,remove)
+                    values(#{lecture_year}, #{lecture_semester}, #{lecture_id}, #{lecture_split}, #{title}, #{detailType}, #{credit}, #{grade}, #{student_id}, #{remove});
+             </insert>
 </mapper>

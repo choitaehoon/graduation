@@ -92,13 +92,13 @@
                                     <th>과목명</th>
                                     <th>이수구분</th>
                                     <th>이수학점</th>
-                                    <th>시뮬레이션 과목 추가</th>
+                                    <th>시뮬레이션 학점 및 이수구분 및  과목 추가</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-                                    <tr data-url="classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}">
+                                    <tr>
                                         <td>${lecture.year}</td>
                                         <td>${lecture.semester}</td>
                                         <td>${lecture.id}</td>
@@ -108,9 +108,36 @@
                                         <td>${lecture.subType}</td>
                                         <td>${lecture.credit}</td>
                                         <td>
-                                            <a href="simulationRegister?year=${lecture.year}&semester=${lecture.semester}&lecture_id=${lecture.id}&lecture_split=${lecture.split}&title=${lecture.title}&detailType=${lecture.subType}">
-                                                <button type="button" class="btn btn-primary">등록</button>
-                                            </a>
+                                            <form action="simulationRegister" method="post">
+                                                <select name="grade">
+                                                    <option value="0.0">0.0</option>
+                                                    <option value="0.5">0.5</option>
+                                                    <option value="1.0">1.0</option>
+                                                    <option value="1.5">1.5</option>
+                                                    <option value="2.0">2.0</option>
+                                                    <option value="2.5">2.5</option>
+                                                    <option value="3.0">3.0</option>
+                                                    <option value="3.5">3.5</option>
+                                                    <option value="4.0">4.0</option>
+                                                    <option value="4.5">4.5</option>
+                                                </select>
+                                                <select name="detailType">
+                                                    <option value="교선">교선</option>
+                                                    <option value="교필">교필</option>
+                                                    <option value="전선">전선</option>
+                                                    <option value="전필">전필</option>
+                                                </select>
+                                                <input type="hidden" name="lecture_year" value="${lecture.year}">
+                                                <input type="hidden" name="lecture_semester" value="${lecture.semester}">
+                                                <input type="hidden" name="lecture_id" value="${lecture.id}">
+                                                <input type="hidden" name="lecture_split" value="${lecture.split}">
+                                                <input type="hidden" name="title" value="${lecture.title}">
+                                                <input type="hidden" name="credit" value="${lecture.credit}">
+                                                <input type="hidden" name="student_id" value="${member.id}" >
+                                                <input type="hidden" name="remove" value="1" >
+                                                <input type="hidden" name="type" value="${member.type}">
+                                                <button type="submit" class="btn btn-primary">등록</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 </c:forEach>

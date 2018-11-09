@@ -2,12 +2,17 @@ package net.skhu.controller;
 
 import net.skhu.Service.LectureService;
 import net.skhu.Service.TypeIdentity;
+import net.skhu.domain.MyLecture;
 import net.skhu.domain.Pagination;
+import net.skhu.mapper.MyLectureMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("register")
@@ -17,6 +22,8 @@ public class RegisterContoller
     TypeIdentity typeIdentity;
     @Autowired
     LectureService lectureService;
+    @Autowired
+    MyLectureMapper myLectureMapper;
 
     @RequestMapping("subjectRegister")
     public String subjectRegister(Model model, Pagination pagination , @RequestParam("type") int type, @RequestParam("id") int id)
@@ -27,10 +34,12 @@ public class RegisterContoller
         return "register/subjectRegister";
     }
 
-    @RequestMapping("simulationRegister")
-    public String simulationRegister()
+    @RequestMapping(value = "simulationRegister", method = RequestMethod.POST)
+    public String simulationRegister(MyLecture myLecture, RedirectAttributes redirectAttributes, @RequestParam("type") int type)
     {
-
+        myLectureMapper.insert(myLecture);
+        redirectAttributes.addAttribute("id",myLecture.getStudent_id());
+        redirectAttributes.addAttribute("type",type);
         return "redirect:subjectRegister";
     }
 }
