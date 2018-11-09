@@ -56,4 +56,9 @@
                     insert mylecture(lecture_year,lecture_semester,lecture_id,lecture_split,title,detailType,credit,grade,student_id,remove)
                     values(#{lecture_year}, #{lecture_semester}, #{lecture_id}, #{lecture_split}, #{title}, #{detailType}, #{credit}, #{grade}, #{student_id}, #{remove});
              </insert>
+
+            <select id="count" resultType="int">
+                   select count(*)
+                   from myLecture where remove = 1
+            </select>
 </mapper>

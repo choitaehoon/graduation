@@ -74,10 +74,15 @@
                                     <a >
                                         <button type="submit" class="btn btn-primary">조회</button>
                                     </a>
+
                                 <div class="pull-right">
                                     <a href="/main/graduationInfo?type=${member.type}&id=${member.id}">
                                         <button type="button" class="btn btn-success">목록으로 가기</button>
                                     </a>
+                                </div>
+
+                                <div class="pull-right" style="margin-right:20px;">
+                                    <button class="btn btn-success">등록된 시뮬레이션 과목 수: ${count}</button>
                                 </div>
                             </form>
 

@@ -31,6 +31,7 @@ public class RegisterContoller
         pagination.setRecordCount(lectureService.pageCount());
         model.addAttribute("lectures",lectureService.lectureList(pagination));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        model.addAttribute("count",myLectureMapper.count());
         return "register/subjectRegister";
     }
 
