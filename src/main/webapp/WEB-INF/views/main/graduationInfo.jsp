@@ -100,15 +100,21 @@
                                 </tr>
                             </table>
                             <div class="pull-right" style="margin-right:10px;">
-                                <button class="btn btn-primary">수강내역 엑셀 업로드</button>
+                                <button class="btn btn-primary" onclick="window.open('myLecExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=450,height=300,location=no,status=no,scrollbars=yes');">수강내역 엑셀 업로드</button>
                                 <button class="btn btn-danger" >삭제</button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <form>
-                    <input type="hidden" name="pg" value="1">
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <form>
+                                <input type="hidden" name="pg" value="1">
                     <input type="hidden" name="type" value="${member.type}"  />
                     <input type="hidden" name="id" value="${member.id}" />
                     <select name="choice">
@@ -182,25 +188,27 @@
                         </c:forEach>
                     </div>
                 </form>
-
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
     </div>
 
     <footer class="footer">
         <div class="container-fluid">
 
             <p class="copyright pull-right">
-                &copy;
-                <script>document.write(new Date().getFullYear())</script>
-                <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-                love for a better web
+
+                <script>
+
+                </script>
+
             </p>
         </div>
     </footer>
 
 
-</div>
+
 </div>
 
 

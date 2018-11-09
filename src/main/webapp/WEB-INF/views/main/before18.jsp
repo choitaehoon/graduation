@@ -22,8 +22,8 @@
             padding: 0;
         }
         body {
-            #            font: 14px/1.4 Georgia, Serif;
-            #        }
+            font: 14px/1.4 Georgia, Serif;
+        }
         #page-wrap {
             margin: 50px;
         }
@@ -52,7 +52,7 @@
         td, th {
             padding: 6px;
             border: 1px solid #ccc;
-            #            text-align: left;
+            text-align: left;
         }
 
         @media
@@ -199,9 +199,9 @@
                         <div style="text-align: center">
                             <div>
                                 <a href="grdRegister.html"><span
-                                        class=" glyphicon glyphicon-ok">등록</a> <a
+                                        class=" glyphicon glyphicon-ok"/>등록</a> <a
                                     href="grdUpdate.html"><span
-                                    class=" glyphicon glyphicon-check">수정</a>
+                                    class=" glyphicon glyphicon-check"/>수정</a>
 
 
                             </div>
@@ -252,9 +252,9 @@
                             <h2>= 소프트웨어공학과 학생 =</h2>
                             <div>
                                 <a href="grdRegister.html"><span
-                                        class=" glyphicon glyphicon-ok">등록</a> <a
-                                    href="grdUpdate.html"><span
-                                    class=" glyphicon glyphicon-check">수정</a>
+                                        class=" glyphicon glyphicon-ok"/>등록</a>
+                                <a href="grdUpdate.html"><span
+                                    class=" glyphicon glyphicon-check"/>수정</a>
 
 
                             </div>
@@ -432,9 +432,9 @@
                             <h2>= 타과학생 =</h2>
                             <div>
                                 <a href="grdRegister.html"><span
-                                        class=" glyphicon glyphicon-ok">등록</a> <a
+                                        class=" glyphicon glyphicon-ok"/>등록</a> <a
                                     href="grdUpdate.html"><span
-                                    class=" glyphicon glyphicon-check">수정</a>
+                                    class=" glyphicon glyphicon-check"/>수정</a>
 
 
                             </div>
@@ -569,9 +569,9 @@
 
                             <div>
                                 <a href="grdRegister.html"><span
-                                        class=" glyphicon glyphicon-ok">등록</a> <a
+                                        class=" glyphicon glyphicon-ok"/>등록</a> <a
                                     href="grdUpdate.html"><span
-                                    class=" glyphicon glyphicon-check">수정</a>
+                                    class=" glyphicon glyphicon-check"/>수정</a>
 
 
                             </div>

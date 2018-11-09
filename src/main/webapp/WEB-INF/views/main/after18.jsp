@@ -22,9 +22,9 @@
             padding: 0;
         }
 
-        body { #
+        body {
         font: 14px/1.4 Georgia, Serif;
-            #
+
         }
 
         #page-wrap {
@@ -57,7 +57,7 @@
 
         td, th {
             padding: 6px;
-            border: 1px solid #ccc; #
+            border: 1px solid #ccc;
         text-align: left;
         }
 
@@ -155,9 +155,9 @@
                             </div>
                             <div>
                                 <a href="grdRegister.html"><span
-                                        class=" glyphicon glyphicon-ok">등록</a> <a
-                                    href="grdUpdate.html"><span
-                                    class=" glyphicon glyphicon-check">수정</a>
+                                        class=" glyphicon glyphicon-ok"/>등록</a>
+                                <a href="grdUpdate.html"><span
+                                    class=" glyphicon glyphicon-check"/>수정</a>
 
 
                             </div>
@@ -385,12 +385,12 @@
     <div class="container-fluid">
 
         <p class="copyright pull-right">
-            &copy;
+
             <script>
-                document.write(new Date().getFullYear())
+
             </script>
-            <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-            love for a better web
+
+
         </p>
     </div>
 </footer>

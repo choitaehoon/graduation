@@ -104,19 +104,18 @@ public class LectureService{
 
 
     public void excelUpload(File destFile) throws Exception {
+        //엑셀 데이터를 읽기전 (경로, 컬럼, 추출할 행) 옵션 클래스 선언
         ExcelReadOption excelReadOption = new ExcelReadOption();
-        //파일 경로 담기
+        //파일을 옵션에 담기
         excelReadOption.setFilePath(destFile.getAbsolutePath());
-        //엑셀에서 읽을 컬럼 명
+        //엑셀에서 읽을 컬럼 명 지정
         excelReadOption.setOutputColumns("A","B","C","D","E","F","G","H");
-        //우리는 첫번째 행에 설명이 일단 없어서 이렇게 했음
-        excelReadOption.setStartRow(2);
-
         //첫번째행은 컬럼명이여서 제외하고, 2번째부터 데이터 값 받기위해 설정
-//        excelReadOption.setStartRow(2);
-        //엑셀파일 읽기
+        excelReadOption.setStartRow(2);
+        //엑셀파일 읽기어서 맵에 담기
         List<Map<String, String>> excelContent = ExcelRead.read(excelReadOption);
 
+        //데이터를 담기위한 객체 선언
         Lecture lecture=null;
 
         //article.get() 리턴 타입이 String 이기때문에 int 형은 형변환을 해줘야한다.
@@ -142,6 +141,7 @@ public class LectureService{
 //            System.out.println(article.get("G"));
 //            System.out.println(article.get("H"));
 
+            //데이터 한개 행 담은 객체 insert
             this.lecInsert(lecture);
 
         }

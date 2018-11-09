@@ -61,7 +61,7 @@
         <c:if test="${member.type == 2}">
             <li>
             <a href="/main/studentManager?type=${member.type}&id=${member.id}">
-            <i class="pe-7s-add-user"></i>
+            <i class="pe-7s-id"></i>
             <p>학생관리</p> </a>
             </li>
         </c:if>
@@ -69,7 +69,7 @@
         <c:if test="${member.type == 2}">
             <li>
             <a href="/main/manageClass?type=${member.type}&id=${member.id}">
-            <i class="pe-7s-users"></i>
+            <i class="pe-7s-notebook"></i>
             <p>수업관리</p> </a>
             </li>
         </c:if>
@@ -84,7 +84,7 @@
         </c:if>
 
         <li>
-        <a href="/login/graduationInfo?type=${member.type}&id=${member.id}"> <i class="pe-7s-bell"></i>
+        <a href="#"> <i class="pe-7s-bell"></i>
         <p>졸업 요건</p></a>
         </li>
 
@@ -109,7 +109,7 @@
 
         <li>
         <a href="/main/replaceLecture?type=${member.type}&id=${member.id}">
-        <i class="pe-7s-note2"></i>
+        <i class="pe-7s-repeat"></i>
         <p>대체 과목 관리</p>
         </a>
         </li>
@@ -128,7 +128,7 @@
         <c:if test="${member.id >0}">
             <li>
             <a href="/login/q&a?type=${member.type}&id=${member.id}">
-            <i class="pe-7s-smile"></i>
+            <i class="pe-7s-glasses"></i>
             <p>Q&A</p>
             </a>
             </li>
