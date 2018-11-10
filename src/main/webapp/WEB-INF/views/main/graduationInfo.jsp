@@ -112,7 +112,7 @@
                                     <input type="hidden" name="id" value="${member.id}">
                                     <input type="hidden" name="choice" value="${choice}">
                                     <input type="hidden" name="search" value="${search}">
-                                    <button type="submit" class="btn btn-danger" data-confirm-delete>수강내역 삭제</button>
+                                    <button type="submit" class="btn btn-danger" id="data-confirm-delete">수강내역 삭제</button>
                                 </form>
                             </div>
                             <div class="pull-right" style="margin-right:10px;">
@@ -150,7 +150,7 @@
                         <input type="hidden" name="id" value="${member.id}">
                         <input type="hidden" name="choice" value="${choice}">
                         <input type="hidden" name="search" value="${search}">
-                        <button type="submit" class="btn btn-danger" data-confirm-delete>시물레이션 삭제</button>
+                        <button type="submit" class="btn btn-danger" id="data-confirm-delete">시물레이션 삭제</button>
                     </form>
                 </div>
 
