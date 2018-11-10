@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
     <link rel="stylesheet" href="/res/circle.css">
@@ -37,15 +38,14 @@
 
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover table-striped">
+                                <form:form method="post" modelAttribute="student">
                                 <div class="pull-right" style="margin-right:10px;">
                                     <label>과정 선택 : </label>
-                                    <select >
-                                        <option >소프트웨어공학과 전공심화과정</option>
-                                        <option >소프트웨어공학과 전공기초과정</option>
-                                        <option >소프트웨어공학과 복수전공과정</option>
-                                        <option >소프트웨어공학과 전공특별과정</option>
-                                    </select>
+                                    <form:select path="graduationRule_id" class="form-control w200" itemValue="id" itemLabel="detailType" items="${ graduationRules }" />
+                                    <button type="submit" class="btn btn-primary">  적용</button>
                                 </div>
+                                </form:form>
+
                                 <tr>
                                     <td>
                                         <h3>총 학점</h3>
