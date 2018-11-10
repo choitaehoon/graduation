@@ -42,4 +42,5 @@ public interface StudentMapper
     int volunteerCount(int id);
     int volunteerPercent(int id);
     double avgGrade(int id);
+    void updateRule(Student student);
 }

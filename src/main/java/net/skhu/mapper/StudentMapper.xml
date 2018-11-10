@@ -320,4 +320,11 @@
         where id = #{id}
     </update>
 
+    <update id="updateRule">
+        update student set
+          graduationRule_id = #{graduationRule_id}
+        where id = #{id}
+    </update>
+
+
 </mapper>
