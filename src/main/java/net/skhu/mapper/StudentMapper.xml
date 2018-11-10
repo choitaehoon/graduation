@@ -34,7 +34,7 @@
 
     <!--  학번으로 학생찾기 -->
     <select id="findById" resultMap="resultMapId">
-        SELECT s.*, d.departmentName,r.detailType ,r.majorGoal, r.cultureGoal, m.*, m.detailType as detailType2,
+        SELECT s.*, d.departmentName,r.* , m.*, m.detailType as detailType2,
         CASE WHEN grade = '4.5' THEN 'A+'
         WHEN grade = '4.0' THEN 'A0'
         WHEN grade = '3.5' THEN 'B+'
@@ -124,6 +124,7 @@
         <result property="majorGoal" column="majorGoal"/>
         <result property="cultureGoal" column="cultureGoal"/>
         <result property="departmentName" column="departmentName"/>
+        <result property="graduationRule_id" column="graduationRule_id"/>
         <collection property="myLecture" ofType="Lecture">
             <id property="year" column="lecture_year"/>
             <id property="semester" column="lecture_semester"/>
