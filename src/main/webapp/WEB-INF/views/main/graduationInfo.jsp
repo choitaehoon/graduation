@@ -48,7 +48,7 @@
                                 </div>
                                 <tr>
                                     <td>
-                                        <h4>총 학점</h4>
+                                        <h3>총 학점</h3>
                                         <div class="c100 p${creditPercent}">
                                             <span>${totalCredit}/130</span>
                                             <div class="slice">
@@ -79,8 +79,8 @@
                                     </td>
                                     <td>
                                         <h3>채플 이수</h3>
-                                        <div class="c100 p${chaplePercent}">
-                                            <span>${chapleCount}/2</span>
+                                        <div class="c100 p${chapelPercent}">
+                                            <span>${chapelCount}/2</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
                                                 <div class="fill"></div>
