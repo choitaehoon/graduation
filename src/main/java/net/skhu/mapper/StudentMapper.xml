@@ -72,7 +72,7 @@
         left join department d on s.department_id = d.id
         left join graduationRule r on s.graduationRule_id=r.id
         left join mylecture m on s.id = m.student_id
-        where s.id = #{id} and m.detailType='전필';
+        where s.id = #{id} and (m.detailType='전필' or m.detailType=null);
     </select>
     <select id="findByIdCulture" resultMap="resultMapId">
         SELECT s.*, d.departmentName,r.detailType , m.*, m.detailType as detailType2,
@@ -123,9 +123,7 @@
         <result property="detailType" column="detailType" />
         <result property="majorGoal" column="majorGoal"/>
         <result property="cultureGoal" column="cultureGoal"/>
-        <association property="department" javaType="Department">
-            <result property="departmentName" column="departmentName" />
-        </association>
+        <result property="departmentName" column="departmentName"/>
         <collection property="myLecture" ofType="Lecture">
             <id property="year" column="lecture_year"/>
             <id property="semester" column="lecture_semester"/>
@@ -195,14 +193,14 @@
       where s.id=#{id} and (m.detailType='교선'or m.detailType='교필');
     </select>
 
-    <select id="chapleCount" resultType="int">
+    <select id="chapelCount" resultType="int">
       SELECT count(*) FROM student s
       left join mylecture m
       on s.id=m.student_id
       where (s.id=#{id}) and((m.lecture_id='AC00001') or (m.title LIKE '%채플%'));
     </select>
 
-    <select id="chaplePercent" resultType="int">
+    <select id="chapelPercent" resultType="int">
       SELECT round(count(*)/2*100,0) FROM student s
       left join mylecture m
       on s.id=m.student_id
@@ -226,8 +224,10 @@
 
 
     <select id="findByStudent" resultType="Student">
-        select * from student
-        where id = #{id}
+          select s.*,d.departmentName,r.detailType from student s
+        left join department d on s.department_Id=d.id
+        left join graduationRule r on s.graduationRule_id=r.id
+        where s.id = #{id}
     </select>
 
 

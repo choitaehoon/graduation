@@ -37,8 +37,8 @@ public interface StudentMapper
     int creditPercent(int id);
     int creditPercentMajor(int id);
     int creditPercentCulture(int id);
-    int chapleCount(int id);
-    int chaplePercent(int id);
+    int chapelCount(int id);
+    int chapelPercent(int id);
     int volunteerCount(int id);
     int volunteerPercent(int id);
     double avgGrade(int id);
