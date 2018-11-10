@@ -10,6 +10,7 @@ import net.skhu.mapper.DepartmentMapper;
 import net.skhu.mapper.MyLectureMapper;
 import net.skhu.mapper.ReplaceLectureMapper;
 import net.skhu.mapper.StudentMapper;
+import net.skhu.mapper.GraduationRuleMapper;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,8 @@ public class MainController {
     MyLectureMapper myLectureMapper;
     @Autowired
     MyLecService myLecService;
+    @Autowired
+    GraduationRuleMapper graduationRuleMapper;
 
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
@@ -364,6 +367,7 @@ public class MainController {
         pagination.setRecordCount(myLectureMapper.courseCount(choice,search,id));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         model.addAttribute("student", studentMapper.findById(id));
+        model.addAttribute("graduationRules",graduationRuleMapper.findAll());
         model.addAttribute("totalCredit",studentMapper.totalCredit(id));
         model.addAttribute("totalCreditMajor",studentMapper.totalCreditMajor(id));
         model.addAttribute("totalCreditCulture",studentMapper.totalCreditCulture(id));
@@ -380,6 +384,13 @@ public class MainController {
         model.addAttribute("choice",choice);
 
         return "main/graduationInfo";
+    }
+    @RequestMapping(value="graduationInfo", method=RequestMethod.POST) public String graduationInfo(Model model, Student student,@RequestParam("type") int type, @RequestParam("id") int id,RedirectAttributes redirectAttributes)
+    {
+        studentMapper.updateRule(student);
+        redirectAttributes.addAttribute("type",type);
+        redirectAttributes.addAttribute("id",id);
+        return "redirect:graduationInfo";
     }
 
     @RequestMapping(value = "deleteLecture",method = RequestMethod.POST)
