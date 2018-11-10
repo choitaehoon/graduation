@@ -38,14 +38,19 @@
 
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover table-striped">
-                                <form:form method="post" modelAttribute="student">
-                                <div class="pull-right" style="margin-right:10px;">
-                                    <label>과정 선택 : </label>
-                                    <form:select path="graduationRule_id" class="form-control w200" itemValue="id" itemLabel="detailType" items="${ graduationRules }" />
-                                    <button type="submit" class="btn btn-primary">  적용</button>
-                                </div>
-                                </form:form>
-
+                                <tr>
+                                    <form:form method="post" modelAttribute="student">
+                                        <div class="pull-right" style="margin-right:10px;" >
+                                            <button type="submit" class="btn btn-primary">  적용</button>
+                                        </div>
+                                        <div class="pull-right" style="margin-right:10px;margin-bottom: 3px" >
+                                            <form:select path="graduationRule_id" class="form-control w200" itemValue="id" itemLabel="detailType" items="${ graduationRules }" />
+                                        </div>
+                                        <div class="pull-right" style="margin-right: 10px;" >
+                                            <label>과정 선택 :</label>
+                                        </div>
+                                    </form:form>
+                                </tr>
                                 <tr>
                                     <td>
                                         <h3>총 학점</h3>
