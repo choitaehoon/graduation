@@ -323,12 +323,18 @@ public class MainController {
         Student student = studentMapper.findById(studentId);
         if(btn==2){
             student = studentMapper.findByIdMajor(studentId);
+            if(student==null)
+                student = studentMapper.findByStudent(studentId);
         }
         else if(btn==3){
             student = studentMapper.findByIdCulture(studentId);
+            if(student==null)
+                student = studentMapper.findByStudent(studentId);
         }
         else if(btn==4){
             student = studentMapper.findByIdF(studentId);
+            if(student==null)
+                student = studentMapper.findByStudent(studentId);
         }
         model.addAttribute("student", student);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
@@ -364,14 +370,15 @@ public class MainController {
         model.addAttribute("creditPercent",studentMapper.creditPercent(id));
         model.addAttribute("creditPercentMajor",studentMapper.creditPercentMajor(id));
         model.addAttribute("creditPercentCulture",studentMapper.creditPercentCulture(id));
-        model.addAttribute("chapleCount",studentMapper.chapleCount(id));
-        model.addAttribute("chaplePercent",studentMapper.chaplePercent(id));
+        model.addAttribute("chapelCount",studentMapper.chapelCount(id));
+        model.addAttribute("chapelPercent",studentMapper.chapelPercent(id));
         model.addAttribute("volunteerCount",studentMapper.volunteerCount(id));
         model.addAttribute("volunteerPercent",studentMapper.volunteerPercent(id));
         model.addAttribute("myLecture",myLectureMapper.findByIdPage(pagination.getPg(),pagination.getPageSize(),id,choice,search));
         model.addAttribute("selected",lectureService.selectCheckAndTwo(choice));
         model.addAttribute("search",search);
         model.addAttribute("choice",choice);
+
         return "main/graduationInfo";
     }
 
