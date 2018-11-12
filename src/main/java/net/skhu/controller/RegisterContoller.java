@@ -26,12 +26,22 @@ public class RegisterContoller
     MyLectureMapper myLectureMapper;
 
     @RequestMapping("subjectRegister")
-    public String subjectRegister(Model model, Pagination pagination , @RequestParam("type") int type, @RequestParam("id") int id)
+    public String subjectRegister(Model model, Pagination pagination,@RequestParam(value = "choice", defaultValue = "0") int choice,
+                                  @RequestParam(value = "srch",defaultValue = "") String srch,@RequestParam("type") int type, @RequestParam("id") int id)
     {
-        pagination.setRecordCount(lectureService.pageCount());
-        model.addAttribute("lectures",lectureService.lectureList(pagination));
+
+        if(choice==0 && srch.equals("")) {
+            model.addAttribute("lectures", lectureService.lectureList(pagination));
+            pagination.setRecordCount(lectureService.pageCount());
+        }
+        else {
+            model.addAttribute("lectures", lectureService.srchByLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
+            pagination.setRecordCount(lectureService.pageSrchCount(choice,srch));
+        }
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        model.addAttribute("selected",lectureService.selectCheck(choice));
         model.addAttribute("count",myLectureMapper.count());
+
         return "register/subjectRegister";
     }
 
