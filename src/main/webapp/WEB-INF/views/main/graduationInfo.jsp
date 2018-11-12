@@ -94,7 +94,7 @@
                                     </td>
                                     <td>
                                         <h3>봉사 이수</h3>
-                                        <div class="c100 p${volunteerPercent > 100? 100 : voluteerPercent}">
+                                        <div class="c100 p${volunteerPercent > 100? 100 : volunteerPercent}">
                                             <span>${volunteerCount}/1</span>
                                             <div class="slice">
                                                 <div class="bar"></div>
@@ -104,7 +104,6 @@
                                     </td>
                                 </tr>
                             </table>
-
                             <div class="pull-right">
                                 <form action="deleteLecture" method="post">
                                     <input type="hidden" name="remove" value=0>
@@ -112,12 +111,13 @@
                                     <input type="hidden" name="id" value="${member.id}">
                                     <input type="hidden" name="choice" value="${choice}">
                                     <input type="hidden" name="search" value="${search}">
-                                    <button type="submit" class="btn btn-danger" id="data-confirm-delete">수강내역 삭제</button>
+                                    <button id='data-confirm-delete' type=submit" class="btn btn-danger">수강내역 전체삭제</button>
                                 </form>
                             </div>
                             <div class="pull-right" style="margin-right:10px;">
-                                <button class="btn btn-primary" onclick="window.open('myLecExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=450,height=300,location=no,status=no,scrollbars=yes');">수강내역 엑셀 업로드</button>
+                                <button class="btn btn-primary" onclick="window.open('myLecExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=600,height=300,location=no,status=no,scrollbars=yes');">수강내역 엑셀 업로드</button>
                             </div>
+
                         </div>
                         </div>
                     </div>
@@ -131,17 +131,15 @@
                         <div class="header">
                             <form>
                                 <input type="hidden" name="pg" value="1">
-                    <input type="hidden" name="type" value="${member.type}"  />
-                    <input type="hidden" name="id" value="${member.id}" />
-                    <select name="choice">
-                        <option value="1" ${selected[1]}>과목명</option>
-                        <option value="2" ${selected[2]}>년도</option>
-                    </select>
-                    <input type="text" name="search" value="${search}">
-                    <button type="submit" class="btn btn-primary">조회</button>
-                </form>
-
-
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="id" value="${member.id}" />
+                                <select name="choice">
+                                   <option value="1" ${selected[1]}>과목명</option>
+                                   <option value="2" ${selected[2]}>년도</option>
+                                </select>
+                                <input type="text" name="search" value="${search}">
+                                <button type="submit" class="btn btn-primary">조회</button>
+                            </form>
 
                 <div class="pull-right">
                     <form action="deleteLecture" method="post">
@@ -150,7 +148,7 @@
                         <input type="hidden" name="id" value="${member.id}">
                         <input type="hidden" name="choice" value="${choice}">
                         <input type="hidden" name="search" value="${search}">
-                        <button type="submit" class="btn btn-danger" id="data-confirm-delete">시물레이션 삭제</button>
+                        <button type="submit" class="btn btn-danger" id="data-confirm-delete">시물레이션 초기화</button>
                     </form>
                 </div>
 
@@ -159,7 +157,6 @@
                         <button type="button" class="btn btn-primary" >시뮬레이션 수강 등록</button>
                     </a>
                 </div>
-
 
                 <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                     <thead>
@@ -183,7 +180,7 @@
                             <td>${ lecture.title }</td>
                             <td>${ lecture.detailType2 }</td>
                             <td>${ lecture.credit }</td>
-                            <td>${ lecture.gradeA }</td>
+                            <td>${ lecture.grade }</td>
                         </tr>
                     </c:forEach>
                     </tbody>
