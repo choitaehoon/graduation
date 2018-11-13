@@ -35,30 +35,10 @@
                             <h4 class="title">시뮬레이션에 등록할 과목</h4>
                             <br><br><br>
 
-
-                            <%--<form id="excelUploadForm" name="excelUploadForm" enctype="multipart/form-data" method="post"--%>
-                            <%--action= "${pageContext.request.contextPath}/user/excelUploadAjax">--%>
-                            <%--<div class="contents">--%>
-                            <%--<div>첨부파일은 한개만 등록 가능합니다.</div>--%>
-
-                            <%--<dl class="vm_name">--%>
-                            <%--<dt class="down w90">첨부 파일</dt>--%>
-                            <%--<dd><input id="excelFile" type="file" name="excelFile" /></dd>--%>
-                            <%--</dl>--%>
-                            <%--</div>--%>
-
-                            <%--<div class="bottom">--%>
-                            <%--<button type="button" id="addExcelImpoartBtn" class="btn" onclick="check()" ><span>추가</span></button>--%>
-                            <%--</div>--%>
-                            <%--</form>--%>
-
-
-
-
-                            <form method="post">
+                            <form>
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
-                                <input type="hidden" name="userId" value="${member.id}" />
+                                <input type="hidden" name="id" value="${member.id}" />
 
                                 <p class="category">
                                     <select name="choice">
@@ -74,7 +54,8 @@
                                     <a >
                                         <button type="submit" class="btn btn-primary">조회</button>
                                     </a>
-
+                            </form>
+                            <form method="post">
                                 <div class="pull-right">
                                     <a href="/main/graduationInfo?type=${member.type}&id=${member.id}">
                                         <button type="button" class="btn btn-success">목록으로 가기</button>
@@ -82,10 +63,10 @@
                                 </div>
 
                                 <div class="pull-right" style="margin-right:20px;">
-                                    <button class="btn btn-success">등록된 시뮬레이션 과목 수: ${count}</button>
+                                    <button class="btn btn-success">등록된 시뮬레이션 과목 수:${count}</button>
                                 </div>
-                            </form>
 
+                            </form>
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                 <thead>
                                 <tr>

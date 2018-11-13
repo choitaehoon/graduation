@@ -22,16 +22,16 @@
               <bind name="start" value="(currentPage-1)*pageSize"/>
               <bind name="end" value="pageSize"/>
                 SELECT s.*, d.departmentName,r.detailType , m.*, m.detailType as detailType2,
-                CASE WHEN grade = '4.5' THEN 'A+'
-                WHEN grade = '4.0' THEN 'A0'
-                WHEN grade = '3.5' THEN 'B+'
-                WHEN grade = '3.0' THEN 'B0'
-                WHEN grade = '2.5' THEN 'C+'
-                WHEN grade = '2.0' THEN 'C0'
-                WHEN grade = '1.5' THEN 'D+'
-                WHEN grade = '1.0' THEN 'D0'
-                WHEN grade = '0.0' THEN 'F'
-                WHEN grade = 'P' THEN 'P'
+                CASE WHEN grade = 'A+' THEN '4.5'
+                WHEN grade = 'A0' THEN '4.0'
+                WHEN grade = 'B+' THEN '3.5'
+                WHEN grade = 'B0' THEN '3.0'
+                WHEN grade = 'C+' THEN '2.5'
+                WHEN grade = 'C0' THEN '2.0'
+                WHEN grade = 'D+' THEN '1.5'
+                WHEN grade = 'D0' THEN '1.0'
+                WHEN grade = 'F'  THEN '0.0'
+                WHEN grade = 'P'  THEN 'P'
                 else 'NP'
                 END AS gradeA
                 FROM student s
