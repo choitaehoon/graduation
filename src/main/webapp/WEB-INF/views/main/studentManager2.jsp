@@ -80,7 +80,7 @@
                                         <td>${ lecture.title }</td>
                                         <td>${ lecture.detailType }</td>
                                         <td>${ lecture.credit }</td>
-                                        <td>${ lecture.gradeA }</td>
+                                        <td>${ lecture.grade }</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
