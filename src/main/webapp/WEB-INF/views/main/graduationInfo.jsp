@@ -104,19 +104,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <div class="pull-right">
-                                <form action="deleteLecture" method="post">
-                                    <input type="hidden" name="remove" value=0>
-                                    <input type="hidden" name="type" value="${member.type}">
-                                    <input type="hidden" name="id" value="${member.id}">
-                                    <input type="hidden" name="choice" value="${choice}">
-                                    <input type="hidden" name="search" value="${search}">
-                                    <button id='data-confirm-delete' type=submit" class="btn btn-danger">수강내역 전체삭제</button>
-                                </form>
-                            </div>
-                            <div class="pull-right" style="margin-right:10px;">
-                                <button class="btn btn-primary" onclick="window.open('myLecExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=600,height=300,location=no,status=no,scrollbars=yes');">수강내역 엑셀 업로드</button>
-                            </div>
+
 
                         </div>
 
@@ -220,6 +208,24 @@
                                 <button type="submit" class="btn btn-primary">조회</button>
                             </form>
 
+                            <div class="pull-right">
+                                <form action="deleteLecture" method="post">
+                                    <input type="hidden" name="remove" value=0>
+                                    <input type="hidden" name="type" value="${member.type}">
+                                    <input type="hidden" name="id" value="${member.id}">
+                                    <input type="hidden" name="choice" value="${choice}">
+                                    <input type="hidden" name="search" value="${search}">
+                                    <button id='data-confirm-delete' type=submit" class="btn btn-danger">수강내역 전체삭제</button>
+                                </form>
+                            </div>
+                            <div class="pull-right" style="margin-right:10px;">
+                                <button class="btn btn-primary" onclick="window.open('myLecExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=600,height=300,location=no,status=no,scrollbars=yes');">수강내역 엑셀 업로드</button>
+                            </div>
+
+                            <br>
+                            <br>
+                            <br>
+
                 <div class="pull-right">
                     <form action="deleteLecture" method="post">
                         <input type="hidden" name="remove" value=1>
@@ -236,6 +242,9 @@
                         <button type="button" class="btn btn-primary" >시뮬레이션 수강 등록</button>
                     </a>
                 </div>
+
+
+
 
                 <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                     <thead>
