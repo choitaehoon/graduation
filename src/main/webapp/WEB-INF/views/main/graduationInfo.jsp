@@ -118,7 +118,87 @@
                             <div class="pull-right" style="margin-right:10px;">
                                 <button class="btn btn-primary" onclick="window.open('myLecExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=450,height=300,location=no,status=no,scrollbars=yes');">수강내역 엑셀 업로드</button>
                             </div>
+
                         </div>
+
+                            <%--타과 부전공 과정 or 타과 복수 전공 일때--%>
+                            <c:if test="${student.graduationRule_id == 3 || student.graduationRule_id == 4}">
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <tr>
+                                        <form method="post">
+                                            <div class="pull-right" style="margin-right:10px;" >
+                                                <button type="submit" class="btn btn-primary">  적용</button>
+                                            </div>
+                                            <div class="pull-right" style="margin-right:10px;margin-bottom: 3px" >
+                                                <select name="" class="form-control w200">
+                                                    <option value="1">컴퓨터공학과</option>
+                                                </select>
+                                            </div>
+                                            <div class="pull-right" style="margin-right: 10px;" >
+                                                <label>복수 전공 :</label>
+                                            </div>
+                                        <form>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <h3>총 학점</h3>
+                                            <div class="c100 p${creditPercent > 100? 100 : creditPercent}">
+                                                <span>${totalCredit}/130</span>
+                                                <div class="slice">
+                                                    <div class="bar"></div>
+                                                    <div class="fill"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h3>전공 학점</h3>
+                                            <div class="c100 p${creditPercentMajor > 100? 100 : creditPercentMajor} orange">
+                                                <span>${totalCreditMajor}/${student.majorGoal}</span>
+                                                <div class="slice">
+                                                    <div class="bar"></div>
+                                                    <div class="fill"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h3>교양 학점</h3>
+                                            <div class="c100 p${creditPercentCulture > 100? 100 : creditPercentCulture} green">
+                                                <span>${totalCreditCulture}/${student.cultureGoal}</span>
+                                                <div class="slice">
+                                                    <div class="bar"></div>
+                                                    <div class="fill"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h3>채플 이수</h3>
+                                            <div class="c100 p${chapelPercent > 100? 100 : chapelPercent}">
+                                                <span>${chapelCount}/2</span>
+                                                <div class="slice">
+                                                    <div class="bar"></div>
+                                                    <div class="fill"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h3>봉사 이수</h3>
+                                            <div class="c100 p${volunteerPercent > 100? 100 : voluteerPercent}">
+                                                <span>${volunteerCount}/1</span>
+                                                <div class="slice">
+                                                    <div class="bar"></div>
+                                                    <div class="fill"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            </c:if>
+                            <%--   --%>
+
                         </div>
                     </div>
                 </div>
