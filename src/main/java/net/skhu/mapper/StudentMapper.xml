@@ -141,7 +141,7 @@
       select count(distinct m.lecture_year, m.lecture_semester) totalSemester
 		from student s left join mylecture m
         on s.id=m.student_id
-        where s.id=#{id};
+        where s.id=#{id} and m.lecture_semester not in('여름학기','겨울학기');
     </select>
 
     <select id="totalCredit" resultType="int">
