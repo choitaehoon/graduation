@@ -366,6 +366,8 @@ public class MainController {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         model.addAttribute("student", studentMapper.findById(id));
         model.addAttribute("graduationRules",graduationRuleMapper.findAll());
+        model.addAttribute("totalSemester",studentMapper.totalSemester(id));
+        model.addAttribute("avgGrade",studentMapper.avgGrade(id));
         model.addAttribute("totalCredit",studentMapper.totalCredit(id));
         model.addAttribute("totalCreditMajor",studentMapper.totalCreditMajor(id));
         model.addAttribute("totalCreditCulture",studentMapper.totalCreditCulture(id));
