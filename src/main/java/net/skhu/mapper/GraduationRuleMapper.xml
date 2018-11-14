@@ -6,7 +6,11 @@
 
     <select id="findAll" resultType="Student">
      select * from GraduationRule
-     where split='18학번이전' and majorType='주전공';
    </select>
+
+    <select id="findBy18" resultType="Student">
+        SELECT * FROM graduationrule
+        where split = if(left(#{id},4)!=2018, '18학번이전','18학번이후')
+    </select>
 
 </mapper>
