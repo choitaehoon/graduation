@@ -37,6 +37,8 @@
                             <h4 class="title">-${student.detailType}</h4>
 
                         <div class="content table-responsive table-full-width">
+                                    <h3>&nbsp;✔ 학기&nbsp;:&nbsp;${totalSemester+1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ 평균 학점&nbsp;:&nbsp;${avgGrade}&nbsp;/&nbsp;4.5&nbsp;</h3>
+                            </table>
                             <table class="table table-hover table-striped">
                                 <tr>
                                     <form:form method="post" modelAttribute="student">
