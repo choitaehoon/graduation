@@ -115,11 +115,10 @@
                         </div>
 
                             <%--타과 복수 전공 과정--%>
-                            <c:if test="${student.graduationRule_id == 3}">
+                            <c:if test="${student.graduationRule_id == 3 || student.graduationRule_id == 5}">
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <tr style="width: 50px">
-                                        <form method="post">
                                             <div class="pull-right" style="margin-right:10px;" >
                                                 <button type="submit" class="btn btn-primary">  적용</button>
                                             </div>
@@ -143,7 +142,6 @@
                                             <div class="pull-right" style="margin-right: 10px;" >
                                                 <label>복수 전공 :</label>
                                             </div>
-                                        <form>
                                     </tr>
 
 
@@ -165,11 +163,10 @@
                             <%--   --%>
 
                             <%--타과 부 전공 일때--%>
-                            <c:if test="${student.graduationRule_id == 4}">
+                            <c:if test="${student.graduationRule_id == 4 || student.graduationRule_id == 6}">
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-hover table-striped">
                                         <tr style="width: 50px">
-                                            <form method="post">
                                                 <div class="pull-right" style="margin-right:10px;" >
                                                     <button type="submit" class="btn btn-primary">  적용</button>
                                                 </div>
@@ -193,7 +190,6 @@
                                                 <div class="pull-right" style="margin-right: 10px;" >
                                                     <label>부 전공 :</label>
                                                 </div>
-                                                <form>
                                         </tr>
 
                                         <tr>
