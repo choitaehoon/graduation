@@ -22,7 +22,7 @@
             padding: 0;
         }
         body {
-            font: 14px/1.4 Georgia, Serif;
+            font: 14px/1.4 Georgia;
         }
         #page-wrap {
             margin: 50px;
@@ -71,11 +71,11 @@
                 left: -9999px;
             }
 
-            tr { border: 1px solid #ccc; }
+            tr { border: 1px solid #eee; }
 
             td.block
             {
-                border: 1px solid black;
+                border: 1px solid #909297;
             }
             td {
                 /* Behave  like a "row" */
@@ -148,14 +148,6 @@
                             <p class="category">컴퓨터공학과 졸업요건</p>
 
 
-                            <div class="pull-right">
-                                <label>전공이름: </label> <input type="text" name="search"
-                                                             style="width: 122px; height: 37px;">
-
-                                <button type="submit" class="btn">
-                                    <span class=" glyphicon glyphicon-search"></span>조회
-                                </button>
-                            </div>
 
                             <br> <br />
                             <h2>▶기본 졸업요건</h2>
@@ -197,19 +189,11 @@
                                 47학점이상(32학점 + 15학점))</p>
                             <br /><br>
                             <div style="text-align: center">
-                                <div>
-                                    <a href="grdRegister.html"><span
-                                            class=" glyphicon glyphicon-ok"/>등록</a> <a
-                                        href="grdUpdate.html"><span
-                                        class=" glyphicon glyphicon-check"/>수정</a>
-
-
-                                </div>
 
                                 <table class="교양필수">
                                     <thead>
                                     <tr>
-                                        <th rowspan="2" width="15%">대상</th>
+                                        <th rowspan="2" width="10%">대상</th>
                                         <th rowspan="2" width="40%">교양필수</th>
                                         <th>교양선택</th>
                                         <th rowspan="2">교양학점</th>
@@ -249,15 +233,8 @@
                                 [전공] 학점이 다름.</p>
                             <br> <br>
                             <div style="text-align: center">
-                                <h2>= 소프트웨어공학과 학생 =</h2>
-                                <div>
-                                    <a href="grdRegister.html"><span
-                                            class=" glyphicon glyphicon-ok"/>등록</a>
-                                    <a href="grdUpdate.html"><span
-                                            class=" glyphicon glyphicon-check"/>수정</a>
+                                <h2>컴퓨터공학과 학생</h2>
 
-
-                                </div>
                                 <br />
                                 <div class="주전공">
                                     <h3>주전공(전공기초)</h3>
@@ -265,7 +242,7 @@
                                     <table class="주전공">
                                         <thead>
                                         <tr>
-                                            <th width="20%">대상</th>
+                                            <th width="10%">대상</th>
                                             <th width="40%">졸업조건</th>
                                             <th colspan="2">기타 졸업조건</th>
 
@@ -274,23 +251,33 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td>[2008~2013학번까지]<br />
+                                            <td>[2012학번 까지]<br />
                                             </td>
-                                            <td class="block">전필37학점 + 전선 23학점<br /> 전공 60학점 이상
-                                                이수
+                                            <td class="block">
+                                                전공 80 학점 이상 이수<br />
+                                                - 이전에 학과 지정 교양으로 이수한 학점은 전공 인정<br>
+                                                - 학과지정교양:<br>
+                                                이산수학, 대학수학, 대학물리와 실험1/2,미적분학, 선형대수, 확률과통계
                                             </td>
 
-                                            <td rowspan="2">-전공기초과정<br /> (이산수학, 대학수학, 정보사회론,
-                                                컴퓨터 활용 중 <br />2과목 이상을 포함하여 교양 15학점 이상 이수)<br /> (총 교양
-                                                47학점 이상)
+                                            <td rowspan="2">
+                                                졸업학점 이외의 조건 없음
+
                                             </td>
 
                                         </tr>
 
                                         <tr>
-                                            <td>[2014학번부터]<br />
+                                            <td>[2013학번부터]<br />
                                             </td>
-                                            <td>전필31학점 + 전선29학점 <br /> 전공 60학점 이상 이수
+                                            <td>
+                                                전공 80 학점이상이수<br />
+                                                - 14학번 까지 학과지정교양(6학점):<br />
+                                                정보사회론, 기초영어1<br />
+                                                - 15학번부터 학과지정교양(12학점):<br />
+                                                정보사회론, 기초영어1, 공업수학1, 공업수학2<br />
+                                                - 2017하번부터 학과지정교양(12학점):<br />
+                                                정보사회론, 교양 영어, 공업수학1, 공업수학2
                                             </td>
 
 
@@ -301,56 +288,17 @@
                                     </table>
                                 </div>
                                 <br />
-                                <div class="주전공">
-                                    <h3>주전공(전공심화)</h3>
 
-                                    <table class="주전공">
-                                        <thead>
-                                        <tr>
-                                            <th width="20%">대상</th>
-                                            <th width="40%">졸업조건</th>
-                                            <th colspan="2">기타 졸업조건</th>
-
-
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>[2008~2013학번까지]<br />
-                                            </td>
-                                            <td class="block">전필37학점 + 전선 38학점 전공 75학점 이상 이수<br>
-                                                (전공15학점추가)
-                                            </td>
-
-                                            <td rowspan="2">-전공심화과정<br /> (전공 15학점 이상 추가 이수, 총
-                                                전공 75학점 이상)<br /> 타과복수전공과정, 타과부전공과정, 연계전공과정, 자기설계과정,
-                                                해외창과정 등의 특별과정 중 한 과정 이상 이수
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>[2014학번부터]<br />
-                                            </td>
-                                            <td>전필31학점 + 전선44학점 전공 75학점 이상 이수<br> (전공15학점추가)
-                                            </td>
-
-
-                                        </tr>
-
-
-                                        </tbody>
-                                    </table>
-                                </div>
 
                                 <br />
 
                                 <div class="복수전공">
-                                    <h3>복수전공</h3>
+                                    <h3>(타과)복수전공</h3>
 
                                     <table class="복수전공">
                                         <thead>
                                         <tr>
-                                            <th width="20%">대상</th>
+                                            <th width="10%">대상</th>
                                             <th width="50%">졸업조건</th>
                                             <th>기타 졸업조건</th>
 
@@ -360,7 +308,7 @@
                                         <tbody>
                                         <tr>
                                             <td>전체</td>
-                                            <td>전필 31학점 포함하여 전공 40학점 이상 이수</td>
+                                            <td>전공 60학점 이상 이수</td>
                                             <td>졸업학점 이외의 조건 없음</td>
                                         </tr>
 
@@ -372,12 +320,12 @@
                                 <br>
 
                                 <div class="부전공">
-                                    <h3>부전공</h3>
+                                    <h3>(타과)부전공</h3>
 
                                     <table class="부전공">
                                         <thead>
                                         <tr>
-                                            <th width="20%">대상</th>
+                                            <th width="10%">대상</th>
                                             <th width="50%">졸업조건</th>
                                             <th>기타 졸업조건</th>
 
@@ -387,7 +335,7 @@
                                         <tbody>
                                         <tr>
                                             <td>전체</td>
-                                            <td>전필 31학점 포함하여 전공 60학점 이상 이수</td>
+                                            <td>전공 80 학점이상 이수</td>
                                             <td>졸업학점 이외의 조건 없음</td>
 
 
@@ -399,46 +347,6 @@
 
                                 <br>
 
-                                <div class="편입">
-                                    <h3>편입</h3>
-
-                                    <table class="편입">
-                                        <thead>
-                                        <tr>
-                                            <th width="20%">대상</th>
-                                            <th width="50%">졸업조건</th>
-                                            <th>기타 졸업조건</th>
-
-
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>전체</td>
-                                            <td>1,2 학년 지도과목을 제외하고 전필 27학점을 포함하여 전공 60 학점이상 이수</td>
-                                            <td>졸업학점 이외의 조건 없음</td>
-
-
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <br> <br>
-
-
-                            <div style="text-align: center">
-                                <h2>= 타과학생 =</h2>
-                                <div>
-                                    <a href="grdRegister.html"><span
-                                            class=" glyphicon glyphicon-ok"/>등록</a> <a
-                                        href="grdUpdate.html"><span
-                                        class=" glyphicon glyphicon-check"/>수정</a>
-
-
-                                </div>
-                                <br>
                                 <div class="전과">
                                     <h3>전과</h3>
 
@@ -446,45 +354,6 @@
                                         <thead>
                                         <tr>
                                             <th width="10%">대상</th>
-                                            <th width="26%">졸업조건</th>
-                                            <th colspan="2">기타 졸업조건</th>
-
-
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>전체</td>
-                                            <td>학번에 따라 전공필수 이수<br /> 전과이전 학기의 지도과목은 제외하되,<br>
-                                                그만큼의 학점은 전선을 이수하여 전공학점을 채워야함
-                                            </td>
-                                            <td rowspan="2" class="block">-전공기초과정<br /> (이산수학,
-                                                대학수학, 정보사회론, 컴퓨터 활용 포함 교양 15학점 이상 이수, 총 교양 47학점 이상),<br />
-
-
-                                            </td>
-
-                                            <td>-전공심화과정<br /> (전공 15학점 이상 추가 이수, 총 전공 75학점 이상),<br />
-                                                타과복수전공과정, 타과부전공과정, 연계전공과정, 자기설계과정, 해외창과정 등의 특별과정 중 한 과정
-                                                이상 이수
-                                            </td>
-
-
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <br />
-
-                                <div class="복수전공">
-                                    <h3>복수전공</h3>
-
-                                    <table class="복수전공">
-                                        <thead>
-                                        <tr>
-                                            <th width="20%">대상</th>
                                             <th width="50%">졸업조건</th>
                                             <th>기타 졸업조건</th>
 
@@ -494,7 +363,85 @@
                                         <tbody>
                                         <tr>
                                             <td>전체</td>
-                                            <td>지도 과목 제외하고 전필 24학점 포함하여 전공 40학점 이상 이수(지도 과목은 선택)
+                                            <td>
+                                                2011학년도 까지는 2004~2005 기준적용<br>
+                                                전과학 학년/학기부터 들으면 전필과목이 빠지므로 전선 졸업을 더 이수하여 전공학점을 채워야함<br>
+                                                전과한 이후부터 지도과목을 모두 이수해야함
+
+                                            </td>
+                                            <td>졸업학점 이외의 조건 없음</td>
+
+
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            <br>
+                            <div class="편입">
+                                <h3>편입</h3>
+
+                                <table class="편입">
+                                    <thead>
+                                    <tr>
+                                        <th width="10%">대상</th>
+                                        <th width="60%">졸업조건</th>
+                                        <th >기타 졸업조건</th>
+
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>전체</td>
+                                        <td>
+                                            2011학년도 까지는 2004~2005 기준적용<br />
+                                            1,2 학년 지도과목은 이수하지 x<br />
+                                            그 학점만큼의 전필학점을 더이수하여 전공학점을 채워야함
+                                        </td>
+
+
+                                        <td>
+                                        </td>
+
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                            <br>
+                            <br>
+
+                            <div style="text-align: center">
+                                <h2>= 타과학생 =</h2>
+
+                                <br>
+
+
+                                <br />
+
+                                <div class="복수전공">
+                                    <h3>복수전공</h3>
+
+                                    <table class="복수전공">
+                                        <thead>
+                                        <tr>
+                                            <th width="10%">대상</th>
+                                            <th width="50%">졸업조건</th>
+                                            <th>기타 졸업조건</th>
+
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>타과학생</td>
+                                            <td>
+                                                전필포함 60학점 이상(프로젝트 포함)<br>
+                                                - 학과지정교양은 제외
                                             </td>
                                             <td>졸업학점 이외의 조건 없음</td>
                                         </tr>
@@ -512,7 +459,7 @@
                                     <table class="부전공">
                                         <thead>
                                         <tr>
-                                            <th width="20%">대상</th>
+                                            <th width="10%">대상</th>
                                             <th width="50%">졸업조건</th>
                                             <th>기타 졸업조건</th>
 
@@ -533,138 +480,467 @@
                                 </div>
 
                                 <br>
-                                <div class="참고">
-                                    <h3>< 참고 ></h3>
 
-                                    <table class="참고">
-
-                                        <tbody>
-                                        <tr>
-                                            <td>참고</td>
-                                            <td>* 2015학번까지 과정지도 6개중 5개만 이수해도 인점함.<br> * 공학계
-                                                타학과 개설 과목을 이수한 후 전공​인정신청서와 이수구분변경신청서를 제출하여 승인된 경우, 전공
-                                                선택으로 인정합니다.<br> 단, 전공필수 과목은 반드시 소프트웨어공학과에서 이수하여야 하며,
-                                                같은 과목을 소프트웨어공학과와 타과에서 <br> 이중 이수한 경우 타과 이수 과목은 전공으로
-                                                인정하지 않습니다.<br> 1. 고학년들이 1, 2학년 과목을 재수강 또는 초수강 하려고 할
-                                                때, 전탐 과목을 대체 과목으로지정할 수 있습니다. <br> 졸업 사정 시에 전공으로 인정하여
-                                                사정합니다. 학과에서 대체 과목 목록이 필요하면 작성합니다.<br> 2. 전공탐색 과목을 대체
-                                                과목으로 지정할 수 없고 이제는 개설되지 않는 1, 2학년 과목<br> (예:과정지도 1, 2
-                                                , 3등)은 개설된 다른 전공 과목을 수강(몇 학점이든 상관 없음)하면 인정합니다.<br>
-                                                단, 재수강인 경우에는 대체과목으로 처리되어 B+이하의 성적만 받을 수 있습니다.<br>
-                                                초수강인 경우에는 성적 부여에 제한이 없습니다
-                                            </td>
-
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
                             </div>
 
 
                             <br />
                             <h2>▶공통</h2>
                             <p class="category">공통으로 들어야 하는 학년별 전공필수</p>
-                            <div style="text-align: center">
 
-                                <div>
-                                    <a href="grdRegister.html"><span
-                                            class=" glyphicon glyphicon-ok"/>등록</a> <a
-                                        href="grdUpdate.html"><span
-                                        class=" glyphicon glyphicon-check"/>수정</a>
+                            <p>
+                                &nbsp;</p>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td rowspan="2" style="height: 31px; width: 37px">
+                                        <p>
+                                            학년</p>
+                                    </td>
+                                    <td rowspan="2" style="height: 31px; width: 37px">
+                                        <p>
+                                            학기</p>
+                                    </td>
+                                    <td colspan="5" style="height: 16px; width: 894px">
+                                        <p>
+                                            개설과목 (학점)</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height: 16px; width: 174px">
+                                        <p>
+                                            2006~2008학번</p>
+                                    </td>
+                                    <td style="height: 16px; width: 189px">
+                                        <p>
+                                            2009학번~2012학번</p>
+                                    </td>
+                                    <td style="height: 16px; width: 200px">
+                                        <p>
+                                            2013학번~</p>
+                                    </td>
+                                    <td style="height: 16px; width: 158px">
+                                        <p>
+                                            2015학번부터~</p>
+                                    </td>
+                                    <td style="height: 16px; width: 174px">
+                                        <p>
+                                            2017학번부터~</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" style="height: 89px; width: 37px">
+                                        <p>
+                                            1학년</p>
+                                    </td>
+                                    <td style="height: 45px; width: 37px">
+                                        <p>
+                                            1학기</p>
+                                    </td>
+                                    <td style="height: 45px; width: 174px">
+                                        <p>
+                                            C프로그래밍I(3), 과정지도1(2)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 189px">
+                                        <p>
+                                            C프로그래밍I(3), 과정지도1(1)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 200px">
+                                        <p>
+                                            C프로그래밍I(3), C프로그래밍실습I(1), 공업수학I(3), 과정지도1(1)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 158px">
+                                        <p>
+                                            C프로그래밍I(3), C프로그래밍실습I(1),</p>
+                                        <p>
+                                            과정지도1(1)(2015학번까지)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 174px">
+                                        <p>
+                                            C프로그래밍(4)</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height: 45px; width: 37px">
+                                        <p>
+                                            2학기</p>
+                                    </td>
+                                    <td style="height: 45px; width: 174px">
+                                        <p>
+                                            C프로그래밍II(3), 논리회로설계(3), 과정지도2(1)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 189px">
+                                        <p>
+                                            C프로그래밍II(3), 과정지도2(1)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 200px">
+                                        <p>
+                                            C프로그래밍II(3), C프로그래밍실습II(1), 공업수학II(3), 과정지도2(1)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 158px">
+                                        <p>
+                                            C프로그래밍II(3)</p>
+                                        <p>
+                                            프로그래밍실습II(1)</p>
+                                        <p>
+                                            과정지도2(1)(2015학번까지)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 174px">
+                                        <p>
+                                            자료구조(3),</p>
+                                        <p>
+                                            논리회로설계(3)</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" style="height: 118px; width: 37px">
+                                        <p>
+                                            2학년</p>
+                                    </td>
+                                    <td style="height: 59px; width: 37px">
+                                        <p>
+                                            1학기</p>
+                                    </td>
+                                    <td style="height: 59px; width: 174px">
+                                        <p>
+                                            자료구조(3), 객체지향시스템(3), 데이터통신(3), 과정지도3(1), 컴퓨터구조(3),</p>
+                                    </td>
+                                    <td style="height: 59px; width: 189px">
+                                        <p>
+                                            자료구조(3), 객체지향시스템(3), 데이터통신(3), 논리회로설계(3), 과정지도3(1)</p>
+                                    </td>
+                                    <td style="height: 59px; width: 200px">
+                                        <p>
+                                            자료구조(3),</p>
+                                        <p>
+                                            C++프로그래밍(3), 논리회로설계(3), 데이터통신(3), 과정지도3(1)</p>
+                                    </td>
+                                    <td style="height: 59px; width: 158px">
+                                        <p>
+                                            2013학번~과 동일함.</p>
+                                    </td>
+                                    <td style="height: 59px; width: 174px">
+                                        <p>
+                                            C++프로그래밍(3), 데이터통신(3), 컴퓨터구조(3), 과정지도3(1)</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height: 59px; width: 37px">
+                                        <p>
+                                            2학기</p>
+                                    </td>
+                                    <td style="height: 59px; width: 174px">
+                                        <p>
+                                            운영체제(3), 신호및시스템(3), 윈도우즈프로그래밍I(3), 과정지도4(1)</p>
+                                    </td>
+                                    <td style="height: 59px; width: 189px">
+                                        <p>
+                                            컴퓨터구조(3), 컴퓨터네트워크(3),</p>
+                                        <p>
+                                            신호및시스템(3), 윈도우즈프로그래밍(3), 과정지도4(1)</p>
+                                    </td>
+                                    <td style="height: 59px; width: 200px">
+                                        <p>
+                                            윈도우즈프로그래밍(3), 신호및시스템(3), 컴퓨터구조(3), 컴퓨터네트워크(3),</p>
+                                        <p>
+                                            과정지도4(1)</p>
+                                    </td>
+                                    <td style="height: 59px; width: 158px">
+                                        <p>
+                                            2013학번~과 동일함.</p>
+                                    </td>
+                                    <td style="height: 59px; width: 174px">
+                                        <p>
+                                            윈도우즈프로그래밍(3), 컴퓨터네트워크(3), 신호및시스템(3), 과정지도4(1)</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" style="height: 47px; width: 37px">
+                                        <p>
+                                            3학년</p>
+                                    </td>
+                                    <td style="height: 30px; width: 37px">
+                                        <p>
+                                            1학기</p>
+                                    </td>
+                                    <td style="height: 30px; width: 174px">
+                                        <p>
+                                            컴퓨터그래픽스(3), 과정지도5(1)</p>
+                                    </td>
+                                    <td style="height: 30px; width: 189px">
+                                        <p>
+                                            컴퓨터그래픽스(3), 과정지도5(1)</p>
+                                    </td>
+                                    <td style="height: 30px; width: 200px">
+                                        <p>
+                                            컴퓨터그래픽스(3), 과정지도5(1)</p>
+                                    </td>
+                                    <td style="height: 30px; width: 158px">
+                                        <p>
+                                            2013학번~과 동일함.</p>
+                                    </td>
+                                    <td style="height: 30px; width: 174px">
+                                        <p>
+                                            컴퓨터그래픽스(3), 과정지도5(1)</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height: 17px; width: 37px">
+                                        <p>
+                                            2학기</p>
+                                    </td>
+                                    <td style="height: 17px; width: 174px">
+                                        <p>
+                                            과정지도6(1)</p>
+                                    </td>
+                                    <td style="height: 17px; width: 189px">
+                                        <p>
+                                            운영체제(3), 과정지도6(1)</p>
+                                    </td>
+                                    <td style="height: 17px; width: 200px">
+                                        <p>
+                                            운영체제(3), 과정지도6(1)</p>
+                                    </td>
+                                    <td style="height: 17px; width: 158px">
+                                        <p>
+                                            2013학번~과 동일함.</p>
+                                    </td>
+                                    <td style="height: 17px; width: 174px">
+                                        <p>
+                                            운영체제(3), 과정지도6(1)</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" style="height: 89px; width: 37px">
+                                        <p>
+                                            4학년</p>
+                                    </td>
+                                    <td style="height: 45px; width: 37px">
+                                        <p>
+                                            1학기</p>
+                                    </td>
+                                    <td style="height: 45px; width: 174px">
+                                        <p>
+                                            게임프로그래밍프로젝트(6),</p>
+                                        <p>
+                                            네트워크시스템프로젝트(6),</p>
+                                        <p>
+                                            과정지도7(1)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 189px">
+                                        <p>
+                                            게임프로그래밍프로젝트(6),</p>
+                                        <p>
+                                            네트워크시스템프로젝트(6),</p>
+                                        <p>
+                                            과정지도7(1)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 200px">
+                                        <p>
+                                            게임프로그래밍프로젝트(6),</p>
+                                        <p>
+                                            네트워크시스템프로젝트(6),</p>
+                                        <p>
+                                            졸업지도1(1)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 158px">
+                                        <p>
+                                            2013학번~과 동일함.</p>
+                                    </td>
+                                    <td style="height: 45px; width: 174px">
+                                        <p>
+                                            졸업지도1(1)</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height: 45px; width: 37px">
+                                        <p>
+                                            2학기</p>
+                                    </td>
+                                    <td style="height: 45px; width: 174px">
+                                        <p>
+                                            멀티미디어처리프로젝트(6),</p>
+                                        <p>
+                                            그래픽스프로젝트(6),</p>
+                                        <p>
+                                            과정지도8(1)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 189px">
+                                        <p>
+                                            멀티미디어처리프로젝트(6),</p>
+                                        <p>
+                                            그래픽스프로젝트(6),과정지도8(1)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 200px">
+                                        <p>
+                                            컴퓨터그래픽스프로젝트(6),</p>
+                                        <p>
+                                            멀티미디어처리프로젝트(6),</p>
+                                        <p>
+                                            졸업지도2(1)</p>
+                                    </td>
+                                    <td style="height: 45px; width: 158px">
+                                        <p>
+                                            2013학번~과 동일함.</p>
+                                    </td>
+                                    <td style="height: 45px; width: 174px">
+                                        <p>
+                                            졸업지도2(1)</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="height: 16px; width: 74px">
+                                        <p>
+                                            학점 계</p>
+                                    </td>
+                                    <td style="height: 16px; width: 174px">
+                                        <p>
+                                            54</p>
+                                    </td>
+                                    <td style="height: 16px; width: 189px">
+                                        <p>
+                                            56</p>
+                                    </td>
+                                    <td style="height: 16px; width: 200px">
+                                        <p>
+                                            64</p>
+                                    </td>
+                                    <td style="height: 16px; width: 158px">
+                                        <p>
+                                            56(2015학번까지 58)</p>
+                                    </td>
+                                    <td style="height: 16px; width: 174px">
+                                        <p>
+                                            40</p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p>
+                                * 과정지도7, 과정지도8 -&gt; 졸업지도1, 졸업지도2 과목명 변경 (2014-1부터)</p>
+                            <p>
+                                * 3D그래픽스입문 전필 -&gt; 전선으로 변경 (2014년 이전에 수강한 학생도 전선으로 인정)</p>
+                            <p>
+                                * <u>2017</u><u>학년도부터 프로젝트 과목은 전공 선택으로 </u><u>1</u><u>학기에 개설되며 </u><u>1</u><u>과목을 필히 이수하여야 함</u><u>.</u></p>
+                            <p>
+                                <u>(</u><u>&lsquo;2017</u><u>학년 이전에 입학한 학생의 경우</u><u>, </u><u>프로젝트 과목을</u><u>1</u><u>과목 이수하면 해당 졸업요건을 충족하는 것으로 인정함</u><u>&rsquo;)</u></p>
+                            <p>
+                                * 2015학번부터는 전공 80학점 이상, 학과지정교양 12학점을 필히 이수하여야 함.</p>
+                            <p>
+                                * 2012학번 이전 재학생의 졸업요건은 전공 60학점 이상, 학과지정교양 21학점에서 전공 80학점 이상으로 변경함.</p>
+                            <p>
+                                이미 수강한 학과지정교양 (이산수학, 대학수학, 대학물리와 실험I/II, 미적분학, 선형대수, 확률과통계)은 전공으로 인정할 수 있음.</p>
+                            <p>
+                                &nbsp;</p>
+                            <p>
 
+                            <div class="center">
 
-                                </div>
-                                <br />
-                                <h2>소프트웨어공학과 전공필수</h2>
-                                <br />
-                                <table class="전공필수">
-                                    <thead>
-                                    <tr>
-                                        <th>학년</th>
-                                        <th>학기</th>
-                                        <th>2008~2013</th>
-                                        <th>2014~2017</th>
-
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td rowspan="2" class="block">1</td>
-                                        <td>1</td>
-                                        <td>C프로그래밍I(3), 과정지도1(1)</td>
-                                        <td>C프로그래밍I(3), 과정지도1(1)</td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>2</td>
-                                        <td>C프로그래밍II(3), 과정지도2(1)</td>
-                                        <td>웹페이지구축I(3), 과정지도2(1)</td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td rowspan="2">2</td>
-                                        <td>1</td>
-                                        <td>컴퓨터구조(3), Java프로그래밍(3)<br /> 데이터베이스개론(3),
-                                            과정지도3(1)
-                                        </td>
-                                        <td>컴퓨터구조(3), Java프로그래밍(3)<br /> 데이터베이스개론(3),
-                                            과정지도3(1)
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>2</td>
-                                        <td>웹프로그래밍I(3), 자료구조론(3)<br /> 운영체제론(3), 과정지도4(1)
-                                        </td>
-                                        <td>자료구조론(3)<br /> 운영체제론(3), 과정지도4(1)
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td rowspan="2">3</td>
-                                        <td>1</td>
-                                        <td>알고리즘(3), 시스템분석및설계(3)<br /> 과정지도5(1)
-                                        </td>
-                                        <td>알고리즘(3)<br /> 과정지도5(1)
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>2</td>
-                                        <td>과정지도6(1)</td>
-                                        <td>과정지도6(1)</td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>4</td>
-                                        <td>1,2</td>
-                                        <td>졸업지도(1)</td>
-                                        <td>졸업지도(1)</td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td colspan="2">합계</td>
-                                        <td>37</td>
-                                        <td>31</td>
-
-                                    </tr>
-
-
-                                    </tbody>
-                                </table>
-                                *2015학번까지 과정지도 6개중 5개만 이수해도 인정함 <br />
-                            </div>
-
-
+                            <p>
+                                [ 학과지정 교양 학점 ]</p>
+                            <p>
+                                &nbsp;</p>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td style="height: 17px; width: 133px">
+                                        <p>
+                                            적용시점</p>
+                                    </td>
+                                    <td style="height: 17px; width: 82px">
+                                        <p>
+                                            학년</p>
+                                    </td>
+                                    <td style="height: 17px; width: 86px">
+                                        <p>
+                                            학기</p>
+                                    </td>
+                                    <td style="height: 17px; width: 504px">
+                                        <p>
+                                            개설과목 (학점)</p>
+                                    </td>
+                                    <td style="height: 17px; width: 81px">
+                                        <p>
+                                            학기 학점</p>
+                                    </td>
+                                    <td style="height: 17px; width: 81px">
+                                        <p>
+                                            학점 계</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height: 17px; width: 133px">
+                                        <p>
+                                            2013학번-2014학번</p>
+                                    </td>
+                                    <td style="height: 17px; width: 82px">
+                                        <p>
+                                            1학년</p>
+                                    </td>
+                                    <td style="height: 17px; width: 86px">
+                                        <p>
+                                            1학기</p>
+                                    </td>
+                                    <td style="height: 17px; width: 504px">
+                                        <p>
+                                            정보사회론(3), 기초영어I(3)</p>
+                                    </td>
+                                    <td style="height: 17px; width: 81px">
+                                        <p>
+                                            6</p>
+                                    </td>
+                                    <td style="height: 17px; width: 81px">
+                                        <p>
+                                            6</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" style="height: 38px; width: 133px">
+                                        <p>
+                                            2015학번부터</p>
+                                    </td>
+                                    <td rowspan="2" style="height: 38px; width: 82px">
+                                        <p>
+                                            1학년</p>
+                                    </td>
+                                    <td style="height: 21px; width: 86px">
+                                        <p>
+                                            1학기</p>
+                                    </td>
+                                    <td style="height: 21px; width: 504px">
+                                        <p>
+                                            정보사회론(3), 공업수학I(3), 기초영어I(3)(<u>2017</u><u>학번부터 교양영어 </u><u>3</u><u>학점 이상 이수</u>)</p>
+                                    </td>
+                                    <td style="height: 21px; width: 81px">
+                                        <p>
+                                            9</p>
+                                    </td>
+                                    <td rowspan="2" style="height: 38px; width: 81px">
+                                        <p>
+                                            12</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height: 17px; width: 86px">
+                                        <p>
+                                            2학기</p>
+                                    </td>
+                                    <td style="height: 17px; width: 504px">
+                                        <p>
+                                            공업수학II(3)</p>
+                                    </td>
+                                    <td style="height: 17px; width: 81px">
+                                        <p>
+                                            3</p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
+
+
+
+
 
 
 

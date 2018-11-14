@@ -27,6 +27,47 @@
         <link href="${R}http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css"/>
         <link href="${R}assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
+
+
+        <style type="text/css">
+
+        .dropbtn {
+        background-color: rgba(28,189,222,0.73);
+        /*color: white;*/
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        }
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: rgba(28,189,222,0.73);
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+        .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        }
+        .dropdown-content a:hover {
+        background-color: #f1f1f1
+        }
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+        .dropdown:hover .dropbtn {
+        /*background-color: #3e8e41;*/
+        }
+        </style>
+
         </head>
 
         <div class="sidebar" data-color="azure" data-image="${R}assets/img/logo.jpg">
@@ -83,29 +124,30 @@
             </li>
         </c:if>
 
-        <li>
+        <li >
         <a href="#"> <i class="pe-7s-bell"></i>
         <p>졸업 요건</p></a>
-        </li>
-        <ul>
-        <li><a href="#Link">소프트웨어공학과</a>
 
-        <ul >
-        <li><a href="/main/before18?type=${member.type}&id=${member.id}">18학번 이전</a></li>
-        <li><a href="/main/after18?type=${member.type}&id=${member.id}">18학번 이후</a></li>
+        <ul class="dropdown">
+           <li class="dropbtn">소프트웨어공학과
+             <ul class="dropdown-content">
+              <a href="/main/before18?type=${member.type}&id=${member.id}">18학번 이전</a>
+              <a href="/main/after18?type=${member.type}&id=${member.id}">18학번 이후</a>
+             </ul>
+           </li>
+        </ul>
+
+        <ul class="dropdown">
+             <li class="dropbtn">컴퓨터공학과</li>
+             <ul class="dropdown-content">
+               <a href="/main/comBefore18?type=${member.type}&id=${member.id}">18학번 이전</a>
+               <a href="/main/comAfter18?type=${member.type}&id=${member.id}">18학번 이후</a>
+             </ul>
+            </li>
         </ul>
 
         </li>
 
-
-        <li><a href="#Link">컴퓨터공학과</a></li>
-        <ul>
-        <li><a href="/main/comBefore18?type=${member.type}&id=${member.id}">18학번 이전</a></li>
-        <li><a href="/main/comAfter18?type=${member.type}&id=${member.id}">18학번 이후</a></li>
-        </ul>
-
-        </li>
-        </ul>
         <li>
         <a href="/main/replaceLecture?type=${member.type}&id=${member.id}">
         <i class="pe-7s-repeat"></i>

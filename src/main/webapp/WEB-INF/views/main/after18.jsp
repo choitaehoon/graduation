@@ -23,7 +23,7 @@
         }
 
         body {
-        font: 14px/1.4 Georgia, Serif;
+            font: 14px/1.4 Georgia;
 
         }
 
@@ -58,7 +58,7 @@
         td, th {
             padding: 6px;
             border: 1px solid #ccc;
-        text-align: left;
+            text-align: left;
         }
 
         @media only screen and (max-width: 760px) , ( min-device-width : 768px)
@@ -142,7 +142,7 @@
                     <div class="card">
                         <div class="header">
                             <h4 class="title">18학번 이후 졸업 요건</h4>
-                            <p class="category">졸업요건</p>
+                            <p class="category">소프트웨어공학과 졸업요건</p>
 
 
                             <div class="pull-right">
@@ -153,14 +153,7 @@
                                     <span class=" glyphicon glyphicon-search"></span>조회
                                 </button>
                             </div>
-                            <div>
-                                <a href="grdRegister.html"><span
-                                        class=" glyphicon glyphicon-ok"/>등록</a>
-                                <a href="grdUpdate.html"><span
-                                    class=" glyphicon glyphicon-check"/>수정</a>
 
-
-                            </div>
 
                             <br> <br> <br> <br>
 

@@ -23,7 +23,7 @@
         }
 
         body {
-            font: 14px/1.4 Georgia, Serif;
+            font: 14px/1.4 Georgia;
 
         }
 
@@ -145,24 +145,7 @@
                             <p class="category">컴퓨터공학과 졸업요건</p>
 
 
-                            <div class="pull-right">
-                                <label>전공이름: </label> <input type="text" name="search"
-                                                             style="width: 122px; height: 37px;">
-
-                                <button type="submit" class="btn">
-                                    <span class=" glyphicon glyphicon-search"></span>조회
-                                </button>
-                            </div>
-                            <div>
-                                <a href="grdRegister.html"><span
-                                        class=" glyphicon glyphicon-ok"/>등록</a>
-                                <a href="grdUpdate.html"><span
-                                        class=" glyphicon glyphicon-check"/>수정</a>
-
-
-                            </div>
-
-                            <br> <br> <br> <br>
+                            <br> <br>
 
                             <div style="text-align: center">
                                 <div class="기본 졸업요건">
