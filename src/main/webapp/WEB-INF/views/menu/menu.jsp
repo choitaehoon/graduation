@@ -87,26 +87,25 @@
         <a href="#"> <i class="pe-7s-bell"></i>
         <p>졸업 요건</p></a>
         </li>
-
         <ul>
         <li><a href="#Link">소프트웨어공학과</a>
 
         <ul >
         <li><a href="/main/before18?type=${member.type}&id=${member.id}">18학번 이전</a></li>
         <li><a href="/main/after18?type=${member.type}&id=${member.id}">18학번 이후</a></li>
-        <li><a href="#">전공인정규칙</a></li>
         </ul>
 
         </li>
 
 
         <li><a href="#Link">컴퓨터공학과</a></li>
-        <li><a href="#Link">정보통신학과</a></li>
-        <li><a href="#Link">디지털컨텐츠학과</a></li>
+        <ul>
+        <li><a href="/main/comBefore18?type=${member.type}&id=${member.id}">18학번 이전</a></li>
+        <li><a href="/main/comAfter18?type=${member.type}&id=${member.id}">18학번 이후</a></li>
         </ul>
 
         </li>
-
+        </ul>
         <li>
         <a href="/main/replaceLecture?type=${member.type}&id=${member.id}">
         <i class="pe-7s-repeat"></i>
