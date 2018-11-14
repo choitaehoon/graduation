@@ -380,7 +380,7 @@ public class MainController {
         model.addAttribute("selected",lectureService.selectCheckAndTwo(choice));
         model.addAttribute("search",search);
         model.addAttribute("choice",choice);
-
+        model.addAttribute("departments",departmentMapper.findAll());
 
         return "main/graduationInfo";
     }

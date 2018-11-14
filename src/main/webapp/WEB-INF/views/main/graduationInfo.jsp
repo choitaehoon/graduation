@@ -13,7 +13,11 @@
                 $("input[name=pg]").val($(this).attr("data-page"));
                 $("form").submit();
             });
-            $("#data-confirm-delete").click(function() {
+            $("#data-confirm-delete1").click(function() {
+                return confirm("삭제하시겠습니까?");
+            });
+
+            $("#data-confirm-delete2").click(function() {
                 return confirm("삭제하시겠습니까?");
             });
         });
@@ -112,14 +116,26 @@
                             <c:if test="${student.graduationRule_id == 3}">
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
-                                    <tr>
+                                    <tr style="width: 50px">
                                         <form method="post">
                                             <div class="pull-right" style="margin-right:10px;" >
                                                 <button type="submit" class="btn btn-primary">  적용</button>
                                             </div>
                                             <div class="pull-right" style="margin-right:10px;margin-bottom: 3px" >
-                                                <select name="" class="form-control w200">
-                                                    <option value="1">컴퓨터공학과</option>
+                                                <select class="form-control w200">
+                                                    <option>컴퓨터공학과</option>
+                                                    <option>신학과</option>
+                                                    <option>영어학과</option>
+                                                    <option>일어일본학과</option>
+                                                    <option>중어중국학과</option>
+                                                    <option>사회복지학과</option>
+                                                    <option>사회과학부</option>
+                                                    <option>신문방송학과</option>
+                                                    <option>경영학과</option>
+                                                    <option>디지털컨텐츠학과</option>
+                                                    <option>컴퓨터공학과</option>
+                                                    <option>정보통신공학과</option>
+                                                    <option>글로컬IT학과</option>
                                                 </select>
                                             </div>
                                             <div class="pull-right" style="margin-right: 10px;" >
@@ -130,20 +146,10 @@
 
 
                                     <tr>
-                                        <td>
+                                        <td style="padding-left: 250px;">
                                             <h3>복수 전공 학점</h3>
                                             <div class="c100 p${creditPercentMajor > 100? 100 : creditPercentMajor} orange">
                                                 <span>${totalCreditMajor}/${student.majorGoal}</span>
-                                                <div class="slice">
-                                                    <div class="bar"></div>
-                                                    <div class="fill"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h3>교양 학점</h3>
-                                            <div class="c100 p${creditPercentCulture > 100? 100 : creditPercentCulture} green">
-                                                <span>${totalCreditCulture}/${student.cultureGoal}</span>
                                                 <div class="slice">
                                                     <div class="bar"></div>
                                                     <div class="fill"></div>
@@ -160,14 +166,26 @@
                             <c:if test="${student.graduationRule_id == 4}">
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-hover table-striped">
-                                        <tr>
+                                        <tr style="width: 50px">
                                             <form method="post">
                                                 <div class="pull-right" style="margin-right:10px;" >
                                                     <button type="submit" class="btn btn-primary">  적용</button>
                                                 </div>
                                                 <div class="pull-right" style="margin-right:10px;margin-bottom: 3px" >
-                                                    <select name="" class="form-control w200">
-                                                        <option value="1">컴퓨터공학과</option>
+                                                    <select class="form-control w200">
+                                                        <option>컴퓨터공학과</option>
+                                                        <option>신학과</option>
+                                                        <option>영어학과</option>
+                                                        <option>일어일본학과</option>
+                                                        <option>중어중국학과</option>
+                                                        <option>사회복지학과</option>
+                                                        <option>사회과학부</option>
+                                                        <option>신문방송학과</option>
+                                                        <option>경영학과</option>
+                                                        <option>디지털컨텐츠학과</option>
+                                                        <option>컴퓨터공학과</option>
+                                                        <option>정보통신공학과</option>
+                                                        <option>글로컬IT학과</option>
                                                     </select>
                                                 </div>
                                                 <div class="pull-right" style="margin-right: 10px;" >
@@ -177,20 +195,10 @@
                                         </tr>
 
                                         <tr>
-                                            <td>
+                                            <td style="padding-left: 250px;">
                                                 <h3>부전공 학점</h3>
                                                 <div class="c100 p${creditPercentMajor > 100? 100 : creditPercentMajor} orange">
                                                     <span>${totalCreditMajor}/${student.majorGoal}</span>
-                                                    <div class="slice">
-                                                        <div class="bar"></div>
-                                                        <div class="fill"></div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h3>교양 학점</h3>
-                                                <div class="c100 p${creditPercentCulture > 100? 100 : creditPercentCulture} green">
-                                                    <span>${totalCreditCulture}/${student.cultureGoal}</span>
                                                     <div class="slice">
                                                         <div class="bar"></div>
                                                         <div class="fill"></div>
@@ -234,7 +242,7 @@
                                     <input type="hidden" name="id" value="${member.id}">
                                     <input type="hidden" name="choice" value="${choice}">
                                     <input type="hidden" name="search" value="${search}">
-                                    <button id='data-confirm-delete' type=submit" class="btn btn-danger">수강내역 전체삭제</button>
+                                    <button id='data-confirm-delete1' type=submit" class="btn btn-danger">수강내역 전체삭제</button>
                                 </form>
                             </div>
                             <div class="pull-right" style="margin-right:10px;">
@@ -252,7 +260,7 @@
                         <input type="hidden" name="id" value="${member.id}">
                         <input type="hidden" name="choice" value="${choice}">
                         <input type="hidden" name="search" value="${search}">
-                        <button type="submit" class="btn btn-danger" id="data-confirm-delete">시물레이션 초기화</button>
+                        <button type="submit" class="btn btn-danger" id="data-confirm-delete2">시물레이션 초기화</button>
                     </form>
                 </div>
 
