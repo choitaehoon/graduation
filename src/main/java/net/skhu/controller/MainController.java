@@ -365,7 +365,7 @@ public class MainController {
         pagination.setRecordCount(myLectureMapper.courseCount(choice,search,id));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         model.addAttribute("student", studentMapper.findById(id));
-        model.addAttribute("graduationRules",graduationRuleMapper.findAll());
+        model.addAttribute("graduationRules",graduationRuleMapper.findBy18(id));
         model.addAttribute("totalSemester",studentMapper.totalSemester(id));
         model.addAttribute("avgGrade",studentMapper.avgGrade(id));
         model.addAttribute("totalCredit",studentMapper.totalCredit(id));
