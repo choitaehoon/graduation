@@ -112,7 +112,7 @@
         left join department d on s.department_id = d.id
         left join graduationRule r on s.graduationRule_id=r.id
         left join mylecture m on s.id = m.student_id
-        where s.id = #{id} and m.grade='0.0';
+        where s.id = #{id} and m.grade='F';
     </select>
 
     <resultMap id="resultMapId" type="Student">
@@ -166,9 +166,23 @@
     </select>
 
     <select id="avgGrade" resultType="double">
-      select ifnull(round(sum(m.grade*m.credit)/sum(m.credit),2),0.0)
+      select ifnull(round(sum(gradeA)/sum(credit),2), 0.0)
+      from
+        (select credit,credit*
+		CASE WHEN grade = 'A+' THEN '4.5'
+        WHEN grade = 'A0' THEN '4.0'
+        WHEN grade = 'B+' THEN '3.5'
+        WHEN grade = 'B0' THEN '3.0'
+        WHEN grade = 'C+' THEN '2.5'
+        WHEN grade = 'C0' THEN '2.0'
+        WHEN grade = 'D+' THEN '1.5'
+        WHEN grade = 'D0' THEN '1.0'
+        WHEN grade = 'F' THEN '0.0'
+        WHEN grade = 'P' THEN 'P'
+        else 'NP'
+        END as gradeA
       from student s left join mylecture m on s.id=m.student_id
-      where m.grade not in('P','NP') and s.id =#{id};
+      where m.grade not in('P','NP') and s.id =#{id})alias
     </select>
 
     <select id="creditPercent" resultType="int">
