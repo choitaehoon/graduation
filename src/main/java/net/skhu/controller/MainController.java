@@ -414,4 +414,20 @@ public class MainController {
         return "main/myLecExcel";
     }
 
+
+    /*
+    컴퓨터공학과 졸업요건
+     */
+    @RequestMapping("comAfter18")
+    public String comAfter18(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/comAfter18";
+    }
+    @RequestMapping("comBefore18")
+    public String comBefore18(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
+    {
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/comBefore18";
+    }
 }
