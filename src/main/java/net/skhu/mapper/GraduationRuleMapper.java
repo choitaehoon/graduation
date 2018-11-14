@@ -11,4 +11,5 @@ import java.util.List;
 public interface GraduationRuleMapper
 {
     List<GraduationRule> findAll();
+    List<GraduationRule> findBy18(int id);
 }
