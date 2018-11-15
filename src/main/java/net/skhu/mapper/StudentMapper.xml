@@ -341,5 +341,23 @@
         where id = #{id}
     </update>
 
+    <select id="doubleMajor" resultType="int">
+        select ifnull(sum(m.credit),0) doubleMajor
+      from student s
+      left join mylecture m on s.id=m.student_id
+      left join graduationrule r on s.graduationrule_id=r.id
+      left join comgraduationrule c on r.comgraduationId = c.id
+      where s.id=#{id} and (m.detailType='복필'or m.detailType='복선')
+    </select>
+
+    <select id="minor" resultType="int">
+      select ifnull(sum(m.credit),0) minor
+      from student s
+      left join mylecture m on s.id=m.student_id
+      left join graduationrule r on s.graduationrule_id=r.id
+      left join comgraduationrule c on r.comgraduationId = c.id
+      where s.id=#{id} and (m.detailType='부필'or m.detailType='부선')
+    </select>
+
 
 </mapper>

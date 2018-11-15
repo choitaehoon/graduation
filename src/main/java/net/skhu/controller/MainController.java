@@ -382,6 +382,8 @@ public class MainController {
         model.addAttribute("choice",choice);
         model.addAttribute("departments",departmentMapper.findAll());
         model.addAttribute("essentialMajor",lectureMapper.findEssentialMajor(id));
+        model.addAttribute("minor",studentMapper.minor(id));
+        model.addAttribute("doubleMajor",studentMapper.doubleMajor(id));
 
         return "main/graduationInfo";
     }
