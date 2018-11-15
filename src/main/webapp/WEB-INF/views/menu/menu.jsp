@@ -33,9 +33,7 @@
 
         .dropbtn {
         background-color: rgba(28,189,222,0.73);
-        /*color: white;*/
-        padding: 16px;
-        font-size: 16px;
+        font-size: 13px;
         border: none;
         cursor: pointer;
         }
@@ -115,7 +113,7 @@
             </li>
         </c:if>
 
-        <%--<li>--%>
+
         <c:if test="${member.type == 1}">
             <li>
             <a href="/main/graduationInfo?type=${member.type}&id=${member.id}">
@@ -135,10 +133,11 @@
               <a href="/main/after18?type=${member.type}&id=${member.id}">18학번 이후</a>
              </ul>
            </li>
-        </ul>
 
+        </ul>
+        <br>
         <ul class="dropdown">
-             <li class="dropbtn">컴퓨터공학과</li>
+             <li class="dropbtn">컴퓨터공학과
              <ul class="dropdown-content">
                <a href="/main/comBefore18?type=${member.type}&id=${member.id}">18학번 이전</a>
                <a href="/main/comAfter18?type=${member.type}&id=${member.id}">18학번 이후</a>
