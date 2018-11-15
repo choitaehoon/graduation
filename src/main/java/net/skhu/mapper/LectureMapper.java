@@ -22,4 +22,6 @@ public interface LectureMapper {
     void insert(Lecture lecture);
     void delete(Lecture lecture);
 
+    List<Lecture> findEssentialMajor(int id);
+
 }

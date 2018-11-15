@@ -120,6 +120,17 @@
 
     </select>
 
+    <!-- 학번으로 안들은 전공필수과목 뽑기 -->
+    <select id="findEssentialMajor" resultType="Lecture">
+        select distinct (n.lecture_id), l.title from
+        (select g.lecture_id from grdlecture g
+        left outer join (select * from mylecture where student_id = #{id})m
+        on g.lecture_id = m.lecture_id
+        where g.graduationRule_id = 1 and m.title is null)n
+        left join lecture l
+        on n.lecture_id = l.id;
+    </select>
+
     <insert id="insert">
     INSERT Lecture (year, semester, id , split, title, admin_id, credit, subType)
 	VALUES (#{year}, #{semester}, #{id}, #{split}, #{title},#{admin_id}, #{credit},#{subType})

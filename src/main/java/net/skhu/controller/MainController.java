@@ -6,11 +6,7 @@ import net.skhu.Service.MyLecService;
 import net.skhu.Service.ReplaceService;
 import net.skhu.Service.TypeIdentity;
 import net.skhu.domain.*;
-import net.skhu.mapper.DepartmentMapper;
-import net.skhu.mapper.MyLectureMapper;
-import net.skhu.mapper.ReplaceLectureMapper;
-import net.skhu.mapper.StudentMapper;
-import net.skhu.mapper.GraduationRuleMapper;
+import net.skhu.mapper.*;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,6 +40,8 @@ public class MainController {
     ReplaceLectureMapper replaceLectureMapper;
     @Autowired
     ReplaceService replaceService;
+    @Autowired
+    LectureMapper lectureMapper;
     @Autowired
     MyLectureMapper myLectureMapper;
     @Autowired
@@ -383,6 +381,7 @@ public class MainController {
         model.addAttribute("search",search);
         model.addAttribute("choice",choice);
         model.addAttribute("departments",departmentMapper.findAll());
+        model.addAttribute("essentialMajor",lectureMapper.findEssentialMajor(id));
 
         return "main/graduationInfo";
     }
