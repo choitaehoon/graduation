@@ -112,6 +112,10 @@
                                                     <option value="교필">교필</option>
                                                     <option value="전선">전선</option>
                                                     <option value="전필">전필</option>
+                                                    <option value="복선">복선</option>
+                                                    <option value="복필">복필</option>
+                                                    <option value="부선">부선</option>
+                                                    <option value="부필">부필</option>
                                                 </select>
                                                 <input type="hidden" name="lecture_year" value="${lecture.year}">
                                                 <input type="hidden" name="lecture_semester" value="${lecture.semester}">
