@@ -23,7 +23,7 @@
         }
 
         body {
-        font: 14px/1.4 Georgia, Serif;
+            font: 14px/1.4 Georgia;
 
         }
 
@@ -58,7 +58,7 @@
         td, th {
             padding: 6px;
             border: 1px solid #ccc;
-        text-align: left;
+            text-align: left;
         }
 
         @media only screen and (max-width: 760px) , ( min-device-width : 768px)
@@ -142,25 +142,8 @@
                     <div class="card">
                         <div class="header">
                             <h4 class="title">18학번 이후 졸업 요건</h4>
-                            <p class="category">졸업요건</p>
+                            <p class="category">소프트웨어공학과 졸업요건</p>
 
-
-                            <div class="pull-right">
-                                <label>전공이름: </label> <input type="text" name="search"
-                                                             style="width: 122px; height: 37px;">
-
-                                <button type="submit" class="btn">
-                                    <span class=" glyphicon glyphicon-search"></span>조회
-                                </button>
-                            </div>
-                            <div>
-                                <a href="grdRegister.html"><span
-                                        class=" glyphicon glyphicon-ok"/>등록</a>
-                                <a href="grdUpdate.html"><span
-                                    class=" glyphicon glyphicon-check"/>수정</a>
-
-
-                            </div>
 
                             <br> <br> <br> <br>
 
@@ -175,13 +158,17 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td>- 졸업학점 130학점 이상을 이수한 자<br> - 비아메디아 채플 이수기준을
-                                                충족한 자<br> - 사회봉사 이수기준을 충족한 자. <br> 다만, 장애학생의 경우
-                                                사회봉사 이수가 곤란하다고 판단될 시, 총장은 이에 대한 이수를 면제할 수 있다.<br> -
-                                                교양필수, 전공필수 과목을 모두 이수한 자<br> - 다음 전공 이수방식 중 하나를 선택하여
-                                                각 전공에서 요구하는 졸업자격을 충족한 자<br> - 주전공과 부전공<br> -
-                                                복수1전공과 복수2전공<br> - 혁신융합전공<br> - 특별과정을 신청한 경우, 그
-                                                이수기준을 충족한 자<br> - 전공탐색 이수학점을 충족한 자<br>
+                                            <td>- 졸업학점 130학점 이상을 이수한 자<br>
+                                                - 비아메디아 채플 이수기준을 충족한 자<br>
+                                                - 사회봉사 이수기준을 충족한 자. <br>
+                                                다만, 장애학생의 경우 사회봉사 이수가 곤란하다고 판단될 시, 총장은 이에 대한 이수를 면제할 수 있다.<br> -
+                                                교양필수, 전공필수 과목을 모두 이수한 자<br>
+                                                - 다음 전공 이수방식 중 하나를 선택하여 각 전공에서 요구하는 졸업자격을 충족한 자<br>
+                                                - 주전공과 부전공<br> -
+                                                복수1전공과 복수2전공<br>
+                                                - 혁신융합전공<br>
+                                                - 특별과정을 신청한 경우, 그 이수기준을 충족한 자<br>
+                                                - 전공탐색 이수학점을 충족한 자<br>
                                             </td>
 
 
