@@ -216,6 +216,27 @@
                 </div>
             </div>
         </div>
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h3>✔ 들어야 할 과목 List</h3>
+                    </div>
+                    <table class="table table-striped" style="width:15%; max-width: 15%;%; margin-bottom:20px;">
+                        <thead>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;전공 및 교양 필수 과목</th>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="essentialMajor" items="${ essentialMajor }">
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;${ essentialMajor.title }</td>
+                        </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
             <div class="container-fluid">
                 <div class="col-md-12">
