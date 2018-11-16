@@ -60,9 +60,11 @@
                                             <td>${ notice.admin.name }</td>
                                             <td>${ notice.time }</td>
                                             <td>${ notice.count }</td>
-                                                <%--                                <td><a href='noticeRegister?id=${notice.id }&title=${notice.title }&admin_id=${notice.admin_id}&time=${notice_time}&type=${member.type}&userId=${member.id}'>
-                                                                                    <button  type="button" class="btn btn-primary">수정</button>
-                                                                                </a>--%>
+                                            <c:if test="${member.type==2 }">
+                                            <td><a href='noticeUpdate?id=${notice.id }&title=${notice.title }&admin_id=${notice.admin_id}&time=${notice_time}&type=${member.type}&userId=${member.id}'>
+                                                <button  type="button" class="btn btn-primary">수정</button>
+                                            </a></td>
+                                            </c:if>
                                         </tr>
                                     </c:forEach>
                                     </tbody>

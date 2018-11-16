@@ -6,13 +6,33 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<c:url var="R" value="/" />
+<!doctype html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" media="screen">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${R}res/common.css">
+    <script src="${R}res/common.js"></script>
+
+    <style>
+        #content {
+            margin-left: 30%;
+            height: 800px;
+        }
+    </style>
 
 </head>
+
+
 <body>
 <div class="wrapper">
     <%@include file="../menu/menu.jsp"%>
+
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -21,90 +41,98 @@
                         <div class="header">
                             <h4 class="title">공지사항 관리</h4>
 
-
+                            <form:form method="post" modelAttribute="notice">
                             <div id="content">
+                                    <%--                        <br />--%>
+                                <h4>공지사항 수정</h4>
                                 <br />
-                                <h1>공지사항 수정</h1>
-                                <br /> <label>제목</label>
+                                <form method="post">
+                                        <%--<input type="hidden" name="pg" value="1">--%>
+                                    <input type="hidden" name="type" value="${member.type}"  />
+                                    <input type="hidden" name="userId" value="${member.id}" />
+
+                                </form>
+                                <label>제목</label>
                                 <div class="form-group">
-                                    <input type="text" style="width: 300px" value="[IT학부] SM 사업 공지(1학년 멘티 모집)" />
+                                        <%--   <input type="text" style="width: 300px" value="[IT학부] SM 사업 공지(1학년 멘티 모집)" />--%>
+                                    <form:input path="title" class="form-control" style="width: 100px" />
                                 </div>
+                                <label>교수번호</label>
+                                <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>
                                 <label>내 용</label>
                                 <div class="form-group">
-											<textArea cols=100 rows=18>
-
-[SM 사업 공지]
-안녕하세요 제1대 IT융합자율학부 비상대책위원회 입니다.
-SM사업 안내를 공지하고 멘티를 신청을 받기 위해 공지를 작성합니다.
-
-1.  SM사업이란 Student Mentoring 사업을 의미하는 말로 성공회대 IT융합자율학부 소속 소프트웨어공학과, 정보통신공학과, 컴퓨터공학과, 글로컬IT공학과 총 4개학과와 IT융합자율학부 내에서 선후배간 지식 공유가 이루어지는 것을 의미합니다.
-2. 멘토가 팀별 주제를 계획하면  멘티는 구글 스프레트시트에서 자신이 원하는 팀에 이름을 작성해 조를 구성합니다. 멘티는 선택 참여입니다.
-
-<모집 기간>
-9월 19 일 ~ 9월 20일 자정까지
-
-<활동기간>
-- 9월 27일 ~ 10월 19일 : 1차 활동기간 (총 6주간, 최소 10시간)
-- 10월 23일 ~ 11월30일 : 2차 활동기간 (총 6주간, 최소 12시간)
-
- <멘토링 신청 방법>
- ( ※ 멘티는 선착순 선발, 스프레드 시트 수정은 컴퓨터로만 가능- 핸드폰으로 불가능)
-구글 스프레드 시트에 들어간다 → 개설 된 멘토링의 내용을 살펴본 후, 원하는 멘토링 아래 양식에 이름, 학번 ,전화번호 기재 -팀이 확정되면 개별 연락으로 안내<선착순>
-멘티가 3명 미만일 경우 멘토링 폐지. 다수의 참여를 위해 멘티 중복 불가.
-
-(스프레드 시트 주소)
-https://docs.google.com/spreadsheets/d/1s3bm7iZ0e0uAkzKEGEE71PScNNsAJfJBJ2b5oUDKfpw/edit?usp=sharing
-
-
-
-선정된 멘토와 멘티는 9월 21일 오후 9시 이후 학교홈페이지, 행사공지란에  게시하도록 하겠습니다.
-감사합니다.
-
-											</textArea>
+                                        <%--											<textArea cols=100 rows=18>						</textArea>--%>
+                                    <textarea name="body" id="body" cols="100" rows="18"></textarea>
+                                        <%--<form:input <textarea name="" id="" cols="30" rows="10"></textarea> path="body" class="form-control" style="width: 100px height: 3000px" />--%>
                                 </div>
 
                                 <div>
-                                    <form>
-                                        날짜 : <input type="month"><br>
-                                        파일 첨부  <input type="file"> * 2MB까지 가능
-                                    </form>
+                                    날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>
+                                    파일 첨부  <input type="file"> * 2MB까지 가능
                                 </div>
 
                                 <div id="buttons">
-                                    <a class="btn btn-primary"> <i
-                                            class="glyphicon glyphicon-ok"></i> 저장
-                                    </a> <a class="btn btn-danger" href="#"><i
-                                        class=" glyphicon glyphicon-remove"></i> 삭제</a> <a href="#"
-                                                                                           class="btn btn-default"> <i
-                                        class="glyphicon glyphicon-list"></i> 공지사항으로
-                                </a>
+                                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
+                                    <a class="btn btn-danger" href="#"><i class=" glyphicon glyphicon-remove"></i> 삭제</a>
+                                    <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 공지사항으로</a>
 
                                 </div>
 
                             </div>
 
+                                <%--                                <div id="buttons" class="pull-right">
+                                                                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
+
+                                                                   &lt;%&ndash; <a data-confirm-delete  href="delete?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&split=${lecture.split}&type=${member.type}&userId=${member.id}" class="btn btn-danger">
+                                                                        <i class="glyphicon glyphicon-remove"></i>삭제
+                                                                    </a>&ndash;%&gt;
+
+                                                                    <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-default">
+                                                                        <i class="glyphicon glyphicon-list"></i> 목록으로
+                                                                    </a>--%>
 
                         </div>
+                        </form:form>
+
+                        <form>
+                            <%--                            <input type="hidden" name="pg" value="1">--%>
+                            <input type="hidden" name="type" value="${member.type}"  />
+                            <input type="hidden" name="id" value="${member.id}" />
+                            <input type="hidden" name="admin_id" value="${admin.id}" />
+                            <%-- &lt;%&ndash;/* 페이지 네이션 */&ndash;%&gt;
+                             <div class="pagination pagination-small pagination-centered">
+
+                                 <c:forEach var="page" items="${ pagination.pageList }">
+
+                                     <li class='${ page.cssClass }'>
+                                         <a data-page="${ page.number }">${ page.label }</a></li>
+
+                                 </c:forEach>--%>
+                            <%-- </div>--%>
+                        </form>
+
+
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
+</div>
 
-    <footer class="footer">
-        <div class="container-fluid">
+<footer class="footer">
+    <div class="container-fluid">
 
-            <p class="copyright pull-right">
-                &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>
-                <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-                love for a better web
-            </p>
-        </div>
-    </footer>
+        <p class="copyright pull-right">
+            &copy;
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            <a href="http://www.creative-tim.com">Creative Tim</a>, made with
+            love for a better web
+        </p>
+    </div>
+</footer>
 
 
 </div>

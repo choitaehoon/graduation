@@ -14,7 +14,9 @@ import java.util.List;
 public interface NoticeMapper
 {
     List<Notice> findAll();
+    Notice findNotice(@Param("id") String id, @Param("admin_id") int admin_id);
     int count();
     int srchCount(@Param("choice") int choice, @Param("srch") String srch);
     void insert(Notice notice);
+    void update(Notice notice);
 }

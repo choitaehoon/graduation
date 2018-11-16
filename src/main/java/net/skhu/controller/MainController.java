@@ -214,6 +214,28 @@ public class MainController {
         redirectAttributes.addAttribute("id",id);
         return "redirect:notice";
     }
+
+    //공지사항 수정 페이지*/
+    @RequestMapping("noticeUpdate")
+    public String updateN(Model model,@RequestParam("id") String noticeid, @RequestParam("admin_id") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
+    {
+        model.addAttribute("notice",noticeMapper.findNotice(noticeid,adminId));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/noticeUpdate";
+    }
+
+    /* 공지사항 수정*/
+    @RequestMapping(value="noticeUpdate",method = RequestMethod.POST)
+    public String updateN(Model model,Notice notice, @RequestParam("type") int type , @RequestParam("userId") int id
+            ,RedirectAttributes redirectAttributes)
+    {
+        logger.info(notice.getTitle());
+
+        noticeMapper.update(notice);
+        redirectAttributes.addAttribute("type",type);
+        redirectAttributes.addAttribute("id",id);
+        return "redirect:notice";
+    }
     //qna list
     @RequestMapping("qna")
     public String qna(Model model,@RequestParam("type") int type , @RequestParam("id") int id) {

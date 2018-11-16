@@ -37,6 +37,22 @@
     INSERT Notice (title, body , time, file,admin_id)
 	VALUES ( #{title}, #{body},  #{time},#{file},#{admin_id})
     </insert>
+
+    <select id="findNotice" resultMap="resultMapN">
+    select n.id, n.title,a.name adminName,n.time,n.count
+    from notice n left join admin a
+    on n.admin_id = a.id
+       where l.id=#{id} and admin_id like #{admin_id}
+    </select>
+
+    <update id="update">
+        update notice set
+        title = #{title},
+        body = #{time},
+        file = #{file},
+        admin_id = #{admin_id},
+        where  id LIKE #{id} and admin_id=#{admin_id}
+    </update>
     <!--<select id="srchCount" resultType="int">
         select count(*)
         from lecture l
