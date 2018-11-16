@@ -16,6 +16,20 @@
                             <h4 class="title">Q & A</h4>
                             <p class="category">관리자가 답을 해드립니다.</p>
                         </div>
+
+                        <c:if test="${member.type==1 }">
+                            <div class="pull-right mb5">
+                                <a href="qnaQuestion?type=${member.type}&userId=${member.id}" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-user"></span> 질문하기</a>
+                            </div>
+                        </c:if>
+                        <c:if test="${member.type==2 }">
+                            <div class="pull-right mb5">
+                                <a href="qnaQuestion?type=${member.type}&userId=${member.id}" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-user"></span> 답변하기</a>
+                            </div>
+                        </c:if>
+
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover table-striped">
                                 <thead>

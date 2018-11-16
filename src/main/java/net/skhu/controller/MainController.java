@@ -222,6 +222,25 @@ public class MainController {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/qna";     }
 
+    /* qna 등록페이지*/
+    @RequestMapping("qnaQuestion")
+    public String qnaQ(Model model,@RequestParam("type") int type , @RequestParam("userId") int id )
+    {
+        Qna qna =new Qna();
+        model.addAttribute("qna",qna);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/qnaQuestion";
+    }
+
+    /* qna 등록*/
+    @RequestMapping(value ="qnaQuestion",method = RequestMethod.POST)
+    public String qnaQ(Qna qna,@RequestParam("type") int type , @RequestParam("userId") int id,RedirectAttributes redirectAttributes )
+    {
+        qnaMapper.insert(qna);
+        redirectAttributes.addAttribute("type",type);
+        redirectAttributes.addAttribute("id",id);
+        return "redirect:qna";
+    }
 //    내정보
 //     */
     @RequestMapping("myInfo")

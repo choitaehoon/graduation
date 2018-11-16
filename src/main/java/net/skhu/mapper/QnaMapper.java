@@ -11,4 +11,5 @@ import java.util.List;
 public interface QnaMapper
 {
     List<Qna> findAll();
+    void insert(Qna qna);
 }

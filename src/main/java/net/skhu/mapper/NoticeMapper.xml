@@ -23,7 +23,8 @@
     <select id="findAll" resultMap="resultMapN">
     select n.id, n.title,a.name adminName,n.time,n.count
     from notice n left join admin a
-    on n.admin_id = a.id;
+    on n.admin_id = a.id
+    order by n.id desc;
     </select>
 
     <select id="count" resultType="int">

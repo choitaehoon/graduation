@@ -22,9 +22,14 @@
     select a.id,a.title,a.wtime,s.name studentName,a.count
     from qna a
     LEFT JOIN student s
-    on a.student_id = s.id;
+    on a.student_id = s.id
+    order by a.id desc;
     </select>
 
+    <insert id="insert">
+    INSERT Qna (title, body , wtime,  student_id)
+	VALUES ( #{title}, #{body}, #{wtime},#{student_id})
+    </insert>
 
 
 </mapper>
