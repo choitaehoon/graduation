@@ -222,18 +222,39 @@
                     <div class="header">
                         <h3>✔ 들어야 할 과목 List</h3>
                     </div>
-                    <table class="table table-striped" style="width:15%; max-width: 15%;%; margin-bottom:20px;">
-                        <thead>
-                            <th>&nbsp;&nbsp;&nbsp;&nbsp;전공 및 교양 필수 과목</th>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="essentialMajor" items="${ essentialMajor }">
-                        <tr>
-                            <td>&nbsp;&nbsp;&nbsp;&nbsp;${ essentialMajor.title }</td>
-                        </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
+                    <div style="display:inline;">
+                        <div style="display:inline;float:left;width:20%">
+                            <table class="table table-striped" style="width:100%; max-width: 100%; margin-bottom:20px;">
+                                <thead>
+                                <th>&nbsp;&nbsp;&nbsp;&nbsp;전공 필수 과목</th>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="essentialMajor" items="${ essentialMajor }">
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;${ essentialMajor.title }</td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="display:inline;float:left;width:20%">
+                            <c:if test="${student.graduationRule_id == 1}">
+                                <table class="table table-striped"
+                                       style="width:100%; max-width: 100%; margin-bottom:20px;">
+                                    <thead>
+                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;교양 필수 과목</th>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach var="essentialMajor" items="${ essentialMajor }">
+                                        <tr>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;${ essentialMajor.title }</td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                            </c:if>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
