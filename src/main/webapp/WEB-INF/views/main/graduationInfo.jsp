@@ -231,7 +231,7 @@
                                 <tbody>
                                 <c:forEach var="essentialMajor" items="${ essentialMajor }">
                                     <tr>
-                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;${ essentialMajor.title }</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;-${ essentialMajor.title }</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -245,11 +245,16 @@
                                     <th>&nbsp;&nbsp;&nbsp;&nbsp;교양 필수 과목</th>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="essentialMajor" items="${ essentialMajor }">
+                                    <c:if test="${essentialCultureSize>0}">
+                                        <c:forEach var="essentialCulture" items="${ essentialCulture }">
+                                            <tr>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;-${ essentialCulture.title }</td>
+                                            </tr>
+                                        </c:forEach>
                                         <tr>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;${ essentialMajor.title }</td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;중 ${ essentialCultureSize }과목 이상</td>
                                         </tr>
-                                    </c:forEach>
+                                    </c:if>
                                     </tbody>
                                 </table>
                             </c:if>
