@@ -23,5 +23,6 @@ public interface LectureMapper {
     void delete(Lecture lecture);
 
     List<Lecture> findEssentialMajor(int id);
+    List<Lecture> findEssentialCulture(int id);
 
 }
