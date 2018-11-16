@@ -155,25 +155,21 @@
         </li>
 
         <li>
-        <a href="/login/noticeManager?type=${member.type}&id=${member.id}">
+        <a href="/main/notice?type=${member.type}&id=${member.id}">
         <i class="pe-7s-note2"></i>
         <p>공지사항</p>
         </a>
-        <ul >
-        <li><a href="/login/notice?type=${type}&id=${member.id}">일반 공지</li>
-        <li><a href="/login/noticeReplace?type=${type}&id=${member.id}">대체과목 공지</a></li>
-
-        </ul>
         </li>
+
         <c:if test="${member.id >0}">
-            <li>
-            <a href="/login/q&a?type=${member.type}&id=${member.id}">
-            <i class="pe-7s-glasses"></i>
-            <p>Q&A</p>
-            </a>
-            </li>
-        </c:if>
         <li>
+        <a href="/main/qna?type=${member.type}&id=${member.id}">
+        <i class="pe-7s-smile"></i>
+        <p>Q&A</p>
+        </a>
+        </li>
+        </c:if>
+
         <a href="/login/help?type=${member.type}&id=${member.id}">
         <i class="pe-7s-news-paper"></i>
         <p>도움말</p>

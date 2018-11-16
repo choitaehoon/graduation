@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.skhu.mapper.QnaMapper">
+
+    <resultMap id="resultMapQ" type="Qna">
+        <id property="id" column="id"></id>
+        <result property="title" column="title"></result>
+        <result property="body" column="body"></result>
+        <result property="wtime" column="wtime"></result>
+        <result property="answerstate" column="answerstate"></result>
+        <result property="student_id" column="student_id"></result>
+        <result property="count" column="count"></result>
+        <association property="student" javaType="Student">
+            <id property="id" column="student_Id"></id>
+            <result property="name" column="studentName"></result>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="resultMapQ">
+    select a.id,a.title,a.wtime,s.name studentName,a.count
+    from qna a
+    LEFT JOIN student s
+    on a.student_id = s.id;
+    </select>
+
+
+
+</mapper>

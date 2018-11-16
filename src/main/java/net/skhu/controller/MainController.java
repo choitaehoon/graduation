@@ -48,6 +48,12 @@ public class MainController {
     MyLecService myLecService;
     @Autowired
     GraduationRuleMapper graduationRuleMapper;
+    @Autowired
+    NoticeMapper noticeMapper;
+    @Autowired
+    QnaMapper qnaMapper;
+
+
 
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
@@ -181,73 +187,41 @@ public class MainController {
         return "수강과목 엑셀파일이 업로드 되었습니다.새로고침 눌러주세요!";
     }
 
+    //공지사항 list
+    @RequestMapping("notice")
+    public String notice(Model model, @RequestParam("type") int type , @RequestParam("id") int id ) {
+        List<Notice> notices = noticeMapper.findAll();
+        model.addAttribute("notices", notices);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/notice";     }
 
+    /* 공지사항 등록페이지*/
+    @RequestMapping("noticeRegister")
+    public String noticeR(Model model,@RequestParam("type") int type , @RequestParam("userId") int id )
+    {
+        Notice notice =new Notice();
+        model.addAttribute("notice",notice);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/noticeRegister";
+    }
 
+    /* 공지사항 등록*/
+    @RequestMapping(value ="noticeRegister",method = RequestMethod.POST)
+    public String noticeR(Notice notice,@RequestParam("type") int type , @RequestParam("userId") int id,RedirectAttributes redirectAttributes )
+    {
+        noticeMapper.insert(notice);
+        redirectAttributes.addAttribute("type",type);
+        redirectAttributes.addAttribute("id",id);
+        return "redirect:notice";
+    }
+    //qna list
+    @RequestMapping("qna")
+    public String qna(Model model,@RequestParam("type") int type , @RequestParam("id") int id) {
+        List<Qna> qnas = qnaMapper.findAll();
+        model.addAttribute("qnas", qnas);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/qna";     }
 
-
-
-//    //    /* 대체과목 메인 페이지*/
-//    @RequestMapping("replaceLecture")
-//    public String showReplaceLecture(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id )
-//    {
-//        pagination.setRecordCount(replaceService.pageCount());
-//        model.addAttribute("lectures",lectureService.lectureList(pagination));
-//        model.addAttribute("replacelectures",replaceService.replaceLectureList(pagination));
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//
-//        return "main/replaceLecture";
-//    }
-//
-//    /* 대체과목 페이지*/
-//    @RequestMapping("replaceCreate")
-//    public String createReplace(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("userId") int id )
-//    {
-//        Lecture lecture =new Lecture();
-//        model.addAttribute("lecture",lecture);
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/classEdit";
-//    }
-//    /* 대체 과목 등록*/
-//    @RequestMapping(value = "replaceCreate",method = RequestMethod.POST)
-//    public String createReplace(Model model,Pagination pagination,ReplaceLecture replaceLecture,@RequestParam("type") int type , @RequestParam("userId") int id )
-//    {
-//
-//        replaceService.replaceInsert(replaceLecture);
-//
-//        pagination.setRecordCount(replaceService.pageCount());
-//        model.addAttribute("lectures",replaceService.lectureList(pagination));
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/manageClass";
-//    }
-//
-//    //  대체 과목 수정  페이지*/
-//    @RequestMapping("replaceEdit")
-//    public String editReplace(Model model,Pagination pagination,@RequestParam("year") int year,@RequestParam("semester") String semester,@RequestParam("lecId") String lecId,
-//                       @RequestParam("adminId") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
-//    {
-//        model.addAttribute("lecture",lectureService.findLecture(year,semester,lecId,adminId));
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/classEdit";
-//    }
-//
-//    /* 대체 과목 수정*/
-//    @RequestMapping(value="replaceEdit",method = RequestMethod.POST)
-//    public String editReplace(Model model,ReplaceLecture replaceLecture,Pagination pagination, @RequestParam("type") int type , @RequestParam("userId") int id)
-//    {
-//        ReplaceService.replaceUpdate(replaceLecture);
-//
-//        pagination.setRecordCount(replaceService.pageCount());
-//        model.addAttribute("lectures",replaceService.lectureList(pagination));
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/manageClass";
-//    }
-/*
-        model.addAttribute("replaceLecture",replaceService.replaceLectureList());
-        return "main/replaceLecture";
-    }*/
-
-
-    /*
 //    내정보
 //     */
     @RequestMapping("myInfo")

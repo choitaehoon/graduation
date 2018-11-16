@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.skhu.mapper.NoticeMapper">
+
+
+    <resultMap id="resultMapN" type="Notice">
+        <id property="id" column="id"></id>
+        <result property="title" column="title"></result>
+        <result property="body" column="body"></result>
+        <result property="time" column="time"></result>
+        <result property="file" column="file"></result>
+        <result property="admin_id" column="admin_id"></result>
+        <result property="count" column="count"></result>
+        <result property="target" column="target"></result>
+        <association property="admin" javaType="Admin">
+            <id property="id" column="admin_Id"></id>
+            <result property="name" column="adminName"></result>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="resultMapN">
+    select n.id, n.title,a.name adminName,n.time,n.count
+    from notice n left join admin a
+    on n.admin_id = a.id;
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*)
+        from lecture
+
+    </select>
+
+    <insert id="insert">
+    INSERT Notice (title, body , time, file,admin_id)
+	VALUES ( #{title}, #{body},  #{time},#{file},#{admin_id})
+    </insert>
+    <!--<select id="srchCount" resultType="int">
+        select count(*)
+        from lecture l
+        left join admin a
+        on l.admin_id= a.id
+        <where>
+            <if test="choice == 0">
+                year = #{srch}
+            </if>
+            <if test="choice == 1">
+                semester like concat(#{srch},'%')
+            </if>
+            <if test="choice == 2">
+                l.id LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice ==3">
+                title LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 4">
+                subType LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 5">
+                credit = #{srch}
+
+            </if>
+
+        </where>
+
+    </select>-->
+</mapper>
