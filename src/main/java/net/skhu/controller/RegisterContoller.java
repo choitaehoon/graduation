@@ -25,6 +25,9 @@ public class RegisterContoller
     @Autowired
     MyLectureMapper myLectureMapper;
 
+    /*
+    시뮬레이션 과목등록 페이지
+     */
     @RequestMapping("subjectRegister")
     public String subjectRegister(Model model, Pagination pagination,@RequestParam(value = "choice", defaultValue = "0") int choice,
                                   @RequestParam(value = "srch",defaultValue = "") String srch,@RequestParam("type") int type, @RequestParam("id") int id)
@@ -44,7 +47,9 @@ public class RegisterContoller
 
         return "register/subjectRegister";
     }
-
+/*
+시뮬레이션을 위한 과목등록
+ */
     @RequestMapping(value = "simulationRegister", method = RequestMethod.POST)
     public String simulationRegister(MyLecture myLecture, RedirectAttributes redirectAttributes, @RequestParam("type") int type)
     {

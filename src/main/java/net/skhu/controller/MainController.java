@@ -54,7 +54,7 @@ public class MainController {
     QnaMapper qnaMapper;
 
 
-
+/* 로그인되면, 메인페이지 이동*/
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
     public String main(Model model, @RequestParam("type") int type ,@RequestParam("id") int id)
@@ -63,7 +63,9 @@ public class MainController {
         return "login/main";
     }
 
-
+/*
+수업관리, 수업리스트 get, 초기페이지
+ */
     @RequestMapping("manageClass")
     public String manageClass(Model model,Pagination pagination, @RequestParam("type") int type , @RequestParam("id") int id )
     {
@@ -73,7 +75,9 @@ public class MainController {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/manageClass";
     }
-
+/*
+수업관리, 수업리스트(검색할시)
+ */
     @RequestMapping(value = "manageClass",method = RequestMethod.POST)
     public String manageClass(Model model,Pagination pagination,@RequestParam(value = "choice", defaultValue = "0") int choice,
                               @RequestParam(value = "srch",defaultValue = "") String srch, @RequestParam("type") int type , @RequestParam("userId") int id )
@@ -85,7 +89,7 @@ public class MainController {
         return "main/manageClass";
     }
 
-    //    /* 수업수정 페이지*/
+    /* 수업수정 페이지*/
     @RequestMapping("classEdit")
     public String edit(Model model,Pagination pagination,@RequestParam("year") int year,@RequestParam("semester") String semester,@RequestParam("lecId") String lecId,
                        @RequestParam("adminId") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
@@ -95,7 +99,8 @@ public class MainController {
         return "main/classEdit";
     }
 
-    /* 수업수정*/
+    /* 수업관리
+       수업수정*/
     @RequestMapping(value="classEdit",method = RequestMethod.POST)
     public String edit(Model model,Lecture lecture,Pagination pagination, @RequestParam("type") int type , @RequestParam("userId") int id
             ,RedirectAttributes redirectAttributes)
@@ -107,6 +112,9 @@ public class MainController {
         redirectAttributes.addAttribute("id",id);
         return "redirect:manageClass";
     }
+    /*
+    *수업관리, 수업 삭제
+    * */
 
     @RequestMapping("delete")
     public String delete(Model model,@RequestParam("year") int year,@RequestParam("semester") String semester,@RequestParam("lecId") String lecId
@@ -142,7 +150,7 @@ public class MainController {
         return "redirect:manageClass";
     }
 
-    /*엑셀로 수업등록 페이지 */
+    /*엑셀업로드 수업등록 업로드전 페이지 */
     @RequestMapping("classExcel")
     public String classExcel(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("userId") int id )
     {
@@ -150,6 +158,9 @@ public class MainController {
         return "main/classExcel";
     }
 
+    /*
+    엑셀업로드, 등록
+     */
     @ResponseBody
     @RequestMapping(value = "/excelUploadAjax", method = RequestMethod.POST)
     public String excelUploadAjax(MultipartHttpServletRequest request,@RequestParam("type") int type , @RequestParam("userId") int id,RedirectAttributes redirectAttributes)  throws Exception{
@@ -276,8 +287,8 @@ public class MainController {
         redirectAttributes.addAttribute("id",id);
         return "redirect:qna";
     }
-//    내정보
-//     */
+
+/*내정보 페이지*/
     @RequestMapping("myInfo")
     public String myInfo(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
     {
@@ -383,7 +394,9 @@ public class MainController {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/before18";
     }
-
+/*
+나의 졸업요건페이지
+ */
     @RequestMapping("graduationInfo")
     public String graduationInfo(Model model,Pagination pagination,@RequestParam("type") int type, @RequestParam("id") int id,@RequestParam(value = "choice", defaultValue = "0") int choice,
                                     @RequestParam(value = "search", defaultValue = "") String search)
@@ -424,6 +437,9 @@ public class MainController {
         redirectAttributes.addAttribute("id",id);
         return "redirect:graduationInfo";
     }
+    /*
+    나의 졸업요건 수강과목 or 시뮬레이션 과목 삭제
+     */
 
     @RequestMapping(value = "deleteLecture",method = RequestMethod.POST)
     public String delete(Model model,@RequestParam("type") int type,@RequestParam("remove") int remove,@RequestParam("id") int id,@RequestParam(value = "choice", defaultValue = "0") int choice,
@@ -437,7 +453,7 @@ public class MainController {
         return "redirect:graduationInfo";
     }
 
-    /*엑셀로 내가수강한 수업 등록록 페이지 */
+    /*엑셀업로드 내가수강한수업 엑셀업로드 페이지 */
     @RequestMapping("myLecExcel")
     public String myLecExcel(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("userId") int id )
     {
@@ -447,7 +463,7 @@ public class MainController {
 
 
     /*
-    컴퓨터공학과 졸업요건
+    컴퓨터공학과 졸업요건 18이전 이후
      */
     @RequestMapping("comAfter18")
     public String comAfter18(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )

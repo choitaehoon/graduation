@@ -26,7 +26,9 @@ public class LoginController {
     StudentMapper studentMapper;
     @Autowired
     DepartmentMapper departmentMapper;
-
+/*
+회원가입 페이지
+ */
     @RequestMapping(value="signUp",method=RequestMethod.GET)
     public String signUp(Model model,Student student) {
         List<Department> departments = departmentMapper.findAll();
@@ -36,7 +38,7 @@ public class LoginController {
 
     }
 
-    /*김지은 추가 insert*/
+    /*회원가입, 등록할때*/
     @RequestMapping(value="signUp", method=RequestMethod.POST)
     public String create(Student student) {
         studentMapper.insert(student);
@@ -52,8 +54,9 @@ public class LoginController {
        int rowCount = studentMapper.selectByLoginIdCheck(student.getId());
        return String.valueOf(rowCount);
    }
-
-
+/*
+* 비밀번호 찾기페이지, 비밀번호 찾기 질문을 통한 비밀번호찾기
+* */
     @RequestMapping("findPassword")
     public String findPassword() {
         return "login/findPassword";
@@ -67,11 +70,14 @@ public class LoginController {
     }
 
     /*
-    게스트로그인
+    게스트로그인, 학교 학생이 아닐때
      */
     @RequestMapping("guest")
     public String guestMain(Model model) {
-        model.addAttribute("type", 0);
+        User member =new User();
+        member.setType(0);
+        member.setId(0);
+        model.addAttribute("member",member);
         return "login/main";
 
     }
@@ -100,43 +106,5 @@ public class LoginController {
         }
     }
 
-
-
-//    /*
-//    내정보
-//     */
-//    @RequestMapping("myInfo")
-//    public String myInfo(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
-//    {
-//        System.out.println(type+" "+id+" "+"myInfo");
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/myInfo";
-//    }
-//
-//    @RequestMapping(value = "updateMember")
-//    public String updateMember(User user, RedirectAttributes redirectAttributes)
-//    {
-//        typeIdentity.typeUpdate(user);
-//        redirectAttributes.addAttribute("type",user.getType());
-//        redirectAttributes.addAttribute("id",user.getId());
-//        System.out.println(user.getType()+" "+user.getId()+" "+"updateMember");
-//        return "redirect:myInfo";
-//    }
-//
-//    @RequestMapping("test")
-//    public String test(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )
-//    {
-//        List<Student> students = studentMapper.findAll();
-//        model.addAttribute("students", students);
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/test";
-//    }
-//
-//    @RequestMapping("studentManager2")
-//    public String studentManager2(Model model,@RequestParam("studentId") int studentId, @RequestParam("type") int type ,@RequestParam("id") int id )
-//    {
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        return "main/studentManager2";
-//    }
 
 }
