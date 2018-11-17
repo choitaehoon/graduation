@@ -53,6 +53,11 @@
         admin_id = #{admin_id},
         where  id LIKE #{id} and admin_id=#{admin_id}
     </update>
+
+    <delete id="delete">
+      Delete from notice
+      where id=#{id}
+    </delete>
     <!--<select id="srchCount" resultType="int">
         select count(*)
         from lecture l

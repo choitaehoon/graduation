@@ -236,6 +236,19 @@ public class MainController {
         redirectAttributes.addAttribute("id",id);
         return "redirect:notice";
     }
+/*    //공지사항 삭제
+    @RequestMapping("delete")
+    public String deleteN(Model model,@RequestParam("id") String noticeid,
+                          @RequestParam("type") int type , @RequestParam("userId") int id,RedirectAttributes redirectAttributes )
+    {
+        Noitce deleteNotice=noticeMapper.delete(notice);
+
+        logger.info(deleteLec.getId());
+        lectureService.lectureDelete(deleteLec);
+        redirectAttributes.addAttribute("type",type);
+        redirectAttributes.addAttribute("id",id);
+        return "redirect:notice";
+    }*/
     //qna list
     @RequestMapping("qna")
     public String qna(Model model,@RequestParam("type") int type , @RequestParam("id") int id) {
