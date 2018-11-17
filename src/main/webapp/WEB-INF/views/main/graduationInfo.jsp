@@ -235,25 +235,25 @@
                                 </table>
                             </div>
                             <div>
-                                    <c:if test="${student.graduationRule_id == 1}">
-                                        <table class="table table-striped" style="float:left;width:30%; max-width: 100%; margin-bottom:20px;">
-                                            <thead>
-                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;교양 필수 과목</th>
-                                            </thead>
-                                            <tbody>
-                                            <c:if test="${essentialCultureSize>0}">
-                                                <c:forEach var="essentialCulture" items="${ essentialCulture }">
-                                                    <tr>
-                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;-${ essentialCulture.title }</td>
-                                                    </tr>
-                                                </c:forEach>
+                                <c:if test="${student.graduationRule_id == 1}">
+                                    <table class="table table-striped" style="float:left;width:30%; max-width: 100%; margin-bottom:20px;">
+                                        <thead>
+                                        <th>&nbsp;&nbsp;&nbsp;&nbsp;교양 필수 과목</th>
+                                        </thead>
+                                        <tbody>
+                                        <c:if test="${essentialCultureSize>0}">
+                                            <c:forEach var="essentialCulture" items="${ essentialCulture }">
                                                 <tr>
-                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;중 ${ essentialCultureSize }과목 이상</td>
+                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;-${ essentialCulture.title }</td>
                                                 </tr>
-                                            </c:if>
-                                            </tbody>
-                                        </table>
-                                    </c:if>
+                                            </c:forEach>
+                                            <tr>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;중 ${ essentialCultureSize }과목 이상</td>
+                                            </tr>
+                                        </c:if>
+                                        </tbody>
+                                    </table>
+                                </c:if>
                             </div>
                         </div>
                     </div>
