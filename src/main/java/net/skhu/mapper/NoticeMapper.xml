@@ -35,14 +35,14 @@
 
     <insert id="insert">
     INSERT Notice (title, body , time, file,admin_id)
-	VALUES ( #{title}, #{body},  #{time},#{file},#{admin_id})
+	VALUES ( #{title}, #{body}, #{time} ,#{file},#{admin_id})
     </insert>
 
     <select id="findNotice" resultMap="resultMapN">
     select n.id, n.title,a.name adminName,n.time,n.count
     from notice n left join admin a
     on n.admin_id = a.id
-       where l.id=#{id} and admin_id like #{admin_id}
+       where n.id=#{id} and admin_id like #{admin_id}
     </select>
 
     <update id="update">
