@@ -27,8 +27,9 @@
 <body>
 <div class="wrapper">
     <%@include file="../menu/menu.jsp"%>
-
     <div class="content">
+
+        <%-------------------------------------%>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -40,9 +41,11 @@
                             <h2 class="title">소프트웨어공학과</h2>
                             <h4 class="title">-${student.detailType}</h4>
 
-                        <div class="content table-responsive table-full-width">
+
+                            <div class="content table-responsive table-full-width">
                                     <h3>&nbsp;✔ 학기&nbsp;:&nbsp;${totalSemester+1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ 평균 학점&nbsp;:&nbsp;${avgGrade}&nbsp;/&nbsp;4.5&nbsp;</h3>
-                            </table>
+                            </div>
+
                             <table class="table table-hover table-striped">
                                 <tr>
                                     <form:form method="post" modelAttribute="student">
@@ -110,10 +113,7 @@
                                     </td>
                                 </tr>
                             </table>
-
-
-                        </div>
-
+                            <%-------------------------------------%>
                             <%--타과 복수 전공 과정--%>
                             <c:if test="${student.graduationRule_id == 3 || student.graduationRule_id == 5}">
                             <div class="content table-responsive table-full-width">
@@ -160,7 +160,7 @@
                                 </table>
                             </div>
                             </c:if>
-                            <%--   --%>
+                            <%-------------------------------------%>
 
                             <%--타과 부 전공 일때--%>
                             <c:if test="${student.graduationRule_id == 4 || student.graduationRule_id == 6}">
@@ -207,38 +207,63 @@
                                     </table>
                                 </div>
                             </c:if>
-                            <%--   --%>
-
-
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <%-------------------------------------%>
         <div class="container-fluid">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="header">
-                        <h3>✔ 들어야 할 과목 List</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h3>✔ 들어야 할 과목 List</h3>
+                            <div>
+                                <table class="table table-striped" style="float:left;width:30%; max-width: 100%; margin-bottom:20px;">
+                                        <thead>
+                                        <th>&nbsp;&nbsp;&nbsp;&nbsp;전공 필수 과목</th>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach var="essentialMajor" items="${ essentialMajor }">
+                                            <tr>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;-${ essentialMajor.title }
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <c:if test="${student.graduationRule_id == 1}">
+                                    <table class="table table-striped" style="float:left;width:30%; max-width: 100%; margin-bottom:20px;">
+                                        <thead>
+                                        <th>&nbsp;&nbsp;&nbsp;&nbsp;교양 필수 과목</th>
+                                        </thead>
+                                        <tbody>
+                                        <c:if test="${essentialCultureSize>0}">
+                                            <c:forEach var="essentialCulture" items="${ essentialCulture }">
+                                                <tr>
+                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;-${ essentialCulture.title }</td>
+                                                </tr>
+                                            </c:forEach>
+                                            <tr>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;중 ${ essentialCultureSize }과목 이상</td>
+                                            </tr>
+                                        </c:if>
+                                        </tbody>
+                                    </table>
+                                </c:if>
+                            </div>
+                        </div>
                     </div>
-                    <table class="table table-striped" style="width:15%; max-width: 15%;%; margin-bottom:20px;">
-                        <thead>
-                            <th>&nbsp;&nbsp;&nbsp;&nbsp;전공 및 교양 필수 과목</th>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="essentialMajor" items="${ essentialMajor }">
-                        <tr>
-                            <td>&nbsp;&nbsp;&nbsp;&nbsp;${ essentialMajor.title }</td>
-                        </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
+        <%-------------------------------------%>
 
-            <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
@@ -272,93 +297,88 @@
                             <br>
                             <br>
 
-                <div class="pull-right">
-                    <form action="deleteLecture" method="post">
-                        <input type="hidden" name="remove" value=1>
-                        <input type="hidden" name="type" value="${member.type}">
-                        <input type="hidden" name="id" value="${member.id}">
-                        <input type="hidden" name="choice" value="${choice}">
-                        <input type="hidden" name="search" value="${search}">
-                        <button type="submit" class="btn btn-danger" id="data-confirm-delete2">시물레이션 초기화</button>
-                    </form>
-                </div>
+                            <div class="pull-right">
+                                <form action="deleteLecture" method="post">
+                                    <input type="hidden" name="remove" value=1>
+                                    <input type="hidden" name="type" value="${member.type}">
+                                    <input type="hidden" name="id" value="${member.id}">
+                                    <input type="hidden" name="choice" value="${choice}">
+                                    <input type="hidden" name="search" value="${search}">
+                                    <button type="submit" class="btn btn-danger" id="data-confirm-delete2">시물레이션 초기화</button>
+                                </form>
+                            </div>
 
-                <div class="pull-right" style="margin-right:10px;">
-                    <a href="/register/subjectRegister?type=${member.type}&id=${member.id}">
-                        <button type="button" class="btn btn-primary" >시뮬레이션 수강 등록</button>
-                    </a>
-                </div>
+                            <div class="pull-right" style="margin-right:10px;">
+                                <a href="/register/subjectRegister?type=${member.type}&id=${member.id}">
+                                    <button type="button" class="btn btn-primary" >시뮬레이션 수강 등록</button>
+                                </a>
+                            </div>
+
+                            <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
+                                <thead>
+                                <tr>
+                                    <th>년도</th>
+                                    <th>학기</th>
+                                    <th>과목코드</th>
+                                    <th>과목명</th>
+                                    <th>이수구분</th>
+                                    <th>학점</th>
+                                    <th>성적등급</th>
+                                </tr>
+
+                                </thead>
 
 
+                                <tbody>
+                                <c:forEach var="lecture" items="${ myLecture }"><tr>
+                                    <td>${ lecture.lecture_year }</td>
+                                    <td>${ lecture.lecture_semester }</td>
+                                    <td>${ lecture.lecture_id }</td>
+                                    <td>${ lecture.title }</td>
+                                    <td>${ lecture.detailType2 }</td>
+                                    <td>${ lecture.credit }</td>
+                                    <td>${ lecture.grade }</td>
+                                </tr>
+                                </c:forEach>
+                                </tbody>
 
-
-                <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
-                    <thead>
-                    <tr>
-                        <th>년도</th>
-                        <th>학기</th>
-                        <th>과목코드</th>
-                        <th>과목명</th>
-                        <th>이수구분</th>
-                        <th>학점</th>
-                        <th>성적등급</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <c:forEach var="lecture" items="${ myLecture }">
-                        <tr>
-                            <td>${ lecture.lecture_year }</td>
-                            <td>${ lecture.lecture_semester }</td>
-                            <td>${ lecture.lecture_id }</td>
-                            <td>${ lecture.title }</td>
-                            <td>${ lecture.detailType2 }</td>
-                            <td>${ lecture.credit }</td>
-                            <td>${ lecture.grade }</td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-
-                </table>
-
-                <form method="get">
-                    <input type="hidden" name="pg" value="1" />
-                    <input type="hidden" name="type" value="${member.type}"  />
-                    <input type="hidden" name="id" value="${member.id}" />
-                    <input type="hidden" name="choice" value="${choice}" />
-                    <input type="hidden" name="search" value="${search}" />
-                    <%--/* 페이지 네이션 */--%>
-                    <div class="pagination pagination-small pagination-centered">
-                        <c:forEach var="page" items="${ pagination.pageList }">
-                            <li class='${ page.cssClass }'>
-                                <a data-page="${ page.number }">${ page.label }</a>
-                            </li>
-                        </c:forEach>
-                    </div>
-                </form>
+                            </table>
+                            <form method="get">
+                                <input type="hidden" name="pg" value="1" />
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="id" value="${member.id}" />
+                                <input type="hidden" name="choice" value="${choice}" />
+                                <input type="hidden" name="search" value="${search}" />
+                                <%--/* 페이지 네이션 */--%>
+                                <div class="pagination pagination-small pagination-centered">
+                                    <c:forEach var="page" items="${ pagination.pageList }">
+                                        <li class='${ page.cssClass }'>
+                                            <a data-page="${ page.number }">${ page.label }</a>
+                                        </li>
+                                    </c:forEach>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container-fluid">
-
-            <p class="copyright pull-right">
-
-                <script>
-
-                </script>
-
-            </p>
         </div>
-    </footer>
 
+            <footer class="footer">
+                <div class="container-fluid">
 
+                    <p class="copyright pull-right">
 
+                        <script>
+
+                        </script>
+
+                    </p>
+                </div>
+            </footer>
+
+    </div>
 </div>
-
 
 </body>
 

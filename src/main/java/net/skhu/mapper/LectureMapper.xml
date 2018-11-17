@@ -131,6 +131,15 @@
         on n.lecture_id = l.id;
     </select>
 
+    <!-- 학번으로 안들은 전공필수과목 뽑기 -->
+    <select id="findEssentialCulture" resultType="Lecture">
+        SELECT distinct l.id, l.title, m.student_id FROM lecture l
+        left outer join (select * from mylecture where student_id=#{id})m
+        on l.id = m.lecture_id
+        where (l.id='AF00011' or l.id='AF00002' or l.id='AE00022' or l.id='AF00001') and student_id is null
+        group by l.id
+    </select>
+
     <insert id="insert">
     INSERT Lecture (year, semester, id , split, title, admin_id, credit, subType)
 	VALUES (#{year}, #{semester}, #{id}, #{split}, #{title},#{admin_id}, #{credit},#{subType})

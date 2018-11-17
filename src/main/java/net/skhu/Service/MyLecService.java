@@ -43,7 +43,7 @@ public class MyLecService {
             myLecture.setLecture_year(Integer.valueOf(article.get("A")));//년도
             myLecture.setLecture_semester(article.get("B"));//학기
             myLecture.setLecture_id(article.get("C"));//과목코드
-            myLecture.setLecture_split(Integer.valueOf(article.get("D")));//분반
+            myLecture.setLecture_split(1);//분반
             myLecture.setTitle(article.get("E"));//과목명
             myLecture.setDetailType(article.get("F"));//전필, 전선, 패논패, 채플
             myLecture.setCredit(article.get("G"));//이수학점
