@@ -2,7 +2,14 @@
   Created by IntelliJ IDEA.
   User: JiEun
   Date: 2018-10-14
-  Time: 오전 12:44
+  Time: 오전 12:40
+  To change this template use File | Settings | File Templates.
+--%>
+<%--
+  Created by IntelliJ IDEA.
+  User: JiEun
+  Date: 2018-10-14
+  Time: 오전 12:40
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -25,7 +32,6 @@
             height: 800px;
         }
     </style>
-
 </head>
 
 
@@ -54,16 +60,22 @@
                                 </form>
                                 <label>제목</label>
                                 <div class="form-group">
-                                        <%--   <input type="text" style="width: 300px" value="[IT학부] SM 사업 공지(1학년 멘티 모집)" />--%>
-                                    <form:input path="title" class="form-control" style="width: 100px" />
+                                    <form:input path="title" class="form-control w200" style="width: 200px"  />
                                 </div>
-                                <label>교수번호</label>
-                                <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>
+                                <label>관리자 이름</label>
+                                <form:input path="admin_id" class="form-control"  placeholder="관리자 번호" style="width: 200px"/>
+
                                 <label>내 용</label>
                                 <div class="form-group">
-                                        <%--											<textArea cols=100 rows=18>						</textArea>--%>
-                                    <textarea name="body" id="body" cols="100" rows="18"></textarea>
-                                        <%--<form:input <textarea name="" id="" cols="30" rows="10"></textarea> path="body" class="form-control" style="width: 100px height: 3000px" />--%>
+                                        <%--                                  <textArea cols=100 rows=18>						</textArea>&ndash;%&gt;--%>
+                                        <%--                                    <textarea name="body" id="body" cols="100" rows="18"></textarea>--%>
+                                        <%--   <textarea path="body" id="body" cols="100" rows="18"></textarea>--%>
+                                        <%--                                   <input type="hidden" name="body" value="">--%>
+                                        <%--<form:input <textarea name="" id="" cols="30" rows="10"></textarea> path="body" class="form-control" style="width: 100px height: 3000px" />&ndash;%&gt;--%>
+                                    <textarea name="body" id="body" cols="100" rows="18">
+        <c:out value="${notice.body}"/>
+        <%--<%=request.getParameter("body")%>--%>
+</textarea>
                                 </div>
 
                                 <div>
@@ -71,9 +83,13 @@
                                     파일 첨부  <input type="file"> * 2MB까지 가능
                                 </div>
 
-                                <div id="buttons">
+                                <div id="buttons" class="pull-right">
                                     <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
-                                    <a class="btn btn-danger" href="#"><i class=" glyphicon glyphicon-remove"></i> 삭제</a>
+
+                                    <a data-confirm-delete  href="deleteN?noticeId=${notice.id}&type=${member.type}&userId=${member.id}" class="btn btn-danger">
+                                        <i class="glyphicon glyphicon-remove"></i>삭제
+                                    </a>
+
                                     <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 공지사항으로</a>
 
                                 </div>

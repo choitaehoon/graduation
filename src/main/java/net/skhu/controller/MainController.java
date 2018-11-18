@@ -228,38 +228,36 @@ public class MainController {
 
     //공지사항 수정 페이지*/
     @RequestMapping("noticeUpdate")
-    public String updateN(Model model,@RequestParam("id") String noticeid, @RequestParam("admin_id") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
+    public String updateN(Model model,@RequestParam("id") int noticeId, @RequestParam("admin_id") int adminId,  @RequestParam("type") int type , @RequestParam("userId") int id )
     {
-        model.addAttribute("notice",noticeMapper.findNotice(noticeid,adminId));
+        model.addAttribute("notice",noticeMapper.findNotice(noticeId,adminId));
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/noticeUpdate";
     }
 
     /* 공지사항 수정*/
     @RequestMapping(value="noticeUpdate",method = RequestMethod.POST)
-    public String updateN(Model model,Notice notice, @RequestParam("type") int type , @RequestParam("userId") int id
+    public String updateN(Model model, Notice notice, @RequestParam("type") int type , @RequestParam("userId") int id
             ,RedirectAttributes redirectAttributes)
     {
-        logger.info(notice.getTitle());
-
         noticeMapper.update(notice);
         redirectAttributes.addAttribute("type",type);
         redirectAttributes.addAttribute("id",id);
         return "redirect:notice";
     }
-/*    //공지사항 삭제
-    @RequestMapping("delete")
-    public String deleteN(Model model,@RequestParam("id") String noticeid,
+
+    //공지사항 삭제
+    @RequestMapping("deleteN")
+    public String deleteN(Model model,@RequestParam("noticeId") int noticeId,
                           @RequestParam("type") int type , @RequestParam("userId") int id,RedirectAttributes redirectAttributes )
     {
-        Noitce deleteNotice=noticeMapper.delete(notice);
+        noticeMapper.delete(noticeId);
 
-        logger.info(deleteLec.getId());
-        lectureService.lectureDelete(deleteLec);
         redirectAttributes.addAttribute("type",type);
         redirectAttributes.addAttribute("id",id);
         return "redirect:notice";
-    }*/
+    }
+
     //qna list
     @RequestMapping("qna")
     public String qna(Model model,@RequestParam("type") int type , @RequestParam("id") int id) {

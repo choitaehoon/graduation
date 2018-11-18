@@ -23,12 +23,6 @@
                                     <span class="glyphicon glyphicon-user"></span> 질문하기</a>
                             </div>
                         </c:if>
-                        <c:if test="${member.type==2 }">
-                            <div class="pull-right mb5">
-                                <a href="qnaQuestion?type=${member.type}&userId=${member.id}" class="btn btn-info">
-                                    <span class="glyphicon glyphicon-user"></span> 답변하기</a>
-                            </div>
-                        </c:if>
 
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover table-striped">
@@ -38,7 +32,10 @@
                                 <th>작성일</th>
                                 <th>작성자</th>
                                 <th>작성수</th>
-                                <%--<th>상태</th>--%>
+                                <c:if test="${member.type == 2 }">
+                                    <th>수정</th>
+                                    <th>답변 현황</th>
+                                </c:if>
                                 </thead>
 
                                 <tbody>
@@ -49,6 +46,11 @@
                                         <td>${ qna.wtime }</td>
                                         <td>${ qna.student.name }</td>
                                         <td>${ qna.count }</td>
+                                        <c:if test="${member.type==2 }">
+                                            <td> <a href="qnaQuestion?type=${member.type}&userId=${member.id}" class="btn btn-info">
+                                                <span class="glyphicon glyphicon-user"></span> 답변하기</a></td>
+                                            <td>답변 현황</td>
+                                        </c:if>
                                     </tr>
                                 </c:forEach>
 

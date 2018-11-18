@@ -70,7 +70,9 @@
                                     </div>
                                     <label>내 용</label>
                                     <div class="form-group">
-                                        <textarea name="body" id="body" cols="80" rows="18"></textarea>
+                                        <textarea name="body" id="body" cols="100" rows="18">
+                                                    <c:out value="${qna.body}"/>
+                                            </textarea>
                                     </div>
 
                                     <div>

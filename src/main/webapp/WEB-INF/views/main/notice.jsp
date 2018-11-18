@@ -49,6 +49,9 @@
                                         <th>작성자</th>
                                         <th>작성일</th>
                                         <th>조회수</th>
+                                        <c:if test="${member.type==2 }">
+                                            <th>권한</th>
+                                        </c:if>
                                     </tr>
                                     </thead>
 
@@ -61,9 +64,9 @@
                                             <td>${ notice.time }</td>
                                             <td>${ notice.count }</td>
                                             <c:if test="${member.type==2 }">
-                                            <td><a href='noticeUpdate?id=${notice.id }&title=${notice.title }&admin_id=${notice.admin_id}&time=${notice_time}&type=${member.type}&userId=${member.id}'>
-                                                <button  type="button" class="btn btn-primary">수정</button>
-                                            </a></td>
+                                                <td><a href='noticeUpdate?id=${notice.id }&title=${notice.title }&admin_id=${notice.admin_id}&time=${notice_time}&type=${member.type}&userId=${member.id}'>
+                                                    <button  type="button" class="btn btn-primary">수정</button>
+                                                </a></td>
                                             </c:if>
                                         </tr>
                                     </c:forEach>

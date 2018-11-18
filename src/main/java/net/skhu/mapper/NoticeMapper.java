@@ -14,10 +14,11 @@ import java.util.List;
 public interface NoticeMapper
 {
     List<Notice> findAll();
-    Notice findNotice(@Param("id") String id, @Param("admin_id") int admin_id);
+    Notice findNotice(@Param("id") int noticeId, @Param("admin_id") int admin_id);
     int count();
     int srchCount(@Param("choice") int choice, @Param("srch") String srch);
     void insert(Notice notice);
     void update(Notice notice);
-    void delete(Notice notice);
+    void delete(int noticeId);
+
 }
