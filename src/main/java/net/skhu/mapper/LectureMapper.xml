@@ -131,7 +131,7 @@
         on n.lecture_id = l.id;
     </select>
 
-    <!-- 학번으로 안들은 전공필수과목 뽑기 -->
+    <!-- 학번으로 안들은 교양필수과목 뽑기 -->
     <select id="findEssentialCulture" resultType="Lecture">
         SELECT distinct l.id, l.title, m.student_id FROM lecture l
         left outer join (select * from mylecture where student_id=#{id})m
