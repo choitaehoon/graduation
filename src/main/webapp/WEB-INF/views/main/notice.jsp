@@ -33,6 +33,15 @@
                             <h4 class="title">공지사항</h4>
                             <p class="category">졸업관리에 관한 내용이 업데이트됩니다. 수시로 확인해주세요</p>
 
+
+                                <select>
+                                    <option>제목</option>
+                                    <option>작성자</option>
+                                    <option>작성일</option>
+                                </select>
+                                <input type="text">
+                                <a href=""> <button type="submit" class="btn btn-primary">조회</button></a>
+
                             <c:if test="${member.type==2 }">
                                 <div class="pull-right mb5">
                                     <a href="noticeRegister?type=${member.type}&userId=${member.id}" class="btn btn-info">
