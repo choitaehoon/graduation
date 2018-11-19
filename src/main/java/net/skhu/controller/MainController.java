@@ -290,8 +290,6 @@ public class MainController {
     @RequestMapping("replaceLecture")
     public String replaceLecture(Model model, @RequestParam("type") int type , @RequestParam("id") int id ) {
         List<ReplaceLecture> replaceLectures= replaceLectureMapper.findAll();
-        for (ReplaceLecture replaceLecture : replaceLectures)
-            logger.info(replaceLecture.getCloseLecture()+" "+replaceLecture.getTitle());
         model.addAttribute("replaceLectures", replaceLectures);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/replaceLecture";     }
