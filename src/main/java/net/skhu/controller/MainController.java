@@ -200,8 +200,11 @@ public class MainController {
 
     //공지사항 list
     @RequestMapping("notice")
-    public String notice(Model model, @RequestParam("type") int type , @RequestParam("id") int id ) {
-        List<Notice> notices = noticeMapper.findAll();
+    public String notice(Model model,Pagination pagination, @RequestParam("type") int type , @RequestParam("id") int id ) {
+
+        pagination.setRecordCount(noticeMapper.count());
+
+        List<Notice> notices = noticeMapper.findAll(pagination);
         model.addAttribute("notices", notices);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/notice";     }

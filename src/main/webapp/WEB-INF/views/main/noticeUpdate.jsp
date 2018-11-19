@@ -60,7 +60,7 @@
                                 </form>
                                 <label>제목</label>
                                 <div class="form-group">
-                                    <form:input path="title" class="form-control w200" style="width: 200px"  />
+                                    <form:input path="title" class="form-control w200" style="width: 300px"  />
                                 </div>
                                 <label>관리자 이름</label>
                                 <form:input path="admin_id" class="form-control"  placeholder="관리자 번호" style="width: 200px"/>
@@ -68,9 +68,11 @@
                                 <label>내 용</label>
                                 <div class="form-group">
                                         <%--  <textArea cols=100 rows=18>		</textArea>&ndash;%&gt;--%>
+
                                     <textarea name="body" id="body" cols="100" rows="18">
                                          <c:out value="${notice.body}"/>
                                     </textarea>
+
                                 </div>
 
                                 <div>

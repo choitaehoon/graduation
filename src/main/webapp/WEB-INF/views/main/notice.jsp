@@ -33,7 +33,11 @@
                             <h4 class="title">공지사항</h4>
                             <p class="category">졸업관리에 관한 내용이 업데이트됩니다. 수시로 확인해주세요</p>
 
-
+                            <form method="post">
+                                <input type="hidden" name="pg" value="1">
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="userId" value="${member.id}" />
+                            </form>
                                 <select>
                                     <option>제목</option>
                                     <option>작성자</option>
@@ -66,7 +70,7 @@
 
                                     <tbody>
                                     <c:forEach var="notice" items="${ notices }">
-                                        <tr data-url="/main/notice?type=${member.type}&id=${member.id}">
+                                        <tr data-url="/main/noticeShow?id=${notice.id }&title=${notice.title }&admin_id=${notice.admin_id}&time=${notice_time}&type=${member.type}&userId=${member.id}">
                                             <td>${ notice.id }</td>
                                             <td>${ notice.title }</td>
                                             <td>${ notice.admin.name }</td>
@@ -84,11 +88,11 @@
 
                                 </p>
                                 <form>
-                                    <%--                                <input type="hidden" name="pg" value="1">--%>
+                                    <input type="hidden" name="pg" value="1">
                                     <input type="hidden" name="type" value="${member.type}"  />
                                     <input type="hidden" name="id" value="${member.id}" />
 
-                                    <%--                          &lt;%&ndash;/* 페이지 네이션 */&ndash;%&gt;
+                                    <%--  페이지 네이션 --%>
                                                               <div class="pagination pagination-small pagination-centered">
 
                                                                   <c:forEach var="page" items="${ pagination.pageList }">
@@ -96,7 +100,7 @@
                                                                       <li class='${ page.cssClass }'>
                                                                           <a data-page="${ page.number }">${ page.label }</a></li>
 
-                                                                  </c:forEach>--%>
+                                                                  </c:forEach>
                             </div>
                             </form>
                         </div>
