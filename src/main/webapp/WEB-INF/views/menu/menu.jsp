@@ -122,6 +122,7 @@
             </li>
         </c:if>
 
+
         <li >
         <a href="#"> <i class="pe-7s-bell"></i>
         <p>졸업 요건</p></a>

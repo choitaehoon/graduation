@@ -17,12 +17,7 @@
             <div class="sidebar" data-color="azure"
                  data-image="assets/img/logo.jpg">
 
-                <!--
 
-            Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-            Tip 2: you can also add an image using data-image tag
-
-        -->
                 <div class="content">
                     <div class="container-fluid">
                         <div class="row">

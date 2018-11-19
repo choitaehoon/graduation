@@ -6,11 +6,27 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<c:url var="R" value="/" />
+<!doctype html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" media="screen">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${R}res/common.css">
+    <script src="${R}res/common.js"></script>
 
+    <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
+          rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+
+    </script>
 </head>
 <body>
-
 <div class="wrapper">
     <%@include file="../menu/menu.jsp"%>
 
@@ -22,6 +38,7 @@
                         <div class="header">
                             <h4 class="title"> 대체 과목 관리</h4>
                             <br><br><br>
+
                             <p class="category">
                                 <select>
                                     <option>강의명</option>
@@ -31,6 +48,10 @@
                                 <input type="text">
                                 <a href=""> <button type="submit" class="btn btn-primary">조회</button></a>
 
+                                <c:if test="${member.type==2 }">
+                                <button  type="button"  style="right"class="btn btn-primary">수정</button>
+
+                            </c:if>
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                 <thead>
@@ -44,13 +65,13 @@
                                 </thead>
 
                                 <tbody>
-                                <c:forEach var="replacelecture" items="${ replacelectures }">
+                                <c:forEach var="replaceLecture" items="${ replaceLectures }">
                                     <tr data-url="replaceLecture?year=${replacelecture.lecture.year}&semester=${ replacelecture.lecture.semester }&id=${ replacelecture.lecture.id }&subType=${ replacelecture.lecture.subType}">
                                         <td>${ replacelecture.lecture.year }</td>
                                         <td>${ replacelecture.lecture.semester }</td>
                                         <td>${ replacelecture.lecture.id }</td>
+                                        <td>${ replacelecture.lecture.name }</td>
                                         <td>${ replacelecture.lecture.subType}</td>
-                                      <%--  <td><button class="btn btn-primary">수정</button></td>--%>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

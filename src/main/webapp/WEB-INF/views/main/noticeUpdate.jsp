@@ -67,15 +67,10 @@
 
                                 <label>내 용</label>
                                 <div class="form-group">
-                                        <%--                                  <textArea cols=100 rows=18>						</textArea>&ndash;%&gt;--%>
-                                        <%--                                    <textarea name="body" id="body" cols="100" rows="18"></textarea>--%>
-                                        <%--   <textarea path="body" id="body" cols="100" rows="18"></textarea>--%>
-                                        <%--                                   <input type="hidden" name="body" value="">--%>
-                                        <%--<form:input <textarea name="" id="" cols="30" rows="10"></textarea> path="body" class="form-control" style="width: 100px height: 3000px" />&ndash;%&gt;--%>
+                                        <%--  <textArea cols=100 rows=18>		</textArea>&ndash;%&gt;--%>
                                     <textarea name="body" id="body" cols="100" rows="18">
-        <c:out value="${notice.body}"/>
-        <%--<%=request.getParameter("body")%>--%>
-</textarea>
+                                         <c:out value="${notice.body}"/>
+                                    </textarea>
                                 </div>
 
                                 <div>

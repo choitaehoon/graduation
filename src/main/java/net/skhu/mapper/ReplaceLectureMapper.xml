@@ -5,32 +5,35 @@
 <mapper namespace="net.skhu.mapper.ReplaceLectureMapper">
 
 
-    <!--<resultMap id="replaceLecture1" type="replaceLecture">-->
-        <!--<id property="year" column="year"></id>-->
-        <!--<id property="semester" column="semester"></id>-->
-        <!--<id property="id" column="id"></id>-->
-        <!--<id property="split" column="split"></id>-->
-        <!--<result property="admin_id" column="admin_id"></result>-->
-        <!--<result property="title" column="title"></result>-->
-        <!--<result property="credit" column="credit"></result>-->
-        <!--<result property="subType" column="subType"></result>-->
+    <resultMap id="replaceLecture1" type="replaceLecture">
+        <id property="replace_id" column="replace_id"></id>
+        <result property="closeLecture" column="closeLecture"></result>
+        <result property="replaceLecture" column="replaceLecture"></result>
+        <result property="year" column="year"></result>
+        <result property="semester" column="semester"></result>
+        <result property="split" column="split"></result>
+        <result property="admin_id" column="admin_id"></result>
+        <result property="title" column="title"></result>
+        <result property="credit" column="credit"></result>
+        <result property="subType" column="subType"></result>
+        <association property="lecture" javaType="Lecture">
+            <id property="id" column="closeLecture"></id>
+            <result property="name" column="closeLectureName"></result>
+        </association>
+        <association property="admin" javaType="Admin">
+            <id property="id" column="admin_Id"></id>
+            <result property="name" column="adminName"></result>
+        </association>
+    </resultMap>
 
+    <!--모든 대체과목 조회하기-->
+    <select id="findAll" resultMap="replaceLecture1">
+      select l.year,l.semester,l.id,l.title,l.subType
+      from lecture l left join  replacelecture r
+      on l.id = r.closeLecture
+      order by year, semester;
+   </select>
 
-    <!--</resultMap>-->
-<!--&lt;!&ndash;    모든 대체 과목 조회하기&ndash;&gt;-->
-
-    <!--<select id="findAll" resultMap="replaceLecture1">-->
-
-    <!--&lt;!&ndash;<select id="findAll" resultType="ReplaceLecture">&ndash;&gt;-->
-        <!--&lt;!&ndash;<bind name="start" value="(currentPage-1)*pageSize"/>&ndash;&gt;-->
-        <!--&lt;!&ndash;<bind name="end" value="pageSize"/>&ndash;&gt;-->
-        <!--&lt;!&ndash;select l.year,l.semester,l.id,l.title,l.subType&ndash;&gt;-->
-        <!--&lt;!&ndash;from lecture l left join  replacelecture r&ndash;&gt;-->
-        <!--&lt;!&ndash;on l.id = r.closeLecture&ndash;&gt;-->
-        <!--&lt;!&ndash;order by year, semester;&ndash;&gt;-->
-
-    <!--&lt;!&ndash;</select>&ndash;&gt;-->
-<!--=======-->
     <!--<select id="findAll" resultMap="replaceLecture">-->
 <!--&gt;>>>>>> 901b2e26fd12fcdcd26ac746f07a34bbc19178da-->
         <!--<bind name="start" value="(currentPage-1)*pageSize"/>-->

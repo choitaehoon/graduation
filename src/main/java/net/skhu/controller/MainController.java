@@ -286,6 +286,14 @@ public class MainController {
         return "redirect:qna";
     }
 
+    //대체과목 list
+    @RequestMapping("replaceLecture")
+    public String replaceLecture(Model model, @RequestParam("type") int type , @RequestParam("id") int id ) {
+        List<ReplaceLecture> replaceLectures= replaceLectureMapper.findAll();
+        model.addAttribute("replaceLectures", replaceLectures);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/replaceLecture";     }
+
 /*내정보 페이지*/
     @RequestMapping("myInfo")
     public String myInfo(Model model, @RequestParam("type") int type ,@RequestParam("id") int id )

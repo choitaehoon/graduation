@@ -34,8 +34,8 @@
                                 <th>작성수</th>
                                 <c:if test="${member.type == 2 }">
                                     <th>수정</th>
-                                    <th>답변 현황</th>
                                 </c:if>
+                                <th>답변 현황</th>
                                 </thead>
 
                                 <tbody>
@@ -49,8 +49,8 @@
                                         <c:if test="${member.type==2 }">
                                             <td> <a href="qnaQuestion?type=${member.type}&userId=${member.id}" class="btn btn-info">
                                                 <span class="glyphicon glyphicon-user"></span> 답변하기</a></td>
-                                            <td>답변 현황</td>
                                         </c:if>
+                                        <td>답변 현황</td>
                                     </tr>
                                 </c:forEach>
 

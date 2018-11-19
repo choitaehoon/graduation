@@ -15,7 +15,6 @@ public class Lecture
 
     Admin admin;
 
-
     String subType;
     String detailType;
     String grade;
