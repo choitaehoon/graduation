@@ -16,7 +16,7 @@ public class ReplaceLecture {
 
     int year;
     String semester;
-    int id;
+    String id;
     int split;
     String title;
     int admin_id;
