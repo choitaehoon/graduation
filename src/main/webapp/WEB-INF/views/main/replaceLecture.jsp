@@ -66,12 +66,12 @@
 
                                 <tbody>
                                 <c:forEach var="replaceLecture" items="${ replaceLectures }">
-                                    <tr data-url="replaceLecture?year=${replacelecture.lecture.year}&semester=${ replacelecture.lecture.semester }&id=${ replacelecture.lecture.id }&subType=${ replacelecture.lecture.subType}">
-                                        <td>${ replacelecture.lecture.year }</td>
-                                        <td>${ replacelecture.lecture.semester }</td>
-                                        <td>${ replacelecture.lecture.id }</td>
-                                        <td>${ replacelecture.lecture.name }</td>
-                                        <td>${ replacelecture.lecture.subType}</td>
+                                    <tr data-url="replaceLecture?year=${replacelecture.lecture.year}&semester=${ replacelecture.lecture.semester }&id=${ replacelecture.closeLecture }&subType=${ replacelecture.lecture.subType}">
+                                        <td>${ replaceLecture.lecture.year }</td>
+                                        <td>${ replaceLecture.lecture.semester }</td>
+                                        <td>${ replaceLecture.closeLecture }</td>
+                                        <td>${ replaceLecture.lecture.title }</td>
+                                        <td>${ replaceLecture.lecture.subType}</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
