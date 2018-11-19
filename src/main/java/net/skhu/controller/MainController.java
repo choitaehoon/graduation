@@ -263,8 +263,11 @@ public class MainController {
 
     //qna list
     @RequestMapping("qna")
-    public String qna(Model model,@RequestParam("type") int type , @RequestParam("id") int id) {
-        List<Qna> qnas = qnaMapper.findAll();
+    public String qna(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id) {
+
+        pagination.setRecordCount(qnaMapper.count());
+
+        List<Qna> qnas = qnaMapper.findAll(pagination);
         model.addAttribute("qnas", qnas);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/qna";     }
