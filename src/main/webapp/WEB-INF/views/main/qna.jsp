@@ -17,12 +17,7 @@
 
                             <h4 class="title">Q & A</h4>
                             <p class="category">관리자가 답을 해드립니다.</p>
-                     <%--   </div>--%>
-                        <form method="post">
-                            <input type="hidden" name="pg" value="1">
-                            <input type="hidden" name="type" value="${member.type}"  />
-                            <input type="hidden" name="userId" value="${member.id}" />
-                        </form>
+
                         <c:if test="${member.type==1 }">
                             <div class="pull-right mb5">
                                 <a href="qnaQuestion?type=${member.type}&userId=${member.id}" class="btn btn-info">
@@ -31,6 +26,22 @@
                         </c:if>
 
                         <div class="content table-responsive table-full-width">
+                            <form method="post">
+                                <input type="hidden" name="pg" value="1">
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="userId" value="${member.id}" />
+
+                                <p class="category">
+                                    <select name="choice">
+                                        <option value="0" ${selected[0]}>제목</option>
+                                        <option value="1" ${selected[1]}>작성자</option>
+                                    </select>
+
+                                    <input type="text" name="srch" value="${srch}"/>
+                                    <a >
+                                        <button type="submit" class="btn btn-primary">조회</button>
+                                    </a>
+                            </form>
                             <table class="table table-hover table-striped">
                                 <thead>
                                 <tr>
@@ -81,6 +92,7 @@
                                     </c:forEach>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>
