@@ -9,16 +9,16 @@
         <id property="replace_id" column="replace_id"></id>
         <result property="closeLecture" column="closeLecture"></result>
         <result property="replaceLecture" column="replaceLecture"></result>
-        <result property="year" column="year"></result>
-        <result property="semester" column="semester"></result>
-        <result property="split" column="split"></result>
-        <result property="admin_id" column="admin_id"></result>
-        <result property="title" column="title"></result>
-        <result property="credit" column="credit"></result>
-        <result property="subType" column="subType"></result>
         <association property="lecture" javaType="Lecture">
             <id property="id" column="closeLecture"></id>
-            <result property="name" column="closeLectureName"></result>
+            <result property="title" column="closeLectureName"></result>
+            <result property="year" column="year"></result>
+            <result property="semester" column="semester"></result>
+            <result property="split" column="split"></result>
+            <result property="admin_id" column="admin_id"></result>
+            <result property="title" column="title"></result>
+            <result property="credit" column="credit"></result>
+            <result property="subType" column="subType"></result>
         </association>
         <association property="admin" javaType="Admin">
             <id property="id" column="admin_Id"></id>
@@ -28,7 +28,7 @@
 
     <!--모든 대체과목 조회하기-->
     <select id="findAll" resultMap="replaceLecture1">
-      select l.year,l.semester,l.id,l.title,l.subType
+      select l.year,l.semester,l.id closeLecture,l.title,l.subType
       from lecture l left join  replacelecture r
       on l.id = r.closeLecture
       order by year, semester;

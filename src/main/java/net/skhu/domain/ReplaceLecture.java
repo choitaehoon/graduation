@@ -4,12 +4,12 @@ import lombok.Data;
 
 
 @Data
-
 public class ReplaceLecture {
 
     int replace_id;
     String closeLecture;
     String replaceLecture;
+    int LId;
 
     Lecture lecture;
     Admin admin;
