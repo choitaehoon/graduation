@@ -26,7 +26,7 @@
         </association>
     </resultMap>
 
-    <!--모든 대체과목 조회하기-->
+    <!--모든 대체과목될 과목 조회하기-->
     <select id="findAll" resultMap="replaceLecture1">
       select l.year,l.semester,l.id closeLecture,l.title,l.subType
       from lecture l left join  replacelecture r
@@ -34,38 +34,12 @@
       order by year, semester;
    </select>
 
-    <!--<select id="findAll" resultMap="replaceLecture">-->
-<!--&gt;>>>>>> 901b2e26fd12fcdcd26ac746f07a34bbc19178da-->
-        <!--<bind name="start" value="(currentPage-1)*pageSize"/>-->
-        <!--<bind name="end" value="pageSize"/>-->
-        <!--select l.year,l.semester,l.id,l.title,l.subType-->
-        <!--from lecture l left join  replacelecture r-->
-        <!--on l.id = r.closeLecture-->
-        <!--order by year, semester;-->
-
-    <!--</select>-->
-<!--&gt;>>>>>> parent of ea86d96... 수업관리 update-->
-
-    <!--&lt;!&ndash;강의 이름별로 대체 과목 조회하기 &ndash;&gt;-->
-<!--&lt;!&ndash;    <select id="findBytitle" resultType="replacelecture">-->
-        <!--select-->
-        <!--from-->
-    <!--</select>&ndash;&gt;-->
-
-    <!--&lt;!&ndash;   대체 될 과목 추가하기&ndash;&gt;-->
-    <!--<update id="updateRL2">-->
-    <!--update replacelecture set-->
-        <!--replaceLecture = #{replacelecture}-->
-    <!--where closelecture = #{closelecture }-->
-    <!--</update>-->
-
-    <!--&lt;!&ndash;페이지네이션시 필요한 count&ndash;&gt;-->
-    <!--<select id="count" resultType="int">-->
-        <!--select count(*)-->
-        <!--from lecture l left join  replacelecture r-->
-        <!--on l.id = r.closeLecture-->
-        <!--order by year, semester;-->
-
-    <!--</select>-->
+    <!--대체할 과목(대체할 과목이 있는 경우) / 없는 경우는 전공으로 돌려서 대체 누를 것-->
+    <select id="findChange" resultMap="replaceLecture1">
+      select l.year,l.semester,l.id closeLecture,l.title,l.subType
+      from lecture l left join  replacelecture r
+      on l.id = r.replaceLecture
+      order by year, semester;
+    </select>
 
 </mapper>
