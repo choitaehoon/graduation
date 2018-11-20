@@ -78,16 +78,29 @@ public class MainController {
 /*
 수업관리, 수업리스트(검색할시)
  */
-    @RequestMapping(value = "manageClass",method = RequestMethod.POST)
-    public String manageClass(Model model,Pagination pagination,@RequestParam(value = "choice", defaultValue = "0") int choice,
-                              @RequestParam(value = "srch",defaultValue = "") String srch, @RequestParam("type") int type , @RequestParam("userId") int id )
-    {
-        pagination.setRecordCount(lectureService.pageSrchCount(choice,srch));
-        model.addAttribute("lectures",lectureService.srchByLecList(pagination.getPg(),pagination.getPageSize(),choice,srch));
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        model.addAttribute("selected",lectureService.selectCheck(choice));
-        return "main/manageClass";
-    }
+@RequestMapping(value = "manageClass",method = RequestMethod.POST)
+public String manageClass(Model model,Pagination pagination,@RequestParam("choice") int choice,@RequestParam("srch") String srch, @RequestParam("type") int type , @RequestParam("userId") int id )
+{
+    if(srch==null)
+        srch="";
+    pagination.setRecordCount(lectureService.pageSrchCount(choice,srch));
+    model.addAttribute("lectures",lectureService.srchByLecList(pagination.getPg(),pagination.getPageSize(),choice,srch));
+    model.addAttribute("member",typeIdentity.typeCheck(type,id));
+    model.addAttribute("srch",srch);
+
+    model.addAttribute("selected",lectureService.selectCheck(choice));
+    return "main/manageClass";
+}
+//    @RequestMapping(value = "manageClass",method = RequestMethod.POST)
+//    public String manageClass(Model model,Pagination pagination,@RequestParam(value = "choice", defaultValue = "0") int choice,
+//                              @RequestParam(value = "srch",defaultValue = "") String srch, @RequestParam("type") int type , @RequestParam("userId") int id )
+//    {
+//        pagination.setRecordCount(lectureService.pageSrchCount(choice,srch));
+//        model.addAttribute("lectures",lectureService.srchByLecList(pagination.getPg(),pagination.getPageSize(),choice,srch));
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        model.addAttribute("selected",lectureService.selectCheck(choice));
+//        return "main/manageClass";
+//    }
 
     /* 수업수정 페이지*/
     @RequestMapping("classEdit")
@@ -294,8 +307,10 @@ public class MainController {
 
     //대체과목 list
     @RequestMapping("replaceLecture")
-    public String replaceLecture(Model model, @RequestParam("type") int type , @RequestParam("id") int id ) {
-        List<ReplaceLecture> replaceLectures= replaceLectureMapper.findAll();
+    public String replaceLecture(Model model,Pagination pagination ,@RequestParam("type") int type , @RequestParam("id") int id ) {
+        pagination.setRecordCount(replaceLectureMapper.count());
+        List<ReplaceLecture> replaceLectures= replaceLectureMapper.findAll(pagination);
+
         model.addAttribute("replaceLectures", replaceLectures);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/replaceLecture";     }
