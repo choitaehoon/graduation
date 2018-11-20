@@ -292,6 +292,25 @@ public class MainController {
         return "redirect:qna";
     }
 
+    //qna 수정 페이지*/
+    @RequestMapping("qnaUpdate")
+    public String updateQ(Model model,@RequestParam("id") int qnaId, @RequestParam("student_id") int studentId,  @RequestParam("type") int type , @RequestParam("userId") int id )
+    {
+        model.addAttribute("qna",qnaMapper.findQna(qnaId,studentId));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/qnaUpdate";
+    }
+
+    /*qna 수정*/
+    @RequestMapping(value="qnaUpdate",method = RequestMethod.POST)
+    public String updateQ(Model model, Qna qna, @RequestParam("type") int type , @RequestParam("userId") int id
+            ,RedirectAttributes redirectAttributes)
+    {
+        qnaMapper.update(qna);
+        redirectAttributes.addAttribute("type",type);
+        redirectAttributes.addAttribute("id",id);
+        return "redirect:qna";
+    }
     //대체과목 list
     @RequestMapping("replaceLecture")
     public String replaceLecture(Model model, @RequestParam("type") int type , @RequestParam("id") int id ) {
