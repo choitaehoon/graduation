@@ -5,41 +5,31 @@
 <mapper namespace="net.skhu.mapper.ReplaceLectureMapper">
 
 
-    <resultMap id="replaceLecture1" type="replaceLecture">
-        <id property="replace_id" column="replace_id"></id>
-        <result property="closeLecture" column="closeLecture"></result>
+    <resultMap id="replaceLec" type="replaceLecture">
+        <id property="closeLecture" column="closeLecture"></id>
+        <result property="department" column="department"></result>
+        <result property="closeLecTitle" column="closeLecTitle"></result>
+        <result property="subType" column="subType"></result>
+        <result property="credit" column="credit"></result>
         <result property="replaceLecture" column="replaceLecture"></result>
-        <association property="lecture" javaType="Lecture">
-            <id property="id" column="closeLecture"></id>
-            <result property="title" column="closeLectureName"></result>
-            <result property="year" column="year"></result>
-            <result property="semester" column="semester"></result>
-            <result property="split" column="split"></result>
-            <result property="admin_id" column="admin_id"></result>
-            <result property="title" column="title"></result>
-            <result property="credit" column="credit"></result>
-            <result property="subType" column="subType"></result>
-        </association>
-        <association property="admin" javaType="Admin">
-            <id property="id" column="admin_Id"></id>
-            <result property="name" column="adminName"></result>
-        </association>
+        <result property="replaceLecTitle" column="replaceLecTitle"></result>
+
     </resultMap>
 
     <!--모든 대체과목될 과목 조회하기-->
-    <select id="findAll" resultMap="replaceLecture1">
-      select l.year,l.semester,l.id closeLecture,l.title,l.subType
-      from lecture l left join  replacelecture r
-      on l.id = r.closeLecture
-      order by year, semester;
-   </select>
-
-    <!--대체할 과목(대체할 과목이 있는 경우) / 없는 경우는 전공으로 돌려서 대체 누를 것-->
-    <select id="findChange" resultMap="replaceLecture1">
-      select l.year,l.semester,l.id closeLecture,l.title,l.subType
-      from lecture l left join  replacelecture r
-      on l.id = r.replaceLecture
-      order by year, semester;
+    <select id="findAll" resultMap="replaceLec">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
+        select *
+        from replacelecture
+        limit ${start} , ${end}
     </select>
+
+    <select id="count" resultType="int">
+        select count(*)
+        FROM replacelecture
+    </select>
+
+
 
 </mapper>

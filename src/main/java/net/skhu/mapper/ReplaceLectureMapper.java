@@ -15,10 +15,9 @@ import java.util.List;
 
 public interface ReplaceLectureMapper {
 
-    List<ReplaceLecture> findAll();
+    List<ReplaceLecture> findAll(Pagination pagination);
     List<ReplaceLecture> findChange(@Param("id") int lecId);
     void insert(ReplaceLecture replaceLecture);
-    void updateRL2(ReplaceLecture replaceLecture);
     int count();
 
 
