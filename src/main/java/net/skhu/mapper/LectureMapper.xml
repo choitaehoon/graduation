@@ -96,7 +96,6 @@
         left join admin a
         on l.admin_id= a.id
         <where>
-
             <if test="choice == 0">
                 year = #{srch}
             </if>

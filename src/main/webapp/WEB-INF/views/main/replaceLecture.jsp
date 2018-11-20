@@ -40,49 +40,38 @@
                             <br><br><br>
 
                             <p class="category">
-                                <select name="choice">
-                                    <option>담당학과</option>
-                                    <option>폐지과목명</option>
-                                    <option>이수구분</option>
-                                    <option>대체과목명</option>
+                                <select>
+                                    <option>강의명</option>
+                                    <option>학과별</option>
+                                    <option>학번</option>
                                 </select>
-                            </p>
-                                <input type="text" name="srch">
-                                <button type="submit" class="btn btn-primary">조회</button></a>
+                                <input type="text">
+                                <a href=""> <button type="submit" class="btn btn-primary">조회</button></a>
 
                                 <c:if test="${member.type==2 }">
-                                <button  type="button" class="btn btn-primary">대체과목등록</button>
-                                </c:if>
+                                <button  type="button"  style="right"class="btn btn-primary">수정</button>
+
+                            </c:if>
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                 <thead>
                                 <tr>
-                                    <th>담당학과</th>
-                                    <th>폐지과목</th>
-                                    <th>폐지과목명</th>
-                                    <th>이수구분</th>
-                                    <th>이수학점</th>
-                                    <th>대체과목</th>
-                                    <th>대체과목명</th>
-
+                                    <th>년도</th>
+                                    <th>학기</th>
+                                    <th>강의 ID</th>
+                                    <th>강의명</th>
+                                    <th>유형</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
                                 <c:forEach var="replaceLecture" items="${ replaceLectures }">
-                                    <tr data-url="#">
-                                        <td>${ replaceLecture.department }</td>
+                                    <tr data-url="replaceLecture?year=${replacelecture.lecture.year}&semester=${ replacelecture.lecture.semester }&id=${ replacelecture.closeLecture }&subType=${ replacelecture.lecture.subType}">
+                                        <td>${ replaceLecture.lecture.year }</td>
+                                        <td>${ replaceLecture.lecture.semester }</td>
                                         <td>${ replaceLecture.closeLecture }</td>
-                                        <td>${ replaceLecture.closeLecTitle}</td>
-                                        <td>${ replaceLecture.subType }</td>
-                                        <td>${ replaceLecture.credit}</td>
-                                        <td>
-                                            <c:if test="${ replaceLecture.replaceLecture.length()>1 }">
-                                                ${ replaceLecture.replaceLecture}
-                                            </c:if>
-                                        </td>
-                                        <td>${ replaceLecture.replaceLecTitle}</td>
-
+                                        <td>${ replaceLecture.lecture.title }</td>
+                                        <td>${ replaceLecture.lecture.subType}</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -90,22 +79,7 @@
                             </table>
 
                             </p>
-                            <form >
-                                <input type="hidden" name="pg" value="1">
-                                <input type="hidden" name="type" value="${member.type}"  />
-                                <input type="hidden" name="id" value="${member.id}" />
 
-                                <%--/* 페이지 네이션 */--%>
-                                <div class="pagination pagination-small pagination-centered">
-
-                                    <c:forEach var="page" items="${ pagination.pageList }">
-
-                                        <li class='${ page.cssClass }'>
-                                            <a data-page="${ page.number }">${ page.label }</a></li>
-
-                                    </c:forEach>
-                                </div>
-                            </form>
 
 
                         </div>
@@ -121,9 +95,9 @@
 
             <p class="copyright pull-right">
                 &copy;
-                <script></script>
-                <a ></a>
-
+                <script>document.write(new Date().getFullYear())</script>
+                <a href="http://www.creative-tim.com">Creative Tim</a>, made with
+                love for a better web
             </p>
         </div>
     </footer>

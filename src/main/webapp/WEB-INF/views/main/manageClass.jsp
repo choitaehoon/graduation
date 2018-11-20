@@ -81,9 +81,6 @@
                                     <a >
                                         <button type="submit" class="btn btn-primary">조회</button>
                                     </a>
-                                    <a href="manageClass?type=${member.type}&id=${member.id}" class="btn btn-primary">검색초기화
-                                    </a>
-
                             </form>
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
@@ -113,9 +110,9 @@
                                         <td>${lecture.title}</td>
                                         <td>${lecture.subType}</td>
                                         <td>${lecture.credit}</td>
-                                        <td>
-                                            <a href='classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}' class="btn btn-primary">
-                                           수정</a>
+                                        <td><a href='classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}'>
+                                            <button  type="button" class="btn btn-primary">수정</button>
+                                        </a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -123,7 +120,10 @@
                             </table>
 
                             </p>
-
+                            <form>
+                                <input type="hidden" name="pg" value="1">
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="id" value="${member.id}" />
 
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
