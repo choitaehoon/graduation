@@ -472,6 +472,8 @@ public class MainController {
             model.addAttribute("minor", studentMapper.minor(id));
             model.addAttribute("doubleMajor", studentMapper.doubleMajor(id));
 
+            model.addAttribute("cultureEssential",lectureMapper.findBy18CulturalEssentials(id));
+            model.addAttribute("chapel",lectureMapper.findBy18Chapel(id));
             return "main/graduationInfo";
         }
         @RequestMapping(value = "graduationInfo", method = RequestMethod.POST) public String graduationInfo (Model

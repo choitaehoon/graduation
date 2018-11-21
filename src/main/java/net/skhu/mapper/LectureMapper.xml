@@ -141,6 +141,29 @@
         group by l.id
     </select>
 
+    <!--18학번 이후 들어야할 교양 필수 과목 뽑기-->
+    <select id="findBy18CulturalEssentials" resultType="Lecture">
+        SELECT distinct l.id, l.title, m.student_id FROM lecture l
+        left outer join (select * from mylecture where student_id=#{id})m
+        on l.id = m.lecture_id
+        where (l.id='AC00012' or l.id='AC00014' or l.id='AC00007' or l.id='AC00013' or (l.id='AC00015' AND l.title like concat('데이터 활용 및 분석(IT융합 1반)'))
+			or (l.id='AC00016' AND l.title like concat('과학기술과 에콜로지(IT융합 1반)')) or l.title like concat('사회봉사I'))
+        and student_id is null
+        group by l.id;
+    </select>
+
+    <!--18학번 이후 들어야할 채플 과목 뽑기-->
+    <select id="findBy18Chapel" resultType="lecture">
+              SELECT distinct l.id, l.title, m.student_id FROM lecture l
+        left outer join (select * from mylecture where student_id=#{id})m
+        on l.id = m.lecture_id
+        where
+			(select l.id like concat('AA','%'))
+        and student_id is null
+        group by l.id;
+    </select>
+
+
     <insert id="insert">
     INSERT Lecture (year, semester, id , split, title, admin_id, credit, subType)
 	VALUES (#{year}, #{semester}, #{id}, #{split}, #{title},#{admin_id}, #{credit},#{subType})

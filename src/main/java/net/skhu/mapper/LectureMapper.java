@@ -24,5 +24,6 @@ public interface LectureMapper {
 
     List<Lecture> findEssentialMajor(int id);
     List<Lecture> findEssentialCulture(int id);
-
+    List<Lecture> findBy18CulturalEssentials(int id);
+    List<Lecture> findBy18Chapel(int id);
 }
