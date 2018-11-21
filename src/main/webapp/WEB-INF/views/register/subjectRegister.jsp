@@ -139,6 +139,8 @@
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
+                                <input type="hidden" name="choice" value="${choice}">
+                                <input type="hidden" name="srch" value="${srch}">
 
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
