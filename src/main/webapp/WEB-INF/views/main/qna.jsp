@@ -51,23 +51,23 @@
                                 <th>작성자</th>
                                 <th>작성수</th>
 
-                                    <c:if test="${memeber.id} eq ${qna.student_id}">
-                                        <th>수정하기</th>
-                                    </c:if>
-
-
-<%--                                        <c:choose>
-                                            <c:when test="${memeber.id eq qna.student_id}">
-                                                <th>수정하기</th>
-                                            </c:when>
-                                            <c:when test="${memeber.id ne qna.student_id}">
-                                                <th></th>
-                                            </c:when>
-                                        </c:choose>--%>
                                 <c:if test="${member.type == 2 }">
                                     <th>답변</th>
                                 </c:if>
                                 <th>답변 현황</th>
+
+   <%--                                 <c:if test="${memeber.id} eq ${qna.student_id}">
+                                        <th>수정하기</th>
+                                    </c:if>--%>
+
+                                    <c:choose>
+                                        <c:when test="${memeber.id eq qna.student_id}">
+                                            <th>수정하기</th>
+                                        </c:when>
+                                        <c:when test="${memeber.id ne qna.student_id}">
+                                            <th> </th>
+                                        </c:when>
+                                    </c:choose>
                                 </tr>
                                 </thead>
 
@@ -79,21 +79,21 @@
                                         <td>${ qna.wtime }</td>
                                         <td>${ qna.student.name }</td>
                                         <td>${ qna.count }</td>
-                                        <c:choose>
-                                            <c:when test="${memeber.id eq qna.student_id}">
-                                            <td><a href='qnaUpdate?id=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>
-                                                <button  type="button" class="btn btn-primary">수정</button>
-                                            </a></td>
-                                            </c:when>
-                                            <c:when test="${memeber.id ne qna.student_id}">
-                                                <td></td>
-                                            </c:when>
-                                        </c:choose>
                                         <c:if test="${member.type==2 }">
-                                            <td> <a href="qnaQuestion?type=${member.type}&userId=${member.id}" class="btn btn-info">
+                                            <td> <a href="qnaaQuestion?type=${member.type}&userId=${member.id}" class="btn btn-info">
                                                 <span class="glyphicon glyphicon-user"></span> 답변하기</a></td>
                                         </c:if>
                                         <td>답변 현황</td>
+                                        <c:choose>
+                                            <c:when test="${memeber.id eq qna.student_id}">
+                                                <td><a href='qnaUpdate?id=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>
+                                                    <button  type="button" class="btn btn-primary">수정</button>
+                                                </a></td>
+                                            </c:when>
+                                            <c:when test="${memeber.id ne qna.student_id}">
+                                                <td> </td>
+                                            </c:when>
+                                        </c:choose>
                                     </tr>
                                 </c:forEach>
 

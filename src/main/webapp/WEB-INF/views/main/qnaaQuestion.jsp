@@ -40,39 +40,35 @@
                         <div class="header">
                             <h4 class="title">Q & A</h4>
 
-                            <form:form method="post" modelAttribute="qna">
+                            <form:form method="post" modelAttribute="qnaa">
                                 <div id="content">
-                                    <h4>질문 등록</h4>
+                                    <h4>답변 등록</h4>
                                     <form method="post">
-                                            <%--<input type="hidden" name="pg" value="1">--%>
                                         <input type="hidden" name="type" value="${member.type}"  />
                                         <input type="hidden" name="userId" value="${member.id}" />
-                                    </form>
 
-                                    <label>제목</label>
-                                    <div class="form-group">
-                                        <form:input path="title" class="form-control" style="width: 100px" />
-                                    </div>
-                                    <label>작성자</label>
-                                    <div class="form-group">
-                                        <form:input path="student_id" class="form-control"  placeholder="작성자" style="width: 200px"/>
-                                    </div>
+                                    </form>
+                                    <label>답변 상태 선택</label>
+                                        <div id="button">
+                                            <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> 답변완료</button>
+                                            <button type="submit" class="btn btn-warning"><i class="glyphicon glyphicon-ok"></i> 유선답변</button>
+                                        </div>
                                     <label>내 용</label>
                                     <div class="form-group">
                                         <textarea name="body" id="body" cols="100" rows="18">
-                                                    <c:out value="${qna.body}"/>
+                                                    <c:out value="${qnaa.body}"/>
                                             </textarea>
                                     </div>
 
                                     <div>
-                                        날짜 : <form:input path="wtime"  class="form-control" style="width: 100px"/><br>
+                                        날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>
                                         파일 첨부  <input type="file"> * 2MB까지 가능
                                     </div>
 
                                     <div id="buttons">
                                         <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
                                         <a class="btn btn-danger" href="#"><i class=" glyphicon glyphicon-remove"></i> 삭제</a>
-                                        <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 공지사항으로</a>
+                                        <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 목록으로</a>
 
                                     </div>
 
@@ -80,20 +76,9 @@
                             </form:form>
 
                             <form>
-                                <%--                            <input type="hidden" name="pg" value="1">--%>
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
-                                <input type="hidden" name="student_id" value="${student.id}" />
-                                <%-- &lt;%&ndash;/* 페이지 네이션 */&ndash;%&gt;
-                                 <div class="pagination pagination-small pagination-centered">
-
-                                     <c:forEach var="page" items="${ pagination.pageList }">
-
-                                         <li class='${ page.cssClass }'>
-                                             <a data-page="${ page.number }">${ page.label }</a></li>
-
-                                     </c:forEach>--%>
-                                <%-- </div>--%>
+                                <%--<input type="hidden" name="admin_id" value="${admin.id}" />--%>
                             </form>
 
                         </div>

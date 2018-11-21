@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.skhu.mapper.QnaanswerMapper">
+
+    <resultMap id="resultMapQa" type="Qnaanswer">
+        <id property="id" column="id"></id>
+        <result property="body" column="body"></result>
+        <result property="time" column="time"></result>
+        <result property="qnaanswercol" column="qnaanswercol"></result>
+        <result property="student_id" column="student_id"></result>
+        <result property="admin_id" column="admin_id"></result>
+        <association property="student" javaType="Student">
+            <id property="id" column="student_Id"></id>
+            <result property="name" column="studentName"></result>
+        </association>
+        <association property="admin" javaType="Admin">
+            <id property="id" column="admin_id"></id>
+            <result property="name" column="adminName"></result>
+        </association>
+    </resultMap>
+
+<!--    <select id="findAll" resultMap="resultMapQa">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
+    select a.id,a.title,a.wtime,s.name studentName,a.count
+    from qna a
+    LEFT JOIN student s
+    on a.student_id = s.id
+    order by a.id desc
+    limit ${start} , ${end};
+    </select>-->
+
+   <select id="findQnaa" resultMap="resultMapQa">
+    select qa.*,s.name studentName
+    from qnaanwer qa left join student s
+    on qa.student_id = s.id
+      where qa.id=#{id}
+    </select>
+
+    <insert id="insert">
+    INSERT Qnaanswer (title, body , time,  admin_id)
+	VALUES ( #{title}, #{body}, now(),#{admin_id})
+    </insert>
+
+    <update id="update">
+        update qnaanswer set
+        body = #{body},
+        file = #{file},
+        count = #{count},
+        id =#{id}
+        where id=#{id}
+    </update>
+
+    <select id="count" resultType="int">
+        select count(*)
+        from qna
+
+    </select>
+
+</mapper>
