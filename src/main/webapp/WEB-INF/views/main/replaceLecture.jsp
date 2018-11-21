@@ -46,12 +46,12 @@
                                     <option>이수구분</option>
                                     <option>대체과목명</option>
                                 </select>
-                            </p>
+
                                 <input type="text" name="srch">
                                 <button type="submit" class="btn btn-primary">조회</button></a>
 
                                 <c:if test="${member.type==2 }">
-                                <button  type="button" class="btn btn-primary">대체과목등록</button>
+                                <a href="replaceLectureRegister?type=${member.type}&id=${member.id}" class="btn btn-primary">폐지과목등록</a>
                                 </c:if>
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">

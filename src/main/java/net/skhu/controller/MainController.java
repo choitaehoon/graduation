@@ -324,15 +324,7 @@ public String manageClass(Model model,Pagination pagination,@RequestParam("choic
         redirectAttributes.addAttribute("id",id);
         return "redirect:qna";
     }
-    //대체과목 list
-    @RequestMapping("replaceLecture")
-    public String replaceLecture(Model model,Pagination pagination ,@RequestParam("type") int type , @RequestParam("id") int id ) {
-        pagination.setRecordCount(replaceLectureMapper.count());
-        List<ReplaceLecture> replaceLectures= replaceLectureMapper.findAll(pagination);
 
-        model.addAttribute("replaceLectures", replaceLectures);
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        return "main/replaceLecture";     }
 
 /*내정보 페이지*/
     @RequestMapping("myInfo")
@@ -522,5 +514,25 @@ public String manageClass(Model model,Pagination pagination,@RequestParam("choic
     {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/comBefore18";
+    }
+
+    //대체과목 list
+    @RequestMapping("replaceLecture")
+    public String replaceLecture(Model model,Pagination pagination ,@RequestParam("type") int type , @RequestParam("id") int id ) {
+        pagination.setRecordCount(replaceLectureMapper.count());
+        List<ReplaceLecture> replaceLectures= replaceLectureMapper.findAll(pagination);
+
+        model.addAttribute("replaceLectures", replaceLectures);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/replaceLecture";
+    }
+    //대체과목 등록 수정
+    @RequestMapping("replaceLectureRegister")
+    public String replaceLecRegister(Model model,Pagination pagination ,@RequestParam("type") int type , @RequestParam("id") int id ) {
+
+        ReplaceLecture replaceLecture=new ReplaceLecture();
+        model.addAttribute("replaceLecture", replaceLecture);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/replaceLectureRegister";
     }
 }
