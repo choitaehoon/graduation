@@ -83,12 +83,12 @@
 
                                         <td>
                                             <label>대체과목코드</label>
-                                            <form:input path="closeLecture" class="form-control"   placeholder="대체과목코드" style="width: 200px"/>
+                                            <form:input path="replaceLecture" class="form-control"   placeholder="대체과목코드" style="width: 200px"/>
                                         </td>
 
                                         <td>
                                             <label>대체과목명</label>
-                                            <form:input path="closeLecTitle" class="form-control"   placeholder="대체과목명" style="width: 200px"/>
+                                            <form:input path="replaceLecTitle" class="form-control"   placeholder="대체과목명" style="width: 200px"/>
 
                                         </td>
 
@@ -103,7 +103,7 @@
                                 <div id="buttons" class="pull-right">
                                     <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
 
-                                    <a data-confirm-delete  href="#" class="btn btn-danger">
+                                    <a data-confirm-delete  href="closeLecDelete?closeLecture=${replaceLecture.closeLecture}&type=${member.type}&id=${member.id}" class="btn btn-danger">
                                         <i class="glyphicon glyphicon-remove"></i>삭제
                                     </a>
 

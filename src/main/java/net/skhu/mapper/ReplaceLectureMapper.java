@@ -23,6 +23,8 @@ public interface ReplaceLectureMapper {
 
     void update(ReplaceLecture replaceLecture);
 
+    void delete(String closeLecture);
+
     int count();
 
 

@@ -70,7 +70,7 @@
 
                                 <tbody>
                                 <c:forEach var="replaceLecture" items="${ replaceLectures }">
-                                    <tr data-url="#">
+                                    <tr data-url="replaceLectureUpdate?closeLecture=${replaceLecture.closeLecture}&type=${member.type}&id=${member.id}">
                                         <td>${ replaceLecture.department }</td>
                                         <td>${ replaceLecture.closeLecture }</td>
                                         <td>${ replaceLecture.closeLecTitle}</td>
