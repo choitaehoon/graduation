@@ -437,6 +437,13 @@ public class MainController {
             model.addAttribute("member", typeIdentity.typeCheck(type, id));
             return "main/before18";
         }
+
+    @RequestMapping("help")
+    public String help (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
+    {
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/help";
+    }
 /*
 나의 졸업요건페이지
  */
