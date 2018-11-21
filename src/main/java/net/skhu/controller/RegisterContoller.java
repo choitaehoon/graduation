@@ -44,7 +44,8 @@ public class RegisterContoller
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         model.addAttribute("selected",lectureService.selectCheck(choice));
         model.addAttribute("count",myLectureMapper.count());
-
+        model.addAttribute("choice",choice);
+        model.addAttribute("srch",srch);
         return "register/subjectRegister";
     }
 /*

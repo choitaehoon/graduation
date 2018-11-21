@@ -38,22 +38,28 @@
     </select>
 
     <insert id="insert">
-    INSERT replaceLecture (department, closeLecture, closeLectureTitle , subType, credit, replaceLecture, replaceLecTitle)
-	VALUES (#{department}, #{closeLecture}, #{closeLectureTitle}, #{subType}, #{credit},#{replaceLecture}, #{replaceLecTitle})
+    INSERT replaceLecture (department, closeLecture, closeLecTitle , subType, credit, replaceLecture, replaceLecTitle)
+	VALUES (#{department}, #{closeLecture}, #{closeLecTitle}, #{subType}, #{credit},#{replaceLecture}, #{replaceLecTitle})
     </insert>
 
     <update id="update">
-        update replaceLecture set
+        update replaceLecture
+        set
         department = #{department},
-        closeLectureTitle = #{closeLectureTitle},
+        closeLecTitle = #{closeLecTitle},
         subType = #{subType},
         credit = #{credit},
         replaceLecture = #{replaceLecture},
         replaceLecTitle = #{replaceLecTitle}
-        where closeLecture = #{closeLecture}
+        where closeLecture like #{closeLecture}
 
     </update>
 
+    <delete id="delete">
+        Delete from replaceLecture
+        where closeLecture like #{closeLecture}
+
+    </delete>
 
 
 </mapper>

@@ -282,6 +282,63 @@
             <%--------------------------------------%>
         <%-------------------------------------%>
 
+            <%-------------------------------------%>
+            <%--18학번 이후--%>
+            <c:if test="${ student.graduationRule_id > 4 }">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h3>✔ 들어야 할 과목 List</h3>
+                                    <div>
+                                        <table class="table table-striped" style="float:left;width:30%; max-width: 100%; margin-bottom:20px;">
+                                            <thead>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;교양 필수 과목</th>
+                                            </thead>
+                                            <tbody>
+                                            <c:forEach var="culture" items="${ cultureEssential }">
+                                                <tr>
+                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;-${ culture.title }</td>
+                                                </tr>
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div>
+                                            <table class="table table-striped" style="float:left;width:30%; max-width: 100%; margin-bottom:20px;">
+                                                <thead>
+                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;채플 과목</th>
+                                                </thead>
+                                                <c:if test="${chapelCount != 2}">
+                                                <tbody>
+                                                    <c:forEach var="cha" items="${ chapel }">
+                                                        <tr>
+                                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;-${ cha.title }</td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                    <tr>
+                                                        <c:if test="${chapelCount == 0}">
+                                                        <td style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이 중 두개 이상  들어야함</td>
+                                                        </c:if>
+                                                        <c:if test="${chapelCount == 1}">
+                                                        <td style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이 중 한개 이상  들어야함</td>
+                                                        </c:if>
+                                                    </tr>
+                                                </tbody>
+                                                </c:if>
+                                            </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <%--------------------------------------%>
+            <%-------------------------------------%>
+
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
