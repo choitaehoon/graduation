@@ -19,11 +19,21 @@
     </resultMap>
 
     <select id="findAll" resultMap="resultMapQ">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
     select a.id,a.title,a.wtime,s.name studentName,a.count
     from qna a
     LEFT JOIN student s
     on a.student_id = s.id
-    order by a.id desc;
+    order by a.id desc
+    limit ${start} , ${end};
+    </select>
+
+    <select id="findQna" resultMap="resultMapQ">
+    select q.*,s.name studentName
+    from qna q left join student s
+    on q.student_id = s.id
+      where q.id=#{id}
     </select>
 
     <insert id="insert">
@@ -31,5 +41,19 @@
 	VALUES ( #{title}, #{body}, #{wtime},#{student_id})
     </insert>
 
+    <update id="update">
+        update qna set
+        title = #{title},
+        body = #{body},
+        file = #{file},
+        count = #{count}
+        where id=#{id}
+    </update>
+
+    <select id="count" resultType="int">
+        select count(*)
+        from qna
+
+    </select>
 
 </mapper>

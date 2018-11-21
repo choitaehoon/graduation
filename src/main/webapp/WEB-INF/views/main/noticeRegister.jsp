@@ -57,17 +57,6 @@
                                         <%--<input type="hidden" name="pg" value="1">--%>
                                     <input type="hidden" name="type" value="${member.type}"  />
                                     <input type="hidden" name="userId" value="${member.id}" />
-
-                                        <%--                <p class="category">
-                                                            <select name="choice">
-                                                                <option value="0" ${selected[0]}>날짜</option>
-                                                                <option value="1" ${selected[1]}>내용</option>
-                                                            </select>
-
-                                                            <input type="text" name="srch" value="${srch}"/>
-                                                            <a >
-                                                                <button type="submit" class="btn btn-primary">조회</button>
-                                                            </a>--%>
                                 </form>
                                 <label>제목</label>
                                 <div class="form-group">

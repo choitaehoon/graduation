@@ -78,16 +78,29 @@ public class MainController {
 /*
 수업관리, 수업리스트(검색할시)
  */
-    @RequestMapping(value = "manageClass",method = RequestMethod.POST)
-    public String manageClass(Model model,Pagination pagination,@RequestParam(value = "choice", defaultValue = "0") int choice,
-                              @RequestParam(value = "srch",defaultValue = "") String srch, @RequestParam("type") int type , @RequestParam("userId") int id )
-    {
-        pagination.setRecordCount(lectureService.pageSrchCount(choice,srch));
-        model.addAttribute("lectures",lectureService.srchByLecList(pagination.getPg(),pagination.getPageSize(),choice,srch));
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        model.addAttribute("selected",lectureService.selectCheck(choice));
-        return "main/manageClass";
-    }
+@RequestMapping(value = "manageClass",method = RequestMethod.POST)
+public String manageClass(Model model,Pagination pagination,@RequestParam("choice") int choice,@RequestParam("srch") String srch, @RequestParam("type") int type , @RequestParam("userId") int id )
+{
+    if(srch==null)
+        srch="";
+    pagination.setRecordCount(lectureService.pageSrchCount(choice,srch));
+    model.addAttribute("lectures",lectureService.srchByLecList(pagination.getPg(),pagination.getPageSize(),choice,srch));
+    model.addAttribute("member",typeIdentity.typeCheck(type,id));
+    model.addAttribute("srch",srch);
+
+    model.addAttribute("selected",lectureService.selectCheck(choice));
+    return "main/manageClass";
+}
+//    @RequestMapping(value = "manageClass",method = RequestMethod.POST)
+//    public String manageClass(Model model,Pagination pagination,@RequestParam(value = "choice", defaultValue = "0") int choice,
+//                              @RequestParam(value = "srch",defaultValue = "") String srch, @RequestParam("type") int type , @RequestParam("userId") int id )
+//    {
+//        pagination.setRecordCount(lectureService.pageSrchCount(choice,srch));
+//        model.addAttribute("lectures",lectureService.srchByLecList(pagination.getPg(),pagination.getPageSize(),choice,srch));
+//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+//        model.addAttribute("selected",lectureService.selectCheck(choice));
+//        return "main/manageClass";
+//    }
 
     /* 수업수정 페이지*/
     @RequestMapping("classEdit")
@@ -200,8 +213,11 @@ public class MainController {
 
     //공지사항 list
     @RequestMapping("notice")
-    public String notice(Model model, @RequestParam("type") int type , @RequestParam("id") int id ) {
-        List<Notice> notices = noticeMapper.findAll();
+    public String notice(Model model,Pagination pagination, @RequestParam("type") int type , @RequestParam("id") int id ) {
+
+        pagination.setRecordCount(noticeMapper.count());
+
+        List<Notice> notices = noticeMapper.findAll(pagination);
         model.addAttribute("notices", notices);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/notice";     }
@@ -260,8 +276,11 @@ public class MainController {
 
     //qna list
     @RequestMapping("qna")
-    public String qna(Model model,@RequestParam("type") int type , @RequestParam("id") int id) {
-        List<Qna> qnas = qnaMapper.findAll();
+    public String qna(Model model,Pagination pagination,@RequestParam("type") int type , @RequestParam("id") int id) {
+
+        pagination.setRecordCount(qnaMapper.count());
+
+        List<Qna> qnas = qnaMapper.findAll(pagination);
         model.addAttribute("qnas", qnas);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/qna";     }
@@ -286,10 +305,31 @@ public class MainController {
         return "redirect:qna";
     }
 
+    //qna 수정 페이지*/
+    @RequestMapping("qnaUpdate")
+    public String updateQ(Model model,@RequestParam("id") int qnaId, @RequestParam("student_id") int studentId,  @RequestParam("type") int type , @RequestParam("userId") int id )
+    {
+        model.addAttribute("qna",qnaMapper.findQna(qnaId,studentId));
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/qnaUpdate";
+    }
+
+    /*qna 수정*/
+    @RequestMapping(value="qnaUpdate",method = RequestMethod.POST)
+    public String updateQ(Model model, Qna qna, @RequestParam("type") int type , @RequestParam("userId") int id
+            ,RedirectAttributes redirectAttributes)
+    {
+        qnaMapper.update(qna);
+        redirectAttributes.addAttribute("type",type);
+        redirectAttributes.addAttribute("id",id);
+        return "redirect:qna";
+    }
     //대체과목 list
     @RequestMapping("replaceLecture")
-    public String replaceLecture(Model model, @RequestParam("type") int type , @RequestParam("id") int id ) {
-        List<ReplaceLecture> replaceLectures= replaceLectureMapper.findAll();
+    public String replaceLecture(Model model,Pagination pagination ,@RequestParam("type") int type , @RequestParam("id") int id ) {
+        pagination.setRecordCount(replaceLectureMapper.count());
+        List<ReplaceLecture> replaceLectures= replaceLectureMapper.findAll(pagination);
+
         model.addAttribute("replaceLectures", replaceLectures);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/replaceLecture";     }

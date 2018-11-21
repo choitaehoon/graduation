@@ -1,17 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: JiEun
-  Date: 2018-10-14
-  Time: 오전 12:40
-  To change this template use File | Settings | File Templates.
---%>
-<%--
-  Created by IntelliJ IDEA.
-  User: JiEun
-  Date: 2018-10-14
-  Time: 오전 12:40
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -32,6 +19,7 @@
             height: 800px;
         }
     </style>
+
 </head>
 
 
@@ -50,29 +38,27 @@
                             <form:form method="post" modelAttribute="notice">
                             <div id="content">
                                     <%--                        <br />--%>
-                                <h4>공지사항 수정</h4>
+                                <h4>공지사항 등록</h4>
                                 <br />
                                 <form method="post">
-                                        <%--<input type="hidden" name="pg" value="1">--%>
                                     <input type="hidden" name="type" value="${member.type}"  />
                                     <input type="hidden" name="userId" value="${member.id}" />
-
                                 </form>
                                 <label>제목</label>
                                 <div class="form-group">
-                                    <form:input path="title" class="form-control w200" style="width: 300px"  />
+                                        <%--   <input type="text" style="width: 300px" value="[IT학부] SM 사업 공지(1학년 멘티 모집)" />--%>
+                                    <form:input path="title" class="form-control" style="width: 100px" />
                                 </div>
-                                <label>관리자 이름</label>
-                                <form:input path="admin_id" class="form-control"  placeholder="관리자 번호" style="width: 200px"/>
-
+                                <label>교수번호</label>
+                                <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>
                                 <label>내 용</label>
                                 <div class="form-group">
-                                        <%--  <textArea cols=100 rows=18>		</textArea>&ndash;%&gt;--%>
-
-                                    <textarea name="body" id="body" cols="100" rows="18">
+                                        <%--											<textArea cols=100 rows=18>						</textArea>--%>
+                                    <%--<textarea name="body" id="body" cols="100" rows="18"></textarea>--%>
+                                            <textarea name="body" id="body" cols="100" rows="18">
                                          <c:out value="${notice.body}"/>
                                     </textarea>
-
+                                        <%--<form:input <textarea name="" id="" cols="30" rows="10"></textarea> path="body" class="form-control" style="width: 100px height: 3000px" />--%>
                                 </div>
 
                                 <div>
@@ -80,29 +66,8 @@
                                     파일 첨부  <input type="file"> * 2MB까지 가능
                                 </div>
 
-                                <div id="buttons" class="pull-right">
-                                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
-
-                                    <a data-confirm-delete  href="deleteN?noticeId=${notice.id}&type=${member.type}&userId=${member.id}" class="btn btn-danger">
-                                        <i class="glyphicon glyphicon-remove"></i>삭제
-                                    </a>
-
-                                    <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 공지사항으로</a>
-
-                                </div>
-
                             </div>
 
-                                <%--                                <div id="buttons" class="pull-right">
-                                                                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
-
-                                                                   &lt;%&ndash; <a data-confirm-delete  href="delete?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&split=${lecture.split}&type=${member.type}&userId=${member.id}" class="btn btn-danger">
-                                                                        <i class="glyphicon glyphicon-remove"></i>삭제
-                                                                    </a>&ndash;%&gt;
-
-                                                                    <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-default">
-                                                                        <i class="glyphicon glyphicon-list"></i> 목록으로
-                                                                    </a>--%>
 
                         </div>
                         </form:form>
@@ -111,17 +76,7 @@
                             <%--                            <input type="hidden" name="pg" value="1">--%>
                             <input type="hidden" name="type" value="${member.type}"  />
                             <input type="hidden" name="id" value="${member.id}" />
-                            <input type="hidden" name="admin_id" value="${notice.admin_id}" />
-                            <%-- &lt;%&ndash;/* 페이지 네이션 */&ndash;%&gt;
-                             <div class="pagination pagination-small pagination-centered">
-
-                                 <c:forEach var="page" items="${ pagination.pageList }">
-
-                                     <li class='${ page.cssClass }'>
-                                         <a data-page="${ page.number }">${ page.label }</a></li>
-
-                                 </c:forEach>--%>
-                            <%-- </div>--%>
+                            <input type="hidden" name="admin_id" value="${admin.id}" />
                         </form>
 
 

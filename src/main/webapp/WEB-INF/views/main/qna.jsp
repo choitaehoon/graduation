@@ -7,15 +7,16 @@
 <body>
 <div class="wrapper">
     <%@include file="../menu/menu.jsp"%>
+
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
+
                             <h4 class="title">Q & A</h4>
                             <p class="category">관리자가 답을 해드립니다.</p>
-                        </div>
 
                         <c:if test="${member.type==1 }">
                             <div class="pull-right mb5">
@@ -25,17 +26,49 @@
                         </c:if>
 
                         <div class="content table-responsive table-full-width">
+                            <form method="post">
+                                <input type="hidden" name="pg" value="1">
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="userId" value="${member.id}" />
+
+                                <p class="category">
+                                    <select name="choice">
+                                        <option value="0" ${selected[0]}>제목</option>
+                                        <option value="1" ${selected[1]}>작성자</option>
+                                    </select>
+
+                                    <input type="text" name="srch" value="${srch}"/>
+                                    <a >
+                                        <button type="submit" class="btn btn-primary">조회</button>
+                                    </a>
+                            </form>
                             <table class="table table-hover table-striped">
                                 <thead>
+                                <tr>
                                 <th>no</th>
                                 <th>제목</th>
                                 <th>작성일</th>
                                 <th>작성자</th>
                                 <th>작성수</th>
+
+                                    <c:if test="${memeber.id} eq ${qna.student_id}">
+                                        <th>수정하기</th>
+                                    </c:if>
+
+
+<%--                                        <c:choose>
+                                            <c:when test="${memeber.id eq qna.student_id}">
+                                                <th>수정하기</th>
+                                            </c:when>
+                                            <c:when test="${memeber.id ne qna.student_id}">
+                                                <th></th>
+                                            </c:when>
+                                        </c:choose>--%>
                                 <c:if test="${member.type == 2 }">
-                                    <th>수정</th>
+                                    <th>답변</th>
                                 </c:if>
                                 <th>답변 현황</th>
+                                </tr>
                                 </thead>
 
                                 <tbody>
@@ -46,6 +79,16 @@
                                         <td>${ qna.wtime }</td>
                                         <td>${ qna.student.name }</td>
                                         <td>${ qna.count }</td>
+                                        <c:choose>
+                                            <c:when test="${memeber.id eq qna.student_id}">
+                                            <td><a href='qnaUpdate?id=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>
+                                                <button  type="button" class="btn btn-primary">수정</button>
+                                            </a></td>
+                                            </c:when>
+                                            <c:when test="${memeber.id ne qna.student_id}">
+                                                <td></td>
+                                            </c:when>
+                                        </c:choose>
                                         <c:if test="${member.type==2 }">
                                             <td> <a href="qnaQuestion?type=${member.type}&userId=${member.id}" class="btn btn-info">
                                                 <span class="glyphicon glyphicon-user"></span> 답변하기</a></td>
@@ -56,12 +99,13 @@
 
                                 </tbody>
                             </table>
+                            </p>
                             <form>
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
 
-                                <%--&lt;%&ndash;/* 페이지 네이션 */&ndash;%&gt;
+                                <%--  페이지 네이션 --%>
                                 <div class="pagination pagination-small pagination-centered">
 
                                     <c:forEach var="page" items="${ pagination.pageList }">
@@ -70,8 +114,9 @@
                                             <a data-page="${ page.number }">${ page.label }</a></li>
 
                                     </c:forEach>
-                                </div>--%>
+                                </div>
                             </form>
+
                         </div>
                     </div>
                 </div>
