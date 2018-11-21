@@ -19,6 +19,8 @@ public interface ReplaceLectureMapper {
 
     ReplaceLecture findOne(String closeLecture);
 
+    List<ReplaceLecture> findCloseBySrch(@Param("currentPage") int currentPage,@Param("pageSize") int pageSize,@Param("choice") int choice,@Param("srch") String srch);
+
     void insert(ReplaceLecture replaceLecture);
 
     void update(ReplaceLecture replaceLecture);
@@ -27,6 +29,6 @@ public interface ReplaceLectureMapper {
 
     int count();
 
-
+    int srchCount(@Param("choice") int choice, @Param("srch") String srch);
 }
 
