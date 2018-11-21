@@ -46,4 +46,6 @@ public interface StudentMapper
     int test(int id);
     int doubleMajor(int id);
     int minor(int id);
+    int majorSearch(int id);
+    int majorSearchPercent(int id);
 }
