@@ -36,7 +36,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title"> 대체 과목 관리</h4>
+                            <h4 class="title"> 대체 과목 ${member.type ==1 ? '신청':'관리'}</h4>
                             <br><br><br>
 
                             <form method="post">
@@ -78,7 +78,12 @@
 
                                 <tbody>
                                 <c:forEach var="replaceLecture" items="${ replaceLectures }">
+                                    <c:if test="${memeber.type==1}">
+                                        <tr>
+                                    </c:if>
+                                    <c:if test="${member.type==2}">
                                     <tr data-url="replaceLectureUpdate?closeLecture=${replaceLecture.closeLecture}&type=${member.type}&id=${member.id}">
+                                    </c:if>
                                         <td>${ replaceLecture.department }</td>
                                         <td>${ replaceLecture.closeLecture }</td>
                                         <td>${ replaceLecture.closeLecTitle}</td>

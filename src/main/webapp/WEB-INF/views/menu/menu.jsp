@@ -151,7 +151,9 @@
         <li>
         <a href="/main/replaceLecture?type=${member.type}&id=${member.id}">
         <i class="pe-7s-repeat"></i>
-        <p>대체 과목 관리</p>
+
+        <p>대체 과목 ${member.type ==1 ? '신청':'관리'}</p>
+
         </a>
         </li>
 

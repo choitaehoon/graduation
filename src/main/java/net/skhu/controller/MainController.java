@@ -75,7 +75,8 @@ public class MainController {
     }
 
     /*
-    수업관리, 수업리스트(검색할시)
+    수업관리,
+    수업리스트(검색할시)
      */
     @RequestMapping(value = "manageClass", method = RequestMethod.POST)
     public String manageClass(Model model, Pagination pagination, @RequestParam("choice") int choice, @RequestParam("srch") String srch, @RequestParam("type") int type, @RequestParam("userId") int id) {
@@ -91,7 +92,8 @@ public class MainController {
     }
 
 
-    /* 수업수정 페이지*/
+    /* 수업관리,
+    수업수정 페이지*/
     @RequestMapping("classEdit")
     public String edit(Model model, Pagination pagination, @RequestParam("year") int year, @RequestParam("semester") String semester, @RequestParam("lecId") String lecId,
                        @RequestParam("adminId") int adminId, @RequestParam("type") int type, @RequestParam("userId") int id) {
@@ -113,7 +115,8 @@ public class MainController {
         return "redirect:manageClass";
     }
     /*
-     *수업관리, 수업 삭제
+     *수업관리,
+     * 수업 삭제
      * */
 
     @RequestMapping("delete")
@@ -128,7 +131,8 @@ public class MainController {
         return "redirect:manageClass";
     }
 
-    /* 수업등록 페이지*/
+    /* 수업관리
+    수업등록 페이지*/
     @RequestMapping("classCreate")
     public String create(Model model, Pagination pagination, @RequestParam("type") int type, @RequestParam("userId") int id) {
         Lecture lecture = new Lecture();
@@ -137,7 +141,8 @@ public class MainController {
         return "main/classEdit";
     }
 
-    /* 수업등록*/
+    /* 수업관리,
+    수업등록*/
     @RequestMapping(value = "classCreate", method = RequestMethod.POST)
     public String create(Lecture lecture, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
 
@@ -147,7 +152,9 @@ public class MainController {
         return "redirect:manageClass";
     }
 
-    /*엑셀업로드 수업등록 업로드전 페이지 */
+    /*수업관리,
+    엑셀업로드 수업등록 업로드전 페이지
+    */
     @RequestMapping("classExcel")
     public String classExcel(Model model, Pagination pagination, @RequestParam("type") int type, @RequestParam("userId") int id) {
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
@@ -502,9 +509,9 @@ public class MainController {
             redirectAttributes.addAttribute("id", id);
             return "redirect:graduationInfo";
         }
-    /*
-    나의 졸업요건 수강과목 or 시뮬레이션 과목 삭제
-     */
+         /*
+         나의 졸업요건 수강과목 or 시뮬레이션 과목 삭제
+        */
 
         @RequestMapping(value = "deleteLecture", method = RequestMethod.POST)
         public String delete (Model model,@RequestParam("type") int type, @RequestParam("remove") int remove,
@@ -529,9 +536,9 @@ public class MainController {
         }
 
 
-    /*
-    컴퓨터공학과 졸업요건 18이전 이후
-     */
+         /*
+         컴퓨터공학과 졸업요건 18이전 이후
+         */
         @RequestMapping("comAfter18")
         public String comAfter18 (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
         {
@@ -545,7 +552,7 @@ public class MainController {
             return "main/comBefore18";
         }
 
-        //대체과목 list
+        //대체과목관리, 폐지 과목 list
         @RequestMapping("replaceLecture")
         public String replaceLecture (Model model, Pagination pagination ,@RequestParam("type") int type,
         @RequestParam("id") int id ){
@@ -556,14 +563,12 @@ public class MainController {
             model.addAttribute("member", typeIdentity.typeCheck(type, id));
             return "main/replaceLecture";
         }
-        //대체과목 list, 검색
+        //대체과목관리,폐지 과목 검색
         @RequestMapping(value="replaceLecture",method = RequestMethod.POST)
         public String replaceLeBySrch(Model model, Pagination pagination ,@RequestParam("choice") int choice, @RequestParam("srch") String srch,
                                        @RequestParam("type") int type,@RequestParam("id") int id ){
             if(srch ==null)
                 srch="";
-            logger.info(String.valueOf(choice));
-            logger.info(srch);
 
             pagination.setRecordCount(replaceLectureMapper.srchCount(choice,srch));
             List<ReplaceLecture> replaceLectures = replaceLectureMapper.findCloseBySrch(pagination.getPg(),pagination.getPageSize(),choice,srch);
@@ -576,7 +581,7 @@ public class MainController {
             return "main/replaceLecture";
         }
 
-        //대체과목 폐지과목 등록 페이지
+        //대체과목관리, 폐지과목 등록 페이지
         @RequestMapping("replaceLectureRegister")
         public String replaceLecRegister (Model model, Pagination pagination ,@RequestParam("type") int type,
         @RequestParam("id") int id ){
@@ -586,7 +591,7 @@ public class MainController {
             model.addAttribute("member", typeIdentity.typeCheck(type, id));
             return "main/replaceLectureRegister";
         }
-        //대체과목리스트 폐지과목 등록
+        //대체과목관리, 폐지과목 등록
         @RequestMapping(value="replaceLectureRegister" ,method=RequestMethod.POST)
         public String replaceLecRegister (Pagination pagination ,ReplaceLecture replaceLecture,@RequestParam("type") int type,
                                       @RequestParam("id") int id,RedirectAttributes redirectAttributes ){
@@ -611,8 +616,8 @@ public class MainController {
         //대체과목 폐지과목 수정
         @RequestMapping(value = "replaceLectureUpdate",method = RequestMethod.POST)
         public String closeLecUpdate (Model model, Pagination pagination ,@RequestParam("type") int type,
-                                        @RequestParam("id") int id,ReplaceLecture replaceLecture,RedirectAttributes redirectAttributes){
-            logger.info(replaceLecture.getCloseLecture());
+                                        @RequestParam("id") int id,ReplaceLecture replaceLecture,RedirectAttributes redirectAttributes)
+        {
             replaceLectureMapper.update(replaceLecture);
             redirectAttributes.addAttribute("id",id);
             redirectAttributes.addAttribute("type",type);
@@ -622,8 +627,8 @@ public class MainController {
         //대체과목 리스트에 등록된 폐지과목 삭제
         @RequestMapping("closeLecDelete")
         public String closeLecDelete (@RequestParam("closeLecture") String closeLecture,@RequestParam("type") int type,
-                                      @RequestParam("id") int id,RedirectAttributes redirectAttributes ){
-            logger.info(closeLecture);
+                                      @RequestParam("id") int id,RedirectAttributes redirectAttributes )
+        {
             replaceLectureMapper.delete(closeLecture);
             redirectAttributes.addAttribute("id",id);
             redirectAttributes.addAttribute("type",type);
