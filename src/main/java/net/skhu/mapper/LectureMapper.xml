@@ -34,10 +34,10 @@
         on l.admin_id= a.id
         <where>
             <if test="choice == 0">
-                year = #{srch}
+                semester like concat(#{srch},'%')
             </if>
             <if test="choice == 1">
-                semester like concat(#{srch},'%')
+                year = #{srch}
             </if>
             <if test="choice == 2">
                 l.id LIKE concat(#{srch},'%')
@@ -96,18 +96,17 @@
         left join admin a
         on l.admin_id= a.id
         <where>
-
             <if test="choice == 0">
-                year = #{srch}
+                semester like concat(#{srch},'%')
             </if>
             <if test="choice == 1">
-                semester like concat(#{srch},'%')
+                year = #{srch}
             </if>
             <if test="choice == 2">
                 l.id LIKE concat(#{srch},'%')
             </if>
             <if test="choice ==3">
-                title LIKE concat(#{srch},'%')
+                l.title LIKE concat(#{srch},'%')
             </if>
             <if test="choice == 4">
                 subType LIKE concat(#{srch},'%')
