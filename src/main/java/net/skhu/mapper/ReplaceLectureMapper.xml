@@ -5,7 +5,7 @@
 <mapper namespace="net.skhu.mapper.ReplaceLectureMapper">
 
 
-    <resultMap id="replaceLec" type="replaceLecture">
+    <resultMap id="replaceLecMap" type="ReplaceLecture">
         <id property="closeLecture" column="closeLecture"></id>
         <result property="department" column="department"></result>
         <result property="closeLecTitle" column="closeLecTitle"></result>
@@ -16,8 +16,8 @@
 
     </resultMap>
 
-    <!--모든 대체과목될 과목 조회하기-->
-    <select id="findAll" resultMap="replaceLec">
+    <!--모든 폐지과목 대체될수있는과목 조회하기-->
+    <select id="findAll" resultMap="replaceLecMap">
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>
         select *
@@ -25,9 +25,61 @@
         limit ${start} , ${end}
     </select>
 
+
     <select id="count" resultType="int">
         select count(*)
         FROM replacelecture
+    </select>
+
+    <!--검색조회-->
+    <select id="findCloseBySrch" resultMap="replaceLecMap">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
+        select *
+        from replacelecture
+        <where>
+            <if test="choice == 0">
+                department LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 1">
+                closeLecture like concat(#{srch},'%')
+            </if>
+            <if test="choice == 2">
+                closeLecTitle LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice ==3">
+                subType LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 4">
+                credit = #{srch}
+            </if>
+
+        </where>
+        limit ${start}, ${end}
+    </select>
+
+   <!--검색을위한카운트-->
+    <select id="srchCount" resultType="int">
+        select count(*)
+        FROM replacelecture
+        <where>
+            <if test="choice == 0">
+                department LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 1">
+                closeLecture like concat(#{srch},'%')
+            </if>
+            <if test="choice == 2">
+                closeLecTitle LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice ==3">
+                subType LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 4">
+                credit = #{srch}
+            </if>
+
+        </where>
     </select>
 
     <select id="findOne" resultType="replaceLecture">
@@ -38,22 +90,28 @@
     </select>
 
     <insert id="insert">
-    INSERT replaceLecture (department, closeLecture, closeLectureTitle , subType, credit, replaceLecture, replaceLecTitle)
-	VALUES (#{department}, #{closeLecture}, #{closeLectureTitle}, #{subType}, #{credit},#{replaceLecture}, #{replaceLecTitle})
+    INSERT replaceLecture (department, closeLecture, closeLecTitle , subType, credit, replaceLecture, replaceLecTitle)
+	VALUES (#{department}, #{closeLecture}, #{closeLecTitle}, #{subType}, #{credit},#{replaceLecture}, #{replaceLecTitle})
     </insert>
 
     <update id="update">
-        update replaceLecture set
+        update replaceLecture
+        set
         department = #{department},
-        closeLectureTitle = #{closeLectureTitle},
+        closeLecTitle = #{closeLecTitle},
         subType = #{subType},
         credit = #{credit},
         replaceLecture = #{replaceLecture},
         replaceLecTitle = #{replaceLecTitle}
-        where closeLecture = #{closeLecture}
+        where closeLecture like #{closeLecture}
 
     </update>
 
+    <delete id="delete">
+        Delete from replaceLecture
+        where closeLecture like #{closeLecture}
+
+    </delete>
 
 
 </mapper>

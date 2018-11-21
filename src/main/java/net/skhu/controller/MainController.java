@@ -1,10 +1,7 @@
 package net.skhu.controller;
 
 
-import net.skhu.Service.LectureService;
-import net.skhu.Service.MyLecService;
-import net.skhu.Service.ReplaceService;
-import net.skhu.Service.TypeIdentity;
+import net.skhu.Service.*;
 import net.skhu.domain.*;
 import net.skhu.mapper.*;
 import org.slf4j.LoggerFactory;
@@ -39,7 +36,7 @@ public class MainController {
     @Autowired
     ReplaceLectureMapper replaceLectureMapper;
     @Autowired
-    ReplaceService replaceService;
+    ReplaceLecService replaceLecService;
     @Autowired
     LectureMapper lectureMapper;
     @Autowired
@@ -53,8 +50,9 @@ public class MainController {
     @Autowired
     QnaMapper qnaMapper;
     @Autowired
-    QnaanswerMapper qnaaMapper;
-
+    QnaanswerMapper qanswerMapper;
+    @Autowired
+    NoticeService noticeService;
 
     /* 로그인되면, 메인페이지 이동*/
 
@@ -91,16 +89,7 @@ public class MainController {
         model.addAttribute("selected", lectureService.selectCheck(choice));
         return "main/manageClass";
     }
-//    @RequestMapping(value = "manageClass",method = RequestMethod.POST)
-//    public String manageClass(Model model,Pagination pagination,@RequestParam(value = "choice", defaultValue = "0") int choice,
-//                              @RequestParam(value = "srch",defaultValue = "") String srch, @RequestParam("type") int type , @RequestParam("userId") int id )
-//    {
-//        pagination.setRecordCount(lectureService.pageSrchCount(choice,srch));
-//        model.addAttribute("lectures",lectureService.srchByLecList(pagination.getPg(),pagination.getPageSize(),choice,srch));
-//        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-//        model.addAttribute("selected",lectureService.selectCheck(choice));
-//        return "main/manageClass";
-//    }
+
 
     /* 수업수정 페이지*/
     @RequestMapping("classEdit")
@@ -217,6 +206,23 @@ public class MainController {
         return "main/notice";
     }
 
+    /*
+    공지사항 리스트(검색할시)
+ */
+    @RequestMapping(value = "notice", method = RequestMethod.POST)
+    public String notice(Model model, Pagination pagination, @RequestParam("choice") int choice, @RequestParam("srch") String srch, @RequestParam("type") int type, @RequestParam("userId") int id) {
+        if (srch == null)
+            srch = "";
+
+        pagination.setRecordCount(noticeService.pageSrchCount(choice, srch));
+        model.addAttribute("notices", noticeService.srchByNotiList(pagination.getPg(), pagination.getPageSize(), choice, srch));
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("srch", srch);
+
+        model.addAttribute("selected", noticeService.selectCheck(choice));
+        return "main/notice";
+    }
+
     /* 공지사항 등록페이지*/
     @RequestMapping("noticeRegister")
     public String noticeR(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {
@@ -315,16 +321,18 @@ public class MainController {
     /* 답변 등록페이지*/
     @RequestMapping("qnaaQuestion")
     public String qnaQa(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {
-        Qnaanswer qnaa = new Qnaanswer();
-        model.addAttribute("qnaa", qnaa);
+        Qnaanswer qnaanswer = new Qnaanswer();
+        List<Qna> qnas = qnaMapper.findAll2();
+        model.addAttribute("qnaanswer", qnaanswer);
+        model.addAttribute("qnas", qnas);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaaQuestion";
     }
 
     /* 답변 등록*/
     @RequestMapping(value = "qnaaQuestion", method = RequestMethod.POST)
-    public String qnaQa(Qnaanswer qnaa, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
-        qnaaMapper.insert(qnaa);
+    public String qnaQa(Qnaanswer qnaanswer, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
+        qanswerMapper.insert(qnaanswer);
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";
@@ -437,6 +445,13 @@ public class MainController {
             model.addAttribute("member", typeIdentity.typeCheck(type, id));
             return "main/before18";
         }
+
+    @RequestMapping("help")
+    public String help (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
+    {
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/help";
+    }
 /*
 나의 졸업요건페이지
  */
@@ -539,7 +554,27 @@ public class MainController {
             model.addAttribute("member", typeIdentity.typeCheck(type, id));
             return "main/replaceLecture";
         }
-        //대체과목 등록 수정
+        //대체과목 list, 검색
+        @RequestMapping(value="replaceLecture",method = RequestMethod.POST)
+        public String replaceLeBySrch(Model model, Pagination pagination ,@RequestParam("choice") int choice, @RequestParam("srch") String srch,
+                                       @RequestParam("type") int type,@RequestParam("id") int id ){
+            if(srch ==null)
+                srch="";
+            logger.info(String.valueOf(choice));
+            logger.info(srch);
+
+            pagination.setRecordCount(replaceLectureMapper.srchCount(choice,srch));
+            List<ReplaceLecture> replaceLectures = replaceLectureMapper.findCloseBySrch(pagination.getPg(),pagination.getPageSize(),choice,srch);
+            model.addAttribute("replaceLectures", replaceLectures);
+
+            model.addAttribute("srch",srch);
+            model.addAttribute("selected", replaceLecService.selectCheck(choice));
+            model.addAttribute("member", typeIdentity.typeCheck(type, id));
+
+            return "main/replaceLecture";
+        }
+
+        //대체과목 폐지과목 등록 페이지
         @RequestMapping("replaceLectureRegister")
         public String replaceLecRegister (Model model, Pagination pagination ,@RequestParam("type") int type,
         @RequestParam("id") int id ){
@@ -549,4 +584,49 @@ public class MainController {
             model.addAttribute("member", typeIdentity.typeCheck(type, id));
             return "main/replaceLectureRegister";
         }
-    }
+        //대체과목리스트 폐지과목 등록
+        @RequestMapping(value="replaceLectureRegister" ,method=RequestMethod.POST)
+        public String replaceLecRegister (Pagination pagination ,ReplaceLecture replaceLecture,@RequestParam("type") int type,
+                                      @RequestParam("id") int id,RedirectAttributes redirectAttributes ){
+
+        replaceLectureMapper.insert(replaceLecture);
+        redirectAttributes.addAttribute("id",id);
+        redirectAttributes.addAttribute("type",type);
+        return "redirect:replaceLecture";
+        }
+
+        //대체과목 폐지과목 수정페이지
+        @RequestMapping("replaceLectureUpdate")
+        public String replaceLectureUpdate (Model model, Pagination pagination ,@RequestParam("type") int type,
+                                      @RequestParam("id") int id,@RequestParam("closeLecture") String closeLecture ){
+
+           ReplaceLecture replaceLecture=replaceLectureMapper.findOne(closeLecture);
+           model.addAttribute("replaceLecture", replaceLecture);
+           model.addAttribute("member", typeIdentity.typeCheck(type, id));
+           return "main/replaceLectureRegister";
+        }
+
+        //대체과목 폐지과목 수정
+        @RequestMapping(value = "replaceLectureUpdate",method = RequestMethod.POST)
+        public String closeLecUpdate (Model model, Pagination pagination ,@RequestParam("type") int type,
+                                        @RequestParam("id") int id,ReplaceLecture replaceLecture,RedirectAttributes redirectAttributes){
+            logger.info(replaceLecture.getCloseLecture());
+            replaceLectureMapper.update(replaceLecture);
+            redirectAttributes.addAttribute("id",id);
+            redirectAttributes.addAttribute("type",type);
+            return "redirect:replaceLecture";
+        }
+
+        //대체과목 리스트에 등록된 폐지과목 삭제
+        @RequestMapping("closeLecDelete")
+        public String closeLecDelete (@RequestParam("closeLecture") String closeLecture,@RequestParam("type") int type,
+                                      @RequestParam("id") int id,RedirectAttributes redirectAttributes ){
+            logger.info(closeLecture);
+            replaceLectureMapper.delete(closeLecture);
+            redirectAttributes.addAttribute("id",id);
+            redirectAttributes.addAttribute("type",type);
+            return "redirect:replaceLecture";
+         }
+
+
+}

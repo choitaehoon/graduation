@@ -1,58 +1,51 @@
 package net.skhu.Service;
 
+import net.skhu.domain.Lecture;
+import net.skhu.domain.Notice;
 import net.skhu.domain.Pagination;
 import net.skhu.excel.ExcelRead;
 import net.skhu.excel.ExcelReadOption;
-import org.springframework.stereotype.Service;
-import net.skhu.domain.Lecture;
-import net.skhu.mapper.LectureMapper;
+import net.skhu.mapper.NoticeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.util.List;
 import java.util.Map;
 
 @Service
-public class LectureService{
+public class NoticeService {
     @Autowired
-    LectureMapper lectureMapper;
+    NoticeMapper noticeMapper;
 
     static String[] target = {"year, semester, l.id, title, subType, credit"};
 
     /* 검색해서 리스트 조회*/
-    public List<Lecture> srchByLecList(int currentPage,int pageSize,int choice,String srch) {
-        return lectureMapper.findLecBySrch(currentPage,pageSize,choice,srch);
+    public List<Notice> srchByNotiList(int currentPage, int pageSize, int choice, String srch) {
+        return noticeMapper.findNotiBySrch(currentPage,pageSize,choice,srch);
     }
 
-    /* 그냥 finAll*/
-    public List<Lecture> lectureList(Pagination pagination){
-        return lectureMapper.findAll(pagination);
-    }
 
-    public Lecture findLecture(int year,String semester,String lectureId,int adminId){
+/*    public Notice findNotice(int year,String semester,String lectureId,int adminId){
 
-        return lectureMapper.findLecture(year,semester,lectureId,adminId);
-    }
+        return noticeMapper.findLecture(year,semester,lectureId,adminId);
+    }*/
 
 
     public int pageSrchCount(int choice, String srch){
-        return lectureMapper.srchCount(choice,srch);
+        return noticeMapper.srchCount(choice,srch);
     }
 
     public int pageCount(){
-        return lectureMapper.count();
+        return noticeMapper.count();
     }
 
-    public void lecInsert(Lecture lecture){
-        lectureMapper.insert(lecture);
-    }
 
-    public void lecUpdate(Lecture lecture){
+/*    public void lecUpdate(Lecture lecture){
         lectureMapper.update(lecture);
-    }
+    }*/
 
-    public String[] selectChecKAndSearch(int choice)
+/*    public String[] selectChecKAndSearch(int choice)
     {
         if (choice == 0)
             return new String[]{"","",""};
@@ -62,48 +55,37 @@ public class LectureService{
             return new String[]{"","selected",""};
         else
             return new String[]{"","","selected"};
-    }
+    }*/
 
-    public String[] selectCheckAndTwo(int choice)
+/*    public String[] selectCheckAndTwo(int choice)
     {
         String[] temp = new String[3];
         for (int i=1; i<=2; ++i)
             if (i == choice) temp[i] = "selected";
         return temp;
-    }
+    }*/
 
 
     public String[] selectCheck(int choice)
     {
         if (choice == 0)
-            return new String[]{"","","","","",""};
-        else if (choice == 1)
-            return new String[]{"","selected","","","",""};
-        else if(choice == 2)
-            return new String[]{"","","selected","",""};
-        else if(choice == 3)
-            return new String[]{"","","","selected","",""};
-        else if(choice == 4)
-            return new String[]{"","","","","selected",""};
+            return new String[]{"",""};
         else
-            return new String[]{"","","","","","selected"};
-    }
-    public void lectureDelete(Lecture lecture){
-        lectureMapper.delete(lecture);
+            return new String[]{"","selected"};
     }
 
-    public Lecture deleteSet(int year,String semester,String lecId, int split){
+/*    public Lecture deleteSet(int year,String semester,String lecId, int split){
         Lecture lecture=new Lecture();
         lecture.setYear(year);
         lecture.setSemester(semester);
         lecture.setId(lecId);
         lecture.setSplit(split);
         return lecture;
-    }
+    }*/
 
 
 
-    public void excelUpload(File destFile) throws Exception {
+/*    public void excelUpload(File destFile) throws Exception {
         //엑셀 데이터를 읽기전 (경로, 컬럼, 추출할 행) 옵션 클래스 선언
         ExcelReadOption excelReadOption = new ExcelReadOption();
         //파일을 옵션에 담기
@@ -145,7 +127,6 @@ public class LectureService{
             this.lecInsert(lecture);
 
         }
-    }
-
+    }*/
 
 }

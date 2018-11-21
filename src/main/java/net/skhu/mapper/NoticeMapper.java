@@ -14,6 +14,7 @@ import java.util.List;
 @Repository
 public interface NoticeMapper
 {
+    List<Notice> findNotiBySrch(@Param("currentPage") int currentPage,@Param("pageSize") int pageSize,@Param("choice") int choice,@Param("srch") String srch);
     List<Notice> findAll(Pagination pagination);
     Notice findNotice(@Param("id") int noticeId, @Param("admin_id") int admin_id);
     int count();
@@ -21,5 +22,6 @@ public interface NoticeMapper
     void insert(Notice notice);
     void update(Notice notice);
     void delete(int noticeId);
+
 
 }

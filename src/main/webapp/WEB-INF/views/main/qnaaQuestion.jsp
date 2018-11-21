@@ -40,7 +40,7 @@
                         <div class="header">
                             <h4 class="title">Q & A</h4>
 
-                            <form:form method="post" modelAttribute="qnaa">
+                            <form:form method="post" modelAttribute="qnaanswer">
                                 <div id="content">
                                     <h4>답변 등록</h4>
                                     <form method="post">
@@ -56,7 +56,7 @@
                                     <label>내 용</label>
                                     <div class="form-group">
                                         <textarea name="body" id="body" cols="100" rows="18">
-                                                    <c:out value="${qnaa.body}"/>
+                                                    <c:out value="${qnaanswer.body}"/>
                                             </textarea>
                                     </div>
 
@@ -78,7 +78,7 @@
                             <form>
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
-                                <%--<input type="hidden" name="admin_id" value="${admin.id}" />--%>
+                                <<input type="hidden" name="qna_id" value="${qnaanswer.qna_id}" />-
                             </form>
 
                         </div>

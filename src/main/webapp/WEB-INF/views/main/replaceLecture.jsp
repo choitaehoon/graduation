@@ -39,38 +39,46 @@
                             <h4 class="title"> 대체 과목 관리</h4>
                             <br><br><br>
 
-                            <p class="category">
-                                <select name="choice">
-                                    <option>담당학과</option>
-                                    <option>폐지과목명</option>
-                                    <option>이수구분</option>
-                                    <option>대체과목명</option>
-                                </select>
+                            <form method="post">
 
-                                <input type="text" name="srch">
-                                <button type="submit" class="btn btn-primary">조회</button></a>
+                                <input type="hidden" name="pg" value="1">
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="id" value="${member.id}" />
+
+                                <p class="category"/>
+                                    <select name="choice">
+                                        <option value="0" ${selected[0]}>담당학과</option>
+                                        <option value="1" ${selected[1]}>폐지과목코드</option>
+                                        <option value="2" ${selected[2]}>폐지과목명</option>
+                                        <option value="3" ${selected[3]}>이수구분</option>
+                                        <option value="4" ${selected[4]}>이수학점</option>
+                                    </select>
+
+                                <input type="text" name="srch" value="${srch}">
+                                <button type="submit" class="btn btn-primary">조회</button>
+                                <a href="replaceLecture?type=${member.type}&id=${member.id}" class="btn btn-default">검색초기화</a>
 
                                 <c:if test="${member.type==2 }">
-                                <a href="replaceLectureRegister?type=${member.type}&id=${member.id}" class="btn btn-primary">폐지과목등록</a>
+                                <a href="replaceLectureRegister?type=${member.type}&id=${member.id}" class="btn btn-primary pull-right">폐지과목등록</a>
                                 </c:if>
 
-                            <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
-                                <thead>
-                                <tr>
-                                    <th>담당학과</th>
-                                    <th>폐지과목</th>
-                                    <th>폐지과목명</th>
-                                    <th>이수구분</th>
-                                    <th>이수학점</th>
-                                    <th>대체과목</th>
-                                    <th>대체과목명</th>
+                                <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
+                                    <thead>
+                                    <tr>
+                                        <th>담당학과</th>
+                                        <th>폐지과목</th>
+                                        <th>폐지과목명</th>
+                                        <th>이수구분</th>
+                                        <th>이수학점</th>
+                                        <th>대체과목</th>
+                                        <th>대체과목명</th>
 
-                                </tr>
-                                </thead>
+                                    </tr>
+                                    </thead>
 
                                 <tbody>
                                 <c:forEach var="replaceLecture" items="${ replaceLectures }">
-                                    <tr data-url="#">
+                                    <tr data-url="replaceLectureUpdate?closeLecture=${replaceLecture.closeLecture}&type=${member.type}&id=${member.id}">
                                         <td>${ replaceLecture.department }</td>
                                         <td>${ replaceLecture.closeLecture }</td>
                                         <td>${ replaceLecture.closeLecTitle}</td>
@@ -90,10 +98,7 @@
                             </table>
 
                             </p>
-                            <form >
-                                <input type="hidden" name="pg" value="1">
-                                <input type="hidden" name="type" value="${member.type}"  />
-                                <input type="hidden" name="id" value="${member.id}" />
+
 
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
