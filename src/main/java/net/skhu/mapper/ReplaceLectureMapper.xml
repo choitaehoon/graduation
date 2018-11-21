@@ -30,6 +30,30 @@
         FROM replacelecture
     </select>
 
+    <select id="findOne" resultType="replaceLecture">
+        select *
+        FROM replacelecture
+        where closeLecture like #{closeLecture}
+
+    </select>
+
+    <insert id="insert">
+    INSERT replaceLecture (department, closeLecture, closeLectureTitle , subType, credit, replaceLecture, replaceLecTitle)
+	VALUES (#{department}, #{closeLecture}, #{closeLectureTitle}, #{subType}, #{credit},#{replaceLecture}, #{replaceLecTitle})
+    </insert>
+
+    <update id="update">
+        update replaceLecture set
+        department = #{department},
+        closeLectureTitle = #{closeLectureTitle},
+        subType = #{subType},
+        credit = #{credit},
+        replaceLecture = #{replaceLecture},
+        replaceLecTitle = #{replaceLecTitle}
+        where closeLecture = #{closeLecture}
+
+    </update>
+
 
 
 </mapper>

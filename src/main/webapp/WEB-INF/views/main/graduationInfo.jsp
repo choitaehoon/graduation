@@ -229,6 +229,8 @@
             </div>
         </div>
         <%-------------------------------------%>
+            <%--18학번 이전--%>
+            <c:if test="${ student.graduationRule_id <=4 }">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -276,6 +278,8 @@
                 </div>
             </div>
         </div>
+            </c:if>
+            <%--------------------------------------%>
         <%-------------------------------------%>
 
         <div class="container-fluid">
