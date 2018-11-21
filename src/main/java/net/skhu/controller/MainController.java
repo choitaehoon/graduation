@@ -1,10 +1,7 @@
 package net.skhu.controller;
 
 
-import net.skhu.Service.LectureService;
-import net.skhu.Service.MyLecService;
-import net.skhu.Service.ReplaceService;
-import net.skhu.Service.TypeIdentity;
+import net.skhu.Service.*;
 import net.skhu.domain.*;
 import net.skhu.mapper.*;
 import org.slf4j.LoggerFactory;
@@ -53,8 +50,9 @@ public class MainController {
     @Autowired
     QnaMapper qnaMapper;
     @Autowired
-    QnaanswerMapper qnaaMapper;
-
+    QnaanswerMapper qanswerMapper;
+    @Autowired
+    NoticeService noticeService;
 
     /* 로그인되면, 메인페이지 이동*/
 
@@ -217,6 +215,23 @@ public class MainController {
         return "main/notice";
     }
 
+    /*
+    공지사항 리스트(검색할시)
+ */
+    @RequestMapping(value = "notice", method = RequestMethod.POST)
+    public String notice(Model model, Pagination pagination, @RequestParam("choice") int choice, @RequestParam("srch") String srch, @RequestParam("type") int type, @RequestParam("userId") int id) {
+        if (srch == null)
+            srch = "";
+
+        pagination.setRecordCount(noticeService.pageSrchCount(choice, srch));
+        model.addAttribute("notices", noticeService.srchByNotiList(pagination.getPg(), pagination.getPageSize(), choice, srch));
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("srch", srch);
+
+        model.addAttribute("selected", noticeService.selectCheck(choice));
+        return "main/notice";
+    }
+
     /* 공지사항 등록페이지*/
     @RequestMapping("noticeRegister")
     public String noticeR(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {
@@ -315,16 +330,18 @@ public class MainController {
     /* 답변 등록페이지*/
     @RequestMapping("qnaaQuestion")
     public String qnaQa(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {
-        Qnaanswer qnaa = new Qnaanswer();
-        model.addAttribute("qnaa", qnaa);
+        Qnaanswer qnaanswer = new Qnaanswer();
+        List<Qna> qnas = qnaMapper.findAll2();
+        model.addAttribute("qnaanswer", qnaanswer);
+        model.addAttribute("qnas", qnas);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaaQuestion";
     }
 
     /* 답변 등록*/
     @RequestMapping(value = "qnaaQuestion", method = RequestMethod.POST)
-    public String qnaQa(Qnaanswer qnaa, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
-        qnaaMapper.insert(qnaa);
+    public String qnaQa(Qnaanswer qnaanswer, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
+        qanswerMapper.insert(qnaanswer);
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";

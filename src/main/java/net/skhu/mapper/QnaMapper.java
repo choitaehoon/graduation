@@ -13,6 +13,7 @@ import java.util.List;
 public interface QnaMapper
 {
     List<Qna> findAll(Pagination pagination);
+    List<Qna> findAll2();
     Qna findQna(@Param("id") int qnaId, @Param("student_id") int student_id);
     void insert(Qna qna);
     void update(Qna qna);

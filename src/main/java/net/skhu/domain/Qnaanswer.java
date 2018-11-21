@@ -14,4 +14,8 @@ public class Qnaanswer {
     int qna_id;
     int qnaanswercol;
 
+    Qna qna;
+
+    String adminName;
+
 }

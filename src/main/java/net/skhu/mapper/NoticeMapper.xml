@@ -30,15 +30,35 @@
         limit ${start} , ${end};
     </select>
 
+    <select id="findNotiBySrch" resultMap="resultMapN">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
+        select n.id, n.title,a.name adminName,n.time,n.count
+        from notice n left join admin a
+        on n.admin_id = a.id
+
+        <where>
+            <if test="choice == 0">
+                title LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 1">
+                a.name LIKE concat(#{srch},'%')
+            </if>
+        </where>
+        order by n.id desc
+        limit ${start} , ${end}
+
+
+    </select>
     <select id="count" resultType="int">
         select count(*)
         from notice
 
     </select>
 
-    <insert id="insert">
-    INSERT Notice (title, body , time, file,admin_id)
-	VALUES ( #{title}, #{body},  #{time},#{file},#{admin_id})
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    INSERT Notice ( body , time, file, admin_id)
+	VALUES ( #{body},  #{time},#{file},#{admin_id})
     </insert>
 
     <select id="findNotice" resultMap="resultMapN">
@@ -64,33 +84,21 @@
       Delete from notice
       where id=#{id}
     </delete>
-    <!--<select id="srchCount" resultType="int">
+
+    <select id="srchCount" resultType="int">
         select count(*)
-        from lecture l
+        from notice n
         left join admin a
-        on l.admin_id= a.id
+        on n.admin_id= a.id
         <where>
-            <if test="choice == 0">
-                year = #{srch}
-            </if>
-            <if test="choice == 1">
-                semester like concat(#{srch},'%')
-            </if>
-            <if test="choice == 2">
-                l.id LIKE concat(#{srch},'%')
-            </if>
-            <if test="choice ==3">
+            <if test="choice ==0">
                 title LIKE concat(#{srch},'%')
             </if>
-            <if test="choice == 4">
-                subType LIKE concat(#{srch},'%')
-            </if>
-            <if test="choice == 5">
-                credit = #{srch}
-
+            <if test="choice == 1">
+                a.name LIKE concat(#{srch},'%')
             </if>
 
         </where>
 
-    </select>-->
+    </select>
 </mapper>

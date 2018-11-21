@@ -37,15 +37,18 @@
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="userId" value="${member.id}" />
-                            </form>
-                                <select>
-                                    <option>제목</option>
-                                    <option>작성자</option>
-                                    <option>작성일</option>
-                                </select>
-                                <input type="text">
-                                <a href=""> <button type="submit" class="btn btn-primary">조회</button></a>
 
+                                <p class="category">
+                                    <select name="choice">
+                                        <option value="0" ${selected[0]}>제목</option>
+                                        <option value="1" ${selected[1]}>작성자</option>
+                                    </select>
+                                    <input type="text" name="srch" value="${srch}"/>
+                                    <a >
+                                <a href=""> <button type="submit" class="btn btn-primary">조회</button></a>
+                                        <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-primary">검색초기화
+                                        </a>
+                            </form>
                             <c:if test="${member.type==2 }">
                                 <div class="pull-right mb5">
                                     <a href="noticeRegister?type=${member.type}&userId=${member.id}" class="btn btn-info">
