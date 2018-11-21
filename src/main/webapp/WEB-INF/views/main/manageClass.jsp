@@ -36,23 +36,6 @@
                             <br><br><br>
 
 
-                            <%--<form id="excelUploadForm" name="excelUploadForm" enctype="multipart/form-data" method="post"--%>
-                                  <%--action= "${pageContext.request.contextPath}/user/excelUploadAjax">--%>
-                                <%--<div class="contents">--%>
-                                    <%--<div>첨부파일은 한개만 등록 가능합니다.</div>--%>
-
-                                    <%--<dl class="vm_name">--%>
-                                        <%--<dt class="down w90">첨부 파일</dt>--%>
-                                        <%--<dd><input id="excelFile" type="file" name="excelFile" /></dd>--%>
-                                    <%--</dl>--%>
-                                <%--</div>--%>
-
-                                <%--<div class="bottom">--%>
-                                    <%--<button type="button" id="addExcelImpoartBtn" class="btn" onclick="check()" ><span>추가</span></button>--%>
-                                <%--</div>--%>
-                            <%--</form>--%>
-
-
                             <div class="pull-right mb5">
                                 <button  class="btn btn-info" onclick="window.open('classExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=450,height=300,location=no,status=no,scrollbars=yes');">엑셀업로드</button>
 
