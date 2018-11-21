@@ -112,6 +112,7 @@
                                                     <option value="교필">교필</option>
                                                     <option value="전선">전선</option>
                                                     <option value="전필">전필</option>
+                                                    <option value="전탐">전탐</option>
                                                     <option value="복선">복선</option>
                                                     <option value="복필">복필</option>
                                                     <option value="부선">부선</option>

@@ -176,10 +176,10 @@
 
                                         <%--18학번일때 전공탐색--%>
                                         <c:if test="${ student.graduationRule_id > 4 }">
-                                        <td style="padding-right: 480px;">
+                                        <td style="padding-right: 470px;">
                                             <h3>전공 탐색</h3>
-                                            <div class="c100 p${volunteerPercent > 100? 100 : volunteerPercent}">
-                                                <span>${volunteerCount}/19</span>
+                                            <div class="c100 p${majorSearchPecent > 100? 100 : majorSearchPecent}">
+                                                <span>${majorSearch}/19</span>
                                                 <div class="slice">
                                                     <div class="bar"></div>
                                                     <div class="fill"></div>
@@ -238,10 +238,10 @@
 
                                                 <%--18학번일때 전공탐색--%>
                                             <c:if test="${ student.graduationRule_id > 4 }">
-                                                <td style="padding-right: 480px;">
+                                                <td style="padding-right: 470px;">
                                                     <h3>전공 탐색</h3>
-                                                    <div class="c100 p${volunteerPercent > 100? 100 : volunteerPercent}">
-                                                        <span>${volunteerCount}/19</span>
+                                                    <div class="c100 p${majorSearchPecent > 100? 100 : majorSearchPecent}">
+                                                        <span>${majorSearch}/19</span>
                                                         <div class="slice">
                                                             <div class="bar"></div>
                                                             <div class="fill"></div>

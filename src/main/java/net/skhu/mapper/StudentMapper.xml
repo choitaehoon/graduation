@@ -359,5 +359,24 @@
       where s.id=#{id} and (m.detailType='부필'or m.detailType='부선')
     </select>
 
+    <select id="majorSearch" resultType="int">
+    select ifnull(sum(m.credit),0) majorSearch
+      from student s
+      left join mylecture m on s.id=m.student_id
+      left join graduationrule r on s.graduationrule_id=r.id
+      left join comgraduationrule c on r.comgraduationId = c.id
+      where s.id=#{id} and (m.detailType='전탐');
+    </select>
+
+    <select id="majorSearchPercent" resultType="int">
+    select ifnull(round(sum(m.credit)/19*100,0),0) majorSearch
+      from student s
+      left join mylecture m on s.id=m.student_id
+      left join graduationrule r on s.graduationrule_id=r.id
+      left join comgraduationrule c on r.comgraduationId = c.id
+      where s.id=#{id} and (m.detailType='전탐');
+    </select>
+
+
 
 </mapper>

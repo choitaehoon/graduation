@@ -18,4 +18,5 @@ public class MyLecture
     int student_id;
     String gradeA;
     int remove;
+    int majorSearch;
 }
