@@ -81,6 +81,8 @@
                                             </div>
                                         </div>
                                     </td>
+                                    <%--18학번이전--%>
+                                    <c:if test="${student.graduationRule_id <= 4}">
                                     <td>
                                         <h3>교양 학점</h3>
                                         <div class="c100 p${creditPercentCulture > 100? 100 : creditPercentCulture} green">
@@ -91,6 +93,20 @@
                                             </div>
                                         </div>
                                     </td>
+                                    </c:if>
+                                    <%--18학번 이후--%>
+                                    <c:if test="${student.graduationRule_id  > 4}">
+                                        <td>
+                                            <h3>교양 학점</h3>
+                                            <div class="c100 p${creditPercentCulture > 100? 100 : creditPercentCulture} green">
+                                                <span>${totalCreditCulture}/34</span>
+                                                <div class="slice">
+                                                    <div class="bar"></div>
+                                                    <div class="fill"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </c:if>
                                     <td>
                                         <h3>채플 이수</h3>
                                         <div class="c100 p${chapelPercent > 100? 100 : chapelPercent}">
