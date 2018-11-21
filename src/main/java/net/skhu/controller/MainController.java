@@ -52,9 +52,11 @@ public class MainController {
     NoticeMapper noticeMapper;
     @Autowired
     QnaMapper qnaMapper;
+    @Autowired
+    QnaanswerMapper qnaaMapper;
 
 
-/* 로그인되면, 메인페이지 이동*/
+    /* 로그인되면, 메인페이지 이동*/
 
     @RequestMapping(value = "graduation",method = RequestMethod.GET)
     public String main(Model model, @RequestParam("type") int type ,@RequestParam("id") int id)
@@ -324,6 +326,27 @@ public String manageClass(Model model,Pagination pagination,@RequestParam("choic
         redirectAttributes.addAttribute("id",id);
         return "redirect:qna";
     }
+
+    /* 답변 등록페이지*/
+    @RequestMapping("qnaaQuestion")
+    public String qnaQa(Model model,@RequestParam("type") int type , @RequestParam("userId") int id )
+    {
+        Qnaanswer qnaa =new Qnaanswer();
+        model.addAttribute("qnaa",qnaa);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/qnaaQuestion";
+    }
+
+    /* 답변 등록*/
+    @RequestMapping(value ="qnaaQuestion",method = RequestMethod.POST)
+    public String qnaQa(Qnaanswer qnaa,@RequestParam("type") int type , @RequestParam("userId") int id,RedirectAttributes redirectAttributes )
+    {
+        qnaaMapper.insert(qnaa);
+        redirectAttributes.addAttribute("type",type);
+        redirectAttributes.addAttribute("id",id);
+        return "redirect:qna";
+    }
+
     //대체과목 list
     @RequestMapping("replaceLecture")
     public String replaceLecture(Model model,Pagination pagination ,@RequestParam("type") int type , @RequestParam("id") int id ) {
