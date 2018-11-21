@@ -173,7 +173,7 @@
 
 
         <li>
-        <a href="/login/help?type=${member.type}&id=${member.id}">
+        <a href="/main/help?type=${member.type}&id=${member.id}">
         <i class="pe-7s-news-paper"></i>
         <p>도움말</p>
         </a>
