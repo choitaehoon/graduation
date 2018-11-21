@@ -42,8 +42,8 @@
 
                                 <p class="category">
                                     <select name="choice">
-                                        <option value="0" ${selected[0]}>년도</option>
-                                        <option value="1" ${selected[1]}>개설학기</option>
+                                        <option value="0" ${selected[0]}>개설학기</option>
+                                        <option value="1" ${selected[1]}>년도</option>
                                         <option value="2" ${selected[2]}>과목코드</option>
                                         <option value="3" ${selected[3]}>과목명</option>
                                         <option value="4" ${selected[4]}>이수구분</option>
