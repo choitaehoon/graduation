@@ -111,7 +111,7 @@
                             <%--                            <input type="hidden" name="pg" value="1">--%>
                             <input type="hidden" name="type" value="${member.type}"  />
                             <input type="hidden" name="id" value="${member.id}" />
-                            <input type="hidden" name="admin_id" value="${admin.id}" />
+                            <input type="hidden" name="admin_id" value="${notice.admin_id}" />
                             <%-- &lt;%&ndash;/* 페이지 네이션 */&ndash;%&gt;
                              <div class="pagination pagination-small pagination-centered">
 
