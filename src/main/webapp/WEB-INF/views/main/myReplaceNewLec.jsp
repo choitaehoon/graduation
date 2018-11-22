@@ -35,21 +35,64 @@
 
                             <br />
                             <br />
+                                <table class="table table-condensed">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <label>담당학과</label>
+                                            <br>
+                                             ${replaceLecture.department}
+                                        </td>
+                                        <td>
+                                            <label>폐지과목코드</label>
+                                            <br>
+                                            ${replaceLecture.closeLecture}
+                                        </td>
+                                        <td>
+                                            <label>폐지과목명</label>
+                                            <br>
+                                            ${replaceLecture.closeLecTitle}
 
-                            폐지과목
+                                        </td>
+                                        <td>
+                                            <label>이수구분</label>
+                                            <br>
+                                            ${replaceLecture.subType}
+                                        </td>
+                                        <td>
+                                            <label>이수학점</label>
+                                            <br>
+                                            ${replaceLecture.credit}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>대체과목코드</label>
+                                            <br>
+                                            ${replaceLecture.replaceLecture}
+                                        </td>
+                                        <td>
+                                            <label>대체과목명</label>
+                                            <br>
+                                            ${replaceLecture.replaceLecTitle}
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
+        <%-----------------------------------------%>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-
 
                             <h4 class="title">대체할 과목</h4>
                             <br><br><br>
@@ -58,10 +101,10 @@
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
+                                <input type="hidden" name="closeLecture" value="${replaceLecture.closeLecture}">
 
                                 <p class="category"/>
                                 <select name="choice">
-
                                     <option value="0" ${selected[0]}>개설학기</option>
                                     <option value="1" ${selected[1]}>년도</option>
                                     <option value="2" ${selected[2]}>과목코드</option>
@@ -74,13 +117,19 @@
                                 <a >
                                     <button type="submit" class="btn btn-primary">조회</button>
                                 </a>
+
                             </form>
+
                             <div class="pull-right">
                                 <a href="graduationInfo?type=${member.type}&id=${member.id}">
-                                    <button type="button" class="btn btn-success">내 수업목록으로 가기</button>
+                                    <button type="button" class="btn btn-success">내 수업목록으로</button>
                                 </a>
                             </div>
-
+                            <div class="pull-right" style="margin-right:20px;">
+                                <a href="replaceLecture?type=${member.type}&id=${member.id}&${pagination.queryString}">
+                                    <button type="button" class="btn btn-success">대체과목 목록으로</button>
+                                </a>
+                            </div>
                             <div class="pull-right" style="margin-right:20px;">
                                 <button class="btn btn-success">등록된 대체 과목 수:${count}</button>
                             </div>
@@ -145,7 +194,7 @@
                                                 <input type="hidden" name="title" value="${lecture.title}">
                                                 <input type="hidden" name="credit" value="${lecture.credit}">
                                                 <input type="hidden" name="student_id" value="${member.id}" >
-                                                <input type="hidden" name="remove" value="1" >
+                                                <input type="hidden" name="remove" value="3" >
                                                 <input type="hidden" name="type" value="${member.type}">
                                                 <button type="submit" class="btn btn-primary">등록</button>
                                             </form>
