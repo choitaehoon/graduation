@@ -20,36 +20,53 @@ public class LectureService{
 
     static String[] target = {"year, semester, l.id, title, subType, credit"};
 
-    /* 검색해서 리스트 조회*/
+    /* 전체년도,
+    검색해서 리스트 조회*/
     public List<Lecture> srchByLecList(int currentPage,int pageSize,int choice,String srch) {
         return lectureMapper.findLecBySrch(currentPage,pageSize,choice,srch);
     }
-
-    /* 그냥 finAll*/
-    public List<Lecture> lectureList(Pagination pagination){
-        return lectureMapper.findAll(pagination);
+    public int pageSrchCount(int choice, String srch){
+        return lectureMapper.srchCount(choice,srch);
     }
 
+    /* 현재년도,
+     검색해서 리스트 조회*/
+    public List<Lecture> srchByNowLecList(int currentPage,int pageSize,int choice,String srch) {
+        return lectureMapper.findNowLecBySrch(currentPage,pageSize,choice,srch);
+    }
+    public int pageNowSrchCount(int choice, String srch){
+        return lectureMapper.srchNowCount(choice,srch);
+    }
+
+    /* 과목전체 리스트(검색없이)finAll*/
+    public List<Lecture> lectureList(Pagination pagination){
+
+        return lectureMapper.findAll(pagination);
+    }
+    public int pageCount(){
+        return lectureMapper.count();
+    }
+
+    /* 과목 하나 찾기*/
     public Lecture findLecture(int year,String semester,String lectureId,int adminId){
 
         return lectureMapper.findLecture(year,semester,lectureId,adminId);
     }
 
 
-    public int pageSrchCount(int choice, String srch){
-        return lectureMapper.srchCount(choice,srch);
-    }
-
-    public int pageCount(){
-        return lectureMapper.count();
-    }
-
+    /*과목 등록*/
     public void lecInsert(Lecture lecture){
         lectureMapper.insert(lecture);
     }
 
+    /*과목 수정*/
     public void lecUpdate(Lecture lecture){
         lectureMapper.update(lecture);
+    }
+
+    /*과목삭제*/
+    public void lectureDelete(Lecture lecture){
+        lectureMapper.delete(lecture);
     }
 
     public String[] selectChecKAndSearch(int choice)
@@ -72,7 +89,8 @@ public class LectureService{
         return temp;
     }
 
-
+     /*수업관리 페이지
+     검색조건, selected 설정*/
     public String[] selectCheck(int choice)
     {
         if (choice == 0)
@@ -88,9 +106,6 @@ public class LectureService{
         else
             return new String[]{"","","","","","selected"};
     }
-    public void lectureDelete(Lecture lecture){
-        lectureMapper.delete(lecture);
-    }
 
     public Lecture deleteSet(int year,String semester,String lecId, int split){
         Lecture lecture=new Lecture();
@@ -102,7 +117,10 @@ public class LectureService{
     }
 
 
-
+    /*
+    수업관리,
+    과목 엑셀업로드
+    */
     public void excelUpload(File destFile) throws Exception {
         //엑셀 데이터를 읽기전 (경로, 컬럼, 추출할 행) 옵션 클래스 선언
         ExcelReadOption excelReadOption = new ExcelReadOption();

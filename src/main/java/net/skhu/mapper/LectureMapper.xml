@@ -21,10 +21,29 @@
             <result property="name" column="adminName"></result>
         </association>
 
-
-
     </resultMap>
 
+    <!--전체 년도,
+    과목 리스트-->
+    <select id="findAll" resultMap="ResultMap1">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
+        select l.*,a.name adminName
+        from lecture l
+        left join admin a
+        on l.admin_id= a.id
+        order by year desc
+        limit ${start} , ${end}
+    </select>
+    <!--전체년도
+    과목리스트 카운트-->
+    <select id="count" resultType="int">
+        select count(*)
+        from lecture
+    </select>
+
+    <!--전체 년도,
+    과목 검색 후 리스트-->
     <select id="findLecBySrch" resultMap="ResultMap1">
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>
@@ -50,46 +69,14 @@
             </if>
             <if test="choice == 5">
                 credit = #{srch}
-
             </if>
-
         </where>
         order by year desc
         limit ${start} , ${end}
-
-
     </select>
 
-    <select id="findAll" resultMap="ResultMap1">
-        <bind name="start" value="(currentPage-1)*pageSize"/>
-        <bind name="end" value="pageSize"/>
-        select l.*,a.name adminName
-        from lecture l
-        left join admin a
-        on l.admin_id= a.id
-        order by year desc
-        limit ${start} , ${end}
-
-
-    </select>
-
-    <select id="findLecture" resultMap="ResultMap1">
-       select l.*,a.name adminName
-       from lecture l
-       left join admin a
-       on l.admin_id= a.id
-       where year=#{year} and semester like #{semester} and l.id LIKE #{id} and admin_id=#{admin_id}
-
-
-    </select>
-
-
-    <select id="count" resultType="int">
-        select count(*)
-        from lecture
-
-    </select>
-
+    <!--전체년도
+   검색후 과목리스트 카운트-->
     <select id="srchCount" resultType="int">
         select count(*)
         from lecture l
@@ -113,10 +100,75 @@
             </if>
             <if test="choice == 5">
                 credit = #{srch}
+            </if>
+        </where>
+    </select>
 
+    <!--과목 하나 찾기-->
+    <select id="findLecture" resultMap="ResultMap1">
+       select l.*,a.name adminName
+       from lecture l
+       left join admin a
+       on l.admin_id= a.id
+       where year=#{year} and semester like #{semester} and l.id LIKE #{id} and admin_id=#{admin_id}
+    </select>
+
+    <!--현재 년도
+    과목 검색 후 리스트-->
+    <select id="findNowLecBySrch" resultMap="ResultMap1">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
+        select l.*,a.name adminName
+        from lecture l
+        left join admin a
+        on l.admin_id= a.id
+        where year=2018 AND
+
+            <if test="choice == 0">
+                semester like concat(#{srch},'%')
             </if>
 
-        </where>
+            <if test="choice == 2">
+                l.id LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice ==3">
+                l.title LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 4">
+                subType LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 5">
+                credit = #{srch}
+            </if>
+        order by year desc
+        limit ${start} , ${end}
+    </select>
+
+
+    <!--현재년도
+    검색후 과목리스트 카운트-->
+    <select id="srchNowCount" resultType="int">
+        select count(*)
+        from lecture l
+        left join admin a
+        on l.admin_id= a.id
+        where year=2018 AND
+
+            <if test="choice == 0">
+                semester like concat(#{srch},'%')
+            </if>
+            <if test="choice == 2">
+                l.id LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice ==3">
+                l.title LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 4">
+                subType LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 5">
+                credit = #{srch}
+            </if>
 
     </select>
 
