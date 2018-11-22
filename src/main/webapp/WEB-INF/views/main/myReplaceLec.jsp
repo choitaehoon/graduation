@@ -23,8 +23,27 @@
 
 <div class="wrapper">
     <%@include file="../menu/menu.jsp" %>
-
     <div class="content">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">대체과목 재수강 신청</h4>
+                            <p class="category">대체과목관리</p>
+
+                            <br />
+                            <br />
+
+                            내수강 목록
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -32,26 +51,17 @@
                         <div class="header">
 
 
-                            <h4 class="title"> 수업 관리</h4>
+                            <h4 class="title">대체할 과목</h4>
                             <br><br><br>
 
-
-                            <div class="pull-right mb5">
-                                <button  class="btn btn-info" onclick="window.open('classExcel?type=${member.type}&userId=${member.id}&${pagination.queryString}','classUpload','width=450,height=300,location=no,status=no,scrollbars=yes');">엑셀업로드</button>
-
-                                <a href="classCreate?type=${member.type}&userId=${member.id}&${pagination.queryString}" class="btn btn-info">
-                                    <span class="glyphicon glyphicon-user"></span> 수업등록</a>
-                            </div>
-
-
-
-                            <form method="post">
+                            <form>
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
-                                <input type="hidden" name="userId" value="${member.id}" />
+                                <input type="hidden" name="id" value="${member.id}" />
 
-                                <p class="category">
+                                <p class="category"/>
                                     <select name="choice">
+
                                         <option value="0" ${selected[0]}>개설학기</option>
                                         <option value="1" ${selected[1]}>년도</option>
                                         <option value="2" ${selected[2]}>과목코드</option>
@@ -64,11 +74,18 @@
                                     <a >
                                         <button type="submit" class="btn btn-primary">조회</button>
                                     </a>
-                                    <a href="manageClass?type=${member.type}&id=${member.id}" class="btn btn-primary">검색초기화
-                                    </a>
-
                             </form>
+                                <div class="pull-right">
+                                    <a href="graduationInfo?type=${member.type}&id=${member.id}">
+                                        <button type="button" class="btn btn-success">내 수업목록으로 가기</button>
+                                    </a>
+                                </div>
 
+                                <div class="pull-right" style="margin-right:20px;">
+                                    <button class="btn btn-success">등록된 대체 과목 수:${count}</button>
+                                </div>
+                            <br>
+                            <br>
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                 <thead>
                                 <tr>
@@ -80,14 +97,14 @@
                                     <th>과목명</th>
                                     <th>이수구분</th>
                                     <th>이수학점</th>
-                                    <th>과목수정</th>
-
+                                    <th>시뮬레이션 학점 및 이수구분 및  과목 추가</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-                                    <tr data-url="classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}">
+                                    <c:if test="${lecture.year ==2018}">
+                                    <tr>
                                         <td>${lecture.year}</td>
                                         <td>${lecture.semester}</td>
                                         <td>${lecture.id}</td>
@@ -97,16 +114,54 @@
                                         <td>${lecture.subType}</td>
                                         <td>${lecture.credit}</td>
                                         <td>
-                                            <a href='classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}' class="btn btn-primary">
-                                           수정</a>
+                                            <form action="simulationRegister" method="post">
+                                                <select name="grade">
+                                                    <option value="0.0">0.0</option>
+                                                    <option value="0.5">0.5</option>
+                                                    <option value="1.0">1.0</option>
+                                                    <option value="1.5">1.5</option>
+                                                    <option value="2.0">2.0</option>
+                                                    <option value="2.5">2.5</option>
+                                                    <option value="3.0">3.0</option>
+                                                    <option value="3.5">3.5</option>
+                                                    <option value="4.0">4.0</option>
+                                                    <option value="4.5">4.5</option>
+                                                </select>
+                                                <select name="detailType">
+                                                    <option value="교선">교선</option>
+                                                    <option value="교필">교필</option>
+                                                    <option value="전선">전선</option>
+                                                    <option value="전필">전필</option>
+                                                    <option value="복선">복선</option>
+                                                    <option value="복필">복필</option>
+                                                    <option value="부선">부선</option>
+                                                    <option value="부필">부필</option>
+                                                </select>
+                                                <input type="hidden" name="lecture_year" value="${lecture.year}">
+                                                <input type="hidden" name="lecture_semester" value="${lecture.semester}">
+                                                <input type="hidden" name="lecture_id" value="${lecture.id}">
+                                                <input type="hidden" name="lecture_split" value="${lecture.split}">
+                                                <input type="hidden" name="title" value="${lecture.title}">
+                                                <input type="hidden" name="credit" value="${lecture.credit}">
+                                                <input type="hidden" name="student_id" value="${member.id}" >
+                                                <input type="hidden" name="remove" value="1" >
+                                                <input type="hidden" name="type" value="${member.type}">
+                                                <button type="submit" class="btn btn-primary">등록</button>
+                                            </form>
                                         </td>
                                     </tr>
+                                </c:if>
                                 </c:forEach>
                                 </tbody>
                             </table>
 
                             </p>
-
+                            <form>
+                                <input type="hidden" name="pg" value="1">
+                                <input type="hidden" name="type" value="${member.type}"  />
+                                <input type="hidden" name="id" value="${member.id}" />
+                                <input type="hidden" name="srch" value="${srch}" />
+                                <input type="hidden" name="choice" value="${choice}" />
 
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
@@ -125,21 +180,21 @@
 
             </div>
         </div>
-    </div>
+
 
     <footer class="footer">
         <div class="container-fluid">
 
             <p class="copyright pull-right">
                 &copy;
-                <script></script>
-
+                <script>document.write(new Date().getFullYear())</script>
+                <a href="http://www.creative-tim.com">Creative Tim</a>, made with
+                love for a better web
             </p>
         </div>
     </footer>
 
-
-</div>
+    </div>
 </div>
 
 

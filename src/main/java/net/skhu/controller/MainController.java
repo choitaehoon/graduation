@@ -635,5 +635,45 @@ public class MainController {
             return "redirect:replaceLecture";
          }
 
+    /*
+       대체과목 페이지,
+       대체과목 재수강 등록
+        */
+    @RequestMapping("myReplaceLec")
+    public String myReplaceLec(Model model, Pagination pagination,@RequestParam(value = "choice",defaultValue = "0") int choice,
+                                  @RequestParam(value="srch", defaultValue = "") String srch,@RequestParam("type") int type, @RequestParam("id") int id)
+    {
+        if(srch ==null)
+            srch="";
 
+        pagination.setRecordCount(lectureService.pageNowSrchCount(choice,srch));
+        model.addAttribute("lectures", lectureService.srchByNowLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
+
+        model.addAttribute("selected",lectureService.selectCheck(choice));
+        model.addAttribute("count",myLectureMapper.count());
+        model.addAttribute("srch",srch);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/myReplaceLec";
+    }
+
+    /*
+    대체과목 페이지,
+    대체과목 초수강 등록
+     */
+    @RequestMapping("myReplaceNewLec")
+    public String myReplaceNewLec(Model model, Pagination pagination,@RequestParam(value = "choice",defaultValue = "0") int choice,
+                                  @RequestParam(value="srch", defaultValue = "") String srch,@RequestParam("type") int type, @RequestParam("id") int id)
+    {
+        if(srch ==null)
+            srch="";
+
+        pagination.setRecordCount(lectureService.pageNowSrchCount(choice,srch));
+        model.addAttribute("lectures", lectureService.srchByNowLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
+
+        model.addAttribute("selected",lectureService.selectCheck(choice));
+        model.addAttribute("count",myLectureMapper.count());
+        model.addAttribute("srch",srch);
+        model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        return "main/myReplaceNewLec";
+    }
 }

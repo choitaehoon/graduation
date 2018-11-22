@@ -58,10 +58,16 @@
                                 <button type="submit" class="btn btn-primary">조회</button>
                                 <a href="replaceLecture?type=${member.type}&id=${member.id}" class="btn btn-default">검색초기화</a>
 
+                                <c:if test="${member.type==1 }">
+
+                                    <a href="myReplaceLec?type=${member.type}&id=${member.id}" class="btn btn-primary pull-right" >대체과목재수강신청</a>
+                                    <a href="myReplaceNewLec?type=${member.type}&id=${member.id}" class="btn btn-primary pull-right" style="margin-right:10px;">대체과목초수강신청</a>
+                                </c:if>
                                 <c:if test="${member.type==2 }">
                                 <a href="replaceLectureRegister?type=${member.type}&id=${member.id}" class="btn btn-primary pull-right">폐지과목등록</a>
                                 </c:if>
-
+                                <br>
+                                <br>
                                 <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                     <thead>
                                     <tr>
@@ -78,11 +84,9 @@
 
                                 <tbody>
                                 <c:forEach var="replaceLecture" items="${ replaceLectures }">
-                                    <c:if test="${memeber.type==1}">
-                                        <tr>
-                                    </c:if>
+
                                     <c:if test="${member.type==2}">
-                                    <tr data-url="replaceLectureUpdate?closeLecture=${replaceLecture.closeLecture}&type=${member.type}&id=${member.id}">
+                                        <tr data-url="replaceLectureUpdate?closeLecture=${replaceLecture.closeLecture}&type=${member.type}&id=${member.id}">
                                     </c:if>
                                         <td>${ replaceLecture.department }</td>
                                         <td>${ replaceLecture.closeLecture }</td>

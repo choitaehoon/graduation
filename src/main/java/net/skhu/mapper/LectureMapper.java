@@ -12,18 +12,30 @@ import java.util.List;
 @Mapper
 public interface LectureMapper {
 
-
+    //전체년도 과목검색
     List<Lecture> findLecBySrch(@Param("currentPage") int currentPage,@Param("pageSize") int pageSize,@Param("choice") int choice,@Param("srch") String srch);
+    int srchCount(@Param("choice") int choice, @Param("srch") String srch);
+
+    //과목하나찾기
     Lecture findLecture(@Param("year") int year,@Param("semester") String semester,@Param("id") String id, @Param("admin_id") int admin_id);
+
+    //과목 전체리스트
     List<Lecture> findAll(Pagination pagination);
     int count();
-    int srchCount(@Param("choice") int choice, @Param("srch") String srch);
+
+    //과목수정
     void update(Lecture lecture);
+    //과목 삽입
     void insert(Lecture lecture);
+    //과목삭제
     void delete(Lecture lecture);
 
     List<Lecture> findEssentialMajor(int id);
     List<Lecture> findEssentialCulture(int id);
     List<Lecture> findBy18CulturalEssentials(int id);
     List<Lecture> findBy18Chapel(int id);
+
+    /*현재년도 과목 리스트, 검색조건 적용*/
+    List<Lecture> findNowLecBySrch(@Param("currentPage") int currentPage,@Param("pageSize") int pageSize,@Param("choice") int choice,@Param("srch") String srch);
+    int srchNowCount(@Param("choice") int choice, @Param("srch") String srch);
 }

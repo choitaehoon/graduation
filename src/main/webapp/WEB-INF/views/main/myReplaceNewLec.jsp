@@ -23,8 +23,27 @@
 
 <div class="wrapper">
     <%@include file="../menu/menu.jsp" %>
-
     <div class="content">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">대체과목 초수강신청</h4>
+                            <p class="category">대체과목관리</p>
+
+                            <br />
+                            <br />
+
+                            폐지과목
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -32,7 +51,7 @@
                         <div class="header">
 
 
-                            <h4 class="title">시뮬레이션에 등록할 과목</h4>
+                            <h4 class="title">대체할 과목</h4>
                             <br><br><br>
 
                             <form>
@@ -40,33 +59,34 @@
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
 
-                                <p class="category">
-                                    <select name="choice">
-                                        <option value="0" ${selected[0]}>개설학기</option>
-                                        <option value="1" ${selected[1]}>년도</option>
-                                        <option value="2" ${selected[2]}>과목코드</option>
-                                        <option value="3" ${selected[3]}>과목명</option>
-                                        <option value="4" ${selected[4]}>이수구분</option>
-                                        <option value="5" ${selected[5]}>이수학점</option>
-                                    </select>
+                                <p class="category"/>
+                                <select name="choice">
 
-                                    <input type="text" name="srch" value="${srch}"/>
-                                    <a >
-                                        <button type="submit" class="btn btn-primary">조회</button>
-                                    </a>
+                                    <option value="0" ${selected[0]}>개설학기</option>
+                                    <option value="1" ${selected[1]}>년도</option>
+                                    <option value="2" ${selected[2]}>과목코드</option>
+                                    <option value="3" ${selected[3]}>과목명</option>
+                                    <option value="4" ${selected[4]}>이수구분</option>
+                                    <option value="5" ${selected[5]}>이수학점</option>
+                                </select>
+
+                                <input type="text" name="srch" value="${srch}"/>
+                                <a >
+                                    <button type="submit" class="btn btn-primary">조회</button>
+                                </a>
                             </form>
-                            <form method="post">
-                                <div class="pull-right">
-                                    <a href="/main/graduationInfo?type=${member.type}&id=${member.id}">
-                                        <button type="button" class="btn btn-success">목록으로 가기</button>
-                                    </a>
-                                </div>
+                            <div class="pull-right">
+                                <a href="graduationInfo?type=${member.type}&id=${member.id}">
+                                    <button type="button" class="btn btn-success">내 수업목록으로 가기</button>
+                                </a>
+                            </div>
 
-                                <div class="pull-right" style="margin-right:20px;">
-                                    <button class="btn btn-success">등록된 시뮬레이션 과목 수:${count}</button>
-                                </div>
+                            <div class="pull-right" style="margin-right:20px;">
+                                <button class="btn btn-success">등록된 대체 과목 수:${count}</button>
+                            </div>
 
-                            </form>
+                            <br>
+                            <br>
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                 <thead>
                                 <tr>
@@ -84,6 +104,7 @@
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
+                                    <c:if test="${lecture.year ==2018}">
                                     <tr>
                                         <td>${lecture.year}</td>
                                         <td>${lecture.semester}</td>
@@ -112,7 +133,6 @@
                                                     <option value="교필">교필</option>
                                                     <option value="전선">전선</option>
                                                     <option value="전필">전필</option>
-                                                    <option value="전탐">전탐</option>
                                                     <option value="복선">복선</option>
                                                     <option value="복필">복필</option>
                                                     <option value="부선">부선</option>
@@ -131,6 +151,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                </c:if>
                                 </c:forEach>
                                 </tbody>
                             </table>
@@ -140,8 +161,8 @@
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
-                                <input type="hidden" name="choice" value="${choice}">
-                                <input type="hidden" name="srch" value="${srch}">
+                                <input type="hidden" name="srch" value="${srch}" />
+                                <input type="hidden" name="choice" value="${choice}" />
 
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
@@ -160,22 +181,21 @@
 
             </div>
         </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+
+                <p class="copyright pull-right">
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    <a href="http://www.creative-tim.com">Creative Tim</a>, made with
+                    love for a better web
+                </p>
+            </div>
+        </footer>
+
     </div>
-
-    <footer class="footer">
-        <div class="container-fluid">
-
-            <p class="copyright pull-right">
-                &copy;
-                <script>document.write(new Date().getFullYear())</script>
-                <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-                love for a better web
-            </p>
-        </div>
-    </footer>
-
-
-</div>
 </div>
 
 
