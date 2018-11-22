@@ -103,6 +103,7 @@
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
+                                    <c:if test="${lecture.year ==2018}">
                                     <tr>
                                         <td>${lecture.year}</td>
                                         <td>${lecture.semester}</td>
@@ -149,6 +150,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                </c:if>
                                 </c:forEach>
                                 </tbody>
                             </table>
