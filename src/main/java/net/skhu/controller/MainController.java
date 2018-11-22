@@ -491,8 +491,10 @@ public class MainController {
             model.addAttribute("essentialMajor", lectureMapper.findEssentialMajor(id));
             model.addAttribute("essentialCulture", lectureMapper.findEssentialCulture(id));
             model.addAttribute("essentialCultureSize", lectureMapper.findEssentialCulture(id).size() - 2);
-            model.addAttribute("minor", studentMapper.minor(id));
+            model.addAttribute("doubleMajorPercent",studentMapper.doubleMajorPercent(id));
             model.addAttribute("doubleMajor", studentMapper.doubleMajor(id));
+            model.addAttribute("minorPercent",studentMapper.minorPercent(id));
+            model.addAttribute("minor", studentMapper.minor(id));
 
             model.addAttribute("cultureEssential",lectureMapper.findBy18CulturalEssentials(id));
             model.addAttribute("chapel",lectureMapper.findBy18Chapel(id));

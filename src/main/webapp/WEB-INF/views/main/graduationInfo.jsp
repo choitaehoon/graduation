@@ -165,7 +165,7 @@
                                     <tr>
                                         <td style="padding-left: 250px;">
                                             <h3>복수 전공 학점</h3>
-                                            <div class="c100 p${doubleMajor > 40? 40 : doubleMajor} orange">
+                                            <div class="c100 p${doubleMajorPercent > 100? 100 : doubleMajorPercent} orange">
                                                 <span>${doubleMajor}/40</span>
                                                 <div class="slice">
                                                     <div class="bar"></div>
@@ -227,7 +227,7 @@
                                         <tr>
                                             <td style="padding-left: 250px;">
                                                 <h3>부전공 학점</h3>
-                                                <div class="c100 p${minor > 21? 21 : minor} orange">
+                                                <div class="c100 p${minorPercent > 100? 100 : minorPercent} orange">
                                                     <span>${minor}/21</span>
                                                     <div class="slice">
                                                         <div class="bar"></div>

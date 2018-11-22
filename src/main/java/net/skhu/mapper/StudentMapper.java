@@ -45,7 +45,9 @@ public interface StudentMapper
     void updateRule(Student student);
     int test(int id);
     int doubleMajor(int id);
+    int doubleMajorPercent(int id);
     int minor(int id);
+    int minorPercent(int id);
     int majorSearch(int id);
     int majorSearchPercent(int id);
 }

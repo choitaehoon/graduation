@@ -197,7 +197,7 @@
       from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
-      where s.id=#{id} and (m.detailType='전선'or m.detailType='전필'or m.detailType='전탐');
+      where s.id=#{id} and (m.detailType='전선'or m.detailType='전필');
     </select>
 
     <select id="creditPercentCulture" resultType="int">
@@ -350,6 +350,15 @@
       where s.id=#{id} and (m.detailType='복필'or m.detailType='복선')
     </select>
 
+    <select id="doubleMajorPercent" resultType="int">
+    select ifnull(round(sum(m.credit)/40*100,0),0) majorSearch
+      from student s
+      left join mylecture m on s.id=m.student_id
+      left join graduationrule r on s.graduationrule_id=r.id
+      left join comgraduationrule c on r.comgraduationId = c.id
+      where s.id=#{id} and (m.detailType='복필'or m.detailType='복선')
+    </select>
+
     <select id="minor" resultType="int">
       select ifnull(sum(m.credit),0) minor
       from student s
@@ -357,6 +366,15 @@
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
       where s.id=#{id} and (m.detailType='부필'or m.detailType='부선')
+    </select>
+
+    <select id="minorPercent" resultType="int">
+    select ifnull(round(sum(m.credit)/21*100,0),0) majorSearch
+      from student s
+      left join mylecture m on s.id=m.student_id
+      left join graduationrule r on s.graduationrule_id=r.id
+      left join comgraduationrule c on r.comgraduationId = c.id
+      where s.id=#{id}  and (m.detailType='부필'or m.detailType='부선')
     </select>
 
     <select id="majorSearch" resultType="int">
