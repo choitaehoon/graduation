@@ -176,7 +176,7 @@
 
                                         <%--18학번일때 전공탐색--%>
                                         <c:if test="${ student.graduationRule_id > 4 }">
-                                        <td style="padding-right: 470px;">
+                                        <td style="padding-right: 440px;">
                                             <h3>전공 탐색</h3>
                                             <div class="c100 p${majorSearchPecent > 100? 100 : majorSearchPecent}">
                                                 <span>${majorSearch}/19</span>
@@ -238,7 +238,7 @@
 
                                                 <%--18학번일때 전공탐색--%>
                                             <c:if test="${ student.graduationRule_id > 4 }">
-                                                <td style="padding-right: 470px;">
+                                                <td style="padding-right: 440px;">
                                                     <h3>전공 탐색</h3>
                                                     <div class="c100 p${majorSearchPecent > 100? 100 : majorSearchPecent}">
                                                         <span>${majorSearch}/19</span>
