@@ -554,20 +554,20 @@ public class MainController {
             return "main/comBefore18";
         }
 
-        //대체과목관리, 폐지 과목 list
-        @RequestMapping("replaceLecture")
-        public String replaceLecture (Model model, Pagination pagination ,@RequestParam("type") int type,
-        @RequestParam("id") int id ){
-            pagination.setRecordCount(replaceLectureMapper.count());
-            List<ReplaceLecture> replaceLectures = replaceLectureMapper.findAll(pagination);
-
-            model.addAttribute("replaceLectures", replaceLectures);
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            return "main/replaceLecture";
-        }
+//        //대체과목관리, 폐지 과목 list
+//        @RequestMapping("replaceLecture")
+//        public String replaceLecture (Model model, Pagination pagination ,@RequestParam("type") int type,
+//        @RequestParam("id") int id ){
+//            pagination.setRecordCount(replaceLectureMapper.count());
+//            List<ReplaceLecture> replaceLectures = replaceLectureMapper.findAll(pagination);
+//
+//            model.addAttribute("replaceLectures", replaceLectures);
+//            model.addAttribute("member", typeIdentity.typeCheck(type, id));
+//            return "main/replaceLecture";
+//        }
         //대체과목관리,폐지 과목 검색
-        @RequestMapping(value="replaceLecture",method = RequestMethod.POST)
-        public String replaceLeBySrch(Model model, Pagination pagination ,@RequestParam("choice") int choice, @RequestParam("srch") String srch,
+        @RequestMapping("replaceLecture")
+        public String replaceLeBySrch(Model model, Pagination pagination ,@RequestParam(value = "choice",defaultValue = "0") int choice, @RequestParam(value="srch",defaultValue = "") String srch,
                                        @RequestParam("type") int type,@RequestParam("id") int id ){
             if(srch ==null)
                 srch="";
@@ -663,11 +663,13 @@ public class MainController {
     대체과목 초수강 등록
      */
     @RequestMapping("myReplaceNewLec")
-    public String myReplaceNewLec(Model model, Pagination pagination,@RequestParam(value = "choice",defaultValue = "0") int choice,
+    public String myReplaceNewLec(Model model,Pagination pagination,@RequestParam("closeLecture") String closeLecture,@RequestParam(value = "choice",defaultValue = "0") int choice,
                                   @RequestParam(value="srch", defaultValue = "") String srch,@RequestParam("type") int type, @RequestParam("id") int id)
     {
         if(srch ==null)
             srch="";
+        ReplaceLecture replaceLecture=replaceLectureMapper.findOne(closeLecture);
+        model.addAttribute("replaceLecture", replaceLecture);
 
         pagination.setRecordCount(lectureService.pageNowSrchCount(choice,srch));
         model.addAttribute("lectures", lectureService.srchByNowLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
