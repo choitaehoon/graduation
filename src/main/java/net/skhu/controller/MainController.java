@@ -395,10 +395,12 @@ public class MainController {
 
 
         @RequestMapping(value = "studentEdit", method = RequestMethod.POST)
-        public String edit (Student student, RedirectAttributes redirectAttributes,@RequestParam("adminId") int adminId)
+        public String edit (@RequestParam("id") int id, @RequestParam("name1") String name1 , @RequestParam("department_id") int department_id,
+                            RedirectAttributes redirectAttributes,@RequestParam("adminId") int adminId,
+                            @RequestParam("type") int type)
         {
-            studentMapper.updateNameAndDepartment(student);
-            redirectAttributes.addAttribute("type", student.getType());
+            studentMapper.updateNameAndDepartment(name1,department_id,id);
+            redirectAttributes.addAttribute("type", type);
             redirectAttributes.addAttribute("id", adminId);
             return "redirect:studentManager";
         }

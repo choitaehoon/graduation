@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>이름:</label>
-                                    <form:input path="name" class="form-control w200" />
+                                    <input type="text" name="name1" value="${student.name}" class="form-control w200" />
                                 </div>
                                 <div class="form-group">
                                     <label>학과: </label>
@@ -44,7 +44,7 @@
 
 
                             </p>
-                            </form>
+
 
 
                         </div>

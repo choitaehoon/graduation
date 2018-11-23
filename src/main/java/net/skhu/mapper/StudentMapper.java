@@ -29,7 +29,7 @@ public interface StudentMapper
     int selectCount(@Param("choice") int choice, @Param("search") String search);
     List<Student> selectPage(@Param("currentPage") int currentPage, @Param("pageSize") int pageSize, @Param("choice") int choice, @Param("search") String search);
     Student findByStudent(int id);
-    void updateNameAndDepartment(Student student);
+    void updateNameAndDepartment(@Param("name") String name , @Param("department_id") int department_id, @Param("id") int id);
     int totalSemester(int id);
     int totalCredit(int id);
     int totalCreditMajor(int id);
