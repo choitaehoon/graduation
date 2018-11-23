@@ -4,6 +4,7 @@
 <c:url var="R" value="/" />
 <!doctype html>
 <head>
+    <title>skhu 졸업요건</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet" media="screen">
@@ -112,7 +113,6 @@
                                     <option value="4" ${selected[4]}>이수구분</option>
                                     <option value="5" ${selected[5]}>이수학점</option>
                                 </select>
-
                                 <input type="text" name="srch" value="${srch}"/>
                                 <a >
                                     <button type="submit" class="btn btn-primary">조회</button>
@@ -164,7 +164,7 @@
                                         <td>${lecture.subType}</td>
                                         <td>${lecture.credit}</td>
                                         <td>
-                                            <form action="simulationRegister" method="post">
+                                            <form action="newReplaceLec" method="post">
                                                 <select name="grade">
                                                     <option value="0.0">0.0</option>
                                                     <option value="0.5">0.5</option>
@@ -212,6 +212,7 @@
                                 <input type="hidden" name="id" value="${member.id}" />
                                 <input type="hidden" name="srch" value="${srch}" />
                                 <input type="hidden" name="choice" value="${choice}" />
+                                <input type="hidden" name="closeLecture" value="${replaceLecture.closeLecture}">
 
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">

@@ -4,9 +4,8 @@
 <c:url var="R" value="/" />
 <html>
 <head>
+    <title>skhu 졸업요건</title>
     <meta charset='UTF-8'>
-
-    <title>Responsive Table</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

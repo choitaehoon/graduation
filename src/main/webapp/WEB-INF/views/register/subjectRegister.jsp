@@ -4,6 +4,8 @@
 <c:url var="R" value="/" />
 <!doctype html>
 <head>
+
+    <title>skhu 졸업요건</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet" media="screen">
@@ -43,7 +45,7 @@
                                 <p class="category">
                                     <select name="choice">
                                         <option value="0" ${selected[0]}>개설학기</option>
-                                        <option value="1" ${selected[1]}>년도</option>
+                                        <%--<option value="1" ${selected[1]}>년도</option>--%>
                                         <option value="2" ${selected[2]}>과목코드</option>
                                         <option value="3" ${selected[3]}>과목명</option>
                                         <option value="4" ${selected[4]}>이수구분</option>

@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
+    <title>skhu 졸업요건</title>
     <link rel="stylesheet" href="/res/circle.css">
     <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
           rel="stylesheet">
@@ -18,6 +19,10 @@
             });
 
             $("#data-confirm-delete2").click(function() {
+                return confirm("삭제하시겠습니까?");
+            });
+
+            $("#data-confirm-delete3").click(function() {
                 return confirm("삭제하시겠습니까?");
             });
         });
@@ -437,6 +442,28 @@
                                 </a>
                             </div>
 
+                            <br>
+                            <br>
+                            <br>
+
+
+                            <div class="pull-right">
+                                <form action="deleteLecture" method="post">
+                                    <input type="hidden" name="remove" value=3>
+                                    <input type="hidden" name="type" value="${member.type}">
+                                    <input type="hidden" name="id" value="${member.id}">
+                                    <input type="hidden" name="choice" value="${choice}">
+                                    <input type="hidden" name="search" value="${search}">
+                                    <button type="submit" class="btn btn-danger" id="data-confirm-delete3">대체과목 초기화</button>
+                                </form>
+                            </div>
+
+                            <div class="pull-right" style="margin-right:10px;">
+                                <a href="replaceLecture?type=${member.type}&id=${member.id}">
+                                    <button type="button" class="btn btn-primary" >대체과목 신청</button>
+                                </a>
+                            </div>
+
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                 <thead>
                                 <tr>
@@ -462,7 +489,11 @@
                                     <td>${ lecture.detailType2 }</td>
                                     <td>${ lecture.credit }</td>
                                     <td>${ lecture.grade }</td>
-                                    <td style='text-align:center;vertical-align:middle'>${ lecture.remove!=0 ? "O":"" }</td>
+                                    <td style='text-align:center;vertical-align:middle'>
+                                        <c:if test="${ lecture.remove==0}"></c:if>
+                                        <c:if test="${ lecture.remove==1}">시뮬</c:if>
+                                        <c:if test="${ lecture.remove==3}">대체과목</c:if>
+                                    </td>
                                 </tr>
                                 </c:forEach>
                                 </tbody>
