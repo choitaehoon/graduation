@@ -19,4 +19,7 @@ public class MyLecture
     String gradeA;
     int remove;
     int majorSearch;
+
+    String closeLecId;
+    String closeLecTitle;
 }
