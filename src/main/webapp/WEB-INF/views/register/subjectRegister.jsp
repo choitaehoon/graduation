@@ -98,16 +98,16 @@
                                         <td>
                                             <form action="simulationRegister" method="post">
                                                 <select name="grade">
-                                                    <option value="0.0">0.0</option>
-                                                    <option value="0.5">0.5</option>
-                                                    <option value="1.0">1.0</option>
-                                                    <option value="1.5">1.5</option>
-                                                    <option value="2.0">2.0</option>
-                                                    <option value="2.5">2.5</option>
-                                                    <option value="3.0">3.0</option>
-                                                    <option value="3.5">3.5</option>
-                                                    <option value="4.0">4.0</option>
-                                                    <option value="4.5">4.5</option>
+                                                    <option value="P">P</option>
+                                                    <option value="F">0.0</option>
+                                                    <option value="D0">1.0</option>
+                                                    <option value="D+">1.5</option>
+                                                    <option value="C0">2.0</option>
+                                                    <option value="C+">2.5</option>
+                                                    <option value="B0">3.0</option>
+                                                    <option value="B+">3.5</option>
+                                                    <option value="A0">4.0</option>
+                                                    <option value="A+">4.5</option>
                                                 </select>
                                                 <select name="detailType">
                                                     <option value="교선">교선</option>

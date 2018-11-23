@@ -481,20 +481,23 @@
 
 
                                 <tbody>
-                                <c:forEach var="lecture" items="${ myLecture }"><tr>
-                                    <td>${ lecture.lecture_year }</td>
-                                    <td>${ lecture.lecture_semester }</td>
-                                    <td>${ lecture.lecture_id }</td>
-                                    <td>${ lecture.title }</td>
-                                    <td>${ lecture.detailType2 }</td>
-                                    <td>${ lecture.credit }</td>
-                                    <td>${ lecture.grade }</td>
-                                    <td style='text-align:center;vertical-align:middle'>
-                                        <c:if test="${ lecture.remove==0}"></c:if>
-                                        <c:if test="${ lecture.remove==1}">시뮬</c:if>
-                                        <c:if test="${ lecture.remove==3}">대체</c:if>
-                                    </td>
-                                </tr>
+                                <c:forEach var="lecture" items="${ myLecture }">
+                                    <c:if test="${lecture.remove !=4}">
+                                        <tr>
+                                            <td>${ lecture.lecture_year }</td>
+                                            <td>${ lecture.lecture_semester }</td>
+                                            <td>${ lecture.lecture_id }</td>
+                                            <td>${ lecture.title }</td>
+                                            <td>${ lecture.detailType2 }</td>
+                                            <td>${ lecture.credit }</td>
+                                            <td>${ lecture.grade }</td>
+                                            <td style='text-align:center;vertical-align:middle'>
+                                                <c:if test="${ lecture.remove==0}"></c:if>
+                                                <c:if test="${ lecture.remove==1}">시뮬</c:if>
+                                                <c:if test="${ lecture.remove==3}">대체</c:if>
+                                            </td>
+                                    </tr>
+                                    </c:if>
                                 </c:forEach>
                                 </tbody>
 
@@ -537,7 +540,7 @@
                                         <th>이수구분</th>
                                         <th>학점</th>
                                         <th>성적등급</th>
-                                        <th style='text-align:center;vertical-align:middle'>폐지과목대체현황</th>
+                                        <th style='text-align:center;vertical-align:middle'>대체된 폐지과목</th>
                                     </tr>
 
                                     </thead>
