@@ -53,6 +53,8 @@ public class MainController {
     QnaanswerMapper qanswerMapper;
     @Autowired
     NoticeService noticeService;
+    @Autowired
+    AdminMapper adminMapper;
 
     /* 로그인되면, 메인페이지 이동*/
 
@@ -398,6 +400,19 @@ public class MainController {
             studentMapper.updateNameAndDepartment(student);
             redirectAttributes.addAttribute("type", student.getType());
             redirectAttributes.addAttribute("id", adminId);
+            return "redirect:studentManager";
+        }
+
+        @RequestMapping(value = "deleteStudent")
+        public String studentDelete(RedirectAttributes redirectAttributes, @RequestParam("type") int type,
+                                    Student student, @RequestParam("adminId") int adminId, Pagination pagination)
+        {
+            logger.info(type+" "+student.getId()+" "+adminId+" "+pagination.getPg()+" "+pagination.getSz());
+            adminMapper.deleteStudent(student.getId());
+            redirectAttributes.addAttribute("pg",pagination.getPg());
+            redirectAttributes.addAttribute("sz",pagination.getSz());
+            redirectAttributes.addAttribute("type",type);
+            redirectAttributes.addAttribute("id",adminId);
             return "redirect:studentManager";
         }
 
