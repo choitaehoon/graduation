@@ -499,6 +499,8 @@ public class MainController {
             model.addAttribute("cultureEssential",lectureMapper.findBy18CulturalEssentials(id));
             model.addAttribute("majorSearch",studentMapper.majorSearch(id));
             model.addAttribute("majorSearchPecent",studentMapper.majorSearchPercent(id));
+            model.addAttribute("countMajorSearch",lectureMapper.countMajorSearch(id));
+            model.addAttribute("countUndergraduate",lectureMapper.countUndergraduate(id));
             return "main/graduationInfo";
         }
         @RequestMapping(value = "graduationInfo", method = RequestMethod.POST) public String graduationInfo (Model

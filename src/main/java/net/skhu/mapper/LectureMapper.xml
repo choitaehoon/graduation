@@ -230,6 +230,25 @@
       where year=#{year} and semester like #{semester} and id LIKE #{id} and split = #{split}
     </delete>
 
+    <!--소속 전공탐색 수 세기-->
+    <select id="countMajorSearch" resultType="int">
+        select count(*)
+      from student s
+      left join mylecture m on s.id=m.student_id
+      left join graduationrule r on s.graduationrule_id=r.id
+      left join comgraduationrule c on r.comgraduationId = c.id
+      where s.id=#{id} and m.lecture_id like concat('VI','%')
+    </select>
 
+    <!--타 학부 전공탐색 수 세기-->
+    <select id="countUndergraduate" resultType="int">
+        select count(*)
+      from student s
+      left join mylecture m on s.id=m.student_id
+      left join graduationrule r on s.graduationrule_id=r.id
+      left join comgraduationrule c on r.comgraduationId = c.id
+      where s.id=#{id} and m.lecture_id like concat('VM','%') or m.lecture_id like concat('VS','%')
+      or m.lecture_id like concat('VH','%')
+    </select>
 
 </mapper>
