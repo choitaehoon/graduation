@@ -24,4 +24,9 @@
       where id = #{id}
     </update>
 
+    <delete id="deleteStudent">
+        delete from student
+        where id = #{id}
+    </delete>
+
 </mapper>

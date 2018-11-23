@@ -358,7 +358,28 @@
                                             </tbody>
                                         </table>
                                     </div>
-                    
+
+                                    <%--전공 탐색 계산중--%>
+                                    <div>
+                                        <table class="table table-striped" style="float:left;width:30%; max-width: 100%; margin-bottom:20px;">
+                                            <thead>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;전공 탐색 과목</th>
+                                            </thead>
+                                            <tbody>
+                                                <c:if test="${countMajorSearch == 0}">
+                                                <tr>
+                                                    <td style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;-소속 학부 중 1과목 이수 해야합니다.</td>
+                                                </tr>
+                                                </c:if>
+                                                <c:if test="${countUndergraduate == 0}">
+                                                <tr>
+                                                    <td style="color: red" >&nbsp;&nbsp;&nbsp;&nbsp;-타 학부 중 1과목 이수 해야합니다.</td>
+                                                </tr>
+                                                </c:if>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

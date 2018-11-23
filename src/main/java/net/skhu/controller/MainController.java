@@ -55,6 +55,8 @@ public class MainController {
     QnaanswerMapper qanswerMapper;
     @Autowired
     NoticeService noticeService;
+    @Autowired
+    AdminMapper adminMapper;
 
     /* 로그인되면, 메인페이지 이동*/
 
@@ -395,11 +397,26 @@ public class MainController {
 
 
         @RequestMapping(value = "studentEdit", method = RequestMethod.POST)
-        public String edit (Student student, RedirectAttributes redirectAttributes,@RequestParam("adminId") int adminId)
+        public String edit (@RequestParam("id") int id, @RequestParam("name1") String name1 , @RequestParam("department_id") int department_id,
+                            RedirectAttributes redirectAttributes,@RequestParam("adminId") int adminId,
+                            @RequestParam("type") int type)
         {
-            studentMapper.updateNameAndDepartment(student);
-            redirectAttributes.addAttribute("type", student.getType());
+            studentMapper.updateNameAndDepartment(name1,department_id,id);
+            redirectAttributes.addAttribute("type", type);
             redirectAttributes.addAttribute("id", adminId);
+            return "redirect:studentManager";
+        }
+
+        @RequestMapping(value = "deleteStudent")
+        public String studentDelete(RedirectAttributes redirectAttributes, @RequestParam("type") int type,
+                                    Student student, @RequestParam("adminId") int adminId, Pagination pagination)
+        {
+            logger.info(type+" "+student.getId()+" "+adminId+" "+pagination.getPg()+" "+pagination.getSz());
+            adminMapper.deleteStudent(student.getId());
+            redirectAttributes.addAttribute("pg",pagination.getPg());
+            redirectAttributes.addAttribute("sz",pagination.getSz());
+            redirectAttributes.addAttribute("type",type);
+            redirectAttributes.addAttribute("id",adminId);
             return "redirect:studentManager";
         }
 
@@ -503,6 +520,8 @@ public class MainController {
             model.addAttribute("cultureEssential",lectureMapper.findBy18CulturalEssentials(id));
             model.addAttribute("majorSearch",studentMapper.majorSearch(id));
             model.addAttribute("majorSearchPecent",studentMapper.majorSearchPercent(id));
+            model.addAttribute("countMajorSearch",lectureMapper.countMajorSearch(id));
+            model.addAttribute("countUndergraduate",lectureMapper.countUndergraduate(id));
             return "main/graduationInfo";
         }
         @RequestMapping(value = "graduationInfo", method = RequestMethod.POST) public String graduationInfo (Model

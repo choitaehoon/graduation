@@ -9,6 +9,7 @@ public class Student
 {
     int id;
     String name;
+    String name1;
     String password;
     String email;
     String phone;
