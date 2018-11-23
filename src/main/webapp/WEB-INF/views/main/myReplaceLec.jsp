@@ -80,7 +80,11 @@
                                         <button type="button" class="btn btn-success">내 수업목록으로 가기</button>
                                     </a>
                                 </div>
-
+                            <div class="pull-right" style="margin-right:20px;">
+                                <a href="replaceLecture?type=${member.type}&id=${member.id}">
+                                    <button type="button" class="btn btn-success">대체과목 목록으로</button>
+                                </a>
+                            </div>
                                 <div class="pull-right" style="margin-right:20px;">
                                     <button class="btn btn-success">등록된 대체 과목 수:${count}</button>
                                 </div>

@@ -37,9 +37,10 @@
                     <div class="card">
                         <div class="header">
                             <h4 class="title"> 대체 과목 ${member.type ==1 ? '신청':'관리'}</h4>
+                            <p class="category">대체과목 초수강 신청이면 과목을 클릭하세요!</p>
                             <br><br><br>
 
-                            <form method="post">
+                            <form>
 
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
@@ -61,7 +62,7 @@
                                 <c:if test="${member.type==1 }">
 
                                     <a href="myReplaceLec?type=${member.type}&id=${member.id}" class="btn btn-primary pull-right" >대체과목재수강신청</a>
-                                    <a href="myReplaceNewLec?type=${member.type}&id=${member.id}" class="btn btn-primary pull-right" style="margin-right:10px;">대체과목초수강신청</a>
+
                                 </c:if>
                                 <c:if test="${member.type==2 }">
                                 <a href="replaceLectureRegister?type=${member.type}&id=${member.id}" class="btn btn-primary pull-right">폐지과목등록</a>
@@ -84,7 +85,9 @@
 
                                 <tbody>
                                 <c:forEach var="replaceLecture" items="${ replaceLectures }">
-
+                                    <c:if test="${member.type==1}">
+                                        <tr data-url="myReplaceNewLec?closeLecture=${replaceLecture.closeLecture}&type=${member.type}&id=${member.id}&${pagination.queryString}">
+                                    </c:if>
                                     <c:if test="${member.type==2}">
                                         <tr data-url="replaceLectureUpdate?closeLecture=${replaceLecture.closeLecture}&type=${member.type}&id=${member.id}">
                                     </c:if>
@@ -105,9 +108,7 @@
                                 </tbody>
 
                             </table>
-
                             </p>
-
 
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">

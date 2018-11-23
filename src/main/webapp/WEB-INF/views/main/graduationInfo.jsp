@@ -449,6 +449,7 @@
                                     <th>이수구분</th>
                                     <th>학점</th>
                                     <th>성적등급</th>
+                                    <th style='text-align:center;vertical-align:middle'>시뮬레이션 구분</th>
                                 </tr>
 
                                 </thead>
@@ -463,6 +464,7 @@
                                     <td>${ lecture.detailType2 }</td>
                                     <td>${ lecture.credit }</td>
                                     <td>${ lecture.grade }</td>
+                                    <td style='text-align:center;vertical-align:middle'>${ lecture.remove!=0 ? "O":"" }</td>
                                 </tr>
                                 </c:forEach>
                                 </tbody>
