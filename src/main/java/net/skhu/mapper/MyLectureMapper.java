@@ -19,5 +19,7 @@ public interface MyLectureMapper
     List<MyLecture> findByIdPage(@Param("currentPage") int currentPage, @Param("pageSize") int pageSize ,@Param("id") int id,@Param("choice") int choice, @Param("search") String search);
     void delete(int id);
     void insert(MyLecture myLecture);
+
+    int replaceLecCount();
     int count();
 }

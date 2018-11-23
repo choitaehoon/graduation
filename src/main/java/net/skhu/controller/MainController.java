@@ -703,7 +703,7 @@ public class MainController {
         model.addAttribute("lectures", lectureService.srchByNowLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
 
         model.addAttribute("selected",lectureService.selectCheck(choice));
-        model.addAttribute("count",myLectureMapper.count());
+        model.addAttribute("count",myLectureMapper.replaceLecCount());
         model.addAttribute("srch",srch);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/myReplaceLec";
@@ -755,7 +755,7 @@ public class MainController {
         model.addAttribute("lectures", lectureService.srchByNowLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
 
         model.addAttribute("selected",lectureService.selectCheck(choice));
-        model.addAttribute("count",myLectureMapper.count());
+        model.addAttribute("count",myLectureMapper.replaceLecCount());
         model.addAttribute("srch",srch);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/myReplaceNewLec";

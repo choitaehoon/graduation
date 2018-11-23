@@ -113,4 +113,9 @@
                    select count(*)
                    from myLecture where remove = 1
             </select>
+
+           <select id="replaceLecCount" resultType="int">
+                   select count(*)
+                   from myLecture where remove = 3 or remove=4
+            </select>
 </mapper>
