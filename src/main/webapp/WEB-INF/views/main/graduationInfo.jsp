@@ -322,6 +322,23 @@
                             <div class="card">
                                 <div class="header">
                                     <h3>✔ 들어야 할 과목 List</h3>
+
+                                    <div>
+                                        <table class="table table-striped" style="float:left;width:30%; max-width: 100%; margin-bottom:20px;">
+                                            <thead>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;전공 필수 과목</th>
+                                            </thead>
+                                            <tbody>
+                                            <c:forEach var="essentialMajor" items="${ essentialMajor }">
+                                                <tr>
+                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;-${ essentialMajor.title }
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
                                     <div>
                                         <table class="table table-striped" style="float:left;width:30%; max-width: 100%; margin-bottom:20px;">
                                             <thead>
