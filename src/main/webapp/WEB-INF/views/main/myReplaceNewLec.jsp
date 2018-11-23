@@ -187,6 +187,8 @@
                                                     <option value="부선">부선</option>
                                                     <option value="부필">부필</option>
                                                 </select>
+
+                                                <%--mylecture--%>
                                                 <input type="hidden" name="lecture_year" value="${lecture.year}">
                                                 <input type="hidden" name="lecture_semester" value="${lecture.semester}">
                                                 <input type="hidden" name="lecture_id" value="${lecture.id}">
@@ -195,7 +197,15 @@
                                                 <input type="hidden" name="credit" value="${lecture.credit}">
                                                 <input type="hidden" name="student_id" value="${member.id}" >
                                                 <input type="hidden" name="remove" value="3" >
+
+                                                <%--typeIdentity--%>
                                                 <input type="hidden" name="type" value="${member.type}">
+
+                                                <%--myReplace--%>
+                                                <input type="hidden" name="replaceLecId" value="${lecture.id}" >
+                                                <input type="hidden" name="closeLecId" value="${replaceLecture.closeLecture}" >
+                                                <input type="hidden" name="closeLecTitle" value="${replaceLecture.closeLecTitle}" >
+                                                <input type="hidden" name="studentId" value="${member.id}">
                                                 <button type="submit" class="btn btn-primary">등록</button>
                                             </form>
                                         </td>

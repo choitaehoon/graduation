@@ -38,6 +38,8 @@ public class MainController {
     @Autowired
     ReplaceLecService replaceLecService;
     @Autowired
+    MyreplaceMapper myreplaceMapper;
+    @Autowired
     LectureMapper lectureMapper;
     @Autowired
     MyLectureMapper myLectureMapper;
@@ -496,6 +498,8 @@ public class MainController {
             model.addAttribute("minorPercent",studentMapper.minorPercent(id));
             model.addAttribute("minor", studentMapper.minor(id));
 
+            model.addAttribute("myReplaces",myLectureMapper.findReplaceLecByStu(id));
+
             model.addAttribute("cultureEssential",lectureMapper.findBy18CulturalEssentials(id));
             model.addAttribute("majorSearch",studentMapper.majorSearch(id));
             model.addAttribute("majorSearchPecent",studentMapper.majorSearchPercent(id));
@@ -520,6 +524,8 @@ public class MainController {
         @RequestParam(value = "search", defaultValue = "") String search, RedirectAttributes redirectAttributes)
         {
             myLectureMapper.delete(remove);
+            if(remove==3)
+                myreplaceMapper.delete(id);
             redirectAttributes.addAttribute("type", type);
             redirectAttributes.addAttribute("id", id);
             redirectAttributes.addAttribute("choice", choice);
@@ -669,7 +675,7 @@ public class MainController {
             srch="";
         ReplaceLecture replaceLecture=replaceLectureMapper.findOne(closeLecture);
         model.addAttribute("replaceLecture", replaceLecture);
-
+        model.addAttribute("myreplace", new Myreplace());
         pagination.setRecordCount(lectureService.pageNowSrchCount(choice,srch));
         model.addAttribute("lectures", lectureService.srchByNowLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
 
@@ -685,9 +691,10 @@ public class MainController {
     대체과목, 초수강 과목등록
     */
     @RequestMapping(value = "newReplaceLec", method = RequestMethod.POST)
-    public String newReplaceLec(MyLecture myLecture, RedirectAttributes redirectAttributes, @RequestParam("type") int type)
+    public String newReplaceLec(MyLecture myLecture, Myreplace myreplace ,RedirectAttributes redirectAttributes, @RequestParam("type") int type)
     {
         myLectureMapper.insert(myLecture);
+        myreplaceMapper.insert(myreplace);
         redirectAttributes.addAttribute("id",myLecture.getStudent_id());
         redirectAttributes.addAttribute("type",type);
         return "redirect:replaceLecture";
