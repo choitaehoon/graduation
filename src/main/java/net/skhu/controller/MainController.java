@@ -679,4 +679,17 @@ public class MainController {
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/myReplaceNewLec";
     }
+
+
+    /*
+    대체과목, 초수강 과목등록
+    */
+    @RequestMapping(value = "newReplaceLec", method = RequestMethod.POST)
+    public String newReplaceLec(MyLecture myLecture, RedirectAttributes redirectAttributes, @RequestParam("type") int type)
+    {
+        myLectureMapper.insert(myLecture);
+        redirectAttributes.addAttribute("id",myLecture.getStudent_id());
+        redirectAttributes.addAttribute("type",type);
+        return "redirect:replaceLecture";
+    }
 }
