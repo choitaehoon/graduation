@@ -353,30 +353,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div>
-                                            <table class="table table-striped" style="float:left;width:30%; max-width: 100%; margin-bottom:20px;">
-                                                <thead>
-                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;채플 과목</th>
-                                                </thead>
-                                                <c:if test="${chapelCount != 2}">
-                                                <tbody>
-                                                    <c:forEach var="cha" items="${ chapel }">
-                                                        <tr>
-                                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;-${ cha.title }</td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                    <tr>
-                                                        <c:if test="${chapelCount == 0}">
-                                                        <td style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이 중 두개 이상  들어야함</td>
-                                                        </c:if>
-                                                        <c:if test="${chapelCount == 1}">
-                                                        <td style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이 중 한개 이상  들어야함</td>
-                                                        </c:if>
-                                                    </tr>
-                                                </tbody>
-                                                </c:if>
-                                            </table>
-                                    </div>
+                    
                                 </div>
                             </div>
                         </div>
