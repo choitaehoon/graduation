@@ -102,11 +102,11 @@
 
                                 <div id="buttons" class="pull-right">
                                     <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
-
+                                    <c:if test="${replaceLecture.closeLecture.length()>0}">
                                     <a data-confirm-delete  href="closeLecDelete?closeLecture=${replaceLecture.closeLecture}&type=${member.type}&id=${member.id}" class="btn btn-danger">
                                         <i class="glyphicon glyphicon-remove"></i>삭제
                                     </a>
-
+                                    </c:if>
                                     <a href="replaceLecture?type=${member.type}&id=${member.id}&${pagination.queryString}" class="btn btn-default">
                                         <i class="glyphicon glyphicon-list"></i> 목록으로
                                     </a>
