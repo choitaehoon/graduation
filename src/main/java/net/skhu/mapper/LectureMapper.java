@@ -33,7 +33,6 @@ public interface LectureMapper {
     List<Lecture> findEssentialMajor(int id);
     List<Lecture> findEssentialCulture(int id);
     List<Lecture> findBy18CulturalEssentials(int id);
-    List<Lecture> findBy18Chapel(int id);
 
     /*현재년도 과목 리스트, 검색조건 적용*/
     List<Lecture> findNowLecBySrch(@Param("currentPage") int currentPage,@Param("pageSize") int pageSize,@Param("choice") int choice,@Param("srch") String srch);

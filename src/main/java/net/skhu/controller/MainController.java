@@ -497,7 +497,6 @@ public class MainController {
             model.addAttribute("minor", studentMapper.minor(id));
 
             model.addAttribute("cultureEssential",lectureMapper.findBy18CulturalEssentials(id));
-            model.addAttribute("chapel",lectureMapper.findBy18Chapel(id));
             model.addAttribute("majorSearch",studentMapper.majorSearch(id));
             model.addAttribute("majorSearchPecent",studentMapper.majorSearchPercent(id));
             return "main/graduationInfo";

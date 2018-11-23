@@ -203,17 +203,6 @@
         group by l.id;
     </select>
 
-    <!--18학번 이후 들어야할 채플 과목 뽑기-->
-    <select id="findBy18Chapel" resultType="lecture">
-              SELECT distinct l.id, l.title, m.student_id FROM lecture l
-        left outer join (select * from mylecture where student_id=#{id})m
-        on l.id = m.lecture_id
-        where
-			(select l.id like concat('AA','%'))
-        and student_id is null
-        group by l.id;
-    </select>
-
 
     <insert id="insert">
     INSERT Lecture (year, semester, id , split, title, admin_id, credit, subType)
