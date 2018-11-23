@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
+    <title>skhu 졸업요건</title>
     <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
