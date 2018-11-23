@@ -515,6 +515,7 @@ public class MainController {
             model.addAttribute("minorPercent",studentMapper.minorPercent(id));
             model.addAttribute("minor", studentMapper.minor(id));
 
+            //대체과목 신청 리스트 확인
             model.addAttribute("myReplaces",myLectureMapper.findReplaceLecByStu(id));
 
             model.addAttribute("cultureEssential",lectureMapper.findBy18CulturalEssentials(id));
@@ -543,8 +544,10 @@ public class MainController {
         @RequestParam(value = "search", defaultValue = "") String search, RedirectAttributes redirectAttributes)
         {
             myLectureMapper.delete(remove);
-            if(remove==3)
+            if(remove==3) {
                 myreplaceMapper.delete(id);
+                myLectureMapper.delete(4);
+            }
             redirectAttributes.addAttribute("type", type);
             redirectAttributes.addAttribute("id", id);
             redirectAttributes.addAttribute("choice", choice);
@@ -662,16 +665,40 @@ public class MainController {
          }
 
     /*
-       대체과목 페이지,
-       대체과목 재수강 등록
+       대체과목 재수강,
+       나의 수강목록을 보여주는 페이지
         */
-    @RequestMapping("myReplaceLec")
-    public String myReplaceLec(Model model, Pagination pagination,@RequestParam(value = "choice",defaultValue = "0") int choice,
-                                  @RequestParam(value="srch", defaultValue = "") String srch,@RequestParam("type") int type, @RequestParam("id") int id)
+    @RequestMapping("replace_mylecture")
+    public String replace_mylecture (Model model, Pagination pagination,@RequestParam("type") int type,
+                                     @RequestParam("id") int id, @RequestParam(value = "choice", defaultValue = "0") int choice,
+                                     @RequestParam(value = "search", defaultValue = "") String search)
     {
+        pagination.setRecordCount(myLectureMapper.courseCount(choice, search, id));
+        model.addAttribute("myLecture", myLectureMapper.findByIdPage(pagination.getPg(), pagination.getPageSize(), id, choice, search));
+        model.addAttribute("selected", lectureService.selectCheckAndTwo(choice));
+
+        model.addAttribute("search", search);
+        model.addAttribute("choice", choice);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/replace_mylecture";
+    }
+
+    /*
+    * 대체과목 재수강,
+    * 수강한 과목을 클릭하면, 대체할 과목을 선택할수 있는 페이지로 넘어간다.
+    * */
+    @RequestMapping("myReplaceLec")
+    public String myReplaceLec(Model model,Pagination pagination,@RequestParam(value = "choice",defaultValue = "0") int choice,
+                                  @RequestParam(value="srch", defaultValue = "") String srch,@RequestParam("type") int type, @RequestParam("id") int id,
+                               @RequestParam("lecId") String lecId,@RequestParam("lec_year") int lec_year, @RequestParam("lec_semester") String lec_semester)
+    {
+        //수업한개를 조회하기위해서 년도 학기 과목코드 학번필요
+        MyLecture myLecSet= myLecService.findOneMyLecSet(lec_year,lec_semester,lecId,id);
+
+        model.addAttribute("myLectureOne",myLecSet);
+
         if(srch ==null)
             srch="";
-
         pagination.setRecordCount(lectureService.pageNowSrchCount(choice,srch));
         model.addAttribute("lectures", lectureService.srchByNowLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
 
@@ -680,6 +707,35 @@ public class MainController {
         model.addAttribute("srch",srch);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/myReplaceLec";
+    }
+
+    /*
+   대체과목, 재수강 과목등록, 이미 들은 내수업의 학점을 대체로 들은 수업의 학점으로 교체
+   */
+    @RequestMapping(value = "replaceMyLec", method = RequestMethod.POST)
+    public String ReplaceMyLec(MyLecture replaceLec, Myreplace myreplace ,RedirectAttributes redirectAttributes, @RequestParam("type") int type,
+                               @RequestParam("mylec_id") String mylec_id,@RequestParam("mylec_year") int mylec_year,
+                               @RequestParam("mylec_sem") String mylec_sem
+                               )
+    {
+        /*재수강과목 학점수정(내가 이미 들었던수업이, 폐강되었을때)*/
+        MyLecture myLecture1=new MyLecture();
+        myLecture1.setLecture_year(mylec_year);
+        myLecture1.setLecture_semester(mylec_sem);
+        myLecture1.setLecture_id(mylec_id);
+        myLecture1.setStudent_id(replaceLec.getStudent_id());
+        myLecture1.setGrade(replaceLec.getGrade());
+        myLectureMapper.updateByReplaceGrade(myLecture1);
+
+        /*대체과목 myreplace 테이블 삽입(myreplace),
+        * 대체과목 재수강 수업 mylecture 등록(replaceLec)*/
+        myreplaceMapper.insert(myreplace);
+        myLectureMapper.insert(replaceLec);
+
+        redirectAttributes.addAttribute("id",replaceLec.getStudent_id());
+        redirectAttributes.addAttribute("type",type);
+
+        return "redirect:replaceLecture";
     }
 
     /*
@@ -705,7 +761,6 @@ public class MainController {
         return "main/myReplaceNewLec";
     }
 
-
     /*
     대체과목, 초수강 과목등록
     */
@@ -718,4 +773,6 @@ public class MainController {
         redirectAttributes.addAttribute("type",type);
         return "redirect:replaceLecture";
     }
+
+
 }

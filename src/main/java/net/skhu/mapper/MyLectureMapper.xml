@@ -26,6 +26,33 @@
 
     </select>
 
+    <select id="findOne" resultType="MyLecture">
+        SELECT *,
+        CASE WHEN grade = 'A+' THEN '4.5'
+        WHEN grade = 'A0' THEN '4.0'
+        WHEN grade = 'B+' THEN '3.5'
+        WHEN grade = 'B0' THEN '3.0'
+        WHEN grade = 'C+' THEN '2.5'
+        WHEN grade = 'C0' THEN '2.0'
+        WHEN grade = 'D+' THEN '1.5'
+        WHEN grade = 'D0' THEN '1.0'
+        WHEN grade = 'F'  THEN '0.0'
+        WHEN grade = 'P'  THEN 'P'
+        else 'NP'
+        END AS gradeA
+        from mylecture
+        where student_id=#{student_id} And lecture_year=#{lecture_year} and lecture_semester like #{lecture_semester}  AND lecture_id like #{lecture_id} ;
+
+    </select>
+
+    <update id="updateByReplaceGrade">
+
+        update mylecture
+        SET
+        grade = #{grade}
+        where lecture_year=#{lecture_year} and lecture_semester like #{lecture_semester} and lecture_id LIKE #{lecture_id} and student_id =#{student_id};
+
+    </update>
 
 
     <select id="courseCount" resultType="int">

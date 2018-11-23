@@ -18,7 +18,13 @@
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
+        $(function() {
+            $("div.pagination a").click(function() {
+                $("input[name=pg]").val($(this).attr("data-page"));
+                $("form").submit();
+            });
 
+        });
     </script>
 </head>
 <body>
@@ -37,13 +43,59 @@
 
                             <br />
                             <br />
+                            <table class="table table-condensed">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <label>년도</label>
+                                        <br>
+                                        ${myLectureOne.lecture_year}
+                                    </td>
+                                    <td>
+                                        <label>학기</label>
+                                        <br>
+                                        ${myLectureOne.lecture_semester}
+                                    </td>
+                                    <td>
+                                        <label>과목코드</label>
+                                        <br>
+                                        ${myLectureOne.lecture_id}
 
-                            내수강 목록
+                                    </td>
+                                    <td>
+                                        <label>과목명</label>
+                                        <br>
+                                        ${myLectureOne.title}
+                                    </td>
+                                    <td>
+                                        <label>이수구분</label>
+                                        <br>
+                                        ${myLectureOne.detailType}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>이수학점</label>
+                                        <br>
+                                        ${myLectureOne.credit}
+                                    </td>
+                                    <td>
+                                        <label>성적등급</label>
+                                        <br>
+                                        ${myLectureOne.grade}
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <%-----------------------------------------%>
 
 
         <div class="container-fluid">
@@ -60,7 +112,9 @@
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
-
+                                <input type="hidden" name="lecId" value="${myLectureOne.lecture_id}">
+                                <input type="hidden" name="lec_year" value="${myLectureOne.lecture_year}">
+                                <input type="hidden" name="lec_semester" value="${myLectureOne.lecture_semester}">
                                 <p class="category"/>
                                     <select name="choice">
 
@@ -83,7 +137,7 @@
                                     </a>
                                 </div>
                             <div class="pull-right" style="margin-right:20px;">
-                                <a href="replaceLecture?type=${member.type}&id=${member.id}">
+                                <a href="replace_mylecture?type=${member.type}&id=${member.id}">
                                     <button type="button" class="btn btn-success">대체과목 목록으로</button>
                                 </a>
                             </div>
@@ -120,18 +174,18 @@
                                         <td>${lecture.subType}</td>
                                         <td>${lecture.credit}</td>
                                         <td>
-                                            <form action="simulationRegister" method="post">
+                                            <form action="replaceMyLec" method="post">
                                                 <select name="grade">
-                                                    <option value="0.0">0.0</option>
-                                                    <option value="0.5">0.5</option>
-                                                    <option value="1.0">1.0</option>
-                                                    <option value="1.5">1.5</option>
-                                                    <option value="2.0">2.0</option>
-                                                    <option value="2.5">2.5</option>
-                                                    <option value="3.0">3.0</option>
-                                                    <option value="3.5">3.5</option>
-                                                    <option value="4.0">4.0</option>
-                                                    <option value="4.5">4.5</option>
+                                                    <option value="P">P</option>
+                                                    <option value="F">0.0</option>
+                                                    <option value="D0">1.0</option>
+                                                    <option value="D+">1.5</option>
+                                                    <option value="C0">2.0</option>
+                                                    <option value="C+">2.5</option>
+                                                    <option value="B0">3.0</option>
+                                                    <option value="B+">3.5</option>
+                                                    <option value="A0">4.0</option>
+                                                    <option value="A+">4.5</option>
                                                 </select>
                                                 <select name="detailType">
                                                     <option value="교선">교선</option>
@@ -143,6 +197,8 @@
                                                     <option value="부선">부선</option>
                                                     <option value="부필">부필</option>
                                                 </select>
+
+                                                <%--대체할 과목--%>
                                                 <input type="hidden" name="lecture_year" value="${lecture.year}">
                                                 <input type="hidden" name="lecture_semester" value="${lecture.semester}">
                                                 <input type="hidden" name="lecture_id" value="${lecture.id}">
@@ -150,8 +206,20 @@
                                                 <input type="hidden" name="title" value="${lecture.title}">
                                                 <input type="hidden" name="credit" value="${lecture.credit}">
                                                 <input type="hidden" name="student_id" value="${member.id}" >
-                                                <input type="hidden" name="remove" value="1" >
+                                                <input type="hidden" name="remove" value="4" >
                                                 <input type="hidden" name="type" value="${member.type}">
+
+
+                                                <%--대체될 과목 UPDATE--%>
+                                                <input type="hidden" name="mylec_id" value="${myLectureOne.lecture_id}">
+                                                <input type="hidden" name="mylec_year" value="${myLectureOne.lecture_year}">
+                                                <input type="hidden" name="mylec_sem" value="${myLectureOne.lecture_semester}">
+                                                    <%--myReplace--%>
+                                                <input type="hidden" name="replaceLecId" value="${lecture.id}" >
+                                                <input type="hidden" name="closeLecId" value="${myLectureOne.lecture_id}" >
+                                                <input type="hidden" name="closeLecTitle" value="${myLectureOne.title}" >
+                                                <input type="hidden" name="studentId" value="${member.id}">
+
                                                 <button type="submit" class="btn btn-primary">등록</button>
                                             </form>
                                         </td>
@@ -168,7 +236,9 @@
                                 <input type="hidden" name="id" value="${member.id}" />
                                 <input type="hidden" name="srch" value="${srch}" />
                                 <input type="hidden" name="choice" value="${choice}" />
-
+                                <input type="hidden" name="lecId" value="${myLectureOne.lecture_id}">
+                                <input type="hidden" name="lec_year" value="${myLectureOne.lecture_year}">
+                                <input type="hidden" name="lec_semester" value="${myLectureOne.lecture_semester}">
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
 

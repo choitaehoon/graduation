@@ -17,6 +17,18 @@ public class MyLecService {
     @Autowired
     MyLectureMapper myLectureMapper;
 
+    //수업한개를 조회하기위해서 년도 학기 과목코드 학번필요
+
+    public MyLecture findOneMyLecSet(int year, String semester, String lectureId,int studentId){
+        MyLecture myLecSet=new MyLecture();
+
+        myLecSet.setLecture_year(year);
+        myLecSet.setLecture_semester(semester);
+        myLecSet.setLecture_id(lectureId);
+        myLecSet.setStudent_id(studentId);
+
+        return  myLecSet;
+    }
     /*
     mylecture, 내가 수강한 수업을 엑셀 등록하기 위해
      */
