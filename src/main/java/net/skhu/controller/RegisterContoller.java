@@ -33,19 +33,15 @@ public class RegisterContoller
                                   @RequestParam(value = "srch",defaultValue = "") String srch,@RequestParam("type") int type, @RequestParam("id") int id)
     {
 
-        if(choice==0 && srch.equals("")) {
-            model.addAttribute("lectures", lectureService.lectureList(pagination));
-            pagination.setRecordCount(lectureService.pageCount());
-        }
-        else {
-            model.addAttribute("lectures", lectureService.srchByLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
-            pagination.setRecordCount(lectureService.pageSrchCount(choice,srch));
-        }
-        model.addAttribute("member",typeIdentity.typeCheck(type,id));
-        model.addAttribute("selected",lectureService.selectCheck(choice));
-        model.addAttribute("count",myLectureMapper.count());
-        model.addAttribute("choice",choice);
-        model.addAttribute("srch",srch);
+
+        model.addAttribute("lectures", lectureService.srchByNowLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
+        pagination.setRecordCount(lectureService.pageNowSrchCount(choice, srch));
+
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("selected", lectureService.selectCheck(choice));
+        model.addAttribute("count", myLectureMapper.count());
+        model.addAttribute("choice", choice);
+        model.addAttribute("srch", srch);
         return "register/subjectRegister";
     }
 /*
