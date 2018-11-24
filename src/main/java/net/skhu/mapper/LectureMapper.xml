@@ -176,7 +176,7 @@
     <select id="findEssentialMajor" resultType="Lecture">
         select distinct (n.lecture_id), l.title from
         (select g.lecture_id from grdlecture g
-        left outer join (select * from mylecture where student_id = #{id})m
+        left outer join (select * from mylecture where student_id = #{id} and grade!='F' and grade!='NP')m
         on g.lecture_id = m.lecture_id
         where g.graduationRule_id = 1 and m.title is null)n
         left join lecture l
@@ -186,7 +186,7 @@
     <!-- 학번으로 안들은 교양필수과목 뽑기 -->
     <select id="findEssentialCulture" resultType="Lecture">
         SELECT distinct l.id, l.title, m.student_id FROM lecture l
-        left outer join (select * from mylecture where student_id=#{id})m
+        left outer join (select * from mylecture where student_id=#{id} and grade!='F' and grade!='NP')m
         on l.id = m.lecture_id
         where (l.id='AF00011' or l.id='AF00002' or l.id='AE00022' or l.id='AF00001') and student_id is null
         group by l.id
@@ -195,7 +195,7 @@
     <!--18학번 이후 들어야할 교양 필수 과목 뽑기-->
     <select id="findBy18CulturalEssentials" resultType="Lecture">
         SELECT distinct l.id, l.title, m.student_id FROM lecture l
-        left outer join (select * from mylecture where student_id=#{id})m
+        left outer join (select * from mylecture where student_id=#{id} and grade!='F' and grade!='NP')m
         on l.id = m.lecture_id
         where (l.id='AC00012' or l.id='AC00014' or l.id='AC00007' or l.id='AC00013' or (l.id='AC00015' AND l.title like concat('데이터 활용 및 분석(IT융합 1반)'))
 			or (l.id='AC00016' AND l.title like concat('과학기술과 에콜로지(IT융합 1반)')) or l.title like concat('사회봉사I'))
@@ -232,23 +232,23 @@
 
     <!--소속 전공탐색 수 세기-->
     <select id="countMajorSearch" resultType="int">
-        select count(*)
+      select count(*)
       from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
-      where s.id=#{id} and m.lecture_id like concat('VI','%')
+      where s.id=#{id} and m.lecture_id like concat('VI','%') and m.grade != 'F' and m.grade != 'NP'
     </select>
 
     <!--타 학부 전공탐색 수 세기-->
     <select id="countUndergraduate" resultType="int">
-        select count(*)
+      select count(*)
       from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
-      where s.id=#{id} and m.lecture_id like concat('VM','%') or m.lecture_id like concat('VS','%')
-      or m.lecture_id like concat('VH','%')
+      where s.id=#{id} and (m.lecture_id like concat('VM','%') or m.lecture_id like concat('VS','%')
+      or m.lecture_id like concat('VH','%')) and m.grade != 'F' and m.grade != 'NP'
     </select>
 
 </mapper>
