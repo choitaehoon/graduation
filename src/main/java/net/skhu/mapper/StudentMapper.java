@@ -27,7 +27,9 @@ public interface StudentMapper
     void updateMember(User user);
     List<Student> findAll();
     int selectCount(@Param("choice") int choice, @Param("search") String search);
+    int selectCount2(@Param("choice") int choice, @Param("search") String search);
     List<Student> selectPage(@Param("currentPage") int currentPage, @Param("pageSize") int pageSize, @Param("choice") int choice, @Param("search") String search);
+    List<Student> selectPage2(@Param("currentPage") int currentPage, @Param("pageSize") int pageSize, @Param("choice") int choice, @Param("search") String search);
     Student findByStudent(int id);
     void updateNameAndDepartment(@Param("name") String name , @Param("department_id") int department_id, @Param("id") int id);
     int totalSemester(int id);

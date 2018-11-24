@@ -245,11 +245,11 @@
         where s.id = #{id}
     </select>
 
-
+    <!-- 전체학생조회 / 미충족학생조회-->
     <select id="selectPage" resultType="Student">
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>
-      select s.*, d.departmentName
+        select s.*, d.departmentName
         from student s inner join department d
         on s.department_id = d.id
         <where>
@@ -263,7 +263,32 @@
                 s.id like concat (#{search},'%')
             </if>
         </where>
-      limit ${start} , ${end}
+        limit ${start} , ${end}
+    </select>
+
+    <select id="selectPage2" resultType="Student">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
+        select * from
+        (select s.id, s.name, s.email, d.departmentName,count(distinct m.lecture_year, m.lecture_semester)+1 semester, ifnull(sum(m.credit),0) totalCredit
+        from student s
+        inner join department d on s.department_id = d.id
+        left outer join mylecture m on s.id = m.student_id
+        where m.lecture_semester not in ('여름학기','겨울학기')
+        group by s.id)s
+        where (semester >= 6) and (130>totalCredit)
+        <where>
+            <if test="choice == 1">
+                s.name like concat(#{search},'%')
+            </if>
+            <if test="choice == 2">
+                s.departmentName like concat(#{search},'%')
+            </if>
+            <if test="choice == 3">
+                s.id like concat (#{search},'%')
+            </if>
+        </where>
+        limit ${start} , ${end}
     </select>
 
     <select id="selectCount" resultType="int">
@@ -276,6 +301,27 @@
             </if>
             <if test="choice == 2">
                 d.departmentName like concat(#{search},'%')
+            </if>
+            <if test="choice == 3">
+                s.id like concat (#{search},'%')
+            </if>
+        </where>
+    </select>
+    <select id="selectCount2" resultType="int">
+        select count(*) from
+        (select s.id, s.name, s.email, d.departmentName,count(distinct m.lecture_year, m.lecture_semester)+1 semester, ifnull(sum(m.credit),0) totalCredit
+        from student s
+        inner join department d on s.department_id = d.id
+        left outer join mylecture m on s.id = m.student_id
+        where m.lecture_semester not in ('여름학기','겨울학기')
+        group by s.id)s
+        where (semester >= 6) and (130 > totalCredit)
+        <where>
+            <if test="choice == 1">
+                s.name like concat(#{search},'%')
+            </if>
+            <if test="choice == 2">
+                s.departmentName like concat(#{search},'%')
             </if>
             <if test="choice == 3">
                 s.id like concat (#{search},'%')

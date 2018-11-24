@@ -21,6 +21,8 @@ public class Student
     Department department;
     int type;
 
+    int semester;
+
     int department_id;
     String departmentName;
 
