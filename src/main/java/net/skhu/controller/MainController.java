@@ -56,11 +56,10 @@ public class MainController {
     @Autowired
     NoticeService noticeService;
     @Autowired
-<<<<<<< HEAD
     QnaService qnaService;
-=======
+    @Autowired
     AdminMapper adminMapper;
->>>>>>> 572503caac9ae4b680602c79647f552921e7fa94
+
 
     /* 로그인되면, 메인페이지 이동*/
 
