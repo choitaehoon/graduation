@@ -1,16 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: JiEun
-  Date: 2018-11-02
-  Time: 오전 11:02
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:url var="R" value="/" />
 <!doctype html>
 <head>
+    <title>skhu 졸업요건</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet" media="screen">
@@ -36,7 +31,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title"> 대체 과목 ${member.type ==1 ? '신청':'관리'}</h4>
+                            <h4 class="title"> 대체 과목 ${member.type ==1 ? '초수강 신청':'관리'}</h4>
                             <p class="category">대체과목 초수강 신청이면 과목을 클릭하세요!</p>
                             <br><br><br>
 
@@ -61,7 +56,7 @@
 
                                 <c:if test="${member.type==1 }">
 
-                                    <a href="myReplaceLec?type=${member.type}&id=${member.id}" class="btn btn-primary pull-right" >대체과목재수강신청</a>
+                                    <a href="replace_mylecture?type=${member.type}&id=${member.id}" class="btn btn-primary pull-right" >대체과목재수강신청</a>
 
                                 </c:if>
                                 <c:if test="${member.type==2 }">

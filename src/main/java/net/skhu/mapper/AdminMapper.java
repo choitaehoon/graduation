@@ -13,4 +13,5 @@ public interface AdminMapper
     int findByIdAndPassword(@Param("id") int id, @Param("password") String password);
     Admin findByAdmin(int id);
     void updateMember(User user);
+    void deleteStudent(int id);
 }

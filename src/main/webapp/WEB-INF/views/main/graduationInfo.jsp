@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
+    <title>skhu 졸업요건</title>
     <link rel="stylesheet" href="/res/circle.css">
     <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
           rel="stylesheet">
@@ -357,7 +358,28 @@
                                             </tbody>
                                         </table>
                                     </div>
-                    
+
+                                    <%--전공 탐색 계산중--%>
+                                    <div>
+                                        <table class="table table-striped" style="float:left;width:30%; max-width: 100%; margin-bottom:20px;">
+                                            <thead>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;전공 탐색 과목</th>
+                                            </thead>
+                                            <tbody>
+                                                <c:if test="${countMajorSearch == 0}">
+                                                <tr>
+                                                    <td style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;-소속 학부 중 1과목 이수 해야합니다.</td>
+                                                </tr>
+                                                </c:if>
+                                                <c:if test="${countUndergraduate == 0}">
+                                                <tr>
+                                                    <td style="color: red" >&nbsp;&nbsp;&nbsp;&nbsp;-타 학부 중 1과목 이수 해야합니다.</td>
+                                                </tr>
+                                                </c:if>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -459,20 +481,23 @@
 
 
                                 <tbody>
-                                <c:forEach var="lecture" items="${ myLecture }"><tr>
-                                    <td>${ lecture.lecture_year }</td>
-                                    <td>${ lecture.lecture_semester }</td>
-                                    <td>${ lecture.lecture_id }</td>
-                                    <td>${ lecture.title }</td>
-                                    <td>${ lecture.detailType2 }</td>
-                                    <td>${ lecture.credit }</td>
-                                    <td>${ lecture.grade }</td>
-                                    <td style='text-align:center;vertical-align:middle'>
-                                        <c:if test="${ lecture.remove==0}"></c:if>
-                                        <c:if test="${ lecture.remove==1}">시뮬</c:if>
-                                        <c:if test="${ lecture.remove==3}">대체과목</c:if>
-                                    </td>
-                                </tr>
+                                <c:forEach var="lecture" items="${ myLecture }">
+                                    <c:if test="${lecture.remove !=4}">
+                                        <tr>
+                                            <td>${ lecture.lecture_year }</td>
+                                            <td>${ lecture.lecture_semester }</td>
+                                            <td>${ lecture.lecture_id }</td>
+                                            <td>${ lecture.title }</td>
+                                            <td>${ lecture.detailType2 }</td>
+                                            <td>${ lecture.credit }</td>
+                                            <td>${ lecture.grade }</td>
+                                            <td style='text-align:center;vertical-align:middle'>
+                                                <c:if test="${ lecture.remove==0}"></c:if>
+                                                <c:if test="${ lecture.remove==1}">시뮬</c:if>
+                                                <c:if test="${ lecture.remove==3}">대체</c:if>
+                                            </td>
+                                    </tr>
+                                    </c:if>
                                 </c:forEach>
                                 </tbody>
 
@@ -498,6 +523,54 @@
             </div>
         </div>
 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">대체과목신청현황</h4>
+                                <br><br>
+                                <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
+                                    <thead>
+                                    <tr>
+                                        <th>년도</th>
+                                        <th>학기</th>
+                                        <th>과목코드</th>
+                                        <th>과목명</th>
+                                        <th>이수구분</th>
+                                        <th>학점</th>
+                                        <th>성적등급</th>
+                                        <th style='text-align:center;vertical-align:middle'>대체된 폐지과목</th>
+                                    </tr>
+
+                                    </thead>
+
+
+                                    <tbody>
+                                    <c:forEach var="myLecutre" items="${ myReplaces }"><tr>
+                                        <td>${ myLecutre.lecture_year}</td>
+                                        <td>${ myLecutre.lecture_semester}</td>
+                                        <td>${ myLecutre.lecture_id}</td>
+                                        <td>${ myLecutre.title}</td>
+                                        <td>${ myLecutre.detailType}</td>
+                                        <td>${ myLecutre.credit}</td>
+                                        <td>${ myLecutre.grade }</td>
+                                        <td style='text-align:center;vertical-align:middle'>
+                                            <c:if test="${myLecutre.closeLecId != null}">
+                                                ${myLecutre.closeLecId}/${myLecutre.closeLecTitle} 대체
+                                            </c:if>
+
+                                        </td>
+                                    </tr>
+                                    </c:forEach>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <footer class="footer">
                 <div class="container-fluid">
 

@@ -5,6 +5,7 @@
 <c:url var="R" value="/" />
 <!doctype html>
 <head>
+    <title>skhu 졸업요건</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet" media="screen">

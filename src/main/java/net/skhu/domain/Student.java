@@ -9,6 +9,7 @@ public class Student
 {
     int id;
     String name;
+    String name1;
     String password;
     String email;
     String phone;
@@ -19,6 +20,8 @@ public class Student
     String question;
     Department department;
     int type;
+
+    int semester;
 
     int department_id;
     String departmentName;

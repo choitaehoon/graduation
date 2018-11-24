@@ -148,21 +148,21 @@
       select ifnull(sum(m.credit),0) totalCredit
 	  from student s left join mylecture m
 	  on s.id=m.student_id
-	  where s.id=#{id};
+	  where s.id=#{id} and m.grade!='F' and m.grade!='NP'
     </select>
 
     <select id="totalCreditMajor" resultType="int">
       select ifnull(sum(m.credit),0) totalCredit
 	  from student s left join mylecture m
 	  on s.id=m.student_id
-	  where (s.id=#{id}) and (m.detailType='전선'or m.detailType='전필'or m.detailType='전탐');
+	  where (s.id=#{id}) and (m.detailType='전선'or m.detailType='전필'or m.detailType='전탐') and m.grade!='F' and m.grade!='NP'
     </select>
 
     <select id="totalCreditCulture" resultType="int">
       select ifnull(sum(m.credit),0) totalCredit
 	  from student s left join mylecture m
 	  on s.id=m.student_id
-	  where (s.id=#{id}) and (m.detailType='교선'or m.detailType='교필');
+	  where (s.id=#{id}) and (m.detailType='교선'or m.detailType='교필') and m.grade!='F' and m.grade!='NP'
     </select>
 
     <select id="avgGrade" resultType="double">
@@ -189,7 +189,7 @@
       select ifnull(round(sum(m.credit)/130*100,0),0) totalCredit
       from student s left join mylecture m
       on s.id=m.student_id
-      where s.id=#{id};
+      where s.id=#{id} and  m.grade!='F' and m.grade!='NP'
     </select>
 
     <select id="creditPercentMajor" resultType="int">
@@ -197,7 +197,7 @@
       from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
-      where s.id=#{id} and (m.detailType='전선'or m.detailType='전필');
+      where s.id=#{id} and (m.detailType='전선'or m.detailType='전필') and m.grade!='F' and m.grade!='NP'
     </select>
 
     <select id="creditPercentCulture" resultType="int">
@@ -205,35 +205,35 @@
       from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
-      where s.id=#{id} and (m.detailType='교선'or m.detailType='교필');
+      where s.id=#{id} and (m.detailType='교선'or m.detailType='교필') and m.grade!='F' and m.grade!='NP'
     </select>
 
     <select id="chapelCount" resultType="int">
       SELECT count(*) FROM student s
       left join mylecture m
       on s.id=m.student_id
-      where (s.id=#{id}) and((m.lecture_id='AC00001') or (m.title LIKE '%채플%'));
+      where m.grade != 'NP' and (s.id=#{id}) and((m.lecture_id='AC00001') or (m.title LIKE '%채플%'));
     </select>
 
     <select id="chapelPercent" resultType="int">
       SELECT round(count(*)/2*100,0) FROM student s
       left join mylecture m
       on s.id=m.student_id
-      where (s.id=#{id}) and((m.lecture_id='AC00001') or (m.title LIKE '%채플%'));
+      where m.grade != 'NP' and(s.id=#{id}) and((m.lecture_id='AC00001') or (m.title LIKE '%채플%'));
     </select>
 
     <select id="volunteerCount" resultType="int">
       SELECT count(*) FROM student s
       left join mylecture m
       on s.id=m.student_id
-      where (s.id=#{id}) and(m.title LIKE '%봉사%')
+      where m.grade != 'NP' and (s.id=#{id}) and(m.title LIKE '%봉사%')
     </select>
 
     <select id="volunteerPercent" resultType="int">
       SELECT count(*)*100 FROM student s
       left join mylecture m
       on s.id=m.student_id
-      where (s.id=#{id}) and(m.title LIKE '%봉사%');
+      where m.grade != 'NP' and (s.id=#{id}) and(m.title LIKE '%봉사%');
     </select>
 
 
@@ -245,11 +245,11 @@
         where s.id = #{id}
     </select>
 
-
+    <!-- 전체학생조회 / 미충족학생조회-->
     <select id="selectPage" resultType="Student">
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>
-      select s.*, d.departmentName
+        select s.*, d.departmentName
         from student s inner join department d
         on s.department_id = d.id
         <where>
@@ -263,7 +263,32 @@
                 s.id like concat (#{search},'%')
             </if>
         </where>
-      limit ${start} , ${end}
+        limit ${start} , ${end}
+    </select>
+
+    <select id="selectPage2" resultType="Student">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
+        select * from
+        (select s.id, s.name, s.email, d.departmentName,count(distinct m.lecture_year, m.lecture_semester)+1 semester, ifnull(sum(m.credit),0) totalCredit
+        from student s
+        inner join department d on s.department_id = d.id
+        left outer join mylecture m on s.id = m.student_id
+        where m.lecture_semester not in ('여름학기','겨울학기')
+        group by s.id)s
+        where (semester >= 6) and (130>totalCredit)
+        <where>
+            <if test="choice == 1">
+                s.name like concat(#{search},'%')
+            </if>
+            <if test="choice == 2">
+                s.departmentName like concat(#{search},'%')
+            </if>
+            <if test="choice == 3">
+                s.id like concat (#{search},'%')
+            </if>
+        </where>
+        limit ${start} , ${end}
     </select>
 
     <select id="selectCount" resultType="int">
@@ -276,6 +301,27 @@
             </if>
             <if test="choice == 2">
                 d.departmentName like concat(#{search},'%')
+            </if>
+            <if test="choice == 3">
+                s.id like concat (#{search},'%')
+            </if>
+        </where>
+    </select>
+    <select id="selectCount2" resultType="int">
+        select count(*) from
+        (select s.id, s.name, s.email, d.departmentName,count(distinct m.lecture_year, m.lecture_semester)+1 semester, ifnull(sum(m.credit),0) totalCredit
+        from student s
+        inner join department d on s.department_id = d.id
+        left outer join mylecture m on s.id = m.student_id
+        where m.lecture_semester not in ('여름학기','겨울학기')
+        group by s.id)s
+        where (semester >= 6) and (130 > totalCredit)
+        <where>
+            <if test="choice == 1">
+                s.name like concat(#{search},'%')
+            </if>
+            <if test="choice == 2">
+                s.departmentName like concat(#{search},'%')
             </if>
             <if test="choice == 3">
                 s.id like concat (#{search},'%')
@@ -347,7 +393,7 @@
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
-      where s.id=#{id} and (m.detailType='복필'or m.detailType='복선')
+      where s.id=#{id} and (m.detailType='복필'or m.detailType='복선') and m.grade!='F' and m.grade!='NP'
     </select>
 
     <select id="doubleMajorPercent" resultType="int">
@@ -356,7 +402,7 @@
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
-      where s.id=#{id} and (m.detailType='복필'or m.detailType='복선')
+      where s.id=#{id} and (m.detailType='복필'or m.detailType='복선') and m.grade!='F' and m.grade!='NP'
     </select>
 
     <select id="minor" resultType="int">
@@ -365,7 +411,7 @@
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
-      where s.id=#{id} and (m.detailType='부필'or m.detailType='부선')
+      where s.id=#{id} and (m.detailType='부필'or m.detailType='부선') and m.grade!='F' and m.grade!='NP'
     </select>
 
     <select id="minorPercent" resultType="int">
@@ -374,27 +420,27 @@
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
-      where s.id=#{id}  and (m.detailType='부필'or m.detailType='부선')
+      where s.id=#{id}  and (m.detailType='부필'or m.detailType='부선') and m.grade!='F' and m.grade!='NP'
     </select>
 
+    <!--전공탐색 계산-->
     <select id="majorSearch" resultType="int">
     select ifnull(sum(m.credit),0) majorSearch
       from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
-      where s.id=#{id} and (m.detailType='전탐');
+      where s.id=#{id} and (m.detailType='전탐') and m.grade!='F' and m.grade!='NP'
     </select>
 
+    <!--전공탐색 퍼센트 계산-->
     <select id="majorSearchPercent" resultType="int">
     select ifnull(round(sum(m.credit)/19*100,0),0) majorSearch
       from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
-      where s.id=#{id} and (m.detailType='전탐');
+      where s.id=#{id} and (m.detailType='전탐') and m.grade!='F' and m.grade!='NP'
     </select>
-
-
 
 </mapper>

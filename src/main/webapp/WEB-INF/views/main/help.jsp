@@ -2,7 +2,7 @@
 
 <html>
 <head>
-
+    <title>skhu 졸업요건</title>
 </head>
 <body>
 <div class="wrapper">

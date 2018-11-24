@@ -4,7 +4,7 @@
 <c:url var="R" value="/" />
 <!doctype html>
 <head>
-
+    <title>skhu 졸업요건</title>
     <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -35,6 +35,13 @@
                                 <h4 class="title"> 학생 관리</h4>
                                 <br><br><br>
                                 <p class="category">
+
+                                <div class="pull-right mb5">
+                                    <form method="POST">
+                                        <button type="submit" class="btn btn-default" name="btn" value="0">전체 학생</button>
+                                        <button type="submit" class="btn btn-danger" name="btn" value="1">요건 미충족 학생</button>
+                                    </form>
+                                </div>
 
                                 <form>
                                 <input type="hidden" name="pg" value="1">

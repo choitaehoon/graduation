@@ -5,7 +5,7 @@
 <head>
     <meta charset='UTF-8'>
 
-    <title>Responsive Table</title>
+    <title>skhu 졸업요건</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

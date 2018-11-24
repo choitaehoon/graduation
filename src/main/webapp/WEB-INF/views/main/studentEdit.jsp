@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <head>
-
+    <title>skhu 졸업요건</title>
 </head>
 <body>
 
@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>이름:</label>
-                                    <form:input path="name" class="form-control w200" />
+                                    <input type="text" name="name1" value="${student.name}" class="form-control w200" />
                                 </div>
                                 <div class="form-group">
                                     <label>학과: </label>
@@ -37,14 +37,14 @@
                                 <hr/>
                                 <div>
                                     <button type="submit" class="btn btn-primary">저장</button>
-                                    <a href="" data-confirm-delete><button type="button" class="btn btn-danger">삭제</button></a>
+                                    <a href="deleteStudent?type=${member.type}&adminId=${member.id}&${pagination.queryString}&id=${student.id}" data-confirm-delete><button type="button" class="btn btn-danger">삭제</button></a>
                                     <a href="studentManager?type=${member.type}&id=${member.id}&${pagination.queryString}" class="btn btn-info">목록으로</a>
                                 </div>
                             </form:form>
 
 
                             </p>
-                            </form>
+
 
 
                         </div>

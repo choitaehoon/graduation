@@ -38,6 +38,8 @@ public class MainController {
     @Autowired
     ReplaceLecService replaceLecService;
     @Autowired
+    MyreplaceMapper myreplaceMapper;
+    @Autowired
     LectureMapper lectureMapper;
     @Autowired
     MyLectureMapper myLectureMapper;
@@ -54,7 +56,11 @@ public class MainController {
     @Autowired
     NoticeService noticeService;
     @Autowired
+<<<<<<< HEAD
     QnaService qnaService;
+=======
+    AdminMapper adminMapper;
+>>>>>>> 572503caac9ae4b680602c79647f552921e7fa94
 
     /* 로그인되면, 메인페이지 이동*/
 
@@ -371,113 +377,133 @@ public class MainController {
         return "redirect:qna";
     }
 
-        /*내정보 페이지*/
-        @RequestMapping("myInfo")
-        public String myInfo (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
-        {
-            System.out.println(type + " " + id + " " + "myInfo");
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            return "main/myInfo";
-        }
+    /*내정보 페이지*/
+    @RequestMapping("myInfo")
+    public String myInfo (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
+    {
+        System.out.println(type + " " + id + " " + "myInfo");
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/myInfo";
+    }
 
-        @RequestMapping(value = "updateMember")
-        public String updateMember (User user, RedirectAttributes redirectAttributes)
-        {
-            typeIdentity.typeUpdate(user);
-            redirectAttributes.addAttribute("type", user.getType());
-            redirectAttributes.addAttribute("id", user.getId());
-            System.out.println(user.getType() + " " + user.getId() + " " + "updateMember");
-            return "redirect:myInfo";
-        }
+    @RequestMapping(value = "updateMember")
+    public String updateMember (User user, RedirectAttributes redirectAttributes)
+    {
+        typeIdentity.typeUpdate(user);
+        redirectAttributes.addAttribute("type", user.getType());
+        redirectAttributes.addAttribute("id", user.getId());
+        System.out.println(user.getType() + " " + user.getId() + " " + "updateMember");
+        return "redirect:myInfo";
+    }
 
-        @RequestMapping("studentManager")
-        public String studentManager (Model model, Pagination pagination,@RequestParam("type") int type,
-        @RequestParam("id") int id, @RequestParam(value = "choice", defaultValue = "0") int choice,
-        @RequestParam(value = "search", defaultValue = "") String search)
-        {
-            pagination.setRecordCount(studentMapper.selectCount(choice, search));
-            model.addAttribute("listes", studentMapper.selectPage(pagination.getPg(), pagination.getPageSize(), choice, search));
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            model.addAttribute("search", search);
-            model.addAttribute("selected", lectureService.selectChecKAndSearch(choice));
-            return "main/studentManager";
+    @RequestMapping("studentManager")
+    public String studentManager (Model model, Pagination pagination,@RequestParam("type") int type,
+                                  @RequestParam("id") int id, @RequestParam(value = "choice", defaultValue = "0") int choice,
+                                  @RequestParam(value = "search", defaultValue = "") String search, @RequestParam(value ="btn", defaultValue ="0") int btn)
+    {
+        pagination.setRecordCount(studentMapper.selectCount(choice, search));
+        model.addAttribute("listes", studentMapper.selectPage(pagination.getPg(), pagination.getPageSize(), choice, search));
+        if (btn==1){
+            pagination.setRecordCount(studentMapper.selectCount2(choice, search));
+            model.addAttribute("listes", studentMapper.selectPage2(pagination.getPg(), pagination.getPageSize(), choice, search));
         }
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("search", search);
+        model.addAttribute("btn",btn);
+        model.addAttribute("selected", lectureService.selectChecKAndSearch(choice));
+        return "main/studentManager";
+    }
 
     /*
       student.getType을 지정한이유
       student로 바인딩 되서 타입을 담고있다.그래서 type이 2가 되어서 교수 정보를 가져올 수 있다.
      */
 
-        @RequestMapping(value = "studentEdit", method = RequestMethod.GET)
-        public String edit (Model model, Student student, Pagination pagination ,@RequestParam("adminId") int adminId)
-        {
-            model.addAttribute("student", studentMapper.findByStudent(student.getId()));
-            model.addAttribute("member", typeIdentity.typeCheck(student.getType(), adminId));
-            model.addAttribute("departments", departmentMapper.findAll());
-            return "main/studentEdit";
-        }
+    @RequestMapping(value = "studentEdit", method = RequestMethod.GET)
+    public String edit (Model model, Student student, Pagination pagination ,@RequestParam("adminId") int adminId)
+    {
+        model.addAttribute("student", studentMapper.findByStudent(student.getId()));
+        model.addAttribute("member", typeIdentity.typeCheck(student.getType(), adminId));
+        model.addAttribute("departments", departmentMapper.findAll());
+        return "main/studentEdit";
+    }
 
 
-        @RequestMapping(value = "studentEdit", method = RequestMethod.POST)
-        public String edit (Student student, RedirectAttributes redirectAttributes,@RequestParam("adminId") int adminId)
-        {
-            studentMapper.updateNameAndDepartment(student);
-            redirectAttributes.addAttribute("type", student.getType());
-            redirectAttributes.addAttribute("id", adminId);
-            return "redirect:studentManager";
-        }
+    @RequestMapping(value = "studentEdit", method = RequestMethod.POST)
+    public String edit (@RequestParam("id") int id, @RequestParam("name1") String name1 , @RequestParam("department_id") int department_id,
+                        RedirectAttributes redirectAttributes,@RequestParam("adminId") int adminId,
+                        @RequestParam("type") int type)
+    {
+        studentMapper.updateNameAndDepartment(name1,department_id,id);
+        redirectAttributes.addAttribute("type", type);
+        redirectAttributes.addAttribute("id", adminId);
+        return "redirect:studentManager";
+    }
 
-        @RequestMapping(value = "studentManager2", method = RequestMethod.GET)
-        public String studentManager2 (Model model,@RequestParam("studentId") int studentId,
-        @RequestParam("type") int type, @RequestParam("id") int id )
-        {
-            Student student = studentMapper.findById(studentId);
-            model.addAttribute("student", student);
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            model.addAttribute("totalSemester", studentMapper.totalSemester(studentId));
-            model.addAttribute("totalCredit", studentMapper.totalCredit(studentId));
-            model.addAttribute("avgGrade", studentMapper.avgGrade(studentId));
-            return "main/studentManager2";
-        }
+    @RequestMapping(value = "deleteStudent")
+    public String studentDelete(RedirectAttributes redirectAttributes, @RequestParam("type") int type,
+                                Student student, @RequestParam("adminId") int adminId, Pagination pagination)
+    {
+        logger.info(type+" "+student.getId()+" "+adminId+" "+pagination.getPg()+" "+pagination.getSz());
+        adminMapper.deleteStudent(student.getId());
+        redirectAttributes.addAttribute("pg",pagination.getPg());
+        redirectAttributes.addAttribute("sz",pagination.getSz());
+        redirectAttributes.addAttribute("type",type);
+        redirectAttributes.addAttribute("id",adminId);
+        return "redirect:studentManager";
+    }
 
-        @RequestMapping(value = "studentManager2", method = RequestMethod.POST)
-        public String studentManager2 (Model model,@RequestParam("studentId") int studentId,
-        @RequestParam("type") int type, @RequestParam("id") int id, @RequestParam("btn") int btn)
-        {
-            Student student = studentMapper.findById(studentId);
-            if (btn == 2) {
-                student = studentMapper.findByIdMajor(studentId);
-                if (student == null)
-                    student = studentMapper.findByStudent(studentId);
-            } else if (btn == 3) {
-                student = studentMapper.findByIdCulture(studentId);
-                if (student == null)
-                    student = studentMapper.findByStudent(studentId);
-            } else if (btn == 4) {
-                student = studentMapper.findByIdF(studentId);
-                if (student == null)
-                    student = studentMapper.findByStudent(studentId);
-            }
-            model.addAttribute("student", student);
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            model.addAttribute("totalSemester", studentMapper.totalSemester(studentId));
-            model.addAttribute("totalCredit", studentMapper.totalCredit(studentId));
-            model.addAttribute("avgGrade", studentMapper.avgGrade(studentId));
-            return "main/studentManager2";
-        }
+    @RequestMapping(value = "studentManager2", method = RequestMethod.GET)
+    public String studentManager2 (Model model,@RequestParam("studentId") int studentId,
+                                   @RequestParam("type") int type, @RequestParam("id") int id )
+    {
+        Student student = studentMapper.findById(studentId);
+        model.addAttribute("student", student);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("totalSemester", studentMapper.totalSemester(studentId));
+        model.addAttribute("totalCredit", studentMapper.totalCredit(studentId));
+        model.addAttribute("avgGrade", studentMapper.avgGrade(studentId));
+        return "main/studentManager2";
+    }
 
-        @RequestMapping("after18")
-        public String after18 (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
-        {
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            return "main/after18";
+    @RequestMapping(value = "studentManager2", method = RequestMethod.POST)
+    public String studentManager2 (Model model,@RequestParam("studentId") int studentId,
+                                   @RequestParam("type") int type, @RequestParam("id") int id, @RequestParam("btn") int btn)
+    {
+        Student student = studentMapper.findById(studentId);
+        if (btn == 2) {
+            student = studentMapper.findByIdMajor(studentId);
+            if (student == null)
+                student = studentMapper.findByStudent(studentId);
+        } else if (btn == 3) {
+            student = studentMapper.findByIdCulture(studentId);
+            if (student == null)
+                student = studentMapper.findByStudent(studentId);
+        } else if (btn == 4) {
+            student = studentMapper.findByIdF(studentId);
+            if (student == null)
+                student = studentMapper.findByStudent(studentId);
         }
-        @RequestMapping("before18")
-        public String before18 (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
-        {
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            return "main/before18";
-        }
+        model.addAttribute("student", student);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("totalSemester", studentMapper.totalSemester(studentId));
+        model.addAttribute("totalCredit", studentMapper.totalCredit(studentId));
+        model.addAttribute("avgGrade", studentMapper.avgGrade(studentId));
+        return "main/studentManager2";
+    }
+
+    @RequestMapping("after18")
+    public String after18 (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
+    {
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/after18";
+    }
+    @RequestMapping("before18")
+    public String before18 (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
+    {
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/before18";
+    }
 
     @RequestMapping("help")
     public String help (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
@@ -485,101 +511,110 @@ public class MainController {
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/help";
     }
-/*
-나의 졸업요건페이지
- */
-        @RequestMapping("graduationInfo")
-        public String graduationInfo (Model model, Pagination pagination,@RequestParam("type") int type,
-        @RequestParam("id") int id, @RequestParam(value = "choice", defaultValue = "0") int choice,
-        @RequestParam(value = "search", defaultValue = "") String search)
-        {
-            pagination.setRecordCount(myLectureMapper.courseCount(choice, search, id));
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            model.addAttribute("student", studentMapper.findById(id));
-            model.addAttribute("graduationRules", graduationRuleMapper.findBy18(id));
-            model.addAttribute("totalSemester", studentMapper.totalSemester(id));
-            model.addAttribute("avgGrade", studentMapper.avgGrade(id));
-            model.addAttribute("totalCredit", studentMapper.totalCredit(id));
-            model.addAttribute("totalCreditMajor", studentMapper.totalCreditMajor(id));
-            model.addAttribute("totalCreditCulture", studentMapper.totalCreditCulture(id));
-            model.addAttribute("creditPercent", studentMapper.creditPercent(id));
-            model.addAttribute("creditPercentMajor", studentMapper.creditPercentMajor(id));
-            model.addAttribute("creditPercentCulture", studentMapper.creditPercentCulture(id));
-            model.addAttribute("chapelCount", studentMapper.chapelCount(id));
-            model.addAttribute("chapelPercent", studentMapper.chapelPercent(id));
-            model.addAttribute("volunteerCount", studentMapper.volunteerCount(id));
-            model.addAttribute("volunteerPercent", studentMapper.volunteerPercent(id));
-            model.addAttribute("myLecture", myLectureMapper.findByIdPage(pagination.getPg(), pagination.getPageSize(), id, choice, search));
-            model.addAttribute("selected", lectureService.selectCheckAndTwo(choice));
-            model.addAttribute("search", search);
-            model.addAttribute("choice", choice);
-            model.addAttribute("departments", departmentMapper.findAll());
-            model.addAttribute("essentialMajor", lectureMapper.findEssentialMajor(id));
-            model.addAttribute("essentialCulture", lectureMapper.findEssentialCulture(id));
-            model.addAttribute("essentialCultureSize", lectureMapper.findEssentialCulture(id).size() - 2);
-            model.addAttribute("doubleMajorPercent",studentMapper.doubleMajorPercent(id));
-            model.addAttribute("doubleMajor", studentMapper.doubleMajor(id));
-            model.addAttribute("minorPercent",studentMapper.minorPercent(id));
-            model.addAttribute("minor", studentMapper.minor(id));
+    /*
+    나의 졸업요건페이지
+     */
+    @RequestMapping("graduationInfo")
+    public String graduationInfo (Model model, Pagination pagination,@RequestParam("type") int type,
+                                  @RequestParam("id") int id, @RequestParam(value = "choice", defaultValue = "0") int choice,
+                                  @RequestParam(value = "search", defaultValue = "") String search)
+    {
+        pagination.setRecordCount(myLectureMapper.courseCount(choice, search, id));
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("student", studentMapper.findById(id));
+        model.addAttribute("graduationRules", graduationRuleMapper.findBy18(id));
+        model.addAttribute("totalSemester", studentMapper.totalSemester(id));
+        model.addAttribute("avgGrade", studentMapper.avgGrade(id));
+        model.addAttribute("totalCredit", studentMapper.totalCredit(id));
+        model.addAttribute("totalCreditMajor", studentMapper.totalCreditMajor(id));
+        model.addAttribute("totalCreditCulture", studentMapper.totalCreditCulture(id));
+        model.addAttribute("creditPercent", studentMapper.creditPercent(id));
+        model.addAttribute("creditPercentMajor", studentMapper.creditPercentMajor(id));
+        model.addAttribute("creditPercentCulture", studentMapper.creditPercentCulture(id));
+        model.addAttribute("chapelCount", studentMapper.chapelCount(id));
+        model.addAttribute("chapelPercent", studentMapper.chapelPercent(id));
+        model.addAttribute("volunteerCount", studentMapper.volunteerCount(id));
+        model.addAttribute("volunteerPercent", studentMapper.volunteerPercent(id));
+        model.addAttribute("myLecture", myLectureMapper.findByIdPage(pagination.getPg(), pagination.getPageSize(), id, choice, search));
+        model.addAttribute("selected", lectureService.selectCheckAndTwo(choice));
+        model.addAttribute("search", search);
+        model.addAttribute("choice", choice);
+        model.addAttribute("departments", departmentMapper.findAll());
+        model.addAttribute("essentialMajor", lectureMapper.findEssentialMajor(id));
+        model.addAttribute("essentialCulture", lectureMapper.findEssentialCulture(id));
+        model.addAttribute("essentialCultureSize", lectureMapper.findEssentialCulture(id).size() - 2);
+        model.addAttribute("doubleMajorPercent",studentMapper.doubleMajorPercent(id));
+        model.addAttribute("doubleMajor", studentMapper.doubleMajor(id));
+        model.addAttribute("minorPercent",studentMapper.minorPercent(id));
+        model.addAttribute("minor", studentMapper.minor(id));
 
-            model.addAttribute("cultureEssential",lectureMapper.findBy18CulturalEssentials(id));
-            model.addAttribute("majorSearch",studentMapper.majorSearch(id));
-            model.addAttribute("majorSearchPecent",studentMapper.majorSearchPercent(id));
-            return "main/graduationInfo";
-        }
-        @RequestMapping(value = "graduationInfo", method = RequestMethod.POST) public String graduationInfo (Model
-        model, Student student,@RequestParam("type") int type, @RequestParam("id") int id, RedirectAttributes
-        redirectAttributes)
-        {
-            studentMapper.updateRule(student);
-            redirectAttributes.addAttribute("type", type);
-            redirectAttributes.addAttribute("id", id);
-            return "redirect:graduationInfo";
-        }
+        //대체과목 신청 리스트 확인
+        model.addAttribute("myReplaces",myLectureMapper.findReplaceLecByStu(id));
+
+        model.addAttribute("cultureEssential",lectureMapper.findBy18CulturalEssentials(id));
+        model.addAttribute("majorSearch",studentMapper.majorSearch(id));
+        model.addAttribute("majorSearchPecent",studentMapper.majorSearchPercent(id));
+        model.addAttribute("countMajorSearch",lectureMapper.countMajorSearch(id));
+        model.addAttribute("countUndergraduate",lectureMapper.countUndergraduate(id));
+        return "main/graduationInfo";
+    }
+    @RequestMapping(value = "graduationInfo", method = RequestMethod.POST) public String graduationInfo (Model
+                                                                                                                 model, Student student,@RequestParam("type") int type, @RequestParam("id") int id, RedirectAttributes
+                                                                                                                 redirectAttributes)
+    {
+        studentMapper.updateRule(student);
+        redirectAttributes.addAttribute("type", type);
+        redirectAttributes.addAttribute("id", id);
+        return "redirect:graduationInfo";
+    }
          /*
          나의 졸업요건 수강과목 or 시뮬레이션 과목 삭제
         */
 
-        @RequestMapping(value = "deleteLecture", method = RequestMethod.POST)
-        public String delete (Model model,@RequestParam("type") int type, @RequestParam("remove") int remove,
-        @RequestParam("id") int id, @RequestParam(value = "choice", defaultValue = "0") int choice,
-        @RequestParam(value = "search", defaultValue = "") String search, RedirectAttributes redirectAttributes)
-        {
-            myLectureMapper.delete(remove);
-            redirectAttributes.addAttribute("type", type);
-            redirectAttributes.addAttribute("id", id);
-            redirectAttributes.addAttribute("choice", choice);
-            redirectAttributes.addAttribute("search", search);
-            return "redirect:graduationInfo";
+    @RequestMapping(value = "deleteLecture", method = RequestMethod.POST)
+    public String delete (Model model,@RequestParam("type") int type, @RequestParam("remove") int remove,
+                          @RequestParam("id") int id, @RequestParam(value = "choice", defaultValue = "0") int choice,
+                          @RequestParam(value = "search", defaultValue = "") String search, RedirectAttributes redirectAttributes)
+    {
+        myLectureMapper.delete(remove);
+        if(remove==3) {
+            myreplaceMapper.delete(id);
+            myLectureMapper.delete(4);
         }
+        redirectAttributes.addAttribute("type", type);
+        redirectAttributes.addAttribute("id", id);
+        redirectAttributes.addAttribute("choice", choice);
+        redirectAttributes.addAttribute("search", search);
+        return "redirect:graduationInfo";
+    }
 
-        /*엑셀업로드 내가수강한수업 엑셀업로드 페이지 */
-        @RequestMapping("myLecExcel")
-        public String myLecExcel (Model model, Pagination pagination,@RequestParam("type") int type,
-        @RequestParam("userId") int id )
-        {
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            return "main/myLecExcel";
-        }
+    /*엑셀업로드 내가수강한수업 엑셀업로드 페이지 */
+    @RequestMapping("myLecExcel")
+    public String myLecExcel (Model model, Pagination pagination,@RequestParam("type") int type,
+                              @RequestParam("userId") int id )
+    {
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/myLecExcel";
+    }
 
 
-         /*
-         컴퓨터공학과 졸업요건 18이전 이후
-         */
-        @RequestMapping("comAfter18")
-        public String comAfter18 (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
-        {
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            return "main/comAfter18";
-        }
-        @RequestMapping("comBefore18")
-        public String comBefore18 (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
-        {
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            return "main/comBefore18";
-        }
+    /*
+    컴퓨터공학과 졸업요건 18이전 이후
+    */
+    @RequestMapping("comAfter18")
+    public String comAfter18 (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
+    {
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/comAfter18";
+    }
+    @RequestMapping("comBefore18")
+    public String comBefore18 (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
+    {
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/comBefore18";
+    }
 
-//        //대체과목관리, 폐지 과목 list
+    //        //대체과목관리, 폐지 과목 list
 //        @RequestMapping("replaceLecture")
 //        public String replaceLecture (Model model, Pagination pagination ,@RequestParam("type") int type,
 //        @RequestParam("id") int id ){
@@ -590,97 +625,150 @@ public class MainController {
 //            model.addAttribute("member", typeIdentity.typeCheck(type, id));
 //            return "main/replaceLecture";
 //        }
-        //대체과목관리,폐지 과목 검색
-        @RequestMapping("replaceLecture")
-        public String replaceLeBySrch(Model model, Pagination pagination ,@RequestParam(value = "choice",defaultValue = "0") int choice, @RequestParam(value="srch",defaultValue = "") String srch,
-                                       @RequestParam("type") int type,@RequestParam("id") int id ){
-            if(srch ==null)
-                srch="";
+    //대체과목관리,폐지 과목 검색
+    @RequestMapping("replaceLecture")
+    public String replaceLeBySrch(Model model, Pagination pagination ,@RequestParam(value = "choice",defaultValue = "0") int choice, @RequestParam(value="srch",defaultValue = "") String srch,
+                                  @RequestParam("type") int type,@RequestParam("id") int id ){
+        if(srch ==null)
+            srch="";
 
-            pagination.setRecordCount(replaceLectureMapper.srchCount(choice,srch));
-            List<ReplaceLecture> replaceLectures = replaceLectureMapper.findCloseBySrch(pagination.getPg(),pagination.getPageSize(),choice,srch);
-            model.addAttribute("replaceLectures", replaceLectures);
+        pagination.setRecordCount(replaceLectureMapper.srchCount(choice,srch));
+        List<ReplaceLecture> replaceLectures = replaceLectureMapper.findCloseBySrch(pagination.getPg(),pagination.getPageSize(),choice,srch);
+        model.addAttribute("replaceLectures", replaceLectures);
 
-            model.addAttribute("srch",srch);
-            model.addAttribute("selected", replaceLecService.selectCheck(choice));
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("srch",srch);
+        model.addAttribute("selected", replaceLecService.selectCheck(choice));
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
 
-            return "main/replaceLecture";
-        }
+        return "main/replaceLecture";
+    }
 
-        //대체과목관리, 폐지과목 등록 페이지
-        @RequestMapping("replaceLectureRegister")
-        public String replaceLecRegister (Model model, Pagination pagination ,@RequestParam("type") int type,
-        @RequestParam("id") int id ){
+    //대체과목관리, 폐지과목 등록 페이지
+    @RequestMapping("replaceLectureRegister")
+    public String replaceLecRegister (Model model, Pagination pagination ,@RequestParam("type") int type,
+                                      @RequestParam("id") int id ){
 
-            ReplaceLecture replaceLecture = new ReplaceLecture();
-            model.addAttribute("replaceLecture", replaceLecture);
-            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-            return "main/replaceLectureRegister";
-        }
-        //대체과목관리, 폐지과목 등록
-        @RequestMapping(value="replaceLectureRegister" ,method=RequestMethod.POST)
-        public String replaceLecRegister (Pagination pagination ,ReplaceLecture replaceLecture,@RequestParam("type") int type,
+        ReplaceLecture replaceLecture = new ReplaceLecture();
+        model.addAttribute("replaceLecture", replaceLecture);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/replaceLectureRegister";
+    }
+    //대체과목관리, 폐지과목 등록
+    @RequestMapping(value="replaceLectureRegister" ,method=RequestMethod.POST)
+    public String replaceLecRegister (Pagination pagination ,ReplaceLecture replaceLecture,@RequestParam("type") int type,
                                       @RequestParam("id") int id,RedirectAttributes redirectAttributes ){
 
         replaceLectureMapper.insert(replaceLecture);
         redirectAttributes.addAttribute("id",id);
         redirectAttributes.addAttribute("type",type);
         return "redirect:replaceLecture";
-        }
+    }
 
-        //대체과목 폐지과목 수정페이지
-        @RequestMapping("replaceLectureUpdate")
-        public String replaceLectureUpdate (Model model, Pagination pagination ,@RequestParam("type") int type,
-                                      @RequestParam("id") int id,@RequestParam("closeLecture") String closeLecture ){
+    //대체과목 폐지과목 수정페이지
+    @RequestMapping("replaceLectureUpdate")
+    public String replaceLectureUpdate (Model model, Pagination pagination ,@RequestParam("type") int type,
+                                        @RequestParam("id") int id,@RequestParam("closeLecture") String closeLecture ){
 
-           ReplaceLecture replaceLecture=replaceLectureMapper.findOne(closeLecture);
-           model.addAttribute("replaceLecture", replaceLecture);
-           model.addAttribute("member", typeIdentity.typeCheck(type, id));
-           return "main/replaceLectureRegister";
-        }
+        ReplaceLecture replaceLecture=replaceLectureMapper.findOne(closeLecture);
+        model.addAttribute("replaceLecture", replaceLecture);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/replaceLectureRegister";
+    }
 
-        //대체과목 폐지과목 수정
-        @RequestMapping(value = "replaceLectureUpdate",method = RequestMethod.POST)
-        public String closeLecUpdate (Model model, Pagination pagination ,@RequestParam("type") int type,
-                                        @RequestParam("id") int id,ReplaceLecture replaceLecture,RedirectAttributes redirectAttributes)
-        {
-            replaceLectureMapper.update(replaceLecture);
-            redirectAttributes.addAttribute("id",id);
-            redirectAttributes.addAttribute("type",type);
-            return "redirect:replaceLecture";
-        }
+    //대체과목 폐지과목 수정
+    @RequestMapping(value = "replaceLectureUpdate",method = RequestMethod.POST)
+    public String closeLecUpdate (Model model, Pagination pagination ,@RequestParam("type") int type,
+                                  @RequestParam("id") int id,ReplaceLecture replaceLecture,RedirectAttributes redirectAttributes)
+    {
+        replaceLectureMapper.update(replaceLecture);
+        redirectAttributes.addAttribute("id",id);
+        redirectAttributes.addAttribute("type",type);
+        return "redirect:replaceLecture";
+    }
 
-        //대체과목 리스트에 등록된 폐지과목 삭제
-        @RequestMapping("closeLecDelete")
-        public String closeLecDelete (@RequestParam("closeLecture") String closeLecture,@RequestParam("type") int type,
-                                      @RequestParam("id") int id,RedirectAttributes redirectAttributes )
-        {
-            replaceLectureMapper.delete(closeLecture);
-            redirectAttributes.addAttribute("id",id);
-            redirectAttributes.addAttribute("type",type);
-            return "redirect:replaceLecture";
-         }
+    //대체과목 리스트에 등록된 폐지과목 삭제
+    @RequestMapping("closeLecDelete")
+    public String closeLecDelete (@RequestParam("closeLecture") String closeLecture,@RequestParam("type") int type,
+                                  @RequestParam("id") int id,RedirectAttributes redirectAttributes )
+    {
+        replaceLectureMapper.delete(closeLecture);
+        redirectAttributes.addAttribute("id",id);
+        redirectAttributes.addAttribute("type",type);
+        return "redirect:replaceLecture";
+    }
 
     /*
-       대체과목 페이지,
-       대체과목 재수강 등록
+       대체과목 재수강,
+       나의 수강목록을 보여주는 페이지
         */
-    @RequestMapping("myReplaceLec")
-    public String myReplaceLec(Model model, Pagination pagination,@RequestParam(value = "choice",defaultValue = "0") int choice,
-                                  @RequestParam(value="srch", defaultValue = "") String srch,@RequestParam("type") int type, @RequestParam("id") int id)
+    @RequestMapping("replace_mylecture")
+    public String replace_mylecture (Model model, Pagination pagination,@RequestParam("type") int type,
+                                     @RequestParam("id") int id, @RequestParam(value = "choice", defaultValue = "0") int choice,
+                                     @RequestParam(value = "search", defaultValue = "") String search)
     {
+        pagination.setRecordCount(myLectureMapper.courseCount(choice, search, id));
+        model.addAttribute("myLecture", myLectureMapper.findByIdPage(pagination.getPg(), pagination.getPageSize(), id, choice, search));
+        model.addAttribute("selected", lectureService.selectCheckAndTwo(choice));
+
+        model.addAttribute("search", search);
+        model.addAttribute("choice", choice);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/replace_mylecture";
+    }
+
+    /*
+     * 대체과목 재수강,
+     * 수강한 과목을 클릭하면, 대체할 과목을 선택할수 있는 페이지로 넘어간다.
+     * */
+    @RequestMapping("myReplaceLec")
+    public String myReplaceLec(Model model,Pagination pagination,@RequestParam(value = "choice",defaultValue = "0") int choice,
+                               @RequestParam(value="srch", defaultValue = "") String srch,@RequestParam("type") int type, @RequestParam("id") int id,
+                               @RequestParam("lecId") String lecId,@RequestParam("lec_year") int lec_year, @RequestParam("lec_semester") String lec_semester)
+    {
+        //수업한개를 조회하기위해서 년도 학기 과목코드 학번필요
+        MyLecture myLecSet= myLecService.findOneMyLecSet(lec_year,lec_semester,lecId,id);
+
+        model.addAttribute("myLectureOne",myLecSet);
+
         if(srch ==null)
             srch="";
-
         pagination.setRecordCount(lectureService.pageNowSrchCount(choice,srch));
         model.addAttribute("lectures", lectureService.srchByNowLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
 
         model.addAttribute("selected",lectureService.selectCheck(choice));
-        model.addAttribute("count",myLectureMapper.count());
+        model.addAttribute("count",myLectureMapper.replaceLecCount());
         model.addAttribute("srch",srch);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/myReplaceLec";
+    }
+
+    /*
+   대체과목, 재수강 과목등록, 이미 들은 내수업의 학점을 대체로 들은 수업의 학점으로 교체
+   */
+    @RequestMapping(value = "replaceMyLec", method = RequestMethod.POST)
+    public String ReplaceMyLec(MyLecture replaceLec, Myreplace myreplace ,RedirectAttributes redirectAttributes, @RequestParam("type") int type,
+                               @RequestParam("mylec_id") String mylec_id,@RequestParam("mylec_year") int mylec_year,
+                               @RequestParam("mylec_sem") String mylec_sem
+    )
+    {
+        /*재수강과목 학점수정(내가 이미 들었던수업이, 폐강되었을때)*/
+        MyLecture myLecture1=new MyLecture();
+        myLecture1.setLecture_year(mylec_year);
+        myLecture1.setLecture_semester(mylec_sem);
+        myLecture1.setLecture_id(mylec_id);
+        myLecture1.setStudent_id(replaceLec.getStudent_id());
+        myLecture1.setGrade(replaceLec.getGrade());
+        myLectureMapper.updateByReplaceGrade(myLecture1);
+
+        /*대체과목 myreplace 테이블 삽입(myreplace),
+         * 대체과목 재수강 수업 mylecture 등록(replaceLec)*/
+        myreplaceMapper.insert(myreplace);
+        myLectureMapper.insert(replaceLec);
+
+        redirectAttributes.addAttribute("id",replaceLec.getStudent_id());
+        redirectAttributes.addAttribute("type",type);
+
+        return "redirect:replaceLecture";
     }
 
     /*
@@ -695,27 +783,29 @@ public class MainController {
             srch="";
         ReplaceLecture replaceLecture=replaceLectureMapper.findOne(closeLecture);
         model.addAttribute("replaceLecture", replaceLecture);
-
+        model.addAttribute("myreplace", new Myreplace());
         pagination.setRecordCount(lectureService.pageNowSrchCount(choice,srch));
         model.addAttribute("lectures", lectureService.srchByNowLecList(pagination.getPg(), pagination.getPageSize(), choice, srch));
 
         model.addAttribute("selected",lectureService.selectCheck(choice));
-        model.addAttribute("count",myLectureMapper.count());
+        model.addAttribute("count",myLectureMapper.replaceLecCount());
         model.addAttribute("srch",srch);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
         return "main/myReplaceNewLec";
     }
 
-
     /*
     대체과목, 초수강 과목등록
     */
     @RequestMapping(value = "newReplaceLec", method = RequestMethod.POST)
-    public String newReplaceLec(MyLecture myLecture, RedirectAttributes redirectAttributes, @RequestParam("type") int type)
+    public String newReplaceLec(MyLecture myLecture, Myreplace myreplace ,RedirectAttributes redirectAttributes, @RequestParam("type") int type)
     {
         myLectureMapper.insert(myLecture);
+        myreplaceMapper.insert(myreplace);
         redirectAttributes.addAttribute("id",myLecture.getStudent_id());
         redirectAttributes.addAttribute("type",type);
         return "redirect:replaceLecture";
     }
+
+
 }
