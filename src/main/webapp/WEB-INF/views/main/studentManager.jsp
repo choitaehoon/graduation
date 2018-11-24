@@ -36,6 +36,13 @@
                                 <br><br><br>
                                 <p class="category">
 
+                                <div class="pull-right mb5">
+                                    <form method="POST">
+                                        <button type="submit" class="btn btn-default" name="btn" value="0">전체 학생</button>
+                                        <button type="submit" class="btn btn-danger" name="btn" value="1">요건 미충족 학생</button>
+                                    </form>
+                                </div>
+
                                 <form>
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
