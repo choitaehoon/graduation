@@ -239,10 +239,12 @@ public class MainController {
 
     /*공지사항(클릭시 보여주는 것)*/
     @RequestMapping("noticeShow")
-    public String noticeShow(Model model,@RequestParam("id") int noticeId, @RequestParam("admin_id") int adminId, @RequestParam("type") int type, @RequestParam("id") int id) {
+    public String noticeShow(Model model,@RequestParam("id") int noticeId) {
 
-        model.addAttribute("notice",noticeService.findNotice(noticeId,adminId));
-        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        Notice notice=noticeMapper.findOne(noticeId);
+        model.addAttribute("notice",notice);
+/*        model.addAttribute("member", typeIdentity.typeCheck(type, id));*/
+
         return "main/noticeShow";
     }
     /* 공지사항 등록페이지*/

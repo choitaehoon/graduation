@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -14,16 +13,13 @@
     <link rel="stylesheet" href="${R}res/common.css">
     <script src="${R}res/common.js"></script>
 
-    <style>
-        #content {
-            margin-left: 30%;
-            height: 800px;
-        }
-    </style>
+    <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
+          rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
 
+    </script>
 </head>
-
-
 <body>
 <div class="wrapper">
     <%@include file="../menu/menu.jsp"%>
@@ -34,53 +30,47 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">공지사항 관리</h4>
-                           <%--<form:form method="post" modelAttribute="notice">--%>
+                            <h4 class="title">공지사항</h4>
                             <div id="content">
-                                    <%--                        <br />--%>
-                                <h4>공지사항 등록</h4>
+                                <%--                        <br />--%>
+
                                 <br />
-                                <form method="post">
-                                    <input type="hidden" name="type" value="${member.type}"  />
-                                    <input type="hidden" name="userId" value="${member.id}" />
-                                </form>
                                 <label>제목</label>
                                 <div class="form-group">
-                                        <%--   <input type="text" style="width: 300px" value="[IT학부] SM 사업 공지(1학년 멘티 모집)" />--%>
-                                      <%--      <form:input path="title" class="form-control" style="width: 100px" />--%>
-                                            <input type="text" style="width: 300px" value="${notice.title}" />
+                                   ${ notice.title }
                                 </div>
-                                <label>관리자</label>
-                                <%--<form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>--%>
-                                        <input type="text" style="width: 300px" value="${notice.admin.name}" />
+                                <label>작성자</label>
+                                   ${ notice.admin.name}<br/>
                                 <label>내 용</label>
-                                <div class="form-group">
-                                        <%--											<textArea cols=100 rows=18>						</textArea>--%>
-                                    <%--<textarea name="body" id="body" cols="100" rows="18"></textarea>--%>
-                                            <textarea name="body" id="body" cols="100" rows="18">
-                                         <c:out value="${notice.body}"/>
-                                    </textarea>
-                                        <%--<form:input <textarea name="" id="" cols="30" rows="10"></textarea> path="body" class="form-control" style="width: 100px height: 3000px" />--%>
-                                </div>
+                               <div class="form-group">
+                                    <%--											<textArea cols=100 rows=18>						</textArea>--%>
+                           <%--         &lt;%&ndash;<textarea name="body" id="body" cols="100" rows="18">&ndash;%&gt;<textArea cols=100 rows=18 >
+                                        ${ notice.body}
+                                      </textarea>--%>
+                                        <textarea style="padding-left:50;padding-right:50;padding-bottom:50;padding-top:50;word-break:break-all" cols=100 rows=10>  ${ notice.body}</textarea>
+
+                               </div>
 
                                 <div>
-                                    날짜 :  <input type="text" style="width: 100px" value="${notice.time}" /><%-- <form:input path="time"  class="form-control" style="width: 100px"/>--%><br>
-                                    파일 첨부  <input type="file"> * 2MB까지 가능
+                                    <label>날짜</label> : <%--<input class="form-control" style="width: 100px" value="--%>${ notice.time}<%--"/>--%>
+                                    <br/><br/>
+                                    <label>파일 첨부</label>  <input type="file">
                                 </div>
 
-                            </div>
-
+<%--                                <div id="info">
+                                    <span>no:</span> <span>${ notice.id }</span> <br> <span>글쓴이:</span>
+                                    <span>${ notice.admin_id}</span> <br> &lt;%&ndash;<span>글쓴시각:</span>
+                                    <span><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss"
+                                                          value="${ article.time }" /></span>&ndash;%&gt;
+                                </div>
+      --%>
+                             </div>
                         </div>
 
-                      <%--  </form:form>--%>
-                        <form>
-                            <%--                            <input type="hidden" name="pg" value="1">--%>
+<%--                        <form method="post">
                             <input type="hidden" name="type" value="${member.type}"  />
                             <input type="hidden" name="id" value="${member.id}" />
-                            <input type="hidden" name="adminId" value="${notice.admin_id}" />
-                        </form>
-
-
+                        </form>--%>
                     </div>
                 </div>
             </div>
