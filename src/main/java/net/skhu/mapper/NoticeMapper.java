@@ -16,9 +16,10 @@ public interface NoticeMapper
 {
     List<Notice> findNotiBySrch(@Param("currentPage") int currentPage,@Param("pageSize") int pageSize,@Param("choice") int choice,@Param("srch") String srch);
     List<Notice> findAll(Pagination pagination);
-    Notice findNotice(@Param("id") int noticeId, @Param("admin_id") int admin_id);
+    Notice findNotice(@Param("id") int noticeId, @Param("admin_id") int adminId);
     int count();
     int srchCount(@Param("choice") int choice, @Param("srch") String srch);
+
     void insert(Notice notice);
     void update(Notice notice);
     void delete(int noticeId);

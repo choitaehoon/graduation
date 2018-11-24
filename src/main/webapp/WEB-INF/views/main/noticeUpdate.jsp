@@ -60,7 +60,7 @@
                                 </form>
                                 <label>제목</label>
                                 <div class="form-group">
-                                    <form:input path="title" class="form-control w200" style="width: 300px"  />
+                                    <form:input path="title" class="form-control" style="width: 300px"  />
                                 </div>
                                 <label>관리자 이름</label>
                                 <form:input path="admin_id" class="form-control"  placeholder="관리자 번호" style="width: 200px"/>
@@ -92,36 +92,13 @@
                                 </div>
 
                             </div>
-
-                                <%--                                <div id="buttons" class="pull-right">
-                                                                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
-
-                                                                   &lt;%&ndash; <a data-confirm-delete  href="delete?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&split=${lecture.split}&type=${member.type}&userId=${member.id}" class="btn btn-danger">
-                                                                        <i class="glyphicon glyphicon-remove"></i>삭제
-                                                                    </a>&ndash;%&gt;
-
-                                                                    <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-default">
-                                                                        <i class="glyphicon glyphicon-list"></i> 목록으로
-                                                                    </a>--%>
-
                         </div>
                         </form:form>
 
                         <form>
-                            <%--                            <input type="hidden" name="pg" value="1">--%>
                             <input type="hidden" name="type" value="${member.type}"  />
                             <input type="hidden" name="id" value="${member.id}" />
                             <input type="hidden" name="admin_id" value="${notice.admin_id}" />
-                            <%-- &lt;%&ndash;/* 페이지 네이션 */&ndash;%&gt;
-                             <div class="pagination pagination-small pagination-centered">
-
-                                 <c:forEach var="page" items="${ pagination.pageList }">
-
-                                     <li class='${ page.cssClass }'>
-                                         <a data-page="${ page.number }">${ page.label }</a></li>
-
-                                 </c:forEach>--%>
-                            <%-- </div>--%>
                         </form>
 
 

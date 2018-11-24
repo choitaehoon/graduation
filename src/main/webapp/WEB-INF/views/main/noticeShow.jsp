@@ -34,8 +34,7 @@
                     <div class="card">
                         <div class="header">
                             <h4 class="title">공지사항 관리</h4>
-
-                            <form:form method="post" modelAttribute="notice">
+                           <%--<form:form method="post" modelAttribute="notice">--%>
                             <div id="content">
                                     <%--                        <br />--%>
                                 <h4>공지사항 등록</h4>
@@ -47,10 +46,12 @@
                                 <label>제목</label>
                                 <div class="form-group">
                                         <%--   <input type="text" style="width: 300px" value="[IT학부] SM 사업 공지(1학년 멘티 모집)" />--%>
-                                    <form:input path="title" class="form-control" style="width: 100px" />
+                                      <%--      <form:input path="title" class="form-control" style="width: 100px" />--%>
+                                            <input type="text" style="width: 300px" value="${notice.title}" />
                                 </div>
-                                <label>교수번호</label>
-                                <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>
+                                <label>관리자</label>
+                                <%--<form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>--%>
+                                        <input type="text" style="width: 300px" value="${notice.admin.name}" />
                                 <label>내 용</label>
                                 <div class="form-group">
                                         <%--											<textArea cols=100 rows=18>						</textArea>--%>
@@ -62,21 +63,20 @@
                                 </div>
 
                                 <div>
-                                    날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>
+                                    날짜 :  <input type="text" style="width: 100px" value="${notice.time}" /><%-- <form:input path="time"  class="form-control" style="width: 100px"/>--%><br>
                                     파일 첨부  <input type="file"> * 2MB까지 가능
                                 </div>
 
                             </div>
 
-
                         </div>
-                        </form:form>
 
+                      <%--  </form:form>--%>
                         <form>
                             <%--                            <input type="hidden" name="pg" value="1">--%>
                             <input type="hidden" name="type" value="${member.type}"  />
                             <input type="hidden" name="id" value="${member.id}" />
-                            <input type="hidden" name="admin_id" value="${admin.id}" />
+                            <input type="hidden" name="adminId" value="${notice.admin_id}" />
                         </form>
 
 

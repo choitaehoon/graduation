@@ -53,6 +53,8 @@ public class MainController {
     QnaanswerMapper qanswerMapper;
     @Autowired
     NoticeService noticeService;
+    @Autowired
+    QnaService qnaService;
 
     /* 로그인되면, 메인페이지 이동*/
 
@@ -230,6 +232,14 @@ public class MainController {
         return "main/notice";
     }
 
+    /*공지사항(클릭시 보여주는 것)*/
+    @RequestMapping("noticeShow")
+    public String noticeShow(Model model,@RequestParam("id") int noticeId, @RequestParam("admin_id") int adminId, @RequestParam("type") int type, @RequestParam("id") int id) {
+
+        model.addAttribute("notice",noticeService.findNotice(noticeId,adminId));
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/noticeShow";
+    }
     /* 공지사항 등록페이지*/
     @RequestMapping("noticeRegister")
     public String noticeR(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {
@@ -289,6 +299,22 @@ public class MainController {
         return "main/qna";
     }
 
+    /*
+ qna 리스트(검색할시)
+*/
+    @RequestMapping(value = "qna", method = RequestMethod.POST)
+    public String qna(Model model, Pagination pagination, @RequestParam("choice") int choice, @RequestParam("srch") String srch, @RequestParam("type") int type, @RequestParam("userId") int id) {
+        if (srch == null)
+            srch = "";
+
+        pagination.setRecordCount(qnaService.pageSrchCount(choice, srch));
+        model.addAttribute("qnas", qnaService.srchByQnaList(pagination.getPg(), pagination.getPageSize(), choice, srch));
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("srch", srch);
+
+        model.addAttribute("selected", qnaService.selectCheck(choice));
+        return "main/qna";
+    }
     /* qna 등록페이지*/
     @RequestMapping("qnaQuestion")
     public String qnaQ(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {

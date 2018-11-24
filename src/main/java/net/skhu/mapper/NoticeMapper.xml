@@ -50,6 +50,7 @@
 
 
     </select>
+
     <select id="count" resultType="int">
         select count(*)
         from notice
@@ -57,10 +58,11 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-    INSERT Notice ( body , time, file, admin_id)
-	VALUES ( #{body},  #{time},#{file},#{admin_id})
+    INSERT Notice (title, body , time, file, admin_id)
+	VALUES (#{title}, #{body},  #{time},#{file},#{admin_id})
     </insert>
 
+<!--    클릭시 나오게 하기위해 Notice 체크-->
     <select id="findNotice" resultMap="resultMapN">
     select n.*,a.name adminName
     from notice n left join admin a
@@ -70,14 +72,11 @@
 
     <update id="update">
         update notice set
-        id=#{id},
         title = #{title},
-        admin_id = #{admin_id},
         body = #{body},
         file = #{file},
-        count = #{count},
-        target = #{target}
-        where  id=#{id}
+        admin_id=#{admin_id}
+        where  id=#{id} and admin_id=#{admin_id}
     </update>
 
     <delete id="delete">

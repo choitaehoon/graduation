@@ -64,4 +64,42 @@
 
     </select>
 
+   <!-- 검색 후 리스트-->
+    <select id="findQnaBySrch" resultMap="resultMapQ">
+        <bind name="start" value="(currentPage-1)*pageSize"/>
+        <bind name="end" value="pageSize"/>
+        select a.id,a.title,a.wtime,s.name studentName,a.count
+        from qna a
+        LEFT JOIN student s
+        on a.student_id = s.id
+        <where>
+            <if test="choice == 0">
+                title LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 1">
+                s.name LIKE concat(#{srch},'%')
+            </if>
+        </where>
+        order by a.id desc
+        limit ${start} , ${end}
+    </select>
+
+    <!--전체년도
+   검색후 과목리스트 카운트-->
+    <select id="srchCount" resultType="int">
+        select count(*)
+        from qna a
+        LEFT JOIN student s
+        on a.student_id = s.id
+        <where>
+            <if test="choice == 0">
+                title LIKE concat(#{srch},'%')
+            </if>
+            <if test="choice == 1">
+                s.name LIKE concat(#{srch},'%')
+            </if>
+        </where>
+    </select>
+
+
 </mapper>

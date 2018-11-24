@@ -60,7 +60,6 @@
                                 </form>
                                 <label>제목</label>
                                 <div class="form-group">
-                                        <%--   <input type="text" style="width: 300px" value="[IT학부] SM 사업 공지(1학년 멘티 모집)" />--%>
                                     <form:input path="title" class="form-control" style="width: 100px" />
                                 </div>
                                 <label>교수번호</label>
@@ -105,16 +104,6 @@
                             <input type="hidden" name="type" value="${member.type}"  />
                             <input type="hidden" name="id" value="${member.id}" />
                             <input type="hidden" name="admin_id" value="${admin.id}" />
-                            <%-- &lt;%&ndash;/* 페이지 네이션 */&ndash;%&gt;
-                             <div class="pagination pagination-small pagination-centered">
-
-                                 <c:forEach var="page" items="${ pagination.pageList }">
-
-                                     <li class='${ page.cssClass }'>
-                                         <a data-page="${ page.number }">${ page.label }</a></li>
-
-                                 </c:forEach>--%>
-                            <%-- </div>--%>
                         </form>
 
 

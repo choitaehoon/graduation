@@ -18,18 +18,17 @@ public class NoticeService {
     @Autowired
     NoticeMapper noticeMapper;
 
-    static String[] target = {"year, semester, l.id, title, subType, credit"};
+    static String[] target = {"title, a.name"};
 
     /* 검색해서 리스트 조회*/
     public List<Notice> srchByNotiList(int currentPage, int pageSize, int choice, String srch) {
         return noticeMapper.findNotiBySrch(currentPage,pageSize,choice,srch);
     }
 
+    public Notice findNotice(int id, int adminId){
 
-/*    public Notice findNotice(int year,String semester,String lectureId,int adminId){
-
-        return noticeMapper.findLecture(year,semester,lectureId,adminId);
-    }*/
+        return noticeMapper.findNotice(id,adminId);
+    }
 
 
     public int pageSrchCount(int choice, String srch){
@@ -41,9 +40,9 @@ public class NoticeService {
     }
 
 
-/*    public void lecUpdate(Lecture lecture){
-        lectureMapper.update(lecture);
-    }*/
+    public void notiUpdate(Notice notice){
+        noticeMapper.update(notice);
+    }
 
 /*    public String[] selectChecKAndSearch(int choice)
     {
@@ -73,16 +72,6 @@ public class NoticeService {
         else
             return new String[]{"","selected"};
     }
-
-/*    public Lecture deleteSet(int year,String semester,String lecId, int split){
-        Lecture lecture=new Lecture();
-        lecture.setYear(year);
-        lecture.setSemester(semester);
-        lecture.setId(lecId);
-        lecture.setSplit(split);
-        return lecture;
-    }*/
-
 
 
 /*    public void excelUpload(File destFile) throws Exception {
