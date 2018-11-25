@@ -19,6 +19,7 @@ public interface QnaMapper
     Qna findOne(@Param("id") int qnaId);
     void insert(Qna qna);
     void update(Qna qna);
+    void delete(int qnaId);
     int count();
 
     List<Qna> findQnaBySrch(@Param("currentPage") int currentPage,@Param("pageSize") int pageSize,@Param("choice") int choice,@Param("srch") String srch);

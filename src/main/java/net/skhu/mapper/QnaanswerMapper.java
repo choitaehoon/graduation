@@ -14,8 +14,7 @@ import java.util.List;
 public interface QnaanswerMapper
 {
 
-    Qnaanswer findQnaa(@Param("id") int qnaaId, @Param("student_id") int student_id);
+    Qnaanswer findQnaa(@Param("qna_id") int qnaId);
     void insert(Qnaanswer qnaa);
-    void update(Qnaanswer qnaa);
     int count();
 }

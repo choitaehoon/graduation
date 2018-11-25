@@ -331,11 +331,20 @@ public class MainController {
     public String qnaShow(Model model,@RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("id") int id) {
 
         Qna qna = qnaMapper.findOne(qnaId);
+/*        Qnaanswer qnaa = qanswerMapper.findQnaa(qnaId);*/
         model.addAttribute("qna", qna);
+/*        model.addAttribute("qnaa", qnaa);*/
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaShow";
     }
+    @RequestMapping("qnaaShow")
+    public String qnaaShow(Model model,@RequestParam("qnaaId") int qnaaId,@RequestParam("type") int type, @RequestParam("id") int id) {
 
+        Qnaanswer qnaa = qanswerMapper.findQnaa(qnaaId);
+        model.addAttribute("qnaa", qnaa);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/qnaaShow";
+    }
     /* qna 등록페이지*/
     @RequestMapping("qnaQuestion")
     public String qnaQ(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {
@@ -356,7 +365,7 @@ public class MainController {
 
     //qna 수정 페이지*/
     @RequestMapping("qnaUpdate")
-    public String updateQ(Model model, @RequestParam("id") int qnaId, @RequestParam("student_id") int studentId, @RequestParam("type") int type, @RequestParam("userId") int id) {
+    public String updateQ(Model model, @RequestParam("qnaId") int qnaId, @RequestParam("student_id") int studentId, @RequestParam("type") int type, @RequestParam("userId") int id) {
         model.addAttribute("qna", qnaMapper.findQna(qnaId, studentId));
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaUpdate";
@@ -372,6 +381,16 @@ public class MainController {
         return "redirect:qna";
     }
 
+    //qna 삭제
+    @RequestMapping("deleteQ")
+    public String deleteQ(Model model, @RequestParam("qnaId") int qnaId,
+                          @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
+        qnaMapper.delete(qnaId);
+
+        redirectAttributes.addAttribute("type", type);
+        redirectAttributes.addAttribute("id", id);
+        return "redirect:qna";
+    }
     /* 답변 등록페이지*/
     @RequestMapping("qnaaQuestion")
     public String qnaQa(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {

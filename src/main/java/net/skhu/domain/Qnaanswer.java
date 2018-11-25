@@ -15,7 +15,10 @@ public class Qnaanswer {
     int qnaanswercol;
 
     Qna qna;
-
+    Student student;
+    Admin admin;
     String adminName;
+    String studentName;
+    int student_id;
 
 }

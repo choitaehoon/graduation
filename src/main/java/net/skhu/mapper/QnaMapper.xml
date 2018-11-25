@@ -74,6 +74,11 @@
         where id=#{id}
     </update>
 
+    <delete id="delete">
+      Delete from qna
+      where id=#{id}
+    </delete>
+
     <select id="count" resultType="int">
         select count(*)
         from qna

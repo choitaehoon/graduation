@@ -44,29 +44,26 @@
                                     <%--<h4>질문 수정</h4>--%>
 
                                     <table class="table table-condensed">
-                                        <h5>제목</h5>
+<%--                                        <h5>제목</h5>
                                     <div class="form-group">
                                         ${qna.title}
-                                    </div>
+                                    </div>--%>
                                     <label>작성자</label>
                                     <div class="form-group">
-                                        ${qna.student.name}
+                                        ${qnaa.admin.name}
                                     </div>
                                     <label>내 용</label>
                                     <div class="form-group">
-                                        <textarea name="body" id="body1" cols="100" rows="18">
-                                                    <c:out value="${qna.body}"/>
+                                        <textarea name="body" id="body" cols="100" rows="18">
+                                                    <c:out value="${qnaa.body}"/>
                                             </textarea>
                                     </div>
 
                                     <div>
-                                        날짜 :${qna.wtime}<br/>
-                                    </div>
+                                        날짜 :${qnaa.time}<br/>
                                         <div id="buttons">
-                                            <a class="btn btn-success" href="qnaaShow?qnaaId=${qnaanswer.qna_id}&type=${member.type}&id=${member.id}">답변 보기</a>
                                             <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 목록으로</a>
                                         </div>
-                                    </table>
 
                           <form>
 

@@ -83,7 +83,9 @@
 
                                     <div id="buttons">
                                         <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
-                                        <a class="btn btn-danger" href="#"><i class=" glyphicon glyphicon-remove"></i> 삭제</a>
+                                        <a data-confirm-delete  href="deleteQ?qnaId=${qna.id}&type=${member.type}&userId=${member.id}" class="btn btn-danger">
+                                            <i class="glyphicon glyphicon-remove"></i>삭제
+                                        </a>
                                         <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 공지사항으로</a>
 
                                     </div>

@@ -88,7 +88,7 @@
                                 </thead>
 
                                 <tbody>
-                                <c:forEach var="qna" items="${ qnas }">
+                                <c:forEach var="qna" items="${ qnas }" >
                                     <tr data-url='qnaShow?qnaId=${qna.id}&type=${member.type}&id=${member.id}'>
                                         <td>${ qna.id }</td>
                                         <td>${ qna.title }</td>
@@ -103,7 +103,10 @@
                                       <%--  <c:if test="${qna.answerstate eq null}">--%>
                                             <td><button type="submit" class="btn btn-danger"> 답변 요함</button></td>
                                         <%--</c:if>--%>
-                                        <c:choose>
+                                        <td><a href='qnaUpdate?qnaId=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>
+                                            <button  type="button" class="btn btn-primary">수정</button>
+                                        </a></td>
+                                   <%--     <c:choose>
                                             <c:when test="${memeber.id eq qna.student_id}">
                                                 <td><a href='qnaUpdate?id=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>
                                                     <button  type="button" class="btn btn-primary">수정</button>
@@ -112,8 +115,9 @@
                                             <c:when test="${memeber.id ne qna.student_id}">
                                                 <td> </td>
                                             </c:when>
-                                        </c:choose>
+                                        </c:choose>--%>
                                     </tr>
+
                                 </c:forEach>
 
                                 </tbody>

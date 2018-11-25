@@ -131,7 +131,7 @@ public class LoginController {
         Qna qna = qnaMapper.findOne(qnaId);
         model.addAttribute("qna", qna);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
-        return "main/qnaShow";
+        return "main/qnaShow1";
     }
 
 }

@@ -31,12 +31,29 @@
     order by a.id desc
     limit ${start} , ${end};
     </select>-->
+<!--   select qa.*,s.name studentName
+    from qnaanwer qa left join qna a
+    on qa.qna_id = a.id
+    left join student s
+    on a.student_id = s.id
+    where qa.qna_id=#{qna_id}-->
+<!--    select qa.*, a.name
+    from qnaanswer qa
+    join qna q
+    on qa.qna_id = q.id
+    join  admin a
+    on qa.admin_id = a.id;
+    where qa.qna_id=#{qna_id};-->
+<!--    select qa.*
+    from qnaanswer qa
+    join qna q
+    on qa.qna_id = q.id;-->
 
-   <select id="findQnaa" resultMap="resultMapQa">
-    select qa.*,s.name studentName
-    from qnaanwer qa left join student s
-    on qa.student_id = s.id
-      where qa.id=#{id}
+    <select id="findQnaa" resultType="Qnaanswer">
+select qa.*,a.name
+from qnaanswer qa
+left join admin a
+on qa.admin_id = a.id;
     </select>
 
     <insert id="insert">
