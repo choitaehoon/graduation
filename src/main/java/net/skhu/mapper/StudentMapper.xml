@@ -146,23 +146,29 @@
 
     <select id="totalCredit" resultType="int">
       select ifnull(sum(m.credit),0) totalCredit
-	  from student s left join mylecture m
+	  from (select credit,min(grade) from student s
+      left join mylecture m
 	  on s.id=m.student_id
 	  where s.id=#{id} and m.grade!='F' and m.grade!='NP'
+      group by m.title)m
     </select>
 
     <select id="totalCreditMajor" resultType="int">
       select ifnull(sum(m.credit),0) totalCredit
-	  from student s left join mylecture m
+	  from (select credit,min(grade) from student s
+      left join mylecture m
 	  on s.id=m.student_id
-	  where (s.id=#{id}) and (m.detailType='전선'or m.detailType='전필'or m.detailType='전탐') and m.grade!='F' and m.grade!='NP'
+	  where s.id=#{id} and m.grade!='F' and m.grade!='NP' and (m.detailType='전선'or m.detailType='전필'or m.detailType='전탐')
+      group by m.title)m;
     </select>
 
     <select id="totalCreditCulture" resultType="int">
       select ifnull(sum(m.credit),0) totalCredit
-	  from student s left join mylecture m
+	  from (select credit,min(grade) from student s
+      left join mylecture m
 	  on s.id=m.student_id
-	  where (s.id=#{id}) and (m.detailType='교선'or m.detailType='교필') and m.grade!='F' and m.grade!='NP'
+	  where s.id=#{id} and m.grade!='F' and m.grade!='NP' and (m.detailType='교선'or m.detailType='교필')
+      group by m.title)m
     </select>
 
     <select id="avgGrade" resultType="double">
@@ -187,25 +193,31 @@
 
     <select id="creditPercent" resultType="int">
       select ifnull(round(sum(m.credit)/130*100,0),0) totalCredit
-      from student s left join mylecture m
+      from (select credit,min(grade) from student s
+      left join mylecture m
       on s.id=m.student_id
       where s.id=#{id} and  m.grade!='F' and m.grade!='NP'
+      group by m.title)m
     </select>
 
     <select id="creditPercentMajor" resultType="int">
-      select ifnull(round(sum(m.credit)/r.majorGoal*100,0),0) totalCredit
-      from student s
+      select ifnull(round(sum(m.credit)/m.majorGoal*100,0),0) totalCredit
+      from
+      (select s.id,credit,min(grade),r.majorGoal from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       where s.id=#{id} and (m.detailType='전선'or m.detailType='전필') and m.grade!='F' and m.grade!='NP'
+      group by m.title)m
     </select>
 
     <select id="creditPercentCulture" resultType="int">
-      select ifnull(round(sum(m.credit)/r.cultureGoal*100,0),0) totalCredit
-      from student s
+      select ifnull(round(sum(m.credit)/m.majorGoal*100,0),0) totalCredit
+      from
+      (select s.id,credit,min(grade),r.majorGoal from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       where s.id=#{id} and (m.detailType='교선'or m.detailType='교필') and m.grade!='F' and m.grade!='NP'
+      group by m.title)m
     </select>
 
     <select id="chapelCount" resultType="int">
@@ -388,59 +400,65 @@
     </update>
 
     <select id="doubleMajor" resultType="int">
-        select ifnull(sum(m.credit),0) doubleMajor
-      from student s
+      select ifnull(sum(m.credit),0) doubleMajor
+      from (select credit,min(grade) from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
       where s.id=#{id} and (m.detailType='복필'or m.detailType='복선') and m.grade!='F' and m.grade!='NP'
+      group by m.title)m
     </select>
 
     <select id="doubleMajorPercent" resultType="int">
     select ifnull(round(sum(m.credit)/40*100,0),0) majorSearch
-      from student s
+      from (select credit,min(grade) from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
       where s.id=#{id} and (m.detailType='복필'or m.detailType='복선') and m.grade!='F' and m.grade!='NP'
+      group by m.title)m
     </select>
 
     <select id="minor" resultType="int">
       select ifnull(sum(m.credit),0) minor
-      from student s
+      from (select credit,min(grade) from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
       where s.id=#{id} and (m.detailType='부필'or m.detailType='부선') and m.grade!='F' and m.grade!='NP'
+      group by m.title)m
     </select>
 
     <select id="minorPercent" resultType="int">
     select ifnull(round(sum(m.credit)/21*100,0),0) majorSearch
-      from student s
+      from (select credit,min(grade) from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
-      where s.id=#{id}  and (m.detailType='부필'or m.detailType='부선') and m.grade!='F' and m.grade!='NP'
+      where s.id=#{id} and (m.detailType='부필'or m.detailType='부선') and m.grade!='F' and m.grade!='NP'
+      group by m.title)m
     </select>
 
     <!--전공탐색 계산-->
     <select id="majorSearch" resultType="int">
     select ifnull(sum(m.credit),0) majorSearch
-      from student s
+      from (select credit,min(grade) from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
       where s.id=#{id} and (m.detailType='전탐') and m.grade!='F' and m.grade!='NP'
+      group by m.title)m
     </select>
 
     <!--전공탐색 퍼센트 계산-->
     <select id="majorSearchPercent" resultType="int">
-    select ifnull(round(sum(m.credit)/19*100,0),0) majorSearch
-      from student s
+      select ifnull(round(sum(m.credit)/19*100,0),0) majorSearch
+      from (select credit,min(grade) from student s
       left join mylecture m on s.id=m.student_id
       left join graduationrule r on s.graduationrule_id=r.id
       left join comgraduationrule c on r.comgraduationId = c.id
       where s.id=#{id} and (m.detailType='전탐') and m.grade!='F' and m.grade!='NP'
+      group by m.title)m
     </select>
 
 </mapper>
