@@ -14,8 +14,9 @@ public interface QnaMapper
 {
     List<Qna> findAll(Pagination pagination);
     List<Qna> findAll2();
+    List<Qna> findNew();
     Qna findQna(@Param("id") int qnaId, @Param("student_id") int student_id);
-    List<Qna> findOne(@Param("id") int qnaId);
+    Qna findOne(@Param("id") int qnaId);
     void insert(Qna qna);
     void update(Qna qna);
     int count();

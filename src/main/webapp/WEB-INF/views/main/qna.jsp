@@ -40,8 +40,6 @@
                                     <span class="glyphicon glyphicon-user"></span> 질문하기</a>
                             </div>
                         </c:if>
-
-                        <div class="content table-responsive table-full-width">
                             <form method="post">
                                 <input type="hidden" name="pg" value="1">
                                 <input type="hidden" name="type" value="${member.type}"  />
@@ -59,6 +57,7 @@
                                         <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-primary">검색초기화
                                         </a>
                             </form>
+                        <div class="content table-responsive table-full-width">
                             <table class="table table-hover table-striped">
                                 <thead>
                                 <tr>
@@ -90,7 +89,7 @@
 
                                 <tbody>
                                 <c:forEach var="qna" items="${ qnas }">
-                                    <tr data-url="/main/qna?type=${member.type}&id=${member.id}">
+                                    <tr data-url='qnaShow?qnaId=${qna.id}&type=${member.type}&id=${member.id}'>
                                         <td>${ qna.id }</td>
                                         <td>${ qna.title }</td>
                                         <td>${ qna.wtime }</td>
@@ -100,7 +99,10 @@
                                             <td> <a href="qnaaQuestion?type=${member.type}&userId=${member.id}" class="btn btn-info">
                                                 <span class="glyphicon glyphicon-user"></span> 답변하기</a></td>
                                         </c:if>
-                                        <td>답변 현황</td>
+                                       <%-- <td>답변 현황</td>--%>
+                                      <%--  <c:if test="${qna.answerstate eq null}">--%>
+                                            <td><button type="submit" class="btn btn-danger"> 답변 요함</button></td>
+                                        <%--</c:if>--%>
                                         <c:choose>
                                             <c:when test="${memeber.id eq qna.student_id}">
                                                 <td><a href='qnaUpdate?id=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>

@@ -37,6 +37,15 @@
         order by a.id desc
     </select>
 
+    <select id="findNew" resultMap="resultMapQ">
+        select a.*
+        from qna a
+        LEFT JOIN qnaanswer qa
+        on a.id = qa.qna_id
+        order by a.id desc
+        limit 8;
+    </select>
+
     <select id="findQna" resultMap="resultMapQ">
     select q.*,s.name studentName
     from qna q left join student s

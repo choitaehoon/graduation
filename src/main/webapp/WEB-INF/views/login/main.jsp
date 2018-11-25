@@ -1,7 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<c:url var="R" value="/" />
+<!doctype html>
 <head>
-    <title>Skhu졸업요건</title>
+    <title>skhu 졸업요건</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" media="screen">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${R}res/common.css">
+    <script src="${R}res/common.js"></script>
+
+    <style>
+        #content {
+            margin-left: 30%;
+            height: 800px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -11,6 +29,8 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
+
+
                 <div class="col-md-6">
                     <div class="card ">
                         <div class="header">
@@ -21,31 +41,15 @@
                             <div class="table-full-width">
                                 <table class="table">
                                     <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox1" type="checkbox">
-                                                <label for="checkbox1"></label>
-                                            </div>
-                                        </td>
-                                        <td>[IT학부] SM 사업 공지(1학년 멘티 모집)</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                            <c:forEach var="notice" items="${ notices }">
+                                    <tr data-url='noticeShow?noticeId=${notice.id }&type=${member.type}&id=${member.id}'>
                                         <td>
                                             <div class="checkbox">
                                                 <input id="checkbox2" type="checkbox" checked>
                                                 <label for="checkbox2"></label>
                                             </div>
                                         </td>
-                                        <td>[영어스피치대회] 제24회 English Speec...</td>
+                                        <td>${notice.title}</td>
                                         <td class="td-actions text-right">
                                             <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
                                                 <i class="fa fa-edit"></i>
@@ -55,79 +59,10 @@
                                             </button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox3" type="checkbox">
-                                                <label for="checkbox3"></label>
-                                            </div>
-                                        </td>
-                                        <td>[중앙도서관] 10/4(목). 연극 '쥐덫' 보러 ...
-                                        </td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox4" type="checkbox" checked>
-                                                <label for="checkbox4"></label>
-                                            </div>
-                                        </td>
-                                        <td>[구로마을대학] 공정무역 교육 및 캠페인전문가 양성...</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox5" type="checkbox">
-                                                <label for="checkbox5"></label>
-                                            </div>
-                                        </td>
-                                        <td>[IT학부] SM 사업 공지</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox6" type="checkbox" checked>
-                                                <label for="checkbox6"></label>
-                                            </div>
-                                        </td>
-                                        <td>[중앙도서관] 9/11-10/7. 이용자 만족도 조...</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                            </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
-
                             <div class="footer">
                                 <hr>
                                 <div class="stats">
@@ -148,14 +83,15 @@
                             <div class="table-full-width">
                                 <table class="table">
                                     <tbody>
-                                    <tr>
+                                <c:forEach var="qna" items="${ qnas }">
+                                    <tr data-url='qnaShow?qnaId=${qna.id}&type=${member.type}&id=${member.id}'>
                                         <td>
                                             <div class="checkbox">
-                                                <input id="checkbox1" type="checkbox">
-                                                <label for="checkbox1"></label>
+                                                <input id="checkbox2" type="checkbox" checked>
+                                                <label for="checkbox2"></label>
                                             </div>
                                         </td>
-                                        <td>디지털 컨텐츠 학과 수업 '디지털 음악 II'에 관...</td>
+                                        <td>${qna.title}</td>
                                         <td class="td-actions text-right">
                                             <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
                                                 <i class="fa fa-edit"></i>
@@ -165,7 +101,8 @@
                                             </button>
                                         </td>
                                     </tr>
-                                    <tr>
+                                </c:forEach>
+                                   <%-- <tr>
                                         <td>
                                             <div class="checkbox">
                                                 <input id="checkbox2" type="checkbox" checked>
@@ -250,7 +187,7 @@
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
                                     </tbody>
                                 </table>
                             </div>
@@ -258,7 +195,7 @@
                             <div class="footer">
                                 <hr>
                                 <div class="stats">
-                                    <i class="fa fa-history"></i> 3전에 질문이 올라왔습니다.
+                                    <i class="fa fa-history"></i> 3분 전에 질문이 올라왔습니다.
                                 </div>
                             </div>
                         </div>

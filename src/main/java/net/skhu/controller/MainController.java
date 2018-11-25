@@ -65,7 +65,11 @@ public class MainController {
 
     @RequestMapping(value = "graduation", method = RequestMethod.GET)
     public String main(Model model, @RequestParam("type") int type, @RequestParam("id") int id) {
-        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        List<Notice> notices = noticeMapper.findNew();
+        List<Qna> qnas = qnaMapper.findNew();
+        model.addAttribute("notices", notices);
+        model.addAttribute("qnas",qnas);
+       model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "login/main";
     }
 
@@ -239,11 +243,11 @@ public class MainController {
 
     /*공지사항(클릭시 보여주는 것)*/
     @RequestMapping("noticeShow")
-    public String noticeShow(Model model,@RequestParam("id") int noticeId) {
+    public String noticeShow(Model model,@RequestParam("noticeId") int noticeId, @RequestParam("type") int type, @RequestParam("id") int id) {
 
         Notice notice=noticeMapper.findOne(noticeId);
         model.addAttribute("notice",notice);
-/*        model.addAttribute("member", typeIdentity.typeCheck(type, id));*/
+       model.addAttribute("member", typeIdentity.typeCheck(type, id));
 
         return "main/noticeShow";
     }
@@ -322,6 +326,16 @@ public class MainController {
         model.addAttribute("selected", qnaService.selectCheck(choice));
         return "main/qna";
     }
+    /*qna 클릭시 보여주는 페이지*/
+    @RequestMapping("qnaShow")
+    public String qnaShow(Model model,@RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("id") int id) {
+
+        Qna qna = qnaMapper.findOne(qnaId);
+        model.addAttribute("qna", qna);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/qnaShow";
+    }
+
     /* qna 등록페이지*/
     @RequestMapping("qnaQuestion")
     public String qnaQ(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {

@@ -1,10 +1,10 @@
 package net.skhu.controller;
 
 import net.skhu.Service.TypeIdentity;
-import net.skhu.domain.Department;
-import net.skhu.domain.Student;
-import net.skhu.domain.User;
+import net.skhu.domain.*;
 import net.skhu.mapper.DepartmentMapper;
+import net.skhu.mapper.NoticeMapper;
+import net.skhu.mapper.QnaMapper;
 import net.skhu.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +26,10 @@ public class LoginController {
     StudentMapper studentMapper;
     @Autowired
     DepartmentMapper departmentMapper;
+    @Autowired
+    NoticeMapper noticeMapper;
+    @Autowired
+    QnaMapper qnaMapper;
 /*
 회원가입 페이지
  */
@@ -101,10 +105,33 @@ public class LoginController {
             return "../../login";
         }
         else{
+            List<Notice> notices = noticeMapper.findNew();
+            List<Qna> qnas = qnaMapper.findNew();
+            model.addAttribute("notices", notices);
+            model.addAttribute("qnas",qnas);
             model.addAttribute("member", check);
             return "login/main";
         }
     }
+    /*공지사항(클릭시 보여주는 것)*/
+    @RequestMapping("noticeShow")
+    public String noticeShow(Model model,@RequestParam("noticeId") int noticeId, @RequestParam("type") int type, @RequestParam("id") int id) {
 
+        Notice notice=noticeMapper.findOne(noticeId);
+        model.addAttribute("notice",notice);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+
+        return "main/noticeShow";
+    }
+
+    /*qna 클릭시 보여주는 페이지*/
+    @RequestMapping("qnaShow")
+    public String qnaShow(Model model,@RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("id") int id) {
+
+        Qna qna = qnaMapper.findOne(qnaId);
+        model.addAttribute("qna", qna);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/qnaShow";
+    }
 
 }

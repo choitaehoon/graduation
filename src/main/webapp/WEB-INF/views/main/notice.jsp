@@ -74,7 +74,7 @@
 
                                     <tbody>
                                     <c:forEach var="notice" items="${ notices }">
-                                        <tr data-url='noticeShow?id=${notice.id }'>
+                                        <tr data-url='noticeShow?noticeId=${notice.id }&type=${member.type}&id=${member.id}'>
                                             <td>${ notice.id }</td>
                                             <td>${ notice.title }</td>
                                             <td>${ notice.admin.name }</td>

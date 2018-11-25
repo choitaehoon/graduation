@@ -1,6 +1,8 @@
 package net.skhu.domain;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Notice {
 
@@ -16,6 +18,6 @@ public class Notice {
 
     Admin admin;
     Student student;
-
+    List<Notice> notices;
     String admin_name;
 }

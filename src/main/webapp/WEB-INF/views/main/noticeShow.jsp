@@ -47,8 +47,8 @@
                            <%--         &lt;%&ndash;<textarea name="body" id="body" cols="100" rows="18">&ndash;%&gt;<textArea cols=100 rows=18 >
                                         ${ notice.body}
                                       </textarea>--%>
-                                        <textarea style="padding-left:50;padding-right:50;padding-bottom:50;padding-top:50;word-break:break-all" cols=100 rows=10>  ${ notice.body}</textarea>
-
+                            <%--           <textarea style="padding-left:50;padding-right:50;padding-bottom:50;padding-top:50;word-break:break-all">${ notice.body}</textarea>--%>
+                                        <textarea style="padding-left:50;padding-right:50;padding-bottom:50;padding-top:50;word-break:break-all" cols=100 rows=10>${ notice.body}</textarea>
                                </div>
 
                                 <div>
@@ -67,10 +67,10 @@
                              </div>
                         </div>
 
-<%--                        <form method="post">
+                       <form method="post">
                             <input type="hidden" name="type" value="${member.type}"  />
                             <input type="hidden" name="id" value="${member.id}" />
-                        </form>--%>
+                        </form>
                     </div>
                 </div>
             </div>

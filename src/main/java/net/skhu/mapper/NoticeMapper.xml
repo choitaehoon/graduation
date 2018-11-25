@@ -30,6 +30,14 @@
         limit ${start} , ${end};
     </select>
 
+    <select id="findNew" resultMap="resultMapN">
+        select n.id, n.title,a.name adminName,n.time,n.count
+        from notice n left join admin a
+        on n.admin_id = a.id
+        order by n.id desc
+        limit 8;
+    </select>
+
     <select id="findNotiBySrch" resultMap="resultMapN">
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>
