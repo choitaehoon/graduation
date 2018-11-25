@@ -169,20 +169,20 @@
       select ifnull(round(sum(gradeA)/sum(credit),2), 0.0)
       from
         (select credit,credit*
-		CASE WHEN grade = 'A+' THEN '4.5'
-        WHEN grade = 'A0' THEN '4.0'
-        WHEN grade = 'B+' THEN '3.5'
-        WHEN grade = 'B0' THEN '3.0'
-        WHEN grade = 'C+' THEN '2.5'
-        WHEN grade = 'C0' THEN '2.0'
-        WHEN grade = 'D+' THEN '1.5'
-        WHEN grade = 'D0' THEN '1.0'
-        WHEN grade = 'F' THEN '0.0'
-        WHEN grade = 'P' THEN 'P'
+		CASE WHEN min(grade) = 'A+' THEN '4.5'
+        WHEN min(grade) = 'A0' THEN '4.0'
+        WHEN min(grade) = 'B+' THEN '3.5'
+        WHEN min(grade) = 'B0' THEN '3.0'
+        WHEN min(grade) = 'C+' THEN '2.5'
+        WHEN min(grade) = 'C0' THEN '2.0'
+        WHEN min(grade) = 'D+' THEN '1.5'
+        WHEN min(grade) = 'D0' THEN '1.0'
+        WHEN min(grade) = 'F' THEN '0.0'
+        WHEN min(grade) = 'P' THEN 'P'
         else 'NP'
         END as gradeA
       from student s left join mylecture m on s.id=m.student_id
-      where m.grade not in('P','NP') and s.id =#{id})alias
+      where m.grade not in('P','NP') and s.id =#{id} group by title)alias
     </select>
 
     <select id="creditPercent" resultType="int">
@@ -276,7 +276,7 @@
         left outer join mylecture m on s.id = m.student_id
         where m.lecture_semester not in ('여름학기','겨울학기')
         group by s.id)s
-        where (semester >= 6) and (130>totalCredit)
+        where (semester >= 7) and (130>totalCredit)
         <where>
             <if test="choice == 1">
                 s.name like concat(#{search},'%')
@@ -315,7 +315,7 @@
         left outer join mylecture m on s.id = m.student_id
         where m.lecture_semester not in ('여름학기','겨울학기')
         group by s.id)s
-        where (semester >= 6) and (130 > totalCredit)
+        where (semester >= 7) and (130 > totalCredit)
         <where>
             <if test="choice == 1">
                 s.name like concat(#{search},'%')
