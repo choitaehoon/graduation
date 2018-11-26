@@ -7,6 +7,7 @@ public class Lecture
 {
     int year;
     String semester;
+    String semester1;
     String id;
     int split;
     String title;
