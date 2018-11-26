@@ -101,7 +101,7 @@
             </select>
 
             <delete id="delete">
-                delete from mylecture where remove = #{id}
+                delete from mylecture where remove = #{remove} AND student_id= #{id}
             </delete>
 
             <insert id="insert" useGeneratedKeys="true" keyProperty="id">

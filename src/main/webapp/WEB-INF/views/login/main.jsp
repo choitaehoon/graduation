@@ -66,7 +66,7 @@
                             <div class="footer">
                                 <hr>
                                 <div class="stats">
-                                    <i class="fa fa-history"></i> 17분 전에 글을 올렸습니다.
+                                    <i class="fa fa-history"></i>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +195,7 @@
                             <div class="footer">
                                 <hr>
                                 <div class="stats">
-                                    <i class="fa fa-history"></i> 3분 전에 질문이 올라왔습니다.
+                                    <i class="fa fa-history"></i>
                                 </div>
                             </div>
                         </div>

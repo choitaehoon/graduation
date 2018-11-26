@@ -610,10 +610,10 @@ public class MainController {
                           @RequestParam("id") int id, @RequestParam(value = "choice", defaultValue = "0") int choice,
                           @RequestParam(value = "search", defaultValue = "") String search, RedirectAttributes redirectAttributes)
     {
-        myLectureMapper.delete(remove);
+        myLectureMapper.delete(remove, id);
         if(remove==3) {
             myreplaceMapper.delete(id);
-            myLectureMapper.delete(4);
+            myLectureMapper.delete(4,id);
         }
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
