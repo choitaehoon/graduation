@@ -52,7 +52,7 @@
                                         </td>
                                         <td>
                                             <label>개설학기</label>
-                                            <form:input path="semester" class="form-control" placeholder="개설학기" style="width: 100px" />
+                                            <form:input path="semester1" class="form-control" placeholder="개설학기" style="width: 100px" />
                                         </td>
 
                                         <td>
