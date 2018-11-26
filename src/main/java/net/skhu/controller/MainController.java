@@ -118,15 +118,10 @@ public class MainController {
        수업수정*/
     @RequestMapping(value = "classEdit", method = RequestMethod.POST)
     public String edit(Model model, Lecture lecture, Pagination pagination, @RequestParam("type") int type, @RequestParam("userId") int id
-<<<<<<< HEAD
             , RedirectAttributes redirectAttributes) {
         logger.info(lecture.toString());
 
-=======
-            , RedirectAttributes redirectAttributes)
-    {
-        logger.info(lecture.getYear()+" "+lecture.getSemester()+" "+lecture.getSplit()+" "+lecture.getId()+" "+lecture.getTitle()+" "+lecture.getSubType());
->>>>>>> ce7a8a15c3c8d32eebce9ab18db484a2b92780b2
+
         lectureService.lecUpdate(lecture);
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
