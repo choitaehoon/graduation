@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -118,7 +119,7 @@ public class MainController {
     @RequestMapping(value = "classEdit", method = RequestMethod.POST)
     public String edit(Model model, Lecture lecture, Pagination pagination, @RequestParam("type") int type, @RequestParam("userId") int id
             , RedirectAttributes redirectAttributes) {
-        logger.info(lecture.getTitle());
+        logger.info(lecture.toString());
 
         lectureService.lecUpdate(lecture);
         redirectAttributes.addAttribute("type", type);
