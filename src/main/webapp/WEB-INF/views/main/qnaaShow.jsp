@@ -50,7 +50,7 @@
                                     </div>--%>
                                     <label>작성자</label>
                                     <div class="form-group">
-                                        ${qnaa.admin.name}
+                                        ${qnaa.adminName}
                                     </div>
                                     <label>내 용</label>
                                     <div class="form-group">

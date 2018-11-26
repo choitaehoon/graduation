@@ -63,7 +63,7 @@
                                         날짜 :${qna.wtime}<br/>
                                     </div>
                                         <div id="buttons">
-                                            <a class="btn btn-success" href="qnaaShow?qnaaId=${qnaanswer.qna_id}&type=${member.type}&id=${member.id}">답변 보기</a>
+                                            <a class="btn btn-success" href="qnaaShow?qnaId=${qna.id}&type=${member.type}&id=${member.id}">답변 보기</a>
                                             <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 목록으로</a>
                                         </div>
                                     </table>
