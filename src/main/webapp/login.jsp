@@ -53,7 +53,7 @@
                 <div class="guest-cont cont">
                     <form>
 
-                        <a href="guest" id="guest" class="btn btn-default">
+                        <a href="guest/guestMain" id="guest" class="btn btn-default">
                             <label for="remember">게스트로그인</label>
                         </a>
                     </form>

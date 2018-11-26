@@ -24,7 +24,12 @@
 
 <body>
 <div class="wrapper">
+    <c:if test="${member.type >0}">
     <%@include file="../menu/menu.jsp"%>
+    </c:if>
+    <c:if test="${type == 0}">
+        <%@include file="../menu/guestMenu.jsp"%>
+    </c:if>
 
     <div class="content">
         <div class="container-fluid">
