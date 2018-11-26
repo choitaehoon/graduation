@@ -57,9 +57,6 @@
             });
         });
     </script>
-
-
-    출처: https://hongku.tistory.com/249 [IT에 취하개 :: 취미로 하는 개발자]
     <style>
 
         body .container {

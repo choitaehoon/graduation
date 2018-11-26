@@ -3,6 +3,7 @@ package net.skhu.domain;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class Qnaanswer {
@@ -10,11 +11,13 @@ public class Qnaanswer {
     int admin_id;
     String body;
     int count;
-    Date time;
+    String time;
     int qna_id;
     int qnaanswercol;
 
     Qna qna;
+    List<Qna> qnas;
+
     Student student;
     Admin admin;
     String adminName;

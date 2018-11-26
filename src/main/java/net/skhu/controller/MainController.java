@@ -337,10 +337,11 @@ public class MainController {
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaShow";
     }
+    /*qnaanswer답변 보기*/
     @RequestMapping("qnaaShow")
-    public String qnaaShow(Model model,@RequestParam("qnaaId") int qnaaId,@RequestParam("type") int type, @RequestParam("id") int id) {
+    public String qnaaShow(Model model,@RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("id") int id) {
 
-        Qnaanswer qnaa = qanswerMapper.findQnaa(qnaaId);
+        Qnaanswer qnaa = qanswerMapper.findQnaa(qnaId);
         model.addAttribute("qnaa", qnaa);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaaShow";
@@ -391,6 +392,7 @@ public class MainController {
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";
     }
+
     /* 답변 등록페이지*/
     @RequestMapping("qnaaQuestion")
     public String qnaQa(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {

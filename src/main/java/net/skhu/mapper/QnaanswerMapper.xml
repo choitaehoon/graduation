@@ -50,10 +50,13 @@
     on qa.qna_id = q.id;-->
 
     <select id="findQnaa" resultType="Qnaanswer">
-select qa.*,a.name
+select qa.*,a.name adminName
 from qnaanswer qa
 left join admin a
-on qa.admin_id = a.id;
+on qa.admin_id = a.id
+left join qna q
+on qa.qna_id = q.id
+where qa.qna_id=#{qna_id};
     </select>
 
     <insert id="insert">
@@ -67,7 +70,7 @@ on qa.admin_id = a.id;
         file = #{file},
         count = #{count},
         id =#{id}
-        where id=#{id}
+        where qna_id=#{qna_id}
     </update>
 
     <select id="count" resultType="int">
