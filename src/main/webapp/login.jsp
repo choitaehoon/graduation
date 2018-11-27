@@ -51,7 +51,13 @@
 
             <div class="content">
                 <div class="guest-cont cont">
+<<<<<<< HEAD
                         <a href="/main/login" id="guest" class="btn btn-default">
+=======
+                    <form>
+
+                        <a href="guest" id="guest" class="btn btn-default">
+>>>>>>> parent of 4ee279b... 게스트로그인 틀잡기
                             <label for="remember">게스트로그인</label>
                         </a>
                 </div>
