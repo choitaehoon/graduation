@@ -54,8 +54,9 @@
                                     <input type="text" name="srch" value="${srch}"/>
                                     <a >
                                         <a href=""> <button type="submit" class="btn btn-primary">조회</button></a>
-                                        <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-primary">검색초기화
-                                        </a>
+                                        <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-primary">검색초기화</a>
+                                    </a>
+                                </p>
                             </form>
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover table-striped">

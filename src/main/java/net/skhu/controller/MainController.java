@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -117,9 +118,10 @@ public class MainController {
        수업수정*/
     @RequestMapping(value = "classEdit", method = RequestMethod.POST)
     public String edit(Model model, Lecture lecture, Pagination pagination, @RequestParam("type") int type, @RequestParam("userId") int id
-            , RedirectAttributes redirectAttributes)
-    {
-        logger.info(lecture.getYear()+" "+lecture.getSemester()+" "+lecture.getSplit()+" "+lecture.getId()+" "+lecture.getTitle()+" "+lecture.getSubType());
+            , RedirectAttributes redirectAttributes) {
+        logger.info(lecture.toString());
+
+
         lectureService.lecUpdate(lecture);
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);

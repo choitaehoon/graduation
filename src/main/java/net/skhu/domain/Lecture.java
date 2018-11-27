@@ -22,6 +22,21 @@ public class Lecture
     String gradeA;
 
 
-
-
+    @Override
+    public String toString() {
+        return "Lecture{" +
+                "year=" + year +
+                ", semester='" + semester + '\'' +
+                ", id='" + id + '\'' +
+                ", split=" + split +
+                ", title='" + title + '\'' +
+                ", admin_id=" + admin_id +
+                ", credit=" + credit +
+                ", admin=" + admin +
+                ", subType='" + subType + '\'' +
+                ", detailType='" + detailType + '\'' +
+                ", grade='" + grade + '\'' +
+                ", gradeA='" + gradeA + '\'' +
+                '}';
+    }
 }

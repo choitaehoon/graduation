@@ -61,13 +61,12 @@ where qa.qna_id=#{qna_id};
 
     <insert id="insert">
     INSERT Qnaanswer (title, body , time,  admin_id)
-	VALUES ( #{title}, #{body}, now(),#{admin_id})
+	VALUES ( #{title}, #{body}, now(), #{admin_id})
     </insert>
 
     <update id="update">
         update qnaanswer set
         body = #{body},
-        file = #{file},
         count = #{count},
         id =#{id}
         where qna_id=#{qna_id}

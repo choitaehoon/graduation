@@ -73,7 +73,6 @@
         update qna set
         title = #{title},
         body = #{body},
-        file = #{file},
         count = #{count}
         where id=#{id}
     </update>
