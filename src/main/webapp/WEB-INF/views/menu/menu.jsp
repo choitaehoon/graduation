@@ -196,8 +196,8 @@
         <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">
-        <c:if test="${member.type == 0}">
-            <p>게스트님</p>
+        <c:if test="${type==0}">
+            <p>${member.name} 게스트님</p>
             <input type="hidden" name="id" value="0">
             <input type="hidden" name="type" value="0">
         </c:if>
@@ -229,7 +229,7 @@
             </a>
             </li>
         </c:if>
-        <c:if test="${member.id >=0}">
+        <c:if test="${member.id >0}">
             <li>
             <a href="../login.jsp">
             <p>Log out</p>

@@ -102,6 +102,92 @@
                                         </td>
                                     </tr>
                                 </c:forEach>
+                                   <%-- <tr>
+                                        <td>
+                                            <div class="checkbox">
+                                                <input id="checkbox2" type="checkbox" checked>
+                                                <label for="checkbox2"></label>
+                                            </div>
+                                        </td>
+                                        <td>4학기 수료자가 추가학점이수가 가능한지요?</td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox">
+                                                <input id="checkbox3" type="checkbox">
+                                                <label for="checkbox3"></label>
+                                            </div>
+                                        </td>
+                                        <td>통계 프로그램 사용 관련
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox">
+                                                <input id="checkbox4" type="checkbox" checked>
+                                                <label for="checkbox4"></label>
+                                            </div>
+                                        </td>
+                                        <td>통계 프로그램 구입 요청 件</td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox">
+                                                <input id="checkbox5" type="checkbox">
+                                                <label for="checkbox5"></label>
+                                            </div>
+                                        </td>
+                                        <td>학번 조회 및 오티일정</td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox">
+                                                <input id="checkbox6" type="checkbox" checked>
+                                                <label for="checkbox6"></label>
+                                            </div>
+                                        </td>
+                                        <td>종합시험을 토요일에 볼 수 있도록 해주십시오</td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>--%>
                                     </tbody>
                                 </table>
                             </div>
