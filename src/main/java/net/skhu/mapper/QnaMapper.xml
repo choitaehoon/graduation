@@ -64,16 +64,16 @@
       where q.id=#{id}
     </select>
 
-    <insert id="insert">
+    <insert id="insert" >
     INSERT Qna (title, body , wtime,  student_id)
-	VALUES ( #{title}, #{body}, #{wtime},#{student_id})
+	VALUES ( #{title}, #{body}, now() ,#{student_id})
     </insert>
 
     <update id="update">
         update qna set
         title = #{title},
         body = #{body},
-        count = #{count}
+        wtime = now()
         where id=#{id}
     </update>
 

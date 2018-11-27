@@ -15,6 +15,6 @@ public interface QnaanswerMapper
 {
 
     Qnaanswer findQnaa(@Param("qna_id") int qnaId);
-    void insert(Qnaanswer qnaa);
+    void insert(Qnaanswer qnaanswer);
     int count();
 }

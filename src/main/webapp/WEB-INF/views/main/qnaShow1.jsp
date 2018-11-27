@@ -53,11 +53,14 @@
                                         ${qna.student.name}
                                     </div>
                                     <label>내 용</label>
-                                    <div class="form-group">
+                                        <div class="form-group" colspan="2" style="min-height: 350px ; text-align: left;">
+                                            ${qna.body}
+                                        </div>
+                                   <%-- <div class="form-group">
                                         <textarea name="body" id="body1" cols="100" rows="18">
                                                     <c:out value="${qna.body}"/>
                                             </textarea>
-                                    </div>
+                                    </div>--%>
 
                                     <div>
                                         날짜 :${qna.wtime}<br/>

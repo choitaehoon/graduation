@@ -60,8 +60,8 @@ where qa.qna_id=#{qna_id};
     </select>
 
     <insert id="insert">
-    INSERT Qnaanswer (title, body , time,  admin_id)
-	VALUES ( #{title}, #{body}, now(), #{admin_id})
+    INSERT Qnaanswer (qna_id, body , time,  admin_id)
+	VALUES ( #{qna_id},#{body}, now(), #{admin_id})
     </insert>
 
     <update id="update">
