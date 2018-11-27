@@ -57,6 +57,9 @@
                     <form>
 
                         <a href="guest" id="guest" class="btn btn-default">
+<<<<<<< HEAD
+>>>>>>> parent of 4ee279b... 게스트로그인 틀잡기
+=======
 >>>>>>> parent of 4ee279b... 게스트로그인 틀잡기
                             <label for="remember">게스트로그인</label>
                         </a>
