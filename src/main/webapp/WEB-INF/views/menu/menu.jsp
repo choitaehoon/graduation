@@ -224,7 +224,6 @@
 
         <c:if test="${type==0}">
             <li >
-
             <a href="../login.jsp">
             <p>로그인</p>
             </a>
@@ -245,3 +244,4 @@
         </div>
         </div>
         </nav>
+        </div>
