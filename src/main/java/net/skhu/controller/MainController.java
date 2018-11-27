@@ -64,8 +64,8 @@ public class MainController {
 
     /* 로그인되면, 메인페이지 이동*/
 
-    @RequestMapping(value = "graduation", method = RequestMethod.GET)
-    public String main(Model model, @RequestParam("type") int type, @RequestParam("id") int id) {
+    @RequestMapping(value = {"graduation","login"}, method = RequestMethod.GET)
+    public String main(Model model, @RequestParam(value = "type",defaultValue = "0") int type, @RequestParam(value = "id",defaultValue = "0") int id) {
         List<Notice> notices = noticeMapper.findNew();
         List<Qna> qnas = qnaMapper.findNew();
         model.addAttribute("notices", notices);
