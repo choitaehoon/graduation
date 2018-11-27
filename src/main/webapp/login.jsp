@@ -51,12 +51,9 @@
 
             <div class="content">
                 <div class="guest-cont cont">
-                    <form>
-
-                        <a href="guest" id="guest" class="btn btn-default">
+                        <a href="/main/login" id="guest" class="btn btn-default">
                             <label for="remember">게스트로그인</label>
                         </a>
-                    </form>
                 </div>
             </div>
         </div>

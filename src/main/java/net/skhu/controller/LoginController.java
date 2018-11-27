@@ -42,6 +42,7 @@ public class LoginController {
 
     }
 
+
     /*회원가입, 등록할때*/
     @RequestMapping(value="signUp", method=RequestMethod.POST)
     public String create(Student student) {
@@ -71,19 +72,6 @@ public class LoginController {
     public String password(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("answer") String answer)
     {
         return studentMapper.findByPassword(id, name, answer);
-    }
-
-    /*
-    게스트로그인, 학교 학생이 아닐때
-     */
-    @RequestMapping("guest")
-    public String guestMain(Model model) {
-        User member =new User();
-        member.setType(0);
-        member.setId(0);
-        model.addAttribute("member",member);
-        return "login/main";
-
     }
 
 

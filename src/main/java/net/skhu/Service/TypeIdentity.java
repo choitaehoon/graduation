@@ -52,6 +52,13 @@ public class TypeIdentity
 
     public Object typeCheck(int type, int id)
     {
+        if (type == 0)
+        {
+            User member =new User();
+            member.setType(0);
+            member.setId(0);
+            return member;
+        }
         if (type == 1) { //학생 이면
             Student student = studentMapper.findByStudent(id);
             student.setType(1);
