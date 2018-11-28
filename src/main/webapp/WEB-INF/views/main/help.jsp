@@ -21,17 +21,15 @@
                                 <div id="three-column" class="container">
                                     <div id="tbox1">
                                         <div class="title">
-                                            <h3>졸업 관리란?</h2>
+                                            <h3>졸업 관리란?</h3>
                                         </div>
                                         <p>복잡한 졸업에 필요한 여러 부수적인 것을 보다 보기 쉽게 만든 페이지 입니다.</p>
                                         <p>자신이 속한 학과, 학번에 따라 달라지는 졸업요건 현황을 알기 쉽게 설명해 놓은 페이지 입니다.</p>
-                                        <a href="graduationinfo.html" class="button">졸업 관리 페이지로 가기</a> </div>
                                     <div id="tbox2">
                                         <div class="title">
                                             <h2>쪽지</h2>
                                         </div>
                                         <p>중요한 소식을 놓치기 않기위해 알림으로서 해당학과에 속한 중요한 변경 혹은 추가 내용을 확인할 수 있는 기능입니다.</p>
-                                        <a href="message.html" class="button">메시지 함으로 가기</a> </div>
                                     <div id="tbox3">
                                         <div class="title">
                                             <h2>공지사항</h2>
@@ -51,7 +49,6 @@
                     <div class="container-fluid">
 
                         <p class="copyright pull-right">
-                            &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
                         </p>
                     </div>
                 </footer>
