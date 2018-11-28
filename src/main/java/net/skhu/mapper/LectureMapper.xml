@@ -8,6 +8,7 @@
     <resultMap id="ResultMap1" type="Lecture">
         <id property="year" column="year"></id>
         <id property="semester" column="semester"></id>
+        <id property="semester1" column="semester"></id>
         <id property="id" column="id"></id>
         <id property="split" column="split"></id>
         <result property="admin_id" column="admin_id"></result>
