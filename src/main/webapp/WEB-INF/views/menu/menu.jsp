@@ -145,9 +145,9 @@
              </ul>
             </li>
         </ul>
-
         </li>
 
+        <c:if test="${member.id >0}">
         <li>
         <a href="/main/replaceLecture?type=${member.type}&id=${member.id}">
         <i class="pe-7s-repeat"></i>
@@ -156,6 +156,7 @@
 
         </a>
         </li>
+        </c:if>
 
         <li>
         <a href="/main/notice?type=${member.type}&id=${member.id}">

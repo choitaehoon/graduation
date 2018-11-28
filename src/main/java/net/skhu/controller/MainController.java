@@ -368,8 +368,8 @@ public class MainController {
 
     //qna 수정 페이지*/
     @RequestMapping("qnaUpdate")
-    public String updateQ(Model model, @RequestParam("qnaId") int qnaId, @RequestParam("student_id") int studentId, @RequestParam("type") int type, @RequestParam("userId") int id) {
-        model.addAttribute("qna", qnaMapper.findQna(qnaId, studentId));
+    public String updateQ(Model model, @RequestParam("qnaId") int qnaId,/* @RequestParam("student_id") int studentId, */@RequestParam("type") int type, @RequestParam("userId") int id) {
+        model.addAttribute("qna", qnaMapper.findQna(qnaId));
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaUpdate";
     }
@@ -397,18 +397,16 @@ public class MainController {
 
     /* 답변 등록페이지*/
     @RequestMapping("qnaaQuestion")
-    public String qnaQa(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {
+    public String qnaQa(Model model,@RequestParam("type") int type, @RequestParam("userId") int id) {
         Qnaanswer qnaanswer = new Qnaanswer();
-        List<Qna> qnas = qnaMapper.findAll2();
         model.addAttribute("qnaanswer", qnaanswer);
-        model.addAttribute("qnas", qnas);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaaQuestion";
     }
 
     /* 답변 등록*/
     @RequestMapping(value = "qnaaQuestion", method = RequestMethod.POST)
-    public String qnaQa(Qnaanswer qnaanswer, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
+    public String qnaQa(Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
         qanswerMapper.insert(qnaanswer);
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);

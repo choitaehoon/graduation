@@ -56,7 +56,7 @@
                                     </div>
 
                                     <div>
-                                        날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>
+                                       <%-- 날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>--%>
                                         파일 첨부  <input type="file"> * 2MB까지 가능
                                     </div>
 
@@ -73,7 +73,8 @@
                             <form>
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
-                                <<input type="hidden" name="qna_id" value="${qnaanswer.qna_id}" />-
+                                <input type="hidden" name="qna_id" value="${qnaanswer.qna_id}" />
+                                <input type="hidden" name="admin_id" value="${member.id}" />
                             </form>
 
                         </div>

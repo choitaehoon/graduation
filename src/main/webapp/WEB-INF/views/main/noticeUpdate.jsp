@@ -57,8 +57,7 @@
                                 <div class="form-group">
                                         <%--  <textArea cols=100 rows=18>		</textArea>&ndash;%&gt;--%>
 
-                                    <textarea name="body" id="body" cols="100" rows="18">
-                                         <c:out value="${notice.body}"/>
+                                    <textarea name="body" id="body" maxlength="2468" style="height: 350px" value="${notice.body}">
                                     </textarea>
 
                                 </div>

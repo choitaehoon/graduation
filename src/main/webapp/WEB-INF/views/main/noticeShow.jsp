@@ -42,14 +42,17 @@
                                 <label>작성자</label>
                                    ${ notice.admin.name}<br/>
                                 <label>내 용</label>
-                               <div class="form-group">
-                                    <%--											<textArea cols=100 rows=18>						</textArea>--%>
-                           <%--         &lt;%&ndash;<textarea name="body" id="body" cols="100" rows="18">&ndash;%&gt;<textArea cols=100 rows=18 >
+                   <%--            <div class="form-group">
+                                    &lt;%&ndash;											<textArea cols=100 rows=18>						</textArea>&ndash;%&gt;
+                           &lt;%&ndash;         &lt;%&ndash;<textarea name="body" id="body" cols="100" rows="18">&ndash;%&gt;<textArea cols=100 rows=18 >
                                         ${ notice.body}
-                                      </textarea>--%>
-                            <%--           <textarea style="padding-left:50;padding-right:50;padding-bottom:50;padding-top:50;word-break:break-all">${ notice.body}</textarea>--%>
+                                      </textarea>&ndash;%&gt;
+                            &lt;%&ndash;           <textarea style="padding-left:50;padding-right:50;padding-bottom:50;padding-top:50;word-break:break-all">${ notice.body}</textarea>&ndash;%&gt;
                                         <textarea style="padding-left:50;padding-right:50;padding-bottom:50;padding-top:50;word-break:break-all" cols=100 rows=10>${ notice.body}</textarea>
-                               </div>
+                               </div>--%>
+                                    <div class="form-group" colspan="2" style="min-height: 350px ; text-align: left;">
+                                        ${notice.body}
+                                    </div>
 
                                 <div>
                                     <label>날짜</label> : <%--<input class="form-control" style="width: 100px" value="--%>${ notice.time}<%--"/>--%>

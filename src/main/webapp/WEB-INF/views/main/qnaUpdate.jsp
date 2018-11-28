@@ -48,27 +48,17 @@
                                             <%--<input type="hidden" name="pg" value="1">--%>
                                         <input type="hidden" name="type" value="${member.type}"  />
                                         <input type="hidden" name="userId" value="${member.id}" />
-
-                                            <%--                <p class="category">
-                                                                <select name="choice">
-                                                                    <option value="0" ${selected[0]}>날짜</option>
-                                                                    <option value="1" ${selected[1]}>내용</option>
-                                                                </select>
-
-                                                                <input type="text" name="srch" value="${srch}"/>
-                                                                <a >
-                                                                    <button type="submit" class="btn btn-primary">조회</button>
-                                                                </a>--%>
+                                                <input type="hidden" name="student_id" value="${qna.student_id}" />
                                     </form>
 
                                     <label>제목</label>
                                     <div class="form-group">
                                         <form:input path="title" class="form-control" style="width: 300px" />
                                     </div>
-                           <%--         <label>작성자</label>
+                                 <label>작성자</label>
                                     <div class="form-group">
-                                        <form:input path="student_id" class="form-control"  placeholder="작성자" style="width: 200px"/>
-                                    </div>--%>
+                                        ${qna.student.name}
+                                    </div>
                                     <label>내 용</label>
                                     <div class="form-group">
                                         <textarea name="body" id="body" cols="100" rows="18">
@@ -97,7 +87,7 @@
                                 <%--                            <input type="hidden" name="pg" value="1">--%>
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
-                                <input type="hidden" name="student_id" value="${student.id}" />
+                                <input type="hidden" name="student_id" value="${qna.student_id}" />
 
                             </form>
 
