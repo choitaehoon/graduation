@@ -37,6 +37,9 @@
     <div class="contents">
         <div>
             <h3>수업 엑셀 업로드</h3>
+            <p style="color: #9368E9">c드라이브에 upload 폴더를 만든 후<br>
+                엑셀파일을 넣고 파일을 불러와 주세요</p>
+            <br>
             <p>첨부파일은 한개만 등록 가능합니다.</p>
 
         </div>
