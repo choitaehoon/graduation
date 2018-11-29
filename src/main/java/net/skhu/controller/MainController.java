@@ -273,7 +273,7 @@ public class MainController {
     }
 
     //공지사항 수정 페이지*/
-    @RequestMapping("noticeUpdate")
+    @RequestMapping(value="noticeUpdate", method=RequestMethod.GET)
     public String updateN(Model model, @RequestParam("id") int noticeId, @RequestParam("admin_id") int adminId, @RequestParam("type") int type, @RequestParam("userId") int id) {
         Notice notice  = noticeMapper.findNotice(noticeId, adminId);
 /*        notice.setAdmin_id(adminId);*/
@@ -369,8 +369,9 @@ public class MainController {
 
     //qna 수정 페이지*/
     @RequestMapping("qnaUpdate")
-    public String updateQ(Model model, @RequestParam("qnaId") int qnaId,/* @RequestParam("student_id") int studentId, */@RequestParam("type") int type, @RequestParam("userId") int id) {
-        model.addAttribute("qna", qnaMapper.findQna(qnaId));
+    public String updateQ(Model model, @RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("userId") int id) {
+        Qna qna = qnaMapper.findQna(qnaId);
+        model.addAttribute("qna", qna);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaUpdate";
     }
@@ -399,9 +400,12 @@ public class MainController {
     /* 답변 등록페이지*/
     @RequestMapping("qnaaQuestion")
     public String qnaQa(Model model,@RequestParam("qnaId") int qnaId ,@RequestParam("type") int type, @RequestParam("userId") int id) {
-        Qnaanswer qnaanswer = new Qnaanswer();
+     /*   Qnaanswer qnaanswer = new Qnaanswer();*/
 //        Qna qna = qnaMapper.findOne(qnaId);
 /*        model.addAttribute("qna", qna);*/
+        Qna qna = qnaMapper.findOne(qnaId);
+        Qnaanswer qnaanswer = new Qnaanswer();
+        qnaanswer.setQna_id(qnaId);
         model.addAttribute("qnaanswer", qnaanswer);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaaQuestion";
@@ -411,11 +415,9 @@ public class MainController {
     @RequestMapping(value = "qnaaQuestion", method = RequestMethod.POST)
     public String qnaQa(Qna qna,Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
 
-        qnaanswer.setQna_id(qnaId);
+        User user = (User)redirectAttributes.addAttribute("user");
         qnaanswer.setAdmin_id(id);
-/*        redirectAttributes.addAttribute("qna", qna);*/
         qanswerMapper.insert(qnaanswer);
-/*        logger.*/
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";

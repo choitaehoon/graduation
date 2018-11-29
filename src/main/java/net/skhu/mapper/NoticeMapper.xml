@@ -75,7 +75,7 @@
     select n.*,a.name adminName
     from notice n left join admin a
     on n.admin_id = a.id
-       where n.id=#{id}
+       where n.id=#{id};
     </select>
 
     <select id="findOne" resultMap="resultMapN">
@@ -93,8 +93,8 @@
     <update id="update">
         update notice
 set title= #{title},
-body= #{body},
-file = #{file}
+body = #{body},
+time = now()
 where id=#{id}
     </update>
 

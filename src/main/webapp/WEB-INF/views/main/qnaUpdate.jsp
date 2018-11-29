@@ -48,21 +48,21 @@
                                             <%--<input type="hidden" name="pg" value="1">--%>
                                         <input type="hidden" name="type" value="${member.type}"  />
                                         <input type="hidden" name="userId" value="${member.id}" />
-                                                <input type="hidden" name="student_id" value="${qna.student_id}" />
+                                               <%-- <input type="hidden" name="student_id" value="${qna.student_id}" />--%>
                                     </form>
 
                                     <label>제목</label>
                                     <div class="form-group">
                                         <form:input path="title" class="form-control" style="width: 300px" />
                                     </div>
-                                 <label>작성자</label>
+<%--                                 <label>작성자</label>
                                     <div class="form-group">
                                         ${qna.student.name}
-                                    </div>
+                                    </div>--%>
                                     <label>내 용</label>
                                     <div class="form-group">
-                                        <textarea name="body" id="body" cols="100" rows="18">
-                                                    <c:out value="${qna.body}"/>
+                                        <textarea name="body" id="body" cols="100" rows="18" value="${qna.body}">
+                                                    ${qna.body}
                                             </textarea>
                                     </div>
 
@@ -87,7 +87,7 @@
                                 <%--                            <input type="hidden" name="pg" value="1">--%>
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
-                                <input type="hidden" name="student_id" value="${qna.student_id}" />
+                              <%--  <input type="hidden" name="student_id" value="${member.id}" />--%>
 
                             </form>
 

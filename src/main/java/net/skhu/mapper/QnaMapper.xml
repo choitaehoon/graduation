@@ -71,11 +71,13 @@
     </insert>
 
     <update id="update">
-        update qna set
-        title = #{title},
-        body = #{body},
-        wtime = now()
-        where id=#{id}
+      update qna
+set
+title=#{title},
+body=#{body},
+wtime=now()
+where id=#{id};
+
     </update>
 
     <delete id="delete">

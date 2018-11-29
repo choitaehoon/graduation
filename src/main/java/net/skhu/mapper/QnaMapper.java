@@ -17,7 +17,7 @@ public interface QnaMapper
     List<Qna> findNew();
     List<Qna> findByQnaa(@Param("id") int qnaId);
     Qna findQna(@Param("id") int qnaId);
-    Qna findOne(@Param("id") int qnaId);
+    Qna findOne(int qnaId);
     void insert(Qna qna);
     void update(Qna qna);
     void delete(int qnaId);
