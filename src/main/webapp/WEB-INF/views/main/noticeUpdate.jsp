@@ -47,7 +47,7 @@
                                 </form>
                                 <label>제목</label>
                                 <div class="form-group">
-                                    <form:input path="title" class="form-control" style="width: 300px"  />
+                                    <input  name="title"  class="form-control" style="width: 300px" value="${notice.title}" />
                                 </div>
 
                                 <label>내 용</label>
