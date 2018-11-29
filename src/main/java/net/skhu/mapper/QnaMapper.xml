@@ -75,7 +75,7 @@
         title = #{title},
         body = #{body},
         wtime = now()
-        where id=#{id}
+        where id= #{id}
     </update>
 
     <delete id="delete">

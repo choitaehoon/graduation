@@ -21,43 +21,43 @@
         </association>
     </resultMap>
 
-<!--    <select id="findAll" resultMap="resultMapQa">
-        <bind name="start" value="(currentPage-1)*pageSize"/>
-        <bind name="end" value="pageSize"/>
-    select a.id,a.title,a.wtime,s.name studentName,a.count
-    from qna a
-    LEFT JOIN student s
-    on a.student_id = s.id
-    order by a.id desc
-    limit ${start} , ${end};
-    </select>-->
-<!--   select qa.*,s.name studentName
-    from qnaanwer qa left join qna a
-    on qa.qna_id = a.id
-    left join student s
-    on a.student_id = s.id
-    where qa.qna_id=#{qna_id}-->
-<!--    select qa.*, a.name
-    from qnaanswer qa
-    join qna q
-    on qa.qna_id = q.id
-    join  admin a
-    on qa.admin_id = a.id;
-    where qa.qna_id=#{qna_id};-->
-<!--    select qa.*
-    from qnaanswer qa
-    join qna q
-    on qa.qna_id = q.id;-->
+    <!--    <select id="findAll" resultMap="resultMapQa">
+            <bind name="start" value="(currentPage-1)*pageSize"/>
+            <bind name="end" value="pageSize"/>
+        select a.id,a.title,a.wtime,s.name studentName,a.count
+        from qna a
+        LEFT JOIN student s
+        on a.student_id = s.id
+        order by a.id desc
+        limit ${start} , ${end};
+        </select>-->
+    <!--   select qa.*,s.name studentName
+        from qnaanwer qa left join qna a
+        on qa.qna_id = a.id
+        left join student s
+        on a.student_id = s.id
+        where qa.qna_id=#{qna_id}-->
+    <!--    select qa.*, a.name
+        from qnaanswer qa
+        join qna q
+        on qa.qna_id = q.id
+        join  admin a
+        on qa.admin_id = a.id;
+        where qa.qna_id=#{qna_id};-->
+    <!--    select qa.*
+        from qnaanswer qa
+        join qna q
+        on qa.qna_id = q.id;-->
 
     <!--기록한 답글을 불러오게 하기 위함-->
     <select id="findQnaa" resultMap="resultMapQa">
-select qa.*,a.name adminName
-from qnaanswer qa
-left join admin a
-on qa.admin_id = a.id
-left join qna q
-on qa.qna_id = q.id
-where qa.qna_id=#{qna_id};
+        select qa.*,a.name adminName
+        from qnaanswer qa
+        left join admin a
+          on qa.admin_id = a.id
+        left join qna q
+        on qa.qna_id = q.id
+        where qa.qna_id=#{qna_id};
     </select>
 
     <insert id="insert">
@@ -70,8 +70,10 @@ where qa.qna_id=#{qna_id};
         body = #{body},
         count = #{count},
         id =#{id}
-        where qna_id=#{qna_id}
+        where qna_id= #{qna_id}
     </update>
+
+
 
     <select id="count" resultType="int">
         select count(*)
