@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<c:url var="R" value="/" />
+<c:url var="R" value="/"/>
 <!doctype html>
 <head>
     <title>skhu 졸업요건</title>
@@ -32,7 +32,7 @@
 
 <body>
 <div class="wrapper">
-    <%@include file="../menu/menu.jsp"%>
+    <%@include file="../menu/menu.jsp" %>
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -43,53 +43,52 @@
 
                             <form:form method="post" modelAttribute="qna">
                                 <div id="content">
-                                    <h4>질문 수정</h4>
-                                    <form method="post">
-                                            <%--<input type="hidden" name="pg" value="1">--%>
-                                        <input type="hidden" name="type" value="${member.type}"  />
-                                        <input type="hidden" name="userId" value="${member.id}" />
-                                               <%-- <input type="hidden" name="student_id" value="${qna.student_id}" />--%>
-                                    </form>
+
+                                        <%--<input type="hidden" name="pg" value="1">--%>
+                                    <input type="hidden" name="type" value="${member.type}"/>
+                                    <input type="hidden" name="userId" value="${member.id}"/>
+                                    <input type="hidden" name="student_id" value="${qna.student_id}"/>
+                                    <input type="hidden" name="id" value="${qna.id}"/>
+
 
                                     <label>제목</label>
                                     <div class="form-group">
-                                        <form:input path="title" class="form-control" style="width: 300px" />
-                                    </div>
-<%--                                 <label>작성자</label>
-                                    <div class="form-group">
-                                        ${qna.student.name}
-                                    </div>--%>
-                                    <label>내 용</label>
-                                    <div class="form-group">
-                                        <textarea name="body" id="body" cols="100" rows="18" value="${qna.body}">
-                                                    ${qna.body}
-                                            </textarea>
+                                        <form:input path="title" class="form-control" style="width: 300px"/>
                                     </div>
 
+                                    <label>작성자</label>
+                                    <div class="form-group">
+                                            ${qna.student.name}
+                                    </div>
+
+                                    <label>내 용</label>
+                                    <div class="form-group">
+                                        <textarea name="body" id="body" cols="100" rows="18">
+                                                    <c:out value="${qna.body}"/>
+                                        </textarea>
+
                                     <div>
-                                        날짜 : <form:input path="wtime"  class="form-control" style="width: 100px"/><br>
-                                        파일 첨부  <input type="file"> * 2MB까지 가능
+                                        날짜 : <form:input path="wtime" class="form-control" style="width: 100px"/><br>
+                                        파일 첨부 <input type="file"> * 2MB까지 가능
                                     </div>
 
                                     <div id="buttons">
-                                        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
-                                        <a data-confirm-delete  href="deleteQ?qnaId=${qna.id}&type=${member.type}&userId=${member.id}" class="btn btn-danger">
+                                        <button type="submit" class="btn btn-primary"><i
+                                                class="glyphicon glyphicon-ok"></i> 저장
+                                        </button>
+                                        <a data-confirm-delete
+                                           href="deleteQ?qnaId=${qna.id}&type=${member.type}&userId=${member.id}"
+                                           class="btn btn-danger">
                                             <i class="glyphicon glyphicon-remove"></i>삭제
                                         </a>
-                                        <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 공지사항으로</a>
+                                        <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-default"> <i
+                                                class="glyphicon glyphicon-list"></i> 공지사항으로</a>
 
                                     </div>
 
                                 </div>
                             </form:form>
 
-                            <form>
-                                <%--                            <input type="hidden" name="pg" value="1">--%>
-                                <input type="hidden" name="type" value="${member.type}"  />
-                                <input type="hidden" name="id" value="${member.id}" />
-                              <%--  <input type="hidden" name="student_id" value="${member.id}" />--%>
-
-                            </form>
 
                         </div>
                     </div>
@@ -120,17 +119,17 @@
 
 </body>
 
-<!--   Core JS Files   -->
+<!-- Core JS Files -->
 <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
-<!--  Charts Plugin -->
+<!-- Charts Plugin -->
 <script src="assets/js/chartist.min.js"></script>
 
-<!--  Notifications Plugin    -->
+<!-- Notifications Plugin -->
 <script src="assets/js/bootstrap-notify.js"></script>
 
-<!--  Google Maps Plugin    -->
+<!-- Google Maps Plugin -->
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 

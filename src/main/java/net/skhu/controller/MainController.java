@@ -380,6 +380,8 @@ public class MainController {
     @RequestMapping(value = "qnaUpdate", method = RequestMethod.POST)
     public String updateQ(Model model, Qna qna, @RequestParam("type") int type, @RequestParam("userId") int id
             , RedirectAttributes redirectAttributes) {
+
+        logger.info(qna.toString());
         qnaMapper.update(qna);
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);

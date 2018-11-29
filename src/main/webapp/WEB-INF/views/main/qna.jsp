@@ -105,9 +105,12 @@
                                             <td><button type="submit" class="btn btn-danger"> 답변 요함</button></td>
                                         <%--</c:if>--%>
 
-                                        <td><a href='qnaUpdate?qnaId=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>
+                                        <td>
+                                            <a href='qnaUpdate?qnaId=${qna.id }&type=${member.type}&userId=${member.id}'>
+                                            <%--<a href='qnaUpdate?qnaId=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>--%>
                                             <button  type="button" class="btn btn-primary">수정</button>
-                                        </a></td>
+                                            </a>
+                                        </td>
 
                                    <%--     <c:choose>
                                             <c:when test="${memeber.id eq qna.student_id}">
