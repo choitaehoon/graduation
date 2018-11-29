@@ -95,7 +95,17 @@
                                         </c:if>
                                        <%-- <td>답변 현황</td>--%>
                                       <%--  <c:if test="${qna.answerstate eq null}">--%>
-                                            <td><button type="submit" class="btn btn-danger"> 답변 요함</button></td>
+                                        <c:choose>
+                                            <c:when test="${qna.answerstate == 1}">
+                                            <td><button  class="btn btn-success"> 답변 완료</button></td>
+                                            </c:when>
+                                            <c:when test="${qna.answerstate == 2}">
+                                                <td><button  class="btn btn-warning"> 유선 답변</button></td>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <td><button  class="btn btn-danger"> 답변 요함</button></td>
+                                            </c:otherwise>
+                                        </c:choose>
                                         <%--</c:if>--%>
 
                                         <td>
@@ -153,9 +163,9 @@
     <footer class="footer">
         <div class="container-fluid">
 
-            <p class="copyright pull-right">
+           <%-- <p class="copyright pull-right">
                 &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-            </p>
+            </p>--%>
         </div>
     </footer>
 

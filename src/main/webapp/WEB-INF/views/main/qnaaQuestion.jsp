@@ -14,12 +14,11 @@
     <link rel="stylesheet" href="${R}res/common.css">
     <script src="${R}res/common.js"></script>
 
-    <script type="text/javascript">
-        function checkRow(event){
-            var event_test = event;
-            alert()
-        }
-    </script>
+<%--    <script type="text/javascript">
+       $("#update").click(function(){
+           (${"qna.answerstate"})++;
+        })
+    </script>--%>
 
     <style>
         #content {
@@ -69,16 +68,15 @@
                                             </textarea>
                                     </div>
 
-                                    <div>
-                                       <%-- 날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>--%>
+                                  <%--  <div>
+                                       &lt;%&ndash; 날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>&ndash;%&gt;
                                         파일 첨부  <input type="file"> * 2MB까지 가능
-                                    </div>
+                                    </div>--%>
 
                                     <input type="hidden" name="qnaId" value="${qna.id}" />
 
                                     <div id="buttons">
                                         <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
-                                        <a class="btn btn-danger" href="#"><i class=" glyphicon glyphicon-remove"></i> 삭제</a>
                                         <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 목록으로</a>
 
                                     </div>
@@ -107,14 +105,14 @@
     <footer class="footer">
         <div class="container-fluid">
 
-            <p class="copyright pull-right">
-                &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>
-                <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-                love for a better web
-            </p>
+            <%--<p class="copyright pull-right">--%>
+                <%--&copy;--%>
+                <%--<script>--%>
+                    <%--document.write(new Date().getFullYear())--%>
+                <%--</script>--%>
+                <%--<a href="http://www.creative-tim.com">Creative Tim</a>, made with--%>
+                <%--love for a better web--%>
+            <%--</p>--%>
         </div>
     </footer>
 
