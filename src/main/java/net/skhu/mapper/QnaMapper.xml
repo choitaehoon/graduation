@@ -71,11 +71,20 @@
     </insert>
 
     <update id="update">
+<<<<<<< HEAD
+      update qna
+set
+title=#{title},
+body=#{body},
+wtime=now()
+where id=#{id}
+=======
         update qna set
         title = #{title},
         body = #{body},
         wtime = now()
         where id= #{id}
+>>>>>>> cfc0757f4aab4199184be56250c4f3a37c138b46
 
     </update>
 

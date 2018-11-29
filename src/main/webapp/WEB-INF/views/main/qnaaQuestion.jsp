@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="${R}res/common.css">
     <script src="${R}res/common.js"></script>
 
+    <script type="text/javascript">
+        function checkRow(event){
+            var event_test = event;
+            alert()
+        }
+    </script>
+
     <style>
         #content {
             margin-left: 30%;
@@ -41,7 +48,7 @@
                                     <form method="post">
                                         <input type="hidden" name="type" value="${member.type}"  />
                                         <input type="hidden" name="userId" value="${member.id}" />
-                                        <input type="hidden" name="qna_id" value="'${qnaanswer.qna_id}'.value('${qna.id}')" />
+                                        <input type="hidden" name="qna_id" value="${qna_id}" />
                                         <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />
                                     </form>
                                     <label>답변 상태 선택</label>
