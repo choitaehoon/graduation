@@ -59,6 +59,7 @@
                                             </textarea>
                                     </div>
 
+
                                     <div>
                                         파일 첨부  <input type="file"> * 2MB까지 가능
                                     </div>

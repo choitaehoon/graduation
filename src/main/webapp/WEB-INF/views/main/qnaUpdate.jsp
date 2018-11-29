@@ -82,7 +82,7 @@
                                             <i class="glyphicon glyphicon-remove"></i>삭제
                                         </a>
                                         <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-default"> <i
-                                                class="glyphicon glyphicon-list"></i> 공지사항으로</a>
+                                                class="glyphicon glyphicon-list"></i>목록으로</a>
 
                                     </div>
 

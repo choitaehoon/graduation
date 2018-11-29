@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: JiEun
+  Date: 2018-10-14
+  Time: 오전 12:47
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -13,17 +20,19 @@
     <link rel="stylesheet" href="${R}res/common.css">
     <script src="${R}res/common.js"></script>
 
-    <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
-          rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
+    <style>
+        #content {
+            margin-left: 30%;
+            height: 800px;
+        }
+    </style>
 
-    </script>
 </head>
+
+
 <body>
 <div class="wrapper">
     <%@include file="../menu/menu.jsp"%>
-
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -32,72 +41,73 @@
                         <div class="header">
                             <h4 class="title">공지사항</h4>
                             <div id="content">
-                                <%--                        <br />--%>
-
-                                <br />
-                                <label>제목</label>
-                                <div class="form-group">
-                                   ${ notice.title }
-                                </div>
-                                <label>작성자</label>
-                                   ${ notice.admin.name}<br/>
-                                <label>내 용</label>
-                   <%--            <div class="form-group">
-                                    &lt;%&ndash;											<textArea cols=100 rows=18>						</textArea>&ndash;%&gt;
-                           &lt;%&ndash;         &lt;%&ndash;<textarea name="body" id="body" cols="100" rows="18">&ndash;%&gt;<textArea cols=100 rows=18 >
-                                        ${ notice.body}
-                                      </textarea>&ndash;%&gt;
-                            &lt;%&ndash;           <textarea style="padding-left:50;padding-right:50;padding-bottom:50;padding-top:50;word-break:break-all">${ notice.body}</textarea>&ndash;%&gt;
-                                        <textarea style="padding-left:50;padding-right:50;padding-bottom:50;padding-top:50;word-break:break-all" cols=100 rows=10>${ notice.body}</textarea>
-                               </div>--%>
+                                <%--<h4>질문 수정</h4>--%>
+                                    <br/>
+                                <table class="table table-condensed">
+                                    <br/>
+                                    <h5>제목</h5>
+                                    <div class="form-group">
+                                        ${ notice.title }
+                                    </div>
+                                    <label>작성자</label>
+                                    <div class="form-group">
+                                        ${ notice.admin.name}
+                                    </div>
+                                    <br/>
+                                    <label>내 용</label>
+                                    <br/>
                                     <div class="form-group" colspan="2" style="min-height: 350px ; text-align: left;">
-                                        ${notice.body}
+                                        ${ notice.body}
                                     </div>
 
-                                <div>
-                                    <label>날짜</label> : <%--<input class="form-control" style="width: 100px" value="--%>${ notice.time}<%--"/>--%>
-                                    <br/><br/>
-                                    <label>파일 첨부</label>  <input type="file">
-                                </div>
+                                    <div>
+                                        날짜 :${ notice.time}<br/>
+                                    </div>
+                                    <br/>
+                                    <div id="buttons">
+                                        <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 공지사항으로</a>
+                                    </div>
+                                </table>
 
-<%--                                <div id="info">
-                                    <span>no:</span> <span>${ notice.id }</span> <br> <span>글쓴이:</span>
-                                    <span>${ notice.admin_id}</span> <br> &lt;%&ndash;<span>글쓴시각:</span>
-                                    <span><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss"
-                                                          value="${ article.time }" /></span>&ndash;%&gt;
-                                </div>
-      --%>
-                             </div>
+                                <form>
+
+                                    <input type="hidden" name="type" value="${member.type}"  />
+                                    <input type="hidden" name="id" value="${member.id}" />
+
+                                </form>
+
+                            </div>
                         </div>
-
-                       <form method="post">
-                            <input type="hidden" name="type" value="${member.type}"  />
-                            <input type="hidden" name="id" value="${member.id}" />
-                        </form>
                     </div>
+
+                    <%--    <div id="answer">
+                            &lt;%&ndash;<h4>질문 수정</h4>&ndash;%&gt;
+
+                            <table class="table table-condensed">
+                                <h5>답 변</h5>
+        &lt;%&ndash;                        <label>작성자</label>
+                                <div class="form-group">
+                                    ${qnaa.admin.name}
+                                </div>&ndash;%&gt;
+                                <label>내 용</label>
+                                <div class="form-group">s
+                                                <textarea name="body" id="body2" cols="30" rows="18">
+                                                            <c:out value="${qnaa.body}"/>
+                                                    </textarea>
+                                </div>
+
+                                <div>
+                                    날짜 :${qnaa.time}<br/>
+                                </div>
+                            </table>
+                        </div>--%>
                 </div>
             </div>
-
         </div>
+
+
+
     </div>
-</div>
-
-<footer class="footer">
-    <div class="container-fluid">
-
-        <p class="copyright pull-right">
-            &copy;
-            <script>
-                document.write(new Date().getFullYear())
-            </script>
-            <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-            love for a better web
-        </p>
-    </div>
-</footer>
-
-
-</div>
 </div>
 
 

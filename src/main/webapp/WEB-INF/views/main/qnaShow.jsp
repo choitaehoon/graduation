@@ -42,8 +42,9 @@
                             <h4 class="title">Q & A</h4>
                                 <div id="content">
                                     <%--<h4>질문 수정</h4>--%>
-
+                                        <br/>
                                     <table class="table table-condensed">
+
                                         <h5>제목</h5>
                                     <div class="form-group">
                                         ${qna.title}
@@ -62,6 +63,7 @@
                                     <div>
                                         날짜 :${qna.wtime}<br/>
                                     </div>
+                                        <br/>
                                         <div id="buttons">
                                             <a class="btn btn-success" href="qnaaShow?qnaId=${qna.id}&type=${member.type}&id=${member.id}">답변 보기</a>
                                             <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 목록으로</a>

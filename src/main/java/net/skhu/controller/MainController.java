@@ -423,7 +423,7 @@ public class MainController {
     @RequestMapping(value = "qnaaQuestion", method = RequestMethod.POST)
     public String qnaQa(Qna qna,Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
 
-        User user = (User)redirectAttributes.addAttribute("user");
+        /*User user = (User)redirectAttributes.addAttribute("user");*/
         qnaanswer.setAdmin_id(id);
         qanswerMapper.insert(qnaanswer);
         redirectAttributes.addAttribute("type", type);

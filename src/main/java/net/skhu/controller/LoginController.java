@@ -123,6 +123,18 @@ public class LoginController {
 
         return "main/noticeShow";
     }
+    //공지사항 list
+    @RequestMapping("notice")
+    public String notice(Model model, Pagination pagination, @RequestParam("type") int type, @RequestParam("id") int id) {
+
+        pagination.setRecordCount(noticeMapper.count());
+
+        List<Notice> notices = noticeMapper.findAll(pagination);
+        model.addAttribute("notices", notices);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/notice";
+    }
+
 
     /*qna 클릭시 보여주는 페이지*/
     @RequestMapping("qnaShow")
@@ -131,7 +143,18 @@ public class LoginController {
         Qna qna = qnaMapper.findOne(qnaId);
         model.addAttribute("qna", qna);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
-        return "main/qnaShow1";
+        return "main/qnaShow";
     }
 
+    //qna list
+    @RequestMapping("qna")
+    public String qna(Model model, Pagination pagination, @RequestParam("type") int type, @RequestParam("id") int id) {
+
+        pagination.setRecordCount(qnaMapper.count());
+
+        List<Qna> qnas = qnaMapper.findAll(pagination);
+        model.addAttribute("qnas", qnas);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/qna";
+    }
 }
