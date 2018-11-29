@@ -45,7 +45,9 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td>교수님 코멘트&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.comment }</td>
+                                    <td>교수님 코멘트&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.comment }
+                                        <button class="btn btn-primary" onclick="window.open('editComment?type=${member.type}&id=${member.id}&studentId=${student.id}','editComment','width=600,height=150,location=no,status=no,scrollbars=yes');">${ student.comment == null ? "등록" : "수정" }</button>
+                                    </td>
                                     <td></td>
                                 </tr>
                                 </tbody>
