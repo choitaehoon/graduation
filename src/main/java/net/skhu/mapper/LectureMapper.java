@@ -17,7 +17,7 @@ public interface LectureMapper {
     int srchCount(@Param("choice") int choice, @Param("srch") String srch);
 
     //과목하나찾기
-    Lecture findLecture(@Param("year") int year,@Param("semester") String semester,@Param("id") String id, @Param("admin_id") int admin_id);
+    Lecture findLecture(@Param("year") int year,@Param("semester") String semester,@Param("id") String id, @Param("split") int split);
 
     //과목 전체리스트
     List<Lecture> findAll(Pagination pagination);

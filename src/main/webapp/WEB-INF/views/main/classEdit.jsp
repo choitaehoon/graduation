@@ -41,18 +41,17 @@
                                 <br />
 
                                 <form:form method="post" modelAttribute="lecture">
-                                <table class="table table-condensed">
+                                    <table class="table table-condensed">
                                     <tbody>
                                     <tr>
+                                        <form:hidden path="num"></form:hidden>
                                         <td>
                                             <label>년도</label>
                                             <form:input path="year" class="form-control" placeholder="년도" style="width: 100px" />
-
-
                                         </td>
                                         <td>
                                             <label>개설학기</label>
-                                            <form:input path="semester1" class="form-control" placeholder="개설학기" style="width: 100px" />
+                                            <form:input path="semester" class="form-control" placeholder="개설학기" style="width: 100px" />
                                         </td>
 
                                         <td>

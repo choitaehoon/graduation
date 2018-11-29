@@ -107,8 +107,8 @@ public class MainController {
     /* 수업관리,
     수업수정 페이지*/
     @RequestMapping("classEdit")
-    public String edit(Model model, Pagination pagination, @RequestParam("year") int year, @RequestParam("semester") String semester, @RequestParam("lecId") String lecId,
-                       @RequestParam("adminId") int adminId, @RequestParam("type") int type, @RequestParam("userId") int id) {
+    public String edit(Model model, Pagination pagination, @RequestParam("lecYear") int year, @RequestParam("lecSemester") String semester, @RequestParam("lecId") String lecId,
+                       @RequestParam("split") int adminId, @RequestParam("type") int type, @RequestParam("userId") int id) {
         model.addAttribute("lecture", lectureService.findLecture(year, semester, lecId, adminId));
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/classEdit";
@@ -117,14 +117,17 @@ public class MainController {
     /* 수업관리
        수업수정*/
     @RequestMapping(value = "classEdit", method = RequestMethod.POST)
-    public String edit(Model model, Lecture lecture, Pagination pagination, @RequestParam("type") int type, @RequestParam("userId") int id
+    public String edit(Model model, Lecture lecture, @RequestParam("type") int type, @RequestParam("userId") int id
             , RedirectAttributes redirectAttributes) {
         logger.info(lecture.toString());
 
 
+
         lectureService.lecUpdate(lecture);
+
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
+
         return "redirect:manageClass";
     }
     /*
@@ -160,8 +163,11 @@ public class MainController {
     public String create(Lecture lecture, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
 
         lectureService.lecInsert(lecture);
+
+
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
+
         return "redirect:manageClass";
     }
 

@@ -69,7 +69,7 @@
                                     <a href="manageClass?type=${member.type}&id=${member.id}" class="btn btn-primary">검색초기화
                                     </a>
 
-                            </form>
+
 
                             <table class="table table-striped" style="width:100%; max-width:100%; margin-bottom:20px;">
                                 <thead>
@@ -89,7 +89,7 @@
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-                                    <tr data-url="classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}">
+                                    <tr data-url="classEdit?lecYear=${lecture.year}&lecSemester=${lecture.semester}&lecId=${lecture.id}&split=${lecture.split}&type=${member.type}&userId=${member.id}&${pagination.queryString}">
                                         <td>${lecture.year}</td>
                                         <td>${lecture.semester}</td>
                                         <td>${lecture.id}</td>
@@ -99,7 +99,7 @@
                                         <td>${lecture.subType}</td>
                                         <td>${lecture.credit}</td>
                                         <td>
-                                            <a href='classEdit?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&adminId=${lecture.admin_id}&type=${member.type}&userId=${member.id}&${pagination.queryString}' class="btn btn-primary">
+                                            <a href='classEdit?lecYear=${lecture.year}&lecSemester=${lecture.semester}&lecId=${lecture.id}&split=${lecture.split}&type=${member.type}&userId=${member.id}&${pagination.queryString}' class="btn btn-primary">
                                            수정</a>
                                         </td>
                                     </tr>
