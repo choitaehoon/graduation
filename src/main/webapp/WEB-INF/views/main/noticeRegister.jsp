@@ -92,7 +92,7 @@ ange this template use File | Settings | File Templates.
                             <%--                            <input type="hidden" name="pg" value="1">--%>
                             <input type="hidden" name="type" value="${member.type}"  />
                             <input type="hidden" name="id" value="${member.id}" />
-                            <input type="hidden" name="admin_id" value="${member.id}" />
+                          <%--  <input type="hidden" name="admin_id" value="${member.id}" />--%>
                         </form>
 
 

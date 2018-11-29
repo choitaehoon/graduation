@@ -81,7 +81,7 @@
                                             <td>${ notice.time }</td>
                                             <td>${ notice.count }</td>
                                             <c:if test="${member.type==2 }">
-                                                <td><a href='noticeUpdate?id=${notice.id }&title=${notice.title }&admin_id=${notice.admin_id}&time=${notice.time}&type=${member.type}&userId=${member.id}'>
+                                                <td><a href='noticeUpdate?id=${notice.id }&admin_id=${notice.admin_id}&time=${notice.time}&type=${member.type}&userId=${member.id}'>
                                                     <button  type="button" class="btn btn-primary">수정</button>
                                                 </a></td>
                                             </c:if>
