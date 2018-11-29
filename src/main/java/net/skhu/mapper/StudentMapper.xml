@@ -399,6 +399,13 @@
         where id = #{id}
     </update>
 
+    <update id="updateComment">
+        update Student set
+          comment = #{comment}
+        where id = #{id}
+    </update>
+
+
     <select id="doubleMajor" resultType="int">
       select ifnull(sum(m.credit),0) doubleMajor
       from (select credit,min(grade) from student s

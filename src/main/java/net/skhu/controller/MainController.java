@@ -536,6 +536,22 @@ public class MainController {
         return "main/studentManager2";
     }
 
+    //학생정보에서 코멘트수정하기
+    @RequestMapping(value = "editComment", method = RequestMethod.GET)
+    public String editComment(Model model, @RequestParam("studentId") int studentId, Student student,
+                              @RequestParam("type") int type, @RequestParam("id") int id) {
+        model.addAttribute("student",studentMapper.findById(student.getId()));
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("student", studentMapper.findById(studentId));
+        return "main/editComment";
+    }
+
+    @RequestMapping(value = "editComment", method = RequestMethod.POST)
+    public String editComment(Model model, Student student) {
+        studentMapper.updateComment(student);
+        return "main/editComment2";
+    }
+
     @RequestMapping("after18")
     public String after18 (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
     {
