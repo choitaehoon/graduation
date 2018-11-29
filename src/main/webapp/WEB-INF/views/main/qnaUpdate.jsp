@@ -43,27 +43,18 @@
 
                             <form:form method="post" modelAttribute="qna">
                                 <div id="content">
-                                    <h4>질문 수정</h4>
-<<<<<<< HEAD
+
                                         <%--<input type="hidden" name="pg" value="1">--%>
                                     <input type="hidden" name="type" value="${member.type}"/>
                                     <input type="hidden" name="userId" value="${member.id}"/>
                                     <input type="hidden" name="student_id" value="${qna.student_id}"/>
                                     <input type="hidden" name="id" value="${qna.id}"/>
-=======
-                                    <form method="post">
-                                            <%--<input type="hidden" name="pg" value="1">--%>
-                                        <input type="hidden" name="type" value="${member.type}"  />
-                                        <input type="hidden" name="userId" value="${member.id}" />
-                                               <%-- <input type="hidden" name="student_id" value="${qna.student_id}" />--%>
-                                    </form>
->>>>>>> 494ec81decbc9d9aae8a0c95785d5e204e868f95
+
 
                                     <label>제목</label>
                                     <div class="form-group">
                                         <form:input path="title" class="form-control" style="width: 300px"/>
                                     </div>
-<<<<<<< HEAD
 
                                     <label>작성자</label>
                                     <div class="form-group">
@@ -75,18 +66,6 @@
                                         <textarea name="body" id="body" cols="100" rows="18">
                                                     <c:out value="${qna.body}"/>
                                         </textarea>
-=======
-<%--                                 <label>작성자</label>
-                                    <div class="form-group">
-                                        ${qna.student.name}
-                                    </div>--%>
-                                    <label>내 용</label>
-                                    <div class="form-group">
-                                        <textarea name="body" id="body" cols="100" rows="18" value="${qna.body}">
-                                                    ${qna.body}
-                                            </textarea>
->>>>>>> 494ec81decbc9d9aae8a0c95785d5e204e868f95
-                                    </div>
 
                                     <div>
                                         날짜 : <form:input path="wtime" class="form-control" style="width: 100px"/><br>
@@ -110,16 +89,6 @@
                                 </div>
                             </form:form>
 
-<<<<<<< HEAD
-=======
-                            <form>
-                                <%--                            <input type="hidden" name="pg" value="1">--%>
-                                <input type="hidden" name="type" value="${member.type}"  />
-                                <input type="hidden" name="id" value="${member.id}" />
-                              <%--  <input type="hidden" name="student_id" value="${member.id}" />--%>
-
-                            </form>
->>>>>>> 494ec81decbc9d9aae8a0c95785d5e204e868f95
 
                         </div>
                     </div>

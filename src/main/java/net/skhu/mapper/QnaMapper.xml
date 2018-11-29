@@ -71,21 +71,12 @@
     </insert>
 
     <update id="update">
-<<<<<<< HEAD
         update qna set
         title = #{title},
         body = #{body},
         wtime = now()
         where id= #{id}
-=======
-      update qna
-set
-title=#{title},
-body=#{body},
-wtime=now()
-where id=#{id};
 
->>>>>>> 494ec81decbc9d9aae8a0c95785d5e204e868f95
     </update>
 
     <delete id="delete">
