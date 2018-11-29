@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 <c:url var="R" value="/" />
 <!doctype html>
 <head>
@@ -42,25 +43,29 @@
                             <h4 class="title">Q & A</h4>
                                 <div id="content">
                                     <%--<h4>질문 수정</h4>--%>
-
-                                    <table class="table table-condensed">
+<table class="table table-condensed">
 <%--                                        <h5>제목</h5>
                                     <div class="form-group">
                                         ${qna.title}
                                     </div>--%>
                                     <label>작성자</label>
                                     <div class="form-group">
-                                        ${qnaa.adminName}
+                                        ${qnaanswer.admin.name}
                                     </div>
-                                    <label>내 용</label>
+<%--                                   <label>내 용</label>
                                     <div class="form-group">
                                         <textarea name="body" id="body" cols="100" rows="18">
                                                     <c:out value="${qnaa.body}"/>
                                             </textarea>
+                                    </div>--%>
+                                       <label>내 용</label>
+                                        <br/>
+                                    <div class="form-group" colspan="2" style="min-height: 350px ; text-align: left;">
+                                       ${qnaanswer.body}
                                     </div>
 
                                     <div>
-                                        날짜 :${qnaa.time}<br/>
+                                        날짜 :${qnaanswer.time}<br/>
                                         <div id="buttons">
                                             <a href="qna?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 목록으로</a>
                                         </div>
@@ -75,7 +80,6 @@
                         </div>
                     </div>
                 </div>
-
             <%--    <div id="answer">
                     &lt;%&ndash;<h4>질문 수정</h4>&ndash;%&gt;
 

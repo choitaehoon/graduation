@@ -76,15 +76,8 @@
    <%--                                 <c:if test="${memeber.id} eq ${qna.student_id}">
                                         <th>수정하기</th>
                                     </c:if>--%>
-
-                                    <c:choose>
-                                        <c:when test="${memeber.id eq qna.student_id}">
                                             <th>수정하기</th>
-                                        </c:when>
-                                        <c:when test="${memeber.id ne qna.student_id}">
-                                            <th> </th>
-                                        </c:when>
-                                    </c:choose>
+
                                 </tr>
                                 </thead>
 
@@ -106,10 +99,12 @@
                                         <%--</c:if>--%>
 
                                         <td>
+                                            <c:if test="${memeber.id} eq ${qna.student_id}">
                                             <a href='qnaUpdate?qnaId=${qna.id }&type=${member.type}&userId=${member.id}'>
                                             <%--<a href='qnaUpdate?qnaId=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>--%>
                                             <button  type="button" class="btn btn-primary">수정</button>
                                             </a>
+                                            </c:if>
                                         </td>
 
                                    <%--     <c:choose>

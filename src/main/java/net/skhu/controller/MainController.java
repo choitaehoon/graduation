@@ -346,15 +346,7 @@ public class MainController {
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaShow";
     }
-    /*qnaanswer답변 보기*/
-    @RequestMapping("qnaaShow")
-    public String qnaaShow(Model model,@RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("id") int id) {
 
-        Qnaanswer qnaa = qanswerMapper.findQnaa(qnaId);
-        model.addAttribute("qnaa", qnaa);
-        model.addAttribute("member", typeIdentity.typeCheck(type, id));
-        return "main/qnaaShow";
-    }
     /* qna 등록페이지*/
     @RequestMapping("qnaQuestion")
     public String qnaQ(Model model, @RequestParam("type") int type, @RequestParam("userId") int id) {
@@ -414,6 +406,7 @@ public class MainController {
         Qna qna = qnaMapper.findOne(qnaId);
         Qnaanswer qnaanswer = new Qnaanswer();
         qnaanswer.setQna_id(qnaId);
+
         model.addAttribute("qnaanswer", qnaanswer);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaaQuestion";
@@ -421,14 +414,26 @@ public class MainController {
 
     /* 답변 등록*/
     @RequestMapping(value = "qnaaQuestion", method = RequestMethod.POST)
-    public String qnaQa(Qna qna,Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
+    public String qnaQainsert(Qna qna,Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
 
         /*User user = (User)redirectAttributes.addAttribute("user");*/
         qnaanswer.setAdmin_id(id);
+        qnaanswer.setQna_id(qnaId);
         qanswerMapper.insert(qnaanswer);
+        logger.info(qnaanswer.toString());
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";
+    }
+    /*qnaanswer답변 보기*/
+    @RequestMapping("qnaaShow")
+    public String qnaaShow(Model model,@RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("id") int id) {
+
+        Qnaanswer qnaanswer = qanswerMapper.findQnaa(qnaId);
+        model.addAttribute("qnaanswer", qnaanswer);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        logger.info(qnaanswer.toString());
+        return "main/qnaaShow";
     }
 /*답변 상황 선택하기*/
     @RequestMapping("Finsh")

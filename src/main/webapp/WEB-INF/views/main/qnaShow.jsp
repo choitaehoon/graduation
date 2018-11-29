@@ -74,7 +74,7 @@
 
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
-
+                              <input type="hidden" name="qnaId" value="${qna.id}" />
                             </form>
 
                         </div>

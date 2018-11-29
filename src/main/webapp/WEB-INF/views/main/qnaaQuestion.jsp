@@ -42,13 +42,14 @@
                         <div class="header">
                             <h4 class="title">Q & A</h4>
 
-                            <form:form method="post" modelAttribute="qnaanswer">
+                            <form:form method="post"> <%--modelAttribute="qnaanswer"--%>
                                 <div id="content">
                                     <h4>답변 등록</h4>
                                     <form method="post">
                                         <input type="hidden" name="type" value="${member.type}"  />
                                         <input type="hidden" name="userId" value="${member.id}" />
-                                        <input type="hidden" name="qnaId" value="${qnaanswer.qna_id}" />
+                                        <input type="hidden" name="adminId" value="${member.id}" />
+                                        <input type="hidden" name="qnaId" value="${qna.id}" />
                                       <%--  <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />--%>
                                     </form>
                                     <label>답변 상태 선택</label>
@@ -60,6 +61,7 @@
                                             <button type="submit"  class="btn btn-warning"><i class="glyphicon glyphicon-ok"></i> 유선답변</button>
                                             </form>
                                         </div>
+
                                     <label>내 용</label>
                                     <div class="form-group">
                                         <textarea name="body" id="body" cols="100" rows="18"  value="${qnaanswer.body}">
@@ -71,6 +73,8 @@
                                        <%-- 날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>--%>
                                         파일 첨부  <input type="file"> * 2MB까지 가능
                                     </div>
+
+                                    <input type="hidden" name="qnaId" value="${qna.id}" />
 
                                     <div id="buttons">
                                         <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
@@ -87,7 +91,8 @@
                             <form>
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
-                                <input type="hidden" name="qnaId" value="${qnaanswer.qna_id}" />
+                                <input type="hidden" name="qnaId" value="${qna.id}" />
+                                <input type="hidden" name="adminId" value="${member.id}" />
                               <%--  <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />--%>
                             </form>
 
