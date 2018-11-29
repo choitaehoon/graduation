@@ -48,13 +48,17 @@
                                     <form method="post">
                                         <input type="hidden" name="type" value="${member.type}"  />
                                         <input type="hidden" name="userId" value="${member.id}" />
-                                        <input type="hidden" name="qna_id" value="${qna_id}" />
-                                        <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />
+                                        <input type="hidden" name="qna_id" value="${qnaanswer.qna_id}" />
+                                      <%--  <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />--%>
                                     </form>
                                     <label>답변 상태 선택</label>
                                         <div id="button">
-                                            <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> 답변완료</button>
-                                            <button type="submit" class="btn btn-warning"><i class="glyphicon glyphicon-ok"></i> 유선답변</button>
+                                            <form action="Finsh">
+                                            <button type="submit"  class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> 답변완료</button>
+                                            </form>
+                                            <form action="Call">
+                                            <button type="submit"  class="btn btn-warning"><i class="glyphicon glyphicon-ok"></i> 유선답변</button>
+                                            </form>
                                         </div>
                                     <label>내 용</label>
                                     <div class="form-group">
@@ -84,7 +88,7 @@
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
                              <input type="hidden" name="qna_id" value="'${qnaanswer.qna_id}'.value('${qna.id}')" />
-                                <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />
+                              <%--  <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />--%>
                             </form>
 
                         </div>

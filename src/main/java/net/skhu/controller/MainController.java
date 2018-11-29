@@ -424,7 +424,18 @@ public class MainController {
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";
     }
+/*답변 상황 선택하기*/
+    @RequestMapping("Finsh")
+    public String Finsh(@RequestParam("qnaId") int qnaId){
+        qnaMapper.plusState(qnaId);
+        return "main/qnaaQuestion";
+    }
 
+    @RequestMapping("Call")
+    public String Call(@RequestParam("qnaId") int qnaId) {
+        qnaMapper.plusCallState(qnaId);
+        return "main/qnaaQuestion";
+    }
     /*내정보 페이지*/
     @RequestMapping("myInfo")
     public String myInfo (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
