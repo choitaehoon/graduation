@@ -49,7 +49,8 @@
     join qna q
     on qa.qna_id = q.id;-->
 
-    <select id="findQnaa" resultType="Qnaanswer">
+    <!--기록한 답글을 불러오게 하기 위함-->
+    <select id="findQnaa" resultMap="resultMapQa">
 select qa.*,a.name adminName
 from qnaanswer qa
 left join admin a

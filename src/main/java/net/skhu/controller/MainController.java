@@ -266,6 +266,7 @@ public class MainController {
     @RequestMapping(value = "noticeRegister", method = RequestMethod.POST)
     public String noticeR(Notice notice, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
         noticeMapper.insert(notice);
+        notice.setAdmin_id(id);
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:notice";
@@ -274,7 +275,9 @@ public class MainController {
     //공지사항 수정 페이지*/
     @RequestMapping("noticeUpdate")
     public String updateN(Model model, @RequestParam("id") int noticeId, @RequestParam("admin_id") int adminId, @RequestParam("type") int type, @RequestParam("userId") int id) {
-        model.addAttribute("notice", noticeMapper.findNotice(noticeId, adminId));
+        Notice notice  = noticeMapper.findNotice(noticeId, adminId);
+/*        notice.setAdmin_id(adminId);*/
+        model.addAttribute("notice", notice);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/noticeUpdate";
     }
@@ -333,9 +336,7 @@ public class MainController {
     public String qnaShow(Model model,@RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("id") int id) {
 
         Qna qna = qnaMapper.findOne(qnaId);
-/*        Qnaanswer qnaa = qanswerMapper.findQnaa(qnaId);*/
         model.addAttribute("qna", qna);
-/*        model.addAttribute("qnaa", qnaa);*/
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaShow";
     }
@@ -397,8 +398,10 @@ public class MainController {
 
     /* 답변 등록페이지*/
     @RequestMapping("qnaaQuestion")
-    public String qnaQa(Model model,@RequestParam("type") int type, @RequestParam("userId") int id) {
+    public String qnaQa(Model model,@RequestParam("qnaId") int qnaId ,@RequestParam("type") int type, @RequestParam("userId") int id) {
         Qnaanswer qnaanswer = new Qnaanswer();
+//        Qna qna = qnaMapper.findOne(qnaId);
+/*        model.addAttribute("qna", qna);*/
         model.addAttribute("qnaanswer", qnaanswer);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaaQuestion";
@@ -406,8 +409,13 @@ public class MainController {
 
     /* 답변 등록*/
     @RequestMapping(value = "qnaaQuestion", method = RequestMethod.POST)
-    public String qnaQa(Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
+    public String qnaQa(Qna qna,Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
+
+        qnaanswer.setQna_id(qnaId);
+        qnaanswer.setAdmin_id(id);
+/*        redirectAttributes.addAttribute("qna", qna);*/
         qanswerMapper.insert(qnaanswer);
+/*        logger.*/
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";

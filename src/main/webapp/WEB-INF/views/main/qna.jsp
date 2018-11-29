@@ -97,7 +97,7 @@
                                         <td>${ qna.student.name }</td>
                                         <td>${ qna.count }</td>
                                         <c:if test="${member.type==2 }">
-                                            <td> <a href="qnaaQuestion?qnaId=${qna.id }&type=${member.type}&userId=${member.id}" class="btn btn-info">
+                                            <td> <a href="qnaaQuestion?qnaId=${qna.id}&type=${member.type}&userId=${member.id}" class="btn btn-info">
                                                 <span class="glyphicon glyphicon-user"></span> 답변하기</a></td>
                                         </c:if>
                                        <%-- <td>답변 현황</td>--%>

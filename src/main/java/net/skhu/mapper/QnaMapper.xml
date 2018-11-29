@@ -57,6 +57,7 @@
     select *
     from qna where id =#{id}
     </select>
+
     <select id="findOne" resultMap="resultMapQ">
     select q.*,s.name studentName
     from qna q left join student s

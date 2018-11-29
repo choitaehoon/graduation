@@ -41,7 +41,6 @@
                                 <h4>공지사항 수정</h4>
                                 <br />
                                 <form method="post">
-                                        <%--<input type="hidden" name="pg" value="1">--%>
                                     <input type="hidden" name="type" value="${member.type}"  />
                                     <input type="hidden" name="userId" value="${member.id}" />
 
@@ -50,14 +49,12 @@
                                 <div class="form-group">
                                     <form:input path="title" class="form-control" style="width: 300px"  />
                                 </div>
-                                <label>관리자 이름</label>
-                                <form:input path="admin_id" class="form-control"  placeholder="관리자 번호" style="width: 200px"/>
 
                                 <label>내 용</label>
                                 <div class="form-group">
-                                        <%--  <textArea cols=100 rows=18>		</textArea>&ndash;%&gt;--%>
 
-                                    <textarea name="body" id="body" maxlength="2468" style="height: 350px" value="${notice.body}">
+                                   <textarea name="body" id="body" maxlength="2468" style="height: 350px" cols="100" rows="18" value="${notice.body}">
+                                       ${notice.body}
                                     </textarea>
 
                                 </div>
@@ -85,7 +82,7 @@
                         <form>
                             <input type="hidden" name="type" value="${member.type}"  />
                             <input type="hidden" name="id" value="${member.id}" />
-                            <input type="hidden" name="admin_id" value="${notice.admin_id}" />
+                            <input type="hidden" name="admin_id" value="(${notice.admin_id}).value(${member.id})" />
                         </form>
 
 

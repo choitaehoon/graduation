@@ -41,7 +41,8 @@
                                     <form method="post">
                                         <input type="hidden" name="type" value="${member.type}"  />
                                         <input type="hidden" name="userId" value="${member.id}" />
-
+                                        <input type="hidden" name="qna_id" value="'${qnaanswer.qna_id}'.value('${qna.id}')" />
+                                        <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />
                                     </form>
                                     <label>답변 상태 선택</label>
                                         <div id="button">
@@ -68,13 +69,15 @@
                                     </div>
 
                                 </div>
+<%--                                <input type="hidden" name="qna_id" value="'${qnaanswer.qna_id}'.value('${qna.id}')" />
+                                <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />--%>
                             </form:form>
 
                             <form>
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
-                                <input type="hidden" name="qna_id" value="${qnaanswer.qna_id}" />
-                                <input type="hidden" name="admin_id" value="${member.id}" />
+                             <input type="hidden" name="qna_id" value="'${qnaanswer.qna_id}'.value('${qna.id}')" />
+                                <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />
                             </form>
 
                         </div>
