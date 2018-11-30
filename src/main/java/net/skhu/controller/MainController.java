@@ -451,7 +451,6 @@ public class MainController {
     @RequestMapping("myInfo")
     public String myInfo (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
     {
-        System.out.println(type + " " + id + " " + "myInfo");
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/myInfo";
     }

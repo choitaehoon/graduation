@@ -28,7 +28,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>id</label>
-                                                <input type="text" class="form-control" placeholder="Username" name="id" value="${member.id}">
+                                                <input type="text" class="form-control" placeholder="Username" name="id" value="${member.id}" readonly>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
