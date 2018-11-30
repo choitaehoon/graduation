@@ -26,6 +26,11 @@
                         <div class="header">
                             <h4 class="title">학생 졸업 관리</h4>
                             <br><br><br>
+
+                            <div class="pull-right mb5">
+                                <button class="btn btn-success"><a href="studentManager?type=${member.type}&id=${member.id}&${pagination.queryString}">목록으로 가기</a></button>
+                            </div>
+
                             <table class="table table-condensed">
                                 <tbody>
                                 <tr>

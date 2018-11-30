@@ -71,7 +71,7 @@
 
                                     <tbody>
                                     <c:forEach var="list" items="${ listes }">
-                                        <tr data-url="studentManager2?studentId=${ list.id }&type=${member.type}&id=${member.id}">
+                                        <tr data-url="studentManager2?studentId=${ list.id }&type=${member.type}&id=${member.id}&${pagination.queryString}">
                                             <td>${ list.id }</td>
                                             <td>${ list.name }</td>
                                             <td>${ list.email }</td>
@@ -91,6 +91,8 @@
                                     <input type="hidden" name="pg" value="1" />
                                     <input type="hidden" name="type" value="${member.type}"  />
                                     <input type="hidden" name="id" value="${member.id}" />
+                                    <input type="hidden" name="choice" value="${choice}">
+                                    <input type="hidden" name="search" value="${search}">
                                 <%--/* 페이지 네이션 */--%>
                                 <div class="pagination pagination-small pagination-centered">
                                         <c:forEach var="page" items="${ pagination.pageList }">
