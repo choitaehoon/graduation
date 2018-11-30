@@ -60,10 +60,10 @@
 
                                 </div>
 
-                                <div>
+                                <%--<div>
                                     날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>
                                     파일 첨부  <input type="file"> * 2MB까지 가능
-                                </div>
+                                </div>--%>
 
                                 <div id="buttons" class="pull-right">
                                     <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>

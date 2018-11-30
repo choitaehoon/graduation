@@ -48,10 +48,10 @@
                                     <div class="form-group">
                                         <form:input path="title" class="form-control" style="width: 100px" />
                                     </div>
-                                    <label>작성자</label>
+                       <%--             <label>작성자</label>
                                     <div class="form-group">
                                         <form:input path="student_id" class="form-control"  placeholder="작성자" style="width: 200px"/>
-                                    </div>
+                                    </div>--%>
                                     <label>내 용</label>
                                     <div class="form-group">
                                         <textarea name="body" id="body" cols="100" rows="18">
@@ -60,10 +60,10 @@
                                     </div>
 
 
-                                    <div>
+                                 <%--   <div>
                                         파일 첨부  <input type="file"> * 2MB까지 가능
                                     </div>
-
+--%>
                                     <div id="buttons">
                                         <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
                                         <a class="btn btn-danger" href="#"><i class=" glyphicon glyphicon-remove"></i> 삭제</a>

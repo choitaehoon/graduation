@@ -60,10 +60,10 @@ ange this template use File | Settings | File Templates.
                                         <%--<form:input <textarea name="" id="" cols="30" rows="10"></textarea> path="body" class="form-control" style="width: 100px height: 3000px" />--%>
                                 </div>
 
-                                <div>
+                                <%--<div>
                                     날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>
                                     파일 첨부  <input type="file"> * 2MB까지 가능
-                                </div>
+                                </div>--%>
 
                                 <div id="buttons">
                                     <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>

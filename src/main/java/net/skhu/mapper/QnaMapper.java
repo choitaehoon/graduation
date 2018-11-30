@@ -23,8 +23,10 @@ public interface QnaMapper
     void insert(Qna qna);
     void update(Qna qna);
     void delete(int qnaId);
+
     int count();
 
+    void countPlus(Qna qna);
     List<Qna> findQnaBySrch(@Param("currentPage") int currentPage,@Param("pageSize") int pageSize,@Param("choice") int choice,@Param("srch") String srch);
     int srchCount(@Param("choice") int choice, @Param("srch") String srch);
 }
