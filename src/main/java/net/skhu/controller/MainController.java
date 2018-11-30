@@ -480,6 +480,7 @@ public class MainController {
         model.addAttribute("search", search);
         model.addAttribute("btn",btn);
         model.addAttribute("selected", lectureService.selectChecKAndSearch(choice));
+        model.addAttribute("choice",choice);
         return "main/studentManager";
     }
 
@@ -524,7 +525,7 @@ public class MainController {
 
     @RequestMapping(value = "studentManager2", method = RequestMethod.GET)
     public String studentManager2 (Model model,@RequestParam("studentId") int studentId,
-                                   @RequestParam("type") int type, @RequestParam("id") int id )
+                                   @RequestParam("type") int type, @RequestParam("id") int id , Pagination pagination)
     {
         Student student = studentMapper.findById(studentId);
         model.addAttribute("student", student);
