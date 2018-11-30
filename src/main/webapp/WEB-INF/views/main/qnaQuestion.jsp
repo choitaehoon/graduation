@@ -60,10 +60,10 @@
                                     </div>
 
 
-                                    <div>
+                                 <%--   <div>
                                         파일 첨부  <input type="file"> * 2MB까지 가능
                                     </div>
-
+--%>
                                     <div id="buttons">
                                         <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
                                         <a class="btn btn-danger" href="#"><i class=" glyphicon glyphicon-remove"></i> 삭제</a>

@@ -321,6 +321,14 @@ public class MainController {
         return "main/qna";
     }
 
+/*    //qna check
+    @RequestMapping("qnaCheck")
+    public String qnaCheck(Model model, @RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("id") int id) {
+        Qna qna = qnaMapper.findOne(qnaId);
+        model.addAttribute("qna", qna);
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        return "main/qna";
+    }*/
     /*
  qna 리스트(검색할시)
 */

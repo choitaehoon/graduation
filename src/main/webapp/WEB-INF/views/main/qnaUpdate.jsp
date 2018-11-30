@@ -67,10 +67,10 @@
                                                     <c:out value="${qna.body}"/>
                                         </textarea>
 
-                                    <div>
+                    <%--                <div>
                                         날짜 : <form:input path="wtime" class="form-control" style="width: 100px"/><br>
                                         파일 첨부 <input type="file"> * 2MB까지 가능
-                                    </div>
+                                    </div>--%>
 
                                     <div id="buttons">
                                         <button type="submit" class="btn btn-primary"><i
