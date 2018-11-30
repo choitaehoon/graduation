@@ -66,17 +66,13 @@
                                 <th>제목</th>
                                 <th>작성일</th>
                                 <th>작성자</th>
-                                <th>작성수</th>
+                                <th>조회수</th>
 
                                 <c:if test="${member.type == 2 }">
                                     <th>답변</th>
                                 </c:if>
                                 <th>답변 현황</th>
-
-   <%--                                 <c:if test="${memeber.id} eq ${qna.student_id}">
-                                        <th>수정하기</th>
-                                    </c:if>--%>
-                                            <th>수정하기</th>
+                                    <th>수정하기</th>
 
                                 </tr>
                                 </thead>
@@ -94,7 +90,7 @@
                                                 <span class="glyphicon glyphicon-user"></span> 답변하기</a></td>
                                         </c:if>
                                        <%-- <td>답변 현황</td>--%>
-                                      <%--  <c:if test="${qna.answerstate eq null}">--%>
+
                                         <c:choose>
                                             <c:when test="${qna.answerstate == 1}">
                                             <td><button  class="btn btn-success"> 답변 완료</button></td>
@@ -106,7 +102,8 @@
                                             <td><button  class="btn btn-danger"> 답변 요함</button></td>
                                             </c:otherwise>
                                         </c:choose>
-                                        <%--</c:if>--%>
+                                        <%--<td>${ qna.answerstate}</td>--%>
+
 
                                         <td>
                                             <c:if test="${memeber.id} eq ${qna.student_id}">

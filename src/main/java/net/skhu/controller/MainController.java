@@ -312,7 +312,6 @@ public class MainController {
     //qna list
     @RequestMapping("qna")
     public String qna(Model model, Pagination pagination, @RequestParam("type") int type, @RequestParam("id") int id) {
-
         pagination.setRecordCount(qnaMapper.count());
 
         List<Qna> qnas = qnaMapper.findAll(pagination);
@@ -321,14 +320,14 @@ public class MainController {
         return "main/qna";
     }
 
-/*    //qna check
+    //qna list
     @RequestMapping("qnaCheck")
-    public String qnaCheck(Model model, @RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("id") int id) {
-        Qna qna = qnaMapper.findOne(qnaId);
+    public String qnaCheck(Model model,@RequestParam("qnaId") int qnaId, @RequestParam("type") int type, @RequestParam("id") int id) {
+        Qna qna = qnaMapper.findQna(qnaId);
         model.addAttribute("qna", qna);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qna";
-    }*/
+    }
     /*
  qna 리스트(검색할시)
 */

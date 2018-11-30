@@ -21,7 +21,7 @@
     <select id="findAll" resultMap="resultMapQ">
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>
-    select a.id,a.title,a.wtime,s.name studentName,a.count
+    select a.id,a.title,a.wtime,a.answerstate,a.student_id,s.name studentName,a.count
     from qna a
     LEFT JOIN student s
     on a.student_id = s.id
