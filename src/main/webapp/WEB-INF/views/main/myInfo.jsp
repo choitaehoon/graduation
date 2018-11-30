@@ -83,25 +83,7 @@
                                                 <input type="text" class="form-control" placeholder="Country" name="phone" value="${member.phone}">
                                             </div>
                                         </div>
-                                        <c:if test="${member.type == 1}">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>총 학점 점수</label>
-                                                <input type="number" class="form-control" placeholder="${member.avgGrade}">
-                                            </div>
-                                        </div>
-                                        </c:if>
                                     </div>
-                                    <%--<c:if test="${member.type == 1}">--%>
-                                    <%--<div class="row">--%>
-                                        <%--<div class="col-md-12">--%>
-                                            <%--<div class="form-group">--%>
-                                                <%--<label>About Me</label>--%>
-                                                <%--<textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">열심히하자!</textarea>--%>
-                                            <%--</div>--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--</c:if>--%>
                                     <button type="submit" class="btn btn-info btn-fill pull-right">수정</button>
                                     <div class="clearfix"></div>
                                 </form>
