@@ -342,6 +342,7 @@ public class MainController {
     public String qnaShow(Model model,@RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("id") int id) {
 
         Qna qna = qnaMapper.findOne(qnaId);
+        qnaMapper.countPlus(qna);
         model.addAttribute("qna", qna);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaShow";
@@ -359,6 +360,7 @@ public class MainController {
     /* qna 등록*/
     @RequestMapping(value = "qnaQuestion", method = RequestMethod.POST)
     public String qnaQ(Qna qna, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
+        qna.setStudent_id(id);
         qnaMapper.insert(qna);
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);

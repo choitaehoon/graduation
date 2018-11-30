@@ -48,10 +48,10 @@
                                     <div class="form-group">
                                         <form:input path="title" class="form-control" style="width: 100px" />
                                     </div>
-                                    <label>작성자</label>
+                       <%--             <label>작성자</label>
                                     <div class="form-group">
                                         <form:input path="student_id" class="form-control"  placeholder="작성자" style="width: 200px"/>
-                                    </div>
+                                    </div>--%>
                                     <label>내 용</label>
                                     <div class="form-group">
                                         <textarea name="body" id="body" cols="100" rows="18">
