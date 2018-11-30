@@ -109,30 +109,30 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="image">
-                                <!--                                 <img src="https://github.com/choitaehoon/graduation/blob/master/src/main/webapp/res/images/logo.jpg" alt="..."/> -->
-                            </div>
-                            <div class="content">
-                                <div class="author">
-                                    <a href="#">
-                                        <i class="pe-7s-smile" style="size:128px"></i>
+                    <%--<div class="col-md-4">--%>
+                        <%--<div class="card card-user">--%>
+                            <%--<div class="image">--%>
+                                <%--<!--                                 <img src="https://github.com/choitaehoon/graduation/blob/master/src/main/webapp/res/images/logo.jpg" alt="..."/> -->--%>
+                            <%--</div>--%>
+                            <%--<div class="content">--%>
+                                <%--<div class="author">--%>
+                                    <%--<a href="#">--%>
+                                        <%--<i class="pe-7s-smile" style="size:128px"></i>--%>
 
-                                        </h4>
-                                    </a>
-                                </div>
+                                        <%--</h4>--%>
+                                    <%--</a>--%>
+                                <%--</div>--%>
 
-                            </div>
-                            <hr>
-                            <div class="text-center">
-                                <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
-                                <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
-                                <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
+                            <%--</div>--%>
+                            <%--<hr>--%>
+                            <%--<div class="text-center">--%>
+                                <%--<button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>--%>
+                                <%--<button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>--%>
+                                <%--<button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>--%>
 
-                            </div>
-                        </div>
-                    </div>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
 
                 </div>
             </div>
