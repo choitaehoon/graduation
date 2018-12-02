@@ -89,7 +89,7 @@
                     <form:select path="department_id" class="form-control"
                                  itemValue="id" itemLabel="departmentName" items="${ departments }" />
                 </div>
-                <input type="password" name="userPwd" id="pwd1" class="inpt" required="required"  placeholder="비밀번호"/>
+                <input type="password" name="password" id="pwd1" class="inpt" required="required"  placeholder="비밀번호"/>
                 <input type="password" name="reuserPwd" id="pwd2" class="inpt" required="required"  placeholder="비밀번호 확인"/>
                 <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
                 <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
