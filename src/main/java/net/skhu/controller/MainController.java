@@ -223,7 +223,6 @@ public class MainController {
     //공지사항 list
     @RequestMapping("notice")
     public String notice(Model model, Pagination pagination, @RequestParam("type") int type, @RequestParam("id") int id) {
-
         pagination.setRecordCount(noticeMapper.count());
 
         List<Notice> notices = noticeMapper.findAll(pagination);
@@ -254,6 +253,7 @@ public class MainController {
     public String noticeShow(Model model,@RequestParam("noticeId") int noticeId, @RequestParam("type") int type, @RequestParam("id") int id) {
 
         Notice notice=noticeMapper.findOne(noticeId);
+        noticeMapper.countPlus(notice);
         model.addAttribute("notice",notice);
        model.addAttribute("member", typeIdentity.typeCheck(type, id));
 
@@ -270,9 +270,10 @@ public class MainController {
 
     /* 공지사항 등록*/
     @RequestMapping(value = "noticeRegister", method = RequestMethod.POST)
-    public String noticeR(Notice notice, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
+    public String noticeR(Notice notice, @RequestParam("admin_id") int admin_id, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
         noticeMapper.insert(notice);
         notice.setAdmin_id(id);
+        logger.info(notice.toString());
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:notice";
@@ -315,6 +316,7 @@ public class MainController {
         pagination.setRecordCount(qnaMapper.count());
 
         List<Qna> qnas = qnaMapper.findAll(pagination);
+        logger.info(qnas.toString());
         model.addAttribute("qnas", qnas);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qna";
@@ -324,6 +326,7 @@ public class MainController {
     @RequestMapping("qnaCheck")
     public String qnaCheck(Model model,@RequestParam("qnaId") int qnaId, @RequestParam("type") int type, @RequestParam("id") int id) {
         Qna qna = qnaMapper.findQna(qnaId);
+
         model.addAttribute("qna", qna);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qna";
@@ -369,6 +372,7 @@ public class MainController {
     public String qnaQ(Qna qna, @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
         qna.setStudent_id(id);
         qnaMapper.insert(qna);
+        logger.info(qna.toString());
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";
@@ -415,7 +419,7 @@ public class MainController {
         Qna qna = qnaMapper.findOne(qnaId);
         Qnaanswer qnaanswer = new Qnaanswer();
         qnaanswer.setQna_id(qnaId);
-
+        logger.info(qna.toString());
         model.addAttribute("qnaanswer", qnaanswer);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaaQuestion";
@@ -429,6 +433,7 @@ public class MainController {
         qnaanswer.setAdmin_id(id);
         qnaanswer.setQna_id(qnaId);
         qanswerMapper.insert(qnaanswer);
+//        qnaMapper.plusState(qnaId );
         logger.info(qnaanswer.toString());
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);

@@ -98,6 +98,11 @@ time = now()
 where id=#{id}
     </update>
 
+    <update id="countPlus">
+        update notice
+          set count=count+1
+      where id=#{id};
+    </update>
     <delete id="delete">
       Delete from notice
       where id=#{id}

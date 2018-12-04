@@ -53,12 +53,12 @@
                                     </form>
                                     <label>답변 상태 선택</label>
                                         <div id="button">
-                                            <form action="Finsh">
-                                            <button type="submit"  class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> 답변완료</button>
-                                            </form>
-                                            <form action="Call">
-                                            <button type="submit"  class="btn btn-warning"><i class="glyphicon glyphicon-ok"></i> 유선답변</button>
-                                            </form>
+                                           <%-- <form action="Finsh">--%>
+                                            <button type="submit" name="Finsh" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> 답변완료</button>
+
+                                          <%--  <form action="Call">--%>
+                                            <button type="submit"  name="Call"  class="btn btn-warning"><i class="glyphicon glyphicon-ok"></i> 유선답변</button>
+                                            <%--</form>--%>
                                         </div>
 
                                     <label>내 용</label>

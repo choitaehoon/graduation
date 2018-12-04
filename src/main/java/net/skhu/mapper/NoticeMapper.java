@@ -22,6 +22,7 @@ public interface NoticeMapper
     int count();
     int srchCount(@Param("choice") int choice, @Param("srch") String srch);
 
+    void countPlus(Notice notice);
     void insert(Notice notice);
     void update(Notice notice);
     void delete(int noticeId);
