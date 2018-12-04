@@ -417,9 +417,10 @@ public class MainController {
 //        Qna qna = qnaMapper.findOne(qnaId);
 /*        model.addAttribute("qna", qna);*/
         Qna qna = qnaMapper.findOne(qnaId);
+        qnaMapper.plusState(qna);
         Qnaanswer qnaanswer = new Qnaanswer();
         qnaanswer.setQna_id(qnaId);
-        logger.info(qna.toString());
+       /* logger.info(qna.toString());*/
         model.addAttribute("qnaanswer", qnaanswer);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/qnaaQuestion";
@@ -433,8 +434,9 @@ public class MainController {
         qnaanswer.setAdmin_id(id);
         qnaanswer.setQna_id(qnaId);
         qanswerMapper.insert(qnaanswer);
-//        qnaMapper.plusState(qnaId );
+/*        qnaMapper.plusState(qna);*/
         logger.info(qnaanswer.toString());
+        logger.info(qna.toString());
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";
