@@ -54,11 +54,16 @@
                                     <label>답변 상태 선택</label>
                                         <div id="button">
                                            <%-- <form action="Finsh">--%>
-                                            <button type="submit" name="Finsh" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> 답변완료</button>
+<%--                                            <button type="submit" name="Finsh" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> 답변완료</button>--%>
 
-                                          <%--  <form action="Call">--%>
-                                            <button type="submit"  name="Call"  class="btn btn-warning"><i class="glyphicon glyphicon-ok"></i> 유선답변</button>
+                                             <%--  <form action="Call">--%>
+                                           <%-- <button type="submit"  name="Call" class="btn btn-warning" ><i class="glyphicon glyphicon-ok"></i> 유선답변</button>--%>
                                             <%--</form>--%>
+                                               <a
+                                                  href="Call?qnaId=${qnaanswer.qna_id}&type=${member.type}&userId=${member.id}"
+                                                  class="btn btn-warning">
+                                                  <%-- <i class="btn btn-warning"></i>--%>유선답변
+                                               </a>
                                         </div>
 
                                     <label>내 용</label>

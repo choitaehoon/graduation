@@ -430,11 +430,10 @@ public class MainController {
     @RequestMapping(value = "qnaaQuestion", method = RequestMethod.POST)
     public String qnaQainsert(Qna qna,Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
 
-        /*User user = (User)redirectAttributes.addAttribute("user");*/
         qnaanswer.setAdmin_id(id);
         qnaanswer.setQna_id(qnaId);
         qanswerMapper.insert(qnaanswer);
-/*        qnaMapper.plusState(qna);*/
+        //버튼 클릭되면        qnaMapper.plusCallState(qnaId); 작동 시키기
         logger.info(qnaanswer.toString());
         logger.info(qna.toString());
         redirectAttributes.addAttribute("type", type);
@@ -452,17 +451,14 @@ public class MainController {
         return "main/qnaaShow";
     }
 /*답변 상황 선택하기*/
-/*    @RequestMapping("Finsh")
-    public void Finsh(@RequestParam("qnaId") int qnaId){
-        qnaMapper.plusState(qnaId);
-        *//*return "main/qnaaQuestion";*//*
+    @RequestMapping("Call")
+    public String Call(Model model, @RequestParam("qnaId") int qnaId) {
+        /*Qna qna =qnaMapper.findOne(qnaId);*/
+        qnaMapper.plusCallState(qnaId);
+     /*   model.addAttribute("qna", qna);*/
+        return "redirect:qnaaQuestion";
     }
 
-    @RequestMapping("Call")
-    public void Call(@RequestParam("qnaId") int qnaId) {
-        qnaMapper.plusCallState(qnaId);
-      *//*  return "main/qnaaQuestion";*//*
-    }*/
     /*내정보 페이지*/
     @RequestMapping("myInfo")
     public String myInfo (Model model,@RequestParam("type") int type, @RequestParam("id") int id )
