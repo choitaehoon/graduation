@@ -35,7 +35,7 @@
         });
     </script>
     <style>
-        #content {
+        #contents {
             margin-left: 30%;
             height: 800px;
         }
@@ -59,7 +59,7 @@
 
                             <br/>
                             <br/>
-
+                            <div id="contents">
                             <form:form method="post" modelAttribute="admin">
                                 <div class="form-group">
                                     <label>ID(교번)</label>
@@ -91,6 +91,7 @@
                                     <a href="graduation?type=${member.type}&id=${member.id}" class="btn btn-default">취소</a>
                                 </div>
                             </form:form>
+                            </div>
                         </div>
                     </div>
                 </div>

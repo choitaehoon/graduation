@@ -74,7 +74,7 @@
 
 
         <div class="logo">
-        <a href="graduation?type=${member.type}&id=${member.id}" class="simple-text">
+        <a href="#" class="simple-text">
         SKHU 졸업관리
         </a>
         </div>
