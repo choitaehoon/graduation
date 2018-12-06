@@ -43,7 +43,7 @@
 
                             <form:form method="post" modelAttribute="qna">
                                 <div id="content">
-
+                                    <h4>질문 수정</h4>
                                         <%--<input type="hidden" name="pg" value="1">--%>
                                     <input type="hidden" name="type" value="${member.type}"/>
                                     <input type="hidden" name="userId" value="${member.id}"/>

@@ -65,7 +65,7 @@
                                     파일 첨부  <input type="file"> * 2MB까지 가능
                                 </div>--%>
 
-                                <div id="buttons" class="pull-right">
+                                <div id="buttons">
                                     <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
 
                                     <a data-confirm-delete  href="deleteN?noticeId=${notice.id}&type=${member.type}&userId=${member.id}" class="btn btn-danger">
