@@ -63,7 +63,7 @@
             position: relative;
             overflow: hidden;
             width: 700px;
-            height: 650px;
+            height: 700px;
             margin: 80px auto 0;
             background-color: #ffffff;
             -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
