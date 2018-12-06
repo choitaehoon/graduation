@@ -125,6 +125,7 @@
         <result property="cultureGoal" column="cultureGoal"/>
         <result property="departmentName" column="departmentName"/>
         <result property="graduationRule_id" column="graduationRule_id"/>
+        <result property="myGrade" column="myGrade" />
         <collection property="myLecture" ofType="Lecture">
             <id property="year" column="lecture_year"/>
             <id property="semester" column="lecture_semester"/>
@@ -274,6 +275,9 @@
             <if test="choice == 3">
                 s.id like concat (#{search},'%')
             </if>
+            <if test="choice == 4">
+                s.myGrade = #{search}
+            </if>
         </where>
         limit ${start} , ${end}
     </select>
@@ -282,19 +286,19 @@
         <bind name="start" value="(currentPage-1)*pageSize"/>
         <bind name="end" value="pageSize"/>
         select * from
-        (select s.id, s.name, s.email, d.departmentName,count(distinct m.lecture_year, m.lecture_semester)+1 semester, ifnull(sum(m.credit),0) totalCredit
+        (select s.id, s.name, s.email,s.myGrade, d.departmentName,count(distinct m.lecture_year, m.lecture_semester)+1 semester, ifnull(sum(m.credit),0) totalCredit
         from student s
         inner join department d on s.department_id = d.id
         left outer join mylecture m on s.id = m.student_id
         where m.lecture_semester not in ('여름학기','겨울학기')
         group by s.id)s
-        where (semester >= 7) and (130>totalCredit)
+        where (semester >= 6) and (130>totalCredit) and (s.myGrade = 4)
         <where>
             <if test="choice == 1">
                 s.name like concat(#{search},'%')
             </if>
             <if test="choice == 2">
-                s.departmentName like concat(#{search},'%')
+                d.departmentName like concat(#{search},'%')
             </if>
             <if test="choice == 3">
                 s.id like concat (#{search},'%')
@@ -317,23 +321,26 @@
             <if test="choice == 3">
                 s.id like concat (#{search},'%')
             </if>
+            <if test="choice == 4">
+                s.myGrade = #{search}
+            </if>
         </where>
     </select>
     <select id="selectCount2" resultType="int">
         select count(*) from
-        (select s.id, s.name, s.email, d.departmentName,count(distinct m.lecture_year, m.lecture_semester)+1 semester, ifnull(sum(m.credit),0) totalCredit
+        (select s.id, s.name, s.email,s.myGrade, d.departmentName,count(distinct m.lecture_year, m.lecture_semester)+1 semester, ifnull(sum(m.credit),0) totalCredit
         from student s
         inner join department d on s.department_id = d.id
         left outer join mylecture m on s.id = m.student_id
         where m.lecture_semester not in ('여름학기','겨울학기')
         group by s.id)s
-        where (semester >= 7) and (130 > totalCredit)
+        where (semester >= 6) and (130 > totalCredit) and (s.myGrade = 4)
         <where>
             <if test="choice == 1">
                 s.name like concat(#{search},'%')
             </if>
             <if test="choice == 2">
-                s.departmentName like concat(#{search},'%')
+                d.departmentName like concat(#{search},'%')
             </if>
             <if test="choice == 3">
                 s.id like concat (#{search},'%')
@@ -352,6 +359,7 @@
         <id property="id" column="id" />
         <result property="name" column="name" />
         <result property="email" column="email" />
+        <result property="myGrade" column="myGrade" />
         <association property="department" javaType="Department">
             <result property="departmentName" column="departmentName" />
         </association>
@@ -371,8 +379,8 @@
 
 <!--    나중에 otp 추가하기-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-	INSERT Student (id, name, department_id, password, email,question, phone,graduationRule_id)
-	VALUES (#{id}, #{name}, #{department_id}, #{password}, #{email},#{question}, #{phone},#{graduationRule_id})
+	INSERT Student (id, name, department_id, password, email,question, phone,graduationRule_id,myGrade)
+	VALUES (#{id}, #{name}, #{department_id}, #{password}, #{email},#{question}, #{phone},#{graduationRule_id},1)
 	</insert>
 
     <update id="updateMember">
@@ -381,7 +389,8 @@
         email = #{email} ,
         password = #{password} ,
         question = #{question} ,
-        phone = #{phone}
+        phone = #{phone},
+        myGrade =#{myGrade}
     where id = #{id}
     </update>
 

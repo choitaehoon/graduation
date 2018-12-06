@@ -95,8 +95,7 @@
     </insert>
 
     <update id="update">
-        update replaceLecture
-        set
+        update replaceLecture set
         department = #{department},
         closeLecTitle = #{closeLecTitle},
         subType = #{subType},

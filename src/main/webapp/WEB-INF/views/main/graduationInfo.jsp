@@ -43,7 +43,7 @@
                             <h4 class="title">졸업 관리</h4>
                             <p class="category">나의 졸업 관리 페이지입니다.</p>
                             <br/>
-                            <h2 class="title">소프트웨어공학과</h2>
+                            <h2 class="title">${student.departmentName}</h2>
                             <h4 class="title">-${student.detailType}</h4>
 
 

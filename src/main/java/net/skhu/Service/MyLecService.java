@@ -38,7 +38,7 @@ public class MyLecService {
         //파일을 옵션에 담기
         excelReadOption.setFilePath(destFile.getAbsolutePath());
         //엑셀에서 읽을 컬럼 명 지정
-        excelReadOption.setOutputColumns("A","B","C","D","E","F","G","H");
+        excelReadOption.setOutputColumns("A","B","C","D","E","F","G");
         //첫번째행은 컬럼명이여서 제외하고, 2번째부터 데이터 값 받기위해 설정
         excelReadOption.setStartRow(2);
         //엑셀파일 읽기어서 맵에 담기
@@ -56,10 +56,10 @@ public class MyLecService {
             myLecture.setLecture_semester(article.get("B"));//학기
             myLecture.setLecture_id(article.get("C"));//과목코드
             myLecture.setLecture_split(1);//분반
-            myLecture.setTitle(article.get("E"));//과목명
-            myLecture.setDetailType(article.get("F"));//전필, 전선, 패논패, 채플
-            myLecture.setCredit(article.get("G"));//이수학점
-            myLecture.setGrade(article.get("H"));//내가 받은 점수 (A,B,C...)
+            myLecture.setTitle(article.get("D"));//과목명
+            myLecture.setDetailType(article.get("E"));//전필, 전선, 패논패, 채플
+            myLecture.setCredit(article.get("F"));//이수학점
+            myLecture.setGrade(article.get("G"));//내가 받은 점수 (A,B,C...)
             myLecture.setStudent_id(userId);//학생
             myLecture.setRemove(0);// 내가 들은 수업이니까 0으로 지정
 

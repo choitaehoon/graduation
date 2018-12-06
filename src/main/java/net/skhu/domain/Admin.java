@@ -10,8 +10,9 @@ public class Admin
     String password;
     String email;
     String phone;
+    int department_id;
     Department department;
 
     int type;
-
+    int adminid;
 }

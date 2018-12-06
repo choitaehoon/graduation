@@ -38,7 +38,7 @@
 
                                 <div class="pull-right mb5">
                                     <form method="POST">
-                                        <button type="submit" class="btn btn-default" name="btn" value="0">전체 학생</button>
+                                       <a href="studentManager?type=${member.type}&id=${member.id}" class="btn btn-default">전체 학생</a>
                                         <button type="submit" class="btn btn-danger" name="btn" value="1">요건 미충족 학생</button>
                                     </form>
                                 </div>
@@ -51,6 +51,7 @@
                                         <option value="1" ${selected[0]}>이름</option>
                                         <option value="2" ${selected[1]}>학과별</option>
                                         <option value="3" ${selected[2]}>학번</option>
+                                        <option value="4" ${selected[2]}>학년</option>
                                     </select>
                                     <input type="text" name="search" value="${search}">
                                     <button type="submit" class="btn btn-primary">조회</button>
@@ -63,6 +64,7 @@
                                     <tr>
                                         <th>학번</th>
                                         <th>이름</th>
+                                        <th>학년</th>
                                         <th>이메일</th>
                                         <th>학과</th>
                                         <th>권한</th>
@@ -74,6 +76,7 @@
                                         <tr data-url="studentManager2?studentId=${ list.id }&type=${member.type}&id=${member.id}&${pagination.queryString}">
                                             <td>${ list.id }</td>
                                             <td>${ list.name }</td>
+                                            <td>${ list.myGrade}</td>
                                             <td>${ list.email }</td>
                                             <td>${ list.departmentName}</td>
                                             <td>
