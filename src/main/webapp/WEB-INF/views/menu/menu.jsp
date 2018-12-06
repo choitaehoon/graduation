@@ -158,6 +158,14 @@
         </li>
         </c:if>
 
+        <c:if test="${member.type == 2}">
+            <li>
+            <a href="/main/addAdmin?type=${member.type}&id=${member.id}">
+            <i class="pe-7s-plus"></i>
+            <p>관리자 추가</p> </a>
+            </li>
+        </c:if>
+
         <li>
         <a href="/main/notice?type=${member.type}&id=${member.id}">
         <i class="pe-7s-note2"></i>
