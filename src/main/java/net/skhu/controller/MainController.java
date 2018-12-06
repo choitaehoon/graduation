@@ -220,6 +220,22 @@ public class MainController {
         return "수강과목 엑셀파일이 업로드 되었습니다.새로고침 눌러주세요!";
     }
 
+    //관리자 추가
+    @RequestMapping("addAdmin")
+    public String addAdmin(Model model,Admin admin, @RequestParam("type") int type, @RequestParam("id") int id){
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("admin",admin);
+        return "main/addAdmin";
+    }
+
+    @RequestMapping(value = "addAdmin", method = RequestMethod.POST)
+    public String addAdmin2(Model model, Admin admin,  @RequestParam("type") int type, @RequestParam("id") int id){
+
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        adminMapper.createAdmin(admin);
+        return "login/main";
+    }
+
     //공지사항 list
     @RequestMapping("notice")
     public String notice(Model model, Pagination pagination, @RequestParam("type") int type, @RequestParam("id") int id) {

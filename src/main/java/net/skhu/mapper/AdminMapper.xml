@@ -24,6 +24,14 @@
       where id = #{id}
     </update>
 
+    <insert id="createAdmin">
+        insert admin set
+        id = #{adminid},
+        name = #{name},
+        password = #{password},
+        department_id = 19
+    </insert>
+
     <delete id="deleteStudent">
         delete from student
         where id = #{id}
