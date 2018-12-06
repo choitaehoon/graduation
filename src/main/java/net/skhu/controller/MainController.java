@@ -712,17 +712,7 @@ public class MainController {
         return "main/comBefore18";
     }
 
-    //        //대체과목관리, 폐지 과목 list
-//        @RequestMapping("replaceLecture")
-//        public String replaceLecture (Model model, Pagination pagination ,@RequestParam("type") int type,
-//        @RequestParam("id") int id ){
-//            pagination.setRecordCount(replaceLectureMapper.count());
-//            List<ReplaceLecture> replaceLectures = replaceLectureMapper.findAll(pagination);
-//
-//            model.addAttribute("replaceLectures", replaceLectures);
-//            model.addAttribute("member", typeIdentity.typeCheck(type, id));
-//            return "main/replaceLecture";
-//        }
+
     //대체과목관리,폐지 과목 검색
     @RequestMapping("replaceLecture")
     public String replaceLeBySrch(Model model, Pagination pagination ,@RequestParam(value = "choice",defaultValue = "0") int choice, @RequestParam(value="srch",defaultValue = "") String srch,
@@ -751,6 +741,7 @@ public class MainController {
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         return "main/replaceLectureRegister";
     }
+
     //대체과목관리, 폐지과목 등록
     @RequestMapping(value="replaceLectureRegister" ,method=RequestMethod.POST)
     public String replaceLecRegister (Pagination pagination ,ReplaceLecture replaceLecture,@RequestParam("type") int type,
@@ -765,7 +756,7 @@ public class MainController {
     //대체과목 폐지과목 수정페이지
     @RequestMapping("replaceLectureUpdate")
     public String replaceLectureUpdate (Model model, Pagination pagination ,@RequestParam("type") int type,
-                                        @RequestParam("id") int id,@RequestParam("closeLecture") String closeLecture ){
+                                        @RequestParam("id") int id,@RequestParam("closeLec") String closeLecture ){
 
         ReplaceLecture replaceLecture=replaceLectureMapper.findOne(closeLecture);
         model.addAttribute("replaceLecture", replaceLecture);
@@ -778,6 +769,7 @@ public class MainController {
     public String closeLecUpdate (Model model, Pagination pagination ,@RequestParam("type") int type,
                                   @RequestParam("id") int id,ReplaceLecture replaceLecture,RedirectAttributes redirectAttributes)
     {
+        logger.info(replaceLecture.toString());
         replaceLectureMapper.update(replaceLecture);
         redirectAttributes.addAttribute("id",id);
         redirectAttributes.addAttribute("type",type);
