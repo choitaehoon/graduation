@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<c:url var="R" value="/" />
+<c:url var="R" value="/"/>
 <!doctype html>
 <head>
     <title>skhu 졸업요건</title>
@@ -24,7 +24,7 @@
 
 <body>
 <div class="wrapper">
-    <%@include file="../menu/menu.jsp"%>
+    <%@include file="../menu/menu.jsp" %>
 
     <div class="content">
         <div class="container-fluid">
@@ -41,25 +41,27 @@
                             <div class="table-full-width">
                                 <table class="table">
                                     <tbody>
-                            <c:forEach var="notice" items="${ notices }">
-                                    <tr data-url='noticeShow?noticeId=${notice.id }&type=${member.type}&id=${member.id}'>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox2" type="checkbox" checked>
-                                                <label for="checkbox2"></label>
-                                            </div>
-                                        </td>
-                                        <td>${notice.title}</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                            </c:forEach>
+                                    <c:forEach var="notice" items="${ notices }">
+                                        <tr data-url='noticeShow?noticeId=${notice.id }&type=${member.type}&id=${member.id}'>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <input id="checkbox2" type="checkbox" checked>
+                                                    <label for="checkbox2"></label>
+                                                </div>
+                                            </td>
+                                            <td>${notice.title}</td>
+                                            <td class="td-actions text-right">
+                                                <button type="button" rel="tooltip" title="Edit Task"
+                                                        class="btn btn-info btn-simple btn-xs">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                                <button type="button" rel="tooltip" title="Remove"
+                                                        class="btn btn-danger btn-simple btn-xs">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -76,118 +78,35 @@
                 <div class="col-md-6">
                     <div class="card ">
                         <div class="header">
-                            <h4 class="title">최신  Q&A</h4>
+                            <h4 class="title">최신 Q&A</h4>
                             <p class="category">이미 답변한 질문에 체크해주세요</p>
                         </div>
                         <div class="content">
                             <div class="table-full-width">
                                 <table class="table">
                                     <tbody>
-                                <c:forEach var="qna" items="${ qnas }">
-                                    <tr data-url='qnaShow?qnaId=${qna.id}&type=${member.type}&id=${member.id}'>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox2" type="checkbox" checked>
-                                                <label for="checkbox2"></label>
-                                            </div>
-                                        </td>
-                                        <td>${qna.title}</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                                   <%-- <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox2" type="checkbox" checked>
-                                                <label for="checkbox2"></label>
-                                            </div>
-                                        </td>
-                                        <td>4학기 수료자가 추가학점이수가 가능한지요?</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox3" type="checkbox">
-                                                <label for="checkbox3"></label>
-                                            </div>
-                                        </td>
-                                        <td>통계 프로그램 사용 관련
-                                        </td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox4" type="checkbox" checked>
-                                                <label for="checkbox4"></label>
-                                            </div>
-                                        </td>
-                                        <td>통계 프로그램 구입 요청 件</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox5" type="checkbox">
-                                                <label for="checkbox5"></label>
-                                            </div>
-                                        </td>
-                                        <td>학번 조회 및 오티일정</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox6" type="checkbox" checked>
-                                                <label for="checkbox6"></label>
-                                            </div>
-                                        </td>
-                                        <td>종합시험을 토요일에 볼 수 있도록 해주십시오</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>--%>
+                                    <c:forEach var="qna" items="${ qnas }">
+                                        <tr data-url='qnaShow?qnaId=${qna.id}&type=${member.type}&id=${member.id}'>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <input id="checkbox2" type="checkbox" checked>
+                                                    <label for="checkbox2"></label>
+                                                </div>
+                                            </td>
+                                            <td>${qna.title}</td>
+                                            <td class="td-actions text-right">
+                                                <button type="button" rel="tooltip" title="Edit Task"
+                                                        class="btn btn-info btn-simple btn-xs">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                                <button type="button" rel="tooltip" title="Remove"
+                                                        class="btn btn-danger btn-simple btn-xs">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -205,7 +124,6 @@
             </div>
 
 
-
         </div>
     </div>
 
@@ -213,7 +131,9 @@
     <footer class="footer">
         <div class="container-fluid">
             <p class="copyright pull-right">
-                &copy; <script>document.write(new Date().getFullYear())</script> <a href="${R}http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                &copy;
+                <script>document.write(new Date().getFullYear())</script>
+                <a href="${R}http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
             </p>
         </div>
     </footer>
@@ -223,17 +143,17 @@
 
 </body>
 
-<!--   Core JS Files   -->
+<!-- Core JS Files -->
 <script src="${R}assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="${R}assets/js/bootstrap.min.js" type="text/javascript"></script>
 
-<!--  Charts Plugin -->
+<!-- Charts Plugin -->
 <script src="${R}assets/js/chartist.min.js"></script>
 
-<!--  Notifications Plugin    -->
+<!-- Notifications Plugin -->
 <script src="${R}assets/js/bootstrap-notify.js"></script>
 
-<!--  Google Maps Plugin    -->
+<!-- Google Maps Plugin -->
 <script type="text/javascript" src="${R}https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
