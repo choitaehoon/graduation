@@ -4,137 +4,127 @@
     <title>skhu 졸업요건</title>
 </head>
 <body>
- <div class="wrapper">
-    <%@include file="../menu/menu.jsp"%>
+<div class="wrapper">
+    <%@include file="../menu/menu.jsp" %>
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">내정보</h4>
-                            </div>
-                            <div class="content">
-                                <form action="updateMember">
-                                    <input type="hidden" name="type" value="${member.type}">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label>이름</label>
-                                                <input type="text" class="form-control" name="name"  value="${member.name}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>id</label>
-                                                <input type="text" class="form-control" placeholder="Username" name="id" value="${member.id}" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>이메일</label>
-                                                <input type="email" class="form-control" name="email" value="${member.email}">
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>비밀번호 변경</label>
-                                                <input type="password" class="form-control" placeholder="입력하세요" name="password" value="${member.password}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>비밀번호 변경확인</label>
-                                                <input type="password" class="form-control" placeholder="입력하세요" value="${member.password}">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <%--학생이면 실행--%>
-                                    <c:if test="${member.type == 1}">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>comment</label>
-                                                <input type="text" class="form-control" placeholder="Home Address" value="${member.comment}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </c:if>
-
-
-                                    <div class="row">
-                                        <c:if test="${member.type == 1}">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>질문 답</label>
-                                                <input type="text" class="form-control" placeholder="City" name="question" value="${member.question}">
-                                            </div>
-                                        </div>
-                                        </c:if>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>전화번호</label>
-                                                <input type="text" class="form-control" placeholder="Country" name="phone" value="${member.phone}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">수정</button>
-                                    <div class="clearfix"></div>
-                                </form>
-                            </div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">내정보</h4>
                         </div>
+
+                        <form action="updateMember">
+                            <input type="hidden" name="type" value="${member.type}">
+
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>이름</label>
+                                    <input type="text" class="form-control" name="name" value="${member.name}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>id</label>
+                                    <input type="text" class="form-control" placeholder="Username" name="id"
+                                           value="${member.id}" readonly>
+                                </div>
+                            </div>
+                            <%--학생이면 실행--%>
+                            <c:if test="${member.type == 1}">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>학년</label>
+                                            <select name="myGrade" class="form-control" style="width: 45%">
+                                                <option value="1" ${member.myGrade==1? "selected":""}>1학년</option>
+                                                <option value="2" ${member.myGrade==2? "selected":""}>2학년</option>
+                                                <option value="3" ${member.myGrade==3? "selected":""}>3학년</option>
+                                                <option value="4" ${member.myGrade==4? "selected":""}>4학년</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
+
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>이메일</label>
+                                        <input type="email" class="form-control" name="email"
+                                               value="${member.email}">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>전화번호</label>
+                                        <input type="text" class="form-control" placeholder="Country"
+                                               name="phone" value="${member.phone}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>비밀번호 변경</label>
+                                        <input type="password" class="form-control" placeholder="입력하세요"
+                                               name="password" value="${member.password}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>비밀번호 변경확인</label>
+                                        <input type="password" class="form-control" placeholder="입력하세요"
+                                               value="${member.password}">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <c:if test="${member.type == 1}">
+                                <div class="row">
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>비밀번호 찾기 질문 답</label>
+                                            <input type="text" class="form-control" placeholder="City"
+                                                   name="question" value="${member.question}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
+
+
+                            <button type="submit" class="btn btn-info btn-fill pull-right">수정</button>
+                            <div class="clearfix"></div>
+
+
+                        </form>
                     </div>
-
-                    <%--<div class="col-md-4">--%>
-                        <%--<div class="card card-user">--%>
-                            <%--<div class="image">--%>
-                                <%--<!--                                 <img src="https://github.com/choitaehoon/graduation/blob/master/src/main/webapp/res/images/logo.jpg" alt="..."/> -->--%>
-                            <%--</div>--%>
-                            <%--<div class="content">--%>
-                                <%--<div class="author">--%>
-                                    <%--<a href="#">--%>
-                                        <%--<i class="pe-7s-smile" style="size:128px"></i>--%>
-
-                                        <%--</h4>--%>
-                                    <%--</a>--%>
-                                <%--</div>--%>
-
-                            <%--</div>--%>
-                            <%--<hr>--%>
-                            <%--<div class="text-center">--%>
-                                <%--<button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>--%>
-                                <%--<button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>--%>
-                                <%--<button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>--%>
-
-                            <%--</div>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
 
-    <footer class="footer">
-        <div class="container-fluid">
+<footer class="footer">
+    <div class="container-fluid">
 
-            <p class="copyright pull-right">
-                 <script>
+        <p class="copyright pull-right">
+            <script>
 
-                 </script>
-            </p>
-        </div>
-    </footer>
+            </script>
+        </p>
+    </div>
+</footer>
 
-  </div>
-
-
+</div>
 
 
 </body>

@@ -12,4 +12,5 @@ public class User
     String email;
     String question;
     String phone;
+    int myGrade;
 }

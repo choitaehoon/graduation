@@ -20,6 +20,7 @@ public class Student
     String question;
     Department department;
     int type;
+    int myGrade;//학년
 
     int semester;
 
