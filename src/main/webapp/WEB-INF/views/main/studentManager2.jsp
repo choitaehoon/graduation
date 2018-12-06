@@ -24,11 +24,11 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">학생 졸업 관리</h4>
+                            <h4 class="title">학생 관리</h4>
                             <br><br><br>
 
                             <div class="pull-right mb5">
-                                <button class="btn btn-success"><a href="studentManager?type=${member.type}&id=${member.id}&${pagination.queryString}">목록으로 가기</a></button>
+                               <a href="studentManager?type=${member.type}&id=${member.id}&${pagination.queryString}"  class="btn btn-success">목록으로 가기</a>
                             </div>
 
                             <table class="table table-condensed">
@@ -51,7 +51,7 @@
                                 </tr>
                                 <tr>
                                     <td>교수님 코멘트&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.comment }
-                                        <button class="btn btn-primary" onclick="window.open('editComment?type=${member.type}&id=${member.id}&studentId=${student.id}','editComment','width=600,height=150,location=no,status=no,scrollbars=yes');">${ student.comment == null ? "등록" : "수정" }</button>
+                                        <button class="btn btn-primary" onclick="window.open('editComment?type=${member.type}&id=${member.id}&studentId=${student.id}','editComment','width=700,height=200,location=no,status=no,scrollbars=yes');">${ student.comment == null ? "등록" : "수정" }</button>
                                     </td>
                                     <td></td>
                                 </tr>
