@@ -233,7 +233,7 @@ public class MainController {
 
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
         adminMapper.createAdmin(admin);
-        return "login/main";
+        return "main/addAdmin";
     }
 
     //공지사항 list

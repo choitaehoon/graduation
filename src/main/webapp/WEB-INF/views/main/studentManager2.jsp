@@ -42,13 +42,15 @@
                                     <td>이메일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.email }</td>
                                 </tr>
                                 <tr>
+                                    <td>학년&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.myGrade }</td>
                                     <td>학기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${totalSemester+1}</td>
-                                    <td>이수 학점&nbsp;:&nbsp;${totalCredit}&nbsp;/&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;평균 학점&nbsp;:&nbsp;${avgGrade}&nbsp;/&nbsp;4.5&nbsp;&nbsp;&nbsp;</td>
                                 </tr>
                                 <tr>
+
+                                    <td>이수 학점&nbsp;:&nbsp;${totalCredit}&nbsp;/&nbsp;130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;평균 학점&nbsp;:&nbsp;${avgGrade}&nbsp;/&nbsp;4.5&nbsp;&nbsp;&nbsp;</td>
                                     <td>이수중인 과정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.detailType }</td>
-                                    <td></td>
                                 </tr>
+
                                 <tr>
                                     <td>교수님 코멘트&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ student.comment }
                                         <button class="btn btn-primary" onclick="window.open('editComment?type=${member.type}&id=${member.id}&studentId=${student.id}','editComment','width=700,height=200,location=no,status=no,scrollbars=yes');">${ student.comment == null ? "등록" : "수정" }</button>
