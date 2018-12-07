@@ -47,7 +47,7 @@
 
         <where>
             <if test="choice == 0">
-                title LIKE concat(#{srch},'%')
+                title LIKE concat('%',#{srch},'%')
             </if>
             <if test="choice == 1">
                 a.name LIKE concat(#{srch},'%')
@@ -84,18 +84,13 @@
     on n.admin_id = a.id
        where n.id=#{id}
     </select>
-<!--    update notice
-    set
-    title = #{title},
-    body = #{body},
-    file = #{file}
-    where  id=#{id}-->
+
     <update id="update">
         update notice
-set title= #{title},
-body = #{body},
-time = now()
-where id=#{id}
+        set title= #{title},
+        body = #{body},
+        time = now()
+        where id=#{id}
     </update>
 
     <update id="countPlus">
@@ -115,7 +110,7 @@ where id=#{id}
         on n.admin_id= a.id
         <where>
             <if test="choice ==0">
-                title LIKE concat(#{srch},'%')
+                title LIKE concat('%',#{srch},'%')
             </if>
             <if test="choice == 1">
                 a.name LIKE concat(#{srch},'%')
