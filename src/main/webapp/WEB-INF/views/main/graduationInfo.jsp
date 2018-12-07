@@ -27,7 +27,7 @@
             });
 
             $("#data-confirm-delete4").click(function() {
-                return confirm("삭제하시겠습니까?");
+                return confirm("전공인정 초기화 하시겠습니까?");
             });
 
         });
@@ -472,8 +472,9 @@
                             <br><br><br>
 
                             <div class="pull-right">
-                                <form>
-
+                                <form action="initializeMajor">
+                                    <input type="hidden" name="type" value="${member.type}">
+                                    <input type="hidden" name="id" value="${member.id}">
                                     <button type="submit" class="btn btn-danger" id="data-confirm-delete4">전공인정 초기화</button>
                                 </form>
                             </div>
@@ -512,9 +513,9 @@
                                             <td>${ lecture.credit }</td>
                                             <td>${ lecture.grade }</td>
                                             <td style='text-align:center;vertical-align:middle'>
-                                                <c:if test="${ lecture.remove==0}"></c:if>
-                                                <c:if test="${ lecture.remove==1}">시뮬</c:if>
-                                                <c:if test="${ lecture.remove==3}">대체</c:if>
+                                                <c:if test="${ lecture.remove==0}"><c:if test="${lecture.changeMajor == 1}">(전공인정)</c:if></c:if>
+                                                <c:if test="${ lecture.remove==1}">시뮬<c:if test="${lecture.changeMajor == 1}">(전공인정)</c:if></c:if>
+                                                <c:if test="${ lecture.remove==3}">대체<c:if test="${lecture.changeMajor == 1}">(전공인정)</c:if></c:if>
                                             </td>
                                     </tr>
                                     </c:if>

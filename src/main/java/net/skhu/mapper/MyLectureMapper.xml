@@ -126,4 +126,11 @@
           detailType = "전선"
         where lecture_year = #{lecture_year} and lecture_semester = #{lecture_semester} and lecture_id = #{lecture_id} and student_id = #{student_id}
         </update>
+
+    <update id="initializeMajor">
+        update mylecture set
+          changeMajor = 0 ,
+          detailType = "교선"
+        where changeMajor = 1 and detailType = "전선" and student_id = #{id};
+    </update>
 </mapper>

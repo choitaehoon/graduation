@@ -937,7 +937,7 @@ public class MainController {
         return "redirect:replaceLecture";
     }
 
-
+    //전공인정 신청
     @RequestMapping("changeMajor")
     public String changeMajor(MyLecture myLecture,@RequestParam("id") int id, @RequestParam("type") int type , RedirectAttributes redirectAttributes)
     {
@@ -945,6 +945,16 @@ public class MainController {
         redirectAttributes.addAttribute("id", id);
         redirectAttributes.addAttribute("type", type);
         return "redirect:graduationInfo" ;
+    }
+
+    //전공인정 초기화
+    @RequestMapping("initializeMajor")
+    public String initializeMajor(@RequestParam("id") int id, @RequestParam("type") int type, RedirectAttributes redirectAttributes)
+    {
+        myLectureMapper.initializeMajor(id);
+        redirectAttributes.addAttribute("id", id);
+        redirectAttributes.addAttribute("type", type);
+        return "redirect:graduationInfo";
     }
 
 }
