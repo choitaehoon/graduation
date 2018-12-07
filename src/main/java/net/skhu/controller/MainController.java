@@ -826,10 +826,11 @@ public class MainController {
        대체과목 재수강,
        나의 수강목록을 보여주는 페이지
         */
-    @RequestMapping("replace_mylecture")
+    @RequestMapping(value = {"replace_mylecture","majorAcknowledgment"})
     public String replace_mylecture (Model model, Pagination pagination,@RequestParam("type") int type,
                                      @RequestParam("id") int id, @RequestParam(value = "choice", defaultValue = "0") int choice,
-                                     @RequestParam(value = "search", defaultValue = "") String search)
+                                     @RequestParam(value = "search", defaultValue = "") String search,
+                                     @RequestParam(value = "major", defaultValue = "0") int major)
     {
         pagination.setRecordCount(myLectureMapper.courseCount(choice, search, id));
         model.addAttribute("myLecture", myLectureMapper.findByIdPage(pagination.getPg(), pagination.getPageSize(), id, choice, search));
@@ -838,6 +839,7 @@ public class MainController {
         model.addAttribute("search", search);
         model.addAttribute("choice", choice);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
+        model.addAttribute("major", major);
         return "main/replace_mylecture";
     }
 
@@ -845,13 +847,15 @@ public class MainController {
      * 대체과목 재수강,
      * 수강한 과목을 클릭하면, 대체할 과목을 선택할수 있는 페이지로 넘어간다.
      * */
-    @RequestMapping("myReplaceLec")
+    @RequestMapping({"myReplaceLec","selectMajor"})
     public String myReplaceLec(Model model,Pagination pagination,@RequestParam(value = "choice",defaultValue = "0") int choice,
                                @RequestParam(value="srch", defaultValue = "") String srch,@RequestParam("type") int type, @RequestParam("id") int id,
-                               @RequestParam("lecId") String lecId,@RequestParam("lec_year") int lec_year, @RequestParam("lec_semester") String lec_semester)
+                               @RequestParam("lecId") String lecId,@RequestParam("lec_year") int lec_year, @RequestParam("lec_semester") String lec_semester,
+                               @RequestParam(value = "major",defaultValue = "0") int major, @RequestParam("title") String title ,
+                               @RequestParam("detailType") String detailType, @RequestParam("credit") String credit, @RequestParam("grade") String grade)
     {
         //수업한개를 조회하기위해서 년도 학기 과목코드 학번필요
-        MyLecture myLecSet= myLecService.findOneMyLecSet(lec_year,lec_semester,lecId,id);
+        MyLecture myLecSet= myLecService.findOneMyLecSet(lec_year,lec_semester,lecId,id,title,detailType,credit,grade);
 
         model.addAttribute("myLectureOne",myLecSet);
 
@@ -864,6 +868,7 @@ public class MainController {
         model.addAttribute("count",myLectureMapper.replaceLecCount());
         model.addAttribute("srch",srch);
         model.addAttribute("member",typeIdentity.typeCheck(type,id));
+        model.addAttribute("major",major);
         return "main/myReplaceLec";
     }
 

@@ -25,6 +25,11 @@
             $("#data-confirm-delete3").click(function() {
                 return confirm("삭제하시겠습니까?");
             });
+
+            $("#data-confirm-delete4").click(function() {
+                return confirm("삭제하시겠습니까?");
+            });
+
         });
 
     </script>
@@ -461,6 +466,21 @@
                             <div class="pull-right" style="margin-right:10px;">
                                 <a href="replaceLecture?type=${member.type}&id=${member.id}">
                                     <button type="button" class="btn btn-primary" >대체과목 신청</button>
+                                </a>
+                            </div>
+
+                            <br><br><br>
+
+                            <div class="pull-right">
+                                <form>
+
+                                    <button type="submit" class="btn btn-danger" id="data-confirm-delete4">전공인정 초기화</button>
+                                </form>
+                            </div>
+
+                            <div class="pull-right" style="margin-right:10px;">
+                                <a href="majorAcknowledgment?type=${member.type}&id=${member.id}&major=${1}">
+                                    <button type="button" class="btn btn-primary">전공인정 신청</button>
                                 </a>
                             </div>
 

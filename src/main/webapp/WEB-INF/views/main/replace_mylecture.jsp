@@ -33,8 +33,19 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
+
+                            <%--대체과목 신청일때--%>
+                            <c:if test="${major != 1}">
                             <h4 class="title">대체과목 재수강 신청</h4>
                             <p class="category">내 수강 과목중, 대체를 원하는 과목을 클릭하세요!</p>
+                            </c:if>
+
+                                <%--전공인정 신청일때--%>
+                            <c:if test="${major == 1}">
+                                <h4 class="title">전공인정 신청</h4>
+                                <p class="category">전공 인정할 과목을 클릭하세요!</p>
+                            </c:if>
+
                             <br><br>
 
                             <form>
@@ -66,10 +77,11 @@
 
                                 </thead>
 
-
+                                <%--대체과목 신청일때--%>
+                                <c:if test="${major != 1}">
                                 <tbody>
                                 <c:forEach var="lecture" items="${ myLecture }">
-                                    <tr data-url ="myReplaceLec?lec_year=${lecture.lecture_year}&lec_semester=${lecture.lecture_semester}&lecId=${lecture.lecture_id}&type=${member.type}&id=${member.id}">
+                                    <tr data-url ="myReplaceLec?lec_year=${lecture.lecture_year}&lec_semester=${lecture.lecture_semester}&lecId=${lecture.lecture_id}&type=${member.type}&id=${member.id}&title=${lecture.title}&detailType=${lecture.detailType2}&credit=${lecture.credit}&grade=${lecture.grade}">
                                         <td>${ lecture.lecture_year }</td>
                                         <td>${ lecture.lecture_semester }</td>
                                         <td>${ lecture.lecture_id }</td>
@@ -80,6 +92,25 @@
 
                                 </tr>
                                 </c:forEach>
+                                </c:if>
+
+                                <%--전공인정 신청일때--%>
+                                <c:if test="${major == 1}">
+                                <tbody>
+                                <c:forEach var="lecture" items="${ myLecture }">
+                                    <tr data-url ="selectMajor?lec_year=${lecture.lecture_year}&lec_semester=${lecture.lecture_semester}&lecId=${lecture.lecture_id}&type=${member.type}&id=${member.id}&major=${major}&title=${lecture.title}&detailType=${lecture.detailType2}&credit=${lecture.credit}&grade=${lecture.grade}">
+                                        <td>${ lecture.lecture_year }</td>
+                                        <td>${ lecture.lecture_semester }</td>
+                                        <td>${ lecture.lecture_id }</td>
+                                        <td>${ lecture.title }</td>
+                                        <td>${ lecture.detailType2 }</td>
+                                        <td>${ lecture.credit }</td>
+                                        <td>${ lecture.grade }</td>
+
+                                    </tr>
+                                </c:forEach>
+                                </c:if>
+
                                 </tbody>
 
                             </table>

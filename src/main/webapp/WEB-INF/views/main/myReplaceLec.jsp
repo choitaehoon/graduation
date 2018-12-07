@@ -38,8 +38,15 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
+
+                            <c:if test="${major != 1}">
                             <h4 class="title">대체과목 재수강 신청</h4>
                             <p class="category">대체과목관리</p>
+                            </c:if>
+
+                            <c:if test="${major == 1}">
+                                <h4 class="title">전공인정 신청</h4>
+                            </c:if>
 
                             <br />
                             <br />
@@ -97,7 +104,7 @@
         </div>
         <%-----------------------------------------%>
 
-
+        <c:if test="${major != 1}">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -256,6 +263,7 @@
 
             </div>
         </div>
+        </c:if>
 
 
     <footer class="footer">
