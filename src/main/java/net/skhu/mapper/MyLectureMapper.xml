@@ -118,4 +118,12 @@
                    select count(*)
                    from myLecture where remove = 3 or remove=4
             </select>
+
+
+        <update id="updateMajor">
+        update mylecture set
+          changeMajor = 1 ,
+          detailType = "전선"
+        where lecture_year = #{lecture_year} and lecture_semester = #{lecture_semester} and lecture_id = #{lecture_id} and student_id = #{student_id}
+        </update>
 </mapper>

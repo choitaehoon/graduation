@@ -77,7 +77,7 @@
                                     <td>
                                         <label>이수구분</label>
                                         <br>
-                                        ${myLectureOne.detailType}
+                                        ${myLectureOne.detailType} -> 전선으로 변경
                                     </td>
                                 </tr>
                                 <tr>
@@ -93,7 +93,17 @@
                                     </td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
+                                    <td>
+                                        <form action="changeMajor">
+                                        <input type="hidden" name="id" value="${member.id}">
+                                        <input type="hidden" name="type" value="${member.type}">
+                                        <input type="hidden" name="lecture_year" value="${myLectureOne.lecture_year}">
+                                            <input type="hidden" name="lecture_semester" value="${myLectureOne.lecture_semester}">
+                                            <input type="hidden" name="lecture_id" value="${myLectureOne.lecture_id}" >
+                                            <input type="hidden" name="student_id" value="${member.id}">
+                                        <button type="submit" class="btn btn-primary">전공인정 신청하기</button>
+                                </form>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

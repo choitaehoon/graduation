@@ -19,6 +19,7 @@ public class MyLecture
     String gradeA;
     int remove;
     int majorSearch;
+    int changeMajor;
 
     String closeLecId;
     String closeLecTitle;

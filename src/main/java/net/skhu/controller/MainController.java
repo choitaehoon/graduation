@@ -938,4 +938,13 @@ public class MainController {
     }
 
 
+    @RequestMapping("changeMajor")
+    public String changeMajor(MyLecture myLecture,@RequestParam("id") int id, @RequestParam("type") int type , RedirectAttributes redirectAttributes)
+    {
+        myLectureMapper.updateMajor(myLecture);
+        redirectAttributes.addAttribute("id", id);
+        redirectAttributes.addAttribute("type", type);
+        return "redirect:graduationInfo" ;
+    }
+
 }
