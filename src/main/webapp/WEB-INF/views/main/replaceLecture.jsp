@@ -57,8 +57,9 @@
                                 <button type="submit" class="btn btn-primary">조회</button>
                                 <a href="replaceLecture?type=${member.type}&id=${member.id}" class="btn btn-default">검색초기화</a>
 
-
-
+                                <c:if test="${member.type == 1}">
+                                    <a href="graduationInfo?type=${member.type}&id=${member.id}" class="btn btn-success pull-right">나의 졸업 관리로 가기</a>
+                                </c:if>
 
                                 <c:if test="${member.type==1 }">
 

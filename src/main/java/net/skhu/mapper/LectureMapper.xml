@@ -123,8 +123,8 @@
         from lecture l
         left join admin a
         on l.admin_id= a.id
-        where year=2018 AND
 
+        <where>
             <if test="choice == 0">
                 semester like concat(#{srch},'%')
             </if>
@@ -141,6 +141,7 @@
             <if test="choice == 5">
                 credit = #{srch}
             </if>
+        </where>
         order by year desc
         limit ${start} , ${end}
     </select>
@@ -153,8 +154,7 @@
         from lecture l
         left join admin a
         on l.admin_id= a.id
-        where year=2018 AND
-
+        <where>
             <if test="choice == 0">
                 semester like concat(#{srch},'%')
             </if>
@@ -170,7 +170,7 @@
             <if test="choice == 5">
                 credit = #{srch}
             </if>
-
+        </where>
     </select>
 
     <!-- 학번으로 안들은 전공필수과목 뽑기 -->
