@@ -108,12 +108,12 @@
 
 
                                         <td>
-                                            <c:if test='${memeber.id == qna.student_id}'>
+                                           <%-- <c:if test='${memeber.id == qna.student_id}'>--%>
                                             <a href='qnaUpdate?qnaId=${qna.id }&type=${member.type}&userId=${member.id}'>
                                             <%--<a href='qnaUpdate?qnaId=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>--%>
                                             <button  type="button" class="btn btn-primary">수정</button>
                                             </a>
-                                            </c:if>
+                                            <%--</c:if>--%>
                                         </td>
 
                                    <%--     <c:choose>

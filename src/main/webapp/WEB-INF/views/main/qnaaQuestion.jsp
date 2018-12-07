@@ -50,9 +50,9 @@
                                         <input type="hidden" name="adminId" value="${member.id}" />
                                         <input type="hidden" name="qnaId" value="${qna.id}" />
                                       <%--  <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />--%>
-                                    </form>
+                                    </formqnaaQuestion
                                     <label>답변 상태 선택</label>
-                                        <div id="button">
+                                        <div id="button" type="submit">
                                            <%-- <form action="Finsh">--%>
 <%--                                            <button type="submit" name="Finsh" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> 답변완료</button>--%>
 

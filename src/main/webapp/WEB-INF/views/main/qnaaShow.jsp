@@ -42,6 +42,7 @@
                         <div class="header">
                             <h4 class="title">Q & A</h4>
                                 <div id="content">
+                                    <h4>답 변</h4>
                                     <%--<h4>질문 수정</h4>--%>
 <table class="table table-condensed">
 <%--                                        <h5>제목</h5>
