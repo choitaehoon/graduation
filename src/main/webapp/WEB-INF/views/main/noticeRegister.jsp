@@ -68,23 +68,13 @@ ange this template use File | Settings | File Templates.
 
                                 <div id="buttons">
                                     <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
-                                    <a class="btn btn-danger" href="#"><i class=" glyphicon glyphicon-remove"></i> 삭제</a>
                                     <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 공지사항으로</a>
 
                                 </div>
 
                             </div>
 
-                                <%--                                <div id="buttons" class="pull-right">
-                                                                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
 
-                                                                   &lt;%&ndash; <a data-confirm-delete  href="delete?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&split=${lecture.split}&type=${member.type}&userId=${member.id}" class="btn btn-danger">
-                                                                        <i class="glyphicon glyphicon-remove"></i>삭제
-                                                                    </a>&ndash;%&gt;
-
-                                                                    <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-default">
-                                                                        <i class="glyphicon glyphicon-list"></i> 목록으로
-                                                                    </a>--%>
 
                         </div>
                         </form:form>

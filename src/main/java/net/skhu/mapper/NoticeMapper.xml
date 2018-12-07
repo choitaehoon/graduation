@@ -67,7 +67,7 @@
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
     INSERT Notice (title, body , time, file, admin_id)
-	VALUES (#{title}, #{body},  #{time},#{file},#{admin_id})
+	VALUES (#{title}, #{body}, now() ,#{file},#{admin_id})
     </insert>
 
 <!--    클릭시 나오게 하기위해 Notice 체크-->
