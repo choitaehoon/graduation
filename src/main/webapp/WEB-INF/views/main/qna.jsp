@@ -104,28 +104,15 @@
                                             <td><button  class="btn btn-danger"> 답변 요함</button></td>
                                             </c:otherwise>
                                         </c:choose>
-                                        <%--<td>${ qna.answerstate}</td>--%>
-
 
                                         <td>
-                                           <%-- <c:if test='${memeber.id == qna.student_id}'>--%>
+                                           <c:if test="${member.id == qna.student_id}">
                                             <a href='qnaUpdate?qnaId=${qna.id }&type=${member.type}&userId=${member.id}'>
-                                            <%--<a href='qnaUpdate?qnaId=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>--%>
                                             <button  type="button" class="btn btn-primary">수정</button>
                                             </a>
-                                            <%--</c:if>--%>
+                                           \</c:if>
                                         </td>
 
-                                   <%--     <c:choose>
-                                            <c:when test="${memeber.id eq qna.student_id}">
-                                                <td><a href='qnaUpdate?id=${qna.id }&title=${qna.title }&student_id=${qna.student_id}&wtime=${qna.wtime}&type=${member.type}&userId=${member.id}'>
-                                                    <button  type="button" class="btn btn-primary">수정</button>
-                                                </a></td>
-                                            </c:when>
-                                            <c:when test="${memeber.id ne qna.student_id}">
-                                                <td> </td>
-                                            </c:when>
-                                        </c:choose>--%>
                                     </tr>
 
                                 </c:forEach>

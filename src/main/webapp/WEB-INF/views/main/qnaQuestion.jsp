@@ -46,7 +46,7 @@
 
                                     <label>제목</label>
                                     <div class="form-group">
-                                        <form:input path="title" class="form-control" style="width: 100px" />
+                                        <form:input path="title" class="form-control" style="width: 300px" />
                                     </div>
                        <%--             <label>작성자</label>
                                     <div class="form-group">
