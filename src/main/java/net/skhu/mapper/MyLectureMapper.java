@@ -22,4 +22,6 @@ public interface MyLectureMapper
 
     int replaceLecCount();
     int count();
+    void updateMajor(MyLecture myLecture);
+    void initializeMajor(int id);
 }

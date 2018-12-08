@@ -38,8 +38,15 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
+
+                            <c:if test="${major != 1}">
                             <h4 class="title">대체과목 재수강 신청</h4>
                             <p class="category">대체과목관리</p>
+                            </c:if>
+
+                            <c:if test="${major == 1}">
+                                <h4 class="title">전공인정 신청</h4>
+                            </c:if>
 
                             <br />
                             <br />
@@ -70,7 +77,7 @@
                                     <td>
                                         <label>이수구분</label>
                                         <br>
-                                        ${myLectureOne.detailType}
+                                        ${myLectureOne.detailType} -> 전선으로 변경
                                     </td>
                                 </tr>
                                 <tr>
@@ -86,7 +93,19 @@
                                     </td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
+                                    <td>
+                                        <form action="changeMajor">
+                                        <input type="hidden" name="id" value="${member.id}">
+                                        <input type="hidden" name="type" value="${member.type}">
+                                        <input type="hidden" name="lecture_year" value="${myLectureOne.lecture_year}">
+                                            <input type="hidden" name="lecture_semester" value="${myLectureOne.lecture_semester}">
+                                            <input type="hidden" name="lecture_id" value="${myLectureOne.lecture_id}" >
+                                            <input type="hidden" name="student_id" value="${member.id}">
+                                        <c:if test="${major == 1}">
+                                        <button type="submit" class="btn btn-primary">전공인정 신청하기</button>
+                                        </c:if>
+                                </form>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -97,7 +116,7 @@
         </div>
         <%-----------------------------------------%>
 
-
+        <c:if test="${major != 1}">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -163,7 +182,7 @@
 
                                 <tbody>
                                 <c:forEach var="lecture" items="${lectures}">
-                                    <c:if test="${lecture.year ==2018}">
+                                    <%--<c:if test="${lecture.year ==2018}">--%>
                                     <tr>
                                         <td>${lecture.year}</td>
                                         <td>${lecture.semester}</td>
@@ -224,7 +243,7 @@
                                             </form>
                                         </td>
                                     </tr>
-                                </c:if>
+                                <%--</c:if>--%>
                                 </c:forEach>
                                 </tbody>
                             </table>
@@ -256,6 +275,7 @@
 
             </div>
         </div>
+        </c:if>
 
 
     <footer class="footer">

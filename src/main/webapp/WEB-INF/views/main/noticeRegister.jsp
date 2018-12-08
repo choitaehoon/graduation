@@ -17,7 +17,7 @@ ange this template use File | Settings | File Templates.
 
     <style>
         #content {
-            margin-left: 30%;
+            margin-left: 25%;
             height: 800px;
         }
     </style>
@@ -35,7 +35,7 @@ ange this template use File | Settings | File Templates.
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">공지사항 관리</h4>
+                            <h4 class="title">공지사항</h4>
 
                             <form:form method="post" modelAttribute="notice">
                             <div id="content">
@@ -50,7 +50,7 @@ ange this template use File | Settings | File Templates.
                                 </form>
                                 <label>제목</label>
                                 <div class="form-group">
-                                    <form:input path="title" class="form-control" style="width: 100px" />
+                                    <form:input path="title" class="form-control" style="width: 700px" />
                                 </div>
                                 <%--<label>교수번호</label>
                                 <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>--%>
@@ -68,23 +68,13 @@ ange this template use File | Settings | File Templates.
 
                                 <div id="buttons">
                                     <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
-                                    <a class="btn btn-danger" href="#"><i class=" glyphicon glyphicon-remove"></i> 삭제</a>
                                     <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-default"> <i class="glyphicon glyphicon-list"></i> 공지사항으로</a>
 
                                 </div>
 
                             </div>
 
-                                <%--                                <div id="buttons" class="pull-right">
-                                                                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
 
-                                                                   &lt;%&ndash; <a data-confirm-delete  href="delete?year=${lecture.year}&semester=${lecture.semester}&lecId=${lecture.id}&split=${lecture.split}&type=${member.type}&userId=${member.id}" class="btn btn-danger">
-                                                                        <i class="glyphicon glyphicon-remove"></i>삭제
-                                                                    </a>&ndash;%&gt;
-
-                                                                    <a href="notice?type=${member.type}&id=${member.id}" class="btn btn-default">
-                                                                        <i class="glyphicon glyphicon-list"></i> 목록으로
-                                                                    </a>--%>
 
                         </div>
                         </form:form>

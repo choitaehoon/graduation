@@ -16,7 +16,7 @@
 
     <style>
         #content {
-            margin-left: 30%;
+            margin-left: 25%;
             height: 800px;
         }
     </style>
@@ -47,7 +47,7 @@
                                 </form>
                                 <label>제목</label>
                                 <div class="form-group">
-                                   <input name="title" class="form-control" style="width: 300px" value="${notice.title}" />
+                                   <input name="title" class="form-control" style="width: 700px" value="${notice.title}" />
 
                                 </div>
 
