@@ -101,7 +101,9 @@
                                             <input type="hidden" name="lecture_semester" value="${myLectureOne.lecture_semester}">
                                             <input type="hidden" name="lecture_id" value="${myLectureOne.lecture_id}" >
                                             <input type="hidden" name="student_id" value="${member.id}">
+                                        <c:if test="${major == 1}">
                                         <button type="submit" class="btn btn-primary">전공인정 신청하기</button>
+                                        </c:if>
                                 </form>
                                     </td>
                                 </tr>
