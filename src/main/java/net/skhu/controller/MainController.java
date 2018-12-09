@@ -451,6 +451,7 @@ public class MainController {
         logger.info(qna.toString());
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
+
         return "redirect:qna";
     }
     /*qnaanswer답변 보기*/
@@ -465,6 +466,7 @@ public class MainController {
     }
 /*답변 상황 선택하기*/
     @RequestMapping("Call")
+<<<<<<< HEAD
     public String Call(Model model, @RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("userId") int id) {
         Qna qna = qnaMapper.findOne(qnaId);
         Qnaanswer qnaanswer = new Qnaanswer();
@@ -473,6 +475,16 @@ public class MainController {
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
 
        return "main/qnaaQuestion";
+=======
+    public String Call(Model model,@RequestParam("type") int type, @RequestParam("userId") int id,
+                       @RequestParam("qnaId") int qnaId,RedirectAttributes redirectAttributes) {
+        qnaMapper.plusCallState(qnaId);
+
+        redirectAttributes.addAttribute("type", type);
+        redirectAttributes.addAttribute("id", id);
+        return "redirect:qna";
+
+>>>>>>> 6e1ad690486b9e8fd4736644c664483560d53e97
     }
     /* 답변 등록*/
     @RequestMapping(value = "Call", method = RequestMethod.POST)

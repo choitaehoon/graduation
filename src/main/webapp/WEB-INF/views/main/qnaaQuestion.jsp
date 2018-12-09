@@ -50,13 +50,14 @@
                                         <input type="hidden" name="adminId" value="${member.id}" />
                                         <input type="hidden" name="qnaId" value="${qna.id}" />
                                       <%--  <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />--%>
-                                    </formqnaaQuestion
+                                    </form>
                                     <label>답변 상태 선택</label>
 
                                         <div id="button" type="submit">
                                            <%-- <form action="Finsh">--%>
 <%--                                            <button type="submit" name="Finsh" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> 답변완료</button>--%>
 
+<<<<<<< HEAD
 
                                            <%-- <button type="submit"  &lt;%&ndash;name="Call"&ndash;%&gt; class="btn btn-warning" > <form action="Call"><i class="glyphicon glyphicon-ok"></i> 유선답변 </form></button>--%>
 
@@ -64,6 +65,12 @@
 
                                                                                                <a
                                                   href="Call?qnaId=${qnaanswer.qna_id}&type=${member.type}&userId=${member.id}"
+=======
+                                             <%--  <form action="Call">--%>
+                                           <%-- <button type="submit"  name="Call" class="btn btn-warning" ><i class="glyphicon glyphicon-ok"></i> 유선답변</button>--%>
+                                            <%--</form>--%>
+                                               <a href="Call?qnaId=${qnaanswer.qna_id}&type=${member.type}&userId=${member.id}"
+>>>>>>> 6e1ad690486b9e8fd4736644c664483560d53e97
                                                   class="btn btn-warning">
                                                   <i class="glyphicon glyphicon"></i>유선답변
                                                </a>
