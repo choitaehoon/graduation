@@ -465,27 +465,27 @@ public class MainController {
     }
 /*답변 상황 선택하기*/
     @RequestMapping("Call")
-    public String Call(Model model, @RequestParam("qnaId") int qnaId) {
-        /*Qna qna =qnaMapper.findOne(qnaId);*/
-        qnaMapper.plusCallState(qnaId);
+    public String Call(Model model, @RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("userId") int id) {
+        Qna qna = qnaMapper.findOne(qnaId);
         Qnaanswer qnaanswer = new Qnaanswer();
         qnaanswer.setQna_id(qnaId);
         model.addAttribute("qnaanswer", qnaanswer);
-        return "redirect:qnaaQuestion";
-/*        model.addAttribute("member", typeIdentity.typeCheck(type, id));*/
-/*
-       return "main/qnaaQuestion";*/
+        model.addAttribute("member", typeIdentity.typeCheck(type, id));
+
+       return "main/qnaaQuestion";
     }
     /* 답변 등록*/
     @RequestMapping(value = "Call", method = RequestMethod.POST)
-    public String Call(Qna qna,Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
+    public String Call(Model model, Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
 
         qnaanswer.setAdmin_id(id);
         qnaanswer.setQna_id(qnaId);
         qanswerMapper.insert(qnaanswer);
         //버튼 클릭되면        qnaMapper.plusCallState(qnaId); 작동 시키기
-        logger.info(qnaanswer.toString());
-        logger.info(qna.toString());
+        Qna qna = qnaMapper.findOne(qnaId);
+        qnaMapper.plusCallState(qna);
+/*        logger.info(qnaanswer.toString());
+        logger.info(qna.toString());*/
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";

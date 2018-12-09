@@ -110,7 +110,7 @@
                                             <a href='qnaUpdate?qnaId=${qna.id }&type=${member.type}&userId=${member.id}'>
                                             <button  type="button" class="btn btn-primary">수정</button>
                                             </a>
-                                           \</c:if>
+                                           </c:if>
                                         </td>
 
                                     </tr>

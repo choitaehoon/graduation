@@ -23,7 +23,7 @@ public interface QnaMapper
     void update(Qna qna);
     void delete(int qnaId);
     void plusState(Qna qna);
-    void plusCallState(int qnaId);
+    void plusCallState(Qna qna);
     int count();
 
     void countPlus(Qna qna);
