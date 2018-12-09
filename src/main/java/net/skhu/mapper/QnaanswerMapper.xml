@@ -62,7 +62,7 @@
 
     <insert id="insert">
     insert Qnaanswer(qna_id,body, time ,admin_id)
-	values ( #{qna_id},#{body}, now() ,  #{admin_id})
+	values ( #{qna_id},#{body}, now() , #{admin_id})
     </insert>
 
     <update id="update">

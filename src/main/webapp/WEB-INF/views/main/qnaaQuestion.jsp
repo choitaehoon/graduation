@@ -50,7 +50,7 @@
                                         <input type="hidden" name="adminId" value="${member.id}" />
                                         <input type="hidden" name="qnaId" value="${qna.id}" />
                                       <%--  <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />--%>
-                                    </formqnaaQuestion
+                                    </form>
                                     <label>답변 상태 선택</label>
                                         <div id="button" type="submit">
                                            <%-- <form action="Finsh">--%>
@@ -59,8 +59,7 @@
                                              <%--  <form action="Call">--%>
                                            <%-- <button type="submit"  name="Call" class="btn btn-warning" ><i class="glyphicon glyphicon-ok"></i> 유선답변</button>--%>
                                             <%--</form>--%>
-                                               <a
-                                                  href="Call?qnaId=${qnaanswer.qna_id}&type=${member.type}&userId=${member.id}"
+                                               <a href="Call?qnaId=${qnaanswer.qna_id}&type=${member.type}&userId=${member.id}"
                                                   class="btn btn-warning">
                                                   <%-- <i class="btn btn-warning"></i>--%>유선답변
                                                </a>
