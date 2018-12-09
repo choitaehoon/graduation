@@ -44,7 +44,6 @@
                             <form:form method="post" modelAttribute="qna">
                                 <div id="content">
                                     <h4>질문 수정</h4>
-                                        <%--<input type="hidden" name="pg" value="1">--%>
                                     <input type="hidden" name="type" value="${member.type}"/>
                                     <input type="hidden" name="userId" value="${member.id}"/>
                                     <input type="hidden" name="student_id" value="${qna.student_id}"/>
@@ -67,10 +66,6 @@
                                                     <c:out value="${qna.body}"/>
                                         </textarea>
 
-                    <%--                <div>
-                                        날짜 : <form:input path="wtime" class="form-control" style="width: 100px"/><br>
-                                        파일 첨부 <input type="file"> * 2MB까지 가능
-                                    </div>--%>
 
                                     <div id="buttons">
                                         <button type="submit" class="btn btn-primary"><i
@@ -101,14 +96,7 @@
     <footer class="footer">
         <div class="container-fluid">
 
-            <p class="copyright pull-right">
-                &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>
-                <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-                love for a better web
-            </p>
+
         </div>
     </footer>
 

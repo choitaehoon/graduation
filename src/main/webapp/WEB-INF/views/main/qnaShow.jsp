@@ -81,27 +81,6 @@
                     </div>
                 </div>
 
-            <%--    <div id="answer">
-                    &lt;%&ndash;<h4>질문 수정</h4>&ndash;%&gt;
-
-                    <table class="table table-condensed">
-                        <h5>답 변</h5>
-&lt;%&ndash;                        <label>작성자</label>
-                        <div class="form-group">
-                            ${qnaa.admin.name}
-                        </div>&ndash;%&gt;
-                        <label>내 용</label>
-                        <div class="form-group">s
-                                        <textarea name="body" id="body2" cols="30" rows="18">
-                                                    <c:out value="${qnaa.body}"/>
-                                            </textarea>
-                        </div>
-
-                        <div>
-                            날짜 :${qnaa.time}<br/>
-                        </div>
-                    </table>
-                </div>--%>
             </div>
         </div>
     </div>

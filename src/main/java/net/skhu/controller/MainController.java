@@ -446,9 +446,6 @@ public class MainController {
         qanswerMapper.insert(qnaanswer);
         Qna qna = qnaMapper.findOne(qnaId);
         qnaMapper.plusState(qna);
-        //버튼 클릭되면        qnaMapper.plusCallState(qnaId); 작동 시키기
-        logger.info(qnaanswer.toString());
-        logger.info(qna.toString());
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
 
@@ -461,43 +458,28 @@ public class MainController {
         Qnaanswer qnaanswer = qanswerMapper.findQnaa(qnaId);
         model.addAttribute("qnaanswer", qnaanswer);
         model.addAttribute("member", typeIdentity.typeCheck(type, id));
-        logger.info(qnaanswer.toString());
         return "main/qnaaShow";
     }
 /*답변 상황 선택하기*/
     @RequestMapping("Call")
-<<<<<<< HEAD
-    public String Call(Model model, @RequestParam("qnaId") int qnaId,@RequestParam("type") int type, @RequestParam("userId") int id) {
-        Qna qna = qnaMapper.findOne(qnaId);
-        Qnaanswer qnaanswer = new Qnaanswer();
-        qnaanswer.setQna_id(qnaId);
-        model.addAttribute("qnaanswer", qnaanswer);
-        model.addAttribute("member", typeIdentity.typeCheck(type, id));
-
-       return "main/qnaaQuestion";
-=======
     public String Call(Model model,@RequestParam("type") int type, @RequestParam("userId") int id,
-                       @RequestParam("qnaId") int qnaId,RedirectAttributes redirectAttributes) {
+                       @RequestParam("qnaId") int qnaId, RedirectAttributes redirectAttributes) {
+
         qnaMapper.plusCallState(qnaId);
 
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";
 
->>>>>>> 6e1ad690486b9e8fd4736644c664483560d53e97
     }
     /* 답변 등록*/
     @RequestMapping(value = "Call", method = RequestMethod.POST)
-    public String Call(Model model, Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
+    public String Call(Qna qna, Qnaanswer qnaanswer,@RequestParam("qnaId") int qnaId , @RequestParam("type") int type, @RequestParam("userId") int id, RedirectAttributes redirectAttributes) {
 
         qnaanswer.setAdmin_id(id);
         qnaanswer.setQna_id(qnaId);
         qanswerMapper.insert(qnaanswer);
-        //버튼 클릭되면        qnaMapper.plusCallState(qnaId); 작동 시키기
-        Qna qna = qnaMapper.findOne(qnaId);
-        qnaMapper.plusCallState(qna);
-/*        logger.info(qnaanswer.toString());
-        logger.info(qna.toString());*/
+        qnaMapper.findOne(qnaId);
         redirectAttributes.addAttribute("type", type);
         redirectAttributes.addAttribute("id", id);
         return "redirect:qna";

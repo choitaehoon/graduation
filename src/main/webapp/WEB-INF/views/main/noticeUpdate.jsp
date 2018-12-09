@@ -37,7 +37,6 @@
 
                             <form:form method="post" modelAttribute="notice">
                             <div id="content">
-                                    <%--                        <br />--%>
                                 <h4>공지사항 수정</h4>
                                 <br />
                                 <form method="post">
@@ -59,11 +58,6 @@
                                     </textarea>
 
                                 </div>
-
-                                <%--<div>
-                                    날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>
-                                    파일 첨부  <input type="file"> * 2MB까지 가능
-                                </div>--%>
 
                                 <div id="buttons">
                                     <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
@@ -98,14 +92,6 @@
 <footer class="footer">
     <div class="container-fluid">
 
-<%--        <p class="copyright pull-right">
-            &copy;
-            <script>
-                document.write(new Date().getFullYear())
-            </script>
-            <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-            love for a better web
-        </p>--%>
     </div>
 </footer>
 

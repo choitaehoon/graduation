@@ -124,11 +124,10 @@
     <footer class="footer">
         <div class="container-fluid">
 
-            <p class="copyright pull-right">
-                &copy;
+
                 <script></script>
 
-            </p>
+
         </div>
     </footer>
 

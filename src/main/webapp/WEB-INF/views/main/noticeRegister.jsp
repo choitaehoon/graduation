@@ -43,7 +43,7 @@ ange this template use File | Settings | File Templates.
                                 <h4>공지사항 등록</h4>
                                 <br />
                                 <form method="post">
-                                        <%--<input type="hidden" name="pg" value="1">--%>
+
                                     <input type="hidden" name="type" value="${member.type}"  />
                                     <input type="hidden" name="userId" value="${member.id}" />
                                             <input type="hidden" name="admin_id" value="${member.id}" />
@@ -52,19 +52,12 @@ ange this template use File | Settings | File Templates.
                                 <div class="form-group">
                                     <form:input path="title" class="form-control" style="width: 700px" />
                                 </div>
-                                <%--<label>교수번호</label>
-                                <form:input path="admin_id" class="form-control"  placeholder="교수번호" style="width: 200px"/>--%>
+
                                 <label>내 용</label>
                                 <div class="form-group">
-                                        <%--											<textArea cols=100 rows=18>						</textArea>--%>
-                                    <textarea name="body" id="body" cols="100" rows="18"></textarea>
-                                        <%--<form:input <textarea name="" id="" cols="30" rows="10"></textarea> path="body" class="form-control" style="width: 100px height: 3000px" />--%>
-                                </div>
 
-                                <%--<div>
-                                    날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>
-                                    파일 첨부  <input type="file"> * 2MB까지 가능
-                                </div>--%>
+                                    <textarea name="body" id="body" cols="100" rows="18"></textarea>
+                                </div>
 
                                 <div id="buttons">
                                     <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
@@ -80,10 +73,8 @@ ange this template use File | Settings | File Templates.
                         </form:form>
 
                         <form>
-                            <%--                            <input type="hidden" name="pg" value="1">--%>
                             <input type="hidden" name="type" value="${member.type}"  />
                             <input type="hidden" name="id" value="${member.id}" />
-                          <%--  <input type="hidden" name="admin_id" value="${member.id}" />--%>
                         </form>
 
 
@@ -98,14 +89,6 @@ ange this template use File | Settings | File Templates.
 <footer class="footer">
     <div class="container-fluid">
 
-   <%--     <p class="copyright pull-right">
-            &copy;
-            <script>
-                document.write(new Date().getFullYear())
-            </script>
-            <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-            love for a better web
-        </p>--%>
     </div>
 </footer>
 

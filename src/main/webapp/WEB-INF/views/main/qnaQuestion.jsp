@@ -39,7 +39,7 @@
                                 <div id="content">
                                     <h4>질문 등록</h4>
                                     <form method="post">
-                                            <%--<input type="hidden" name="pg" value="1">--%>
+
                                         <input type="hidden" name="type" value="${member.type}"  />
                                         <input type="hidden" name="userId" value="${member.id}" />
                                     </form>
@@ -48,10 +48,7 @@
                                     <div class="form-group">
                                         <form:input path="title" class="form-control" style="width: 300px" />
                                     </div>
-                       <%--             <label>작성자</label>
-                                    <div class="form-group">
-                                        <form:input path="student_id" class="form-control"  placeholder="작성자" style="width: 200px"/>
-                                    </div>--%>
+
                                     <label>내 용</label>
                                     <div class="form-group">
                                         <textarea name="body" id="body" cols="100" rows="18">
@@ -60,10 +57,6 @@
                                     </div>
 
 
-                                 <%--   <div>
-                                        파일 첨부  <input type="file"> * 2MB까지 가능
-                                    </div>
---%>
                                     <div id="buttons">
                                         <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> 저장</button>
                                         <a class="btn btn-danger" href="#"><i class=" glyphicon glyphicon-remove"></i> 삭제</a>
@@ -75,20 +68,10 @@
                             </form:form>
 
                             <form>
-                                <%--                            <input type="hidden" name="pg" value="1">--%>
+
                                 <input type="hidden" name="type" value="${member.type}"  />
                                 <input type="hidden" name="id" value="${member.id}" />
                                 <input type="hidden" name="student_id" value="${student.id}" />
-                                <%-- &lt;%&ndash;/* 페이지 네이션 */&ndash;%&gt;
-                                 <div class="pagination pagination-small pagination-centered">
-
-                                     <c:forEach var="page" items="${ pagination.pageList }">
-
-                                         <li class='${ page.cssClass }'>
-                                             <a data-page="${ page.number }">${ page.label }</a></li>
-
-                                     </c:forEach>--%>
-                                <%-- </div>--%>
                             </form>
 
                         </div>
@@ -102,14 +85,6 @@
     <footer class="footer">
         <div class="container-fluid">
 
-            <p class="copyright pull-right">
-                &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>
-                <a href="http://www.creative-tim.com">Creative Tim</a>, made with
-                love for a better web
-            </p>
         </div>
     </footer>
 

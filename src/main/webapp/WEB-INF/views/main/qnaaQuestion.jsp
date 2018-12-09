@@ -41,7 +41,7 @@
                         <div class="header">
                             <h4 class="title">Q & A</h4>
 
-                            <form:form method="post"> <%--modelAttribute="qnaanswer"--%>
+                            <form:form method="post">
                                 <div id="content">
                                     <h4>답변 등록</h4>
                                     <form method="post">
@@ -49,28 +49,13 @@
                                         <input type="hidden" name="userId" value="${member.id}" />
                                         <input type="hidden" name="adminId" value="${member.id}" />
                                         <input type="hidden" name="qnaId" value="${qna.id}" />
-                                      <%--  <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />--%>
                                     </form>
                                     <label>답변 상태 선택</label>
 
                                         <div id="button" type="submit">
-                                           <%-- <form action="Finsh">--%>
-<%--                                            <button type="submit" name="Finsh" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> 답변완료</button>--%>
 
-<<<<<<< HEAD
-
-                                           <%-- <button type="submit"  &lt;%&ndash;name="Call"&ndash;%&gt; class="btn btn-warning" > <form action="Call"><i class="glyphicon glyphicon-ok"></i> 유선답변 </form></button>--%>
-
-
-
-                                                                                               <a
-                                                  href="Call?qnaId=${qnaanswer.qna_id}&type=${member.type}&userId=${member.id}"
-=======
-                                             <%--  <form action="Call">--%>
-                                           <%-- <button type="submit"  name="Call" class="btn btn-warning" ><i class="glyphicon glyphicon-ok"></i> 유선답변</button>--%>
-                                            <%--</form>--%>
                                                <a href="Call?qnaId=${qnaanswer.qna_id}&type=${member.type}&userId=${member.id}"
->>>>>>> 6e1ad690486b9e8fd4736644c664483560d53e97
+
                                                   class="btn btn-warning">
                                                   <i class="glyphicon glyphicon"></i>유선답변
                                                </a>
@@ -81,14 +66,9 @@
                                     <label>내 용</label>
                                     <div class="form-group">
                                         <textarea name="body" id="body" cols="100" rows="18"  value="${qnaanswer.body}">
-                                                 <%--   <c:out value="${qnaanswer.body}"/>--%>
+
                                             </textarea>
                                     </div>
-
-                                  <%--  <div>
-                                       &lt;%&ndash; 날짜 : <form:input path="time"  class="form-control" style="width: 100px"/><br>&ndash;%&gt;
-                                        파일 첨부  <input type="file"> * 2MB까지 가능
-                                    </div>--%>
 
                                     <input type="hidden" name="qnaId" value="${qna.id}" />
 
@@ -99,8 +79,6 @@
                                     </div>
 
                                 </div>
-<%--                                <input type="hidden" name="qna_id" value="'${qnaanswer.qna_id}'.value('${qna.id}')" />
-                                <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />--%>
                             </form:form>
 
                             <form>
@@ -108,7 +86,6 @@
                                 <input type="hidden" name="id" value="${member.id}" />
                                 <input type="hidden" name="qnaId" value="${qna.id}" />
                                 <input type="hidden" name="adminId" value="${member.id}" />
-                              <%--  <input type="hidden" name="admin_id" value="'${qnaanswer.admin_id}'.value('${member.id}')" />--%>
                             </form>
 
                         </div>
@@ -122,14 +99,6 @@
     <footer class="footer">
         <div class="container-fluid">
 
-            <%--<p class="copyright pull-right">--%>
-                <%--&copy;--%>
-                <%--<script>--%>
-                    <%--document.write(new Date().getFullYear())--%>
-                <%--</script>--%>
-                <%--<a href="http://www.creative-tim.com">Creative Tim</a>, made with--%>
-                <%--love for a better web--%>
-            <%--</p>--%>
         </div>
     </footer>
 
