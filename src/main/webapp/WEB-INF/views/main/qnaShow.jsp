@@ -46,7 +46,7 @@
                                     <table class="table table-condensed">
 
                                         <h5>제목</h5>
-                                    <div class="form-group">
+                                    <div class="form-group" style="width: 50%">
                                         ${qna.title}
                                     </div>
                                     <label>작성자</label>
